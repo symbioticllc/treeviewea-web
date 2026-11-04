@@ -620,10 +620,10 @@
       </nav>
 
       <div class="nav-cta">
-        <a href="https://github.com/symbioticllc/treeviewea" class="btn" target="_blank" rel="noopener">
-          <span>★ GitHub</span>
+        <a href="https://github.com/symbioticllc/treeviewea-web/releases" class="btn" target="_blank" rel="noopener">
+          <span>📦 Releases</span>
         </a>
-        <a href="https://github.com/symbioticllc/treeviewea/raw/main/dist/TreeviewEA-2.5.0-macOS-arm64.dmg" class="btn btn-primary">
+        <a href="https://github.com/symbioticllc/treeviewea-web/releases/latest/download/TreeviewEA-2.5.0-macOS-arm64.dmg" class="btn btn-primary">
           <span> Download macOS .DMG</span>
         </a>
       </div>
@@ -651,11 +651,11 @@
         </p>
 
         <div class="hero-actions">
-          <a href="https://github.com/symbioticllc/treeviewea/raw/main/dist/TreeviewEA-2.5.0-macOS-arm64.dmg" class="btn btn-primary btn-lg">
+          <a href="https://github.com/symbioticllc/treeviewea-web/releases/latest/download/TreeviewEA-2.5.0-macOS-arm64.dmg" class="btn btn-primary btn-lg">
             <span> Download TreeviewEA 2.5.0 (.DMG)</span>
           </a>
-          <a href="https://github.com/symbioticllc/treeviewea" class="btn btn-lg" target="_blank" rel="noopener">
-            <span>Explore Source on GitHub (AGPL-3.0) →</span>
+          <a href="#features" class="btn btn-lg">
+            <span>Explore Studio Capabilities →</span>
           </a>
         </div>
 
@@ -1088,23 +1088,22 @@
             <p style="margin-bottom:18px;">
               Includes the native macOS WebKit Studio, compiled Go server, Rust <code>tview-graph-core</code> engine, Python Deep ML Drift worker, and sample <code>TransactionPlatform-Architecture.tvwx</code> repository.
             </p>
-            <a href="https://github.com/symbioticllc/treeviewea/raw/main/dist/TreeviewEA-2.5.0-macOS-arm64.dmg" class="btn btn-primary btn-lg" style="width:100%; margin-bottom:10px;">
+            <a href="https://github.com/symbioticllc/treeviewea-web/releases/latest/download/TreeviewEA-2.5.0-macOS-arm64.dmg" class="btn btn-primary btn-lg" style="width:100%; margin-bottom:10px;">
               <span> Download TreeviewEA-2.5.0-macOS-arm64.dmg</span>
             </a>
-            <a href="https://github.com/symbioticllc/treeviewea/releases" class="btn" style="width:100%;" target="_blank" rel="noopener">
+            <a href="https://github.com/symbioticllc/treeviewea-web/releases" class="btn" style="width:100%;" target="_blank" rel="noopener">
               <span>View Release Notes &amp; SHA-256 Checksums</span>
             </a>
           </div>
 
           <div class="terminal-box">
-            <div class="cmd-comment"># Clone the AGPL-3.0 repository &amp; build the native macOS .DMG</div>
-            <div><span class="cmd-prompt">$</span> git clone https://github.com/symbioticllc/treeviewea.git</div>
-            <div><span class="cmd-prompt">$</span> cd treeviewea</div>
-            <div><span class="cmd-prompt">$</span> ./scripts/package-dmg.sh</div>
+            <div class="cmd-comment"># Verify SHA-256 checksum &amp; mount the signed macOS Disk Image (.DMG)</div>
+            <div><span class="cmd-prompt">$</span> shasum -a 256 TreeviewEA-2.5.0-macOS-arm64.dmg</div>
+            <div><span class="cmd-prompt">$</span> hdiutil attach TreeviewEA-2.5.0-macOS-arm64.dmg</div>
+            <div><span class="cmd-prompt">$</span> cp -R /Volumes/TreeviewEA/TreeviewEA.app /Applications/</div>
             <br />
-            <div class="cmd-comment"># Or run the studio directly with a portable .tvwx repository</div>
-            <div><span class="cmd-prompt">$</span> go build -o treeview-ea ./cmd/treeview-ea</div>
-            <div><span class="cmd-prompt">$</span> ./treeview-ea -file TransactionPlatform-Architecture.tvwx</div>
+            <div class="cmd-comment"># Or launch headless server &amp; 39-tool MCP engine from the app binary</div>
+            <div><span class="cmd-prompt">$</span> /Applications/TreeviewEA.app/Contents/MacOS/treeview-ea -server -port 8080</div>
           </div>
         </div>
       </div>
@@ -1117,13 +1116,13 @@
       <div>
         <strong style="color:var(--text-primary);">TreeviewEA by Treeview Software, LLC</strong>
         <p style="font-size:12.5px; margin-top:4px;">
-          Licensed under the GNU Affero General Public License v3.0 (AGPL-3.0).
+          Enterprise Architecture &amp; Autonomous AI Reasoning Studio.
         </p>
       </div>
       <div style="display:flex; gap:20px; font-size:13px;">
-        <a href="https://github.com/symbioticllc/treeviewea" target="_blank" rel="noopener">GitHub Repository</a>
-        <a href="https://github.com/symbioticllc/treeviewea/blob/main/LICENSE" target="_blank" rel="noopener">AGPL-3.0 License</a>
-        <a href="https://github.com/symbioticllc/treeviewea/blob/main/AI_REASONING_SPEC.md" target="_blank" rel="noopener">AI Reasoning Spec</a>
+        <a href="#features">Studio Capabilities</a>
+        <a href="#backends">Portable Backends</a>
+        <a href="https://github.com/symbioticllc/treeviewea-web/releases" target="_blank" rel="noopener">macOS Releases</a>
       </div>
     </div>
   </footer>
