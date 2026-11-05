@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Modeling Guide: Metamodel, 8 Frameworks &amp; 1...M Planning — TreeviewEA</title>
-  <meta name="description" content="Customer and Practitioner Modeling Guide for TreeviewEA: How to use Gartner EA (PACE/TIME), BizBOK v14, SABSA 6x6, NIST CSF 2.0 &amp; SP 800-53, BIAN v12, TOGAF 10, ArchiMate 3.2, and ISO 20022 across 6 Layers (L0-L4), link Capabilities to Components, Code Classes, SQL Tables, and Cloud Infrastructure, and build 1...M Model Execution Plans." />
+  <title>Modeling Guide: Metamodel, 10 Frameworks &amp; 1...M Planning — TreeviewEA</title>
+  <meta name="description" content="Customer and Practitioner Modeling Guide for TreeviewEA: How to use 10 Built-In Frameworks — Gartner EA (PACE/TIME), BizBOK v14, SABSA 6x6, NIST CSF 2.0 &amp; SP 800-53, BIAN v12, TOGAF 10, ArchiMate 3.2, ISO 20022, Value Innovation &amp; Market Space Strategy (value_innovation), and CMMI v3.0 (cmmi) — across 6 Layers (L0-L4) and the 6x6 Matrix, and build 1...M Model Execution Plans." />
   <meta name="theme-color" content="#070b14" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
@@ -728,6 +728,11 @@
         font-weight: 700;
         color: var(--sky);
       }
+      .table-wrapper td:nth-child(10)::before {
+        content: var(--label-10, "Column 10") ": ";
+        font-weight: 700;
+        color: var(--sky);
+      }
     }
 
     /* Filter Bar Controls */
@@ -882,19 +887,19 @@
     <div class="container">
       <div class="pill-badge">
         <span class="pill-dot"></span>
-        <span>CUSTOMER MODELING GUIDE · 8 FRAMEWORKS · L0–L4 LINEAGE · 1...M WAVE PLANNING</span>
+        <span>CUSTOMER MODELING GUIDE · 10 FRAMEWORKS · L0–L4 LINEAGE · 1...M WAVE PLANNING</span>
       </div>
       <h1>
-        Multi-Layer <span class="gradient-text">Metamodel, 8 Frameworks &amp; 1...M Model Planning</span>
+        Multi-Layer <span class="gradient-text">Metamodel, 10 Frameworks &amp; 1...M Model Planning</span>
       </h1>
       <p>
-        New to TreeviewEA? Learn how to choose and combine <strong>8 built-in industry frameworks</strong> (<strong>Gartner EA</strong>, <strong>BizBOK® v14</strong>, <strong>SABSA® 6×6</strong>, <strong>NIST CSF 2.0 &amp; SP 800-53</strong>, <strong>BIAN v12</strong>, <strong>TOGAF® 10</strong>, <strong>ArchiMate® 3.2</strong>, and <strong>ISO 20022</strong>), connect <code>Business Outcomes &amp; Capabilities</code> &rarr; <code>1...M Components</code> &rarr; <code>1...M Code Classes &amp; Database Tables</code> &rarr; <code>1...M Cloud &amp; Security Nodes</code>, and build costed execution plans across <code>1...M</code> architecture models.
+        New to TreeviewEA? Learn how to choose and combine <strong>10 built-in industry frameworks</strong> (<strong>Gartner EA</strong>, <strong>BizBOK® v14</strong>, <strong>SABSA® 6×6</strong>, <strong>NIST CSF 2.0 &amp; SP 800-53</strong>, <strong>BIAN v12</strong>, <strong>TOGAF® 10</strong>, <strong>ArchiMate® 3.2</strong>, <strong>ISO 20022</strong>, <strong>Value Innovation &amp; Market Space Strategy [<code>value_innovation</code>]</strong>, and <strong>CMMI® v3.0 [<code>cmmi</code>]</strong>), connect <code>Business Outcomes, Uncontested Market Space &amp; Capabilities</code> &rarr; <code>1...M Components</code> &rarr; <code>1...M Code Classes &amp; Database Tables</code> &rarr; <code>1...M Cloud, Maturity &amp; Security Nodes</code>, and build costed execution plans across <code>1...M</code> architecture models.
       </p>
 
       <div class="kpi-strip">
         <div class="kpi-card">
-          <div class="kpi-val">8 Frameworks</div>
-          <div class="kpi-lbl">Gartner, BizBOK, SABSA, NIST, BIAN, TOGAF, ArchiMate, ISO 20022</div>
+          <div class="kpi-val">10 Frameworks</div>
+          <div class="kpi-lbl">Gartner, BizBOK, SABSA, NIST, BIAN, TOGAF, ArchiMate, ISO 20022, Value Innovation &amp; CMMI v3.0</div>
         </div>
         <div class="kpi-card">
           <div class="kpi-val">6 Strata (L0–L4)</div>
@@ -910,7 +915,7 @@
         </div>
         <div class="kpi-card">
           <div class="kpi-val">1...M Models</div>
-          <div class="kpi-lbl">Wave Roadmaps, Gartner PACE/TIME, WBS &amp; FinOps</div>
+          <div class="kpi-lbl">Wave Roadmaps, Gartner PACE/TIME, PMS, CMMI, WBS &amp; FinOps</div>
         </div>
       </div>
     </div>
@@ -924,7 +929,7 @@
       <nav class="doc-sidebar-nav" aria-label="Metamodel and Taxonomy Sections">
         <a href="#sec-overview"><span class="nav-step-badge">01</span> Getting Started &amp; 6×6 Matrix</a>
         <a href="#sec-vertical-lineage"><span class="nav-step-badge">02</span> Layer-by-Layer Modeling Guide</a>
-        <a href="#framework-hierarchy"><span class="nav-step-badge">03</span> 8-Framework Cross-Walk Matrix</a>
+        <a href="#framework-hierarchy"><span class="nav-step-badge">03</span> 10-Framework Cross-Walk Matrix</a>
         <a href="#sec-cardinality-matrix"><span class="nav-step-badge">04</span> Connector &amp; Cardinality Guide</a>
         <a href="#sec-rust-validation"><span class="nav-step-badge">05</span> Automated Health &amp; Drift Checks</a>
         <a href="#sec-tool-taxonomy"><span class="nav-step-badge">06</span> 7-Tier Studio &amp; AI Capabilities</a>
@@ -937,9 +942,9 @@
       <!-- SECTION 1: Getting Started & 6x6 Architecture Matrix -->
       <section class="doc-section" id="sec-overview">
         <div class="section-eyebrow">01 · First-Time User Orientation</div>
-        <h2>How TreeviewEA Works: Repository Reuse, 8 Frameworks &amp; the 6×6 Matrix</h2>
+        <h2>How TreeviewEA Works: Repository Reuse, 10 Frameworks &amp; the 6×6 Matrix</h2>
         <p>
-          When you open TreeviewEA after installing the macOS <code>.dmg</code>, you are working inside a <strong>true repository-based modeling studio</strong>. Unlike drawing tools where every box is just a shape on a page, every element you create in TreeviewEA is saved in your <code>.tvwx</code> project repository as a reusable <strong>Architecture Element</strong> so you can place it across <code>1...M</code> Architecture Diagrams, attach Class Attributes, Table Columns, WBS hours, and security controls, and trace your architecture from the boardroom to the cloud.
+          When you open TreeviewEA after installing the macOS <code>.dmg</code>, you are working inside a <strong>true repository-based modeling studio</strong>. Unlike drawing tools where every box is just a shape on a page, every element you create in TreeviewEA is saved in your <code>.tvwx</code> project repository as a reusable <strong>Architecture Element</strong> so you can place it across <code>1...M</code> Architecture Diagrams, attach Class Attributes, Table Columns, WBS hours, CMMI maturity ratings, and security controls, and trace your architecture from the boardroom to the cloud.
         </p>
 
         <div class="pattern-grid">
@@ -947,7 +952,7 @@
             <span class="badge-inline">STEP 1 · PICK YOUR FRAMEWORKS</span>
             <h4>Click 🏛️ EACOE or Use the Left Toolbox</h4>
             <p style="font-size:13px; color:var(--text-secondary);">
-              Open the <strong>🏛️ EACOE &amp; Frameworks</strong> workspace (or toggle the <strong>Frameworks</strong> palette in the Modeling Studio) to instantiate ready-made Packages / Model Folders, starter Architecture Diagrams, and elements for <strong>Gartner EA</strong>, <strong>BizBOK® v14</strong>, <strong>SABSA® 6×6</strong>, <strong>NIST CSF 2.0 &amp; SP 800-53</strong>, <strong>BIAN v12</strong>, <strong>TOGAF® 10</strong>, <strong>ArchiMate® 3.2</strong>, or <strong>ISO 20022</strong>.
+              Open the <strong>🏛️ EACOE &amp; Frameworks</strong> workspace (or toggle the <strong>Frameworks</strong> palette in the Modeling Studio) to instantiate ready-made Packages / Model Folders, starter Architecture Diagrams, and elements for <strong>Gartner EA</strong>, <strong>BizBOK® v14</strong>, <strong>SABSA® 6×6</strong>, <strong>NIST CSF 2.0 &amp; SP 800-53</strong>, <strong>BIAN v12</strong>, <strong>TOGAF® 10</strong>, <strong>ArchiMate® 3.2</strong>, <strong>ISO 20022</strong>, <strong>Value Innovation &amp; Market Space Strategy (<code>value_innovation</code>)</strong>, or <strong>CMMI® v3.0 (<code>cmmi</code>)</strong>.
             </p>
           </div>
 
@@ -955,93 +960,101 @@
             <span class="badge-inline">STEP 2 · MODEL ONCE, REUSE EVERYWHERE</span>
             <h4>Drag Canonical Elements Across 1...M Diagrams</h4>
             <p style="font-size:13px; color:var(--text-secondary);">
-              Create a <code>«Capability»</code>, <code>«Microservice»</code>, <code>TransactionPlatformObject</code> code class, or <code>«Table»</code> database table once, then drag it from the <strong>Project Browser</strong> onto your Capability Map, Sequence Diagram, Database ERD, and Cloud Deployment Diagram. Rename it once and all diagrams update automatically.
+              Create a <code>«StrategyCanvas»</code>, <code>«Capability»</code>, <code>«Microservice»</code>, <code>TransactionPlatformObject</code> code class, or <code>«Table»</code> database table once, then drag it from the <strong>Project Browser</strong> onto your Strategy Canvas, Capability Map, Sequence Diagram, Database ERD, and Cloud Deployment Diagram. Rename it once and all diagrams update automatically.
             </p>
           </div>
 
           <div class="pattern-card">
             <span class="badge-inline">STEP 3 · VALIDATE &amp; PLAN DELIVERY</span>
-            <h4>Score PACE/TIME, Estimate WBS &amp; Publish</h4>
+            <h4>Score PACE/TIME, PMS, CMMI, WBS &amp; Publish</h4>
             <p style="font-size:13px; color:var(--text-secondary);">
-              Use the <strong>Right Inspector</strong> and the <strong>🛡️ Governance</strong> &amp; <strong>📊 Analytics</strong> workspaces to classify components by Gartner PACE/TIME, assign team rate cards and WBS hours, verify SABSA/NIST security coverage, and publish interactive HTML or multi-page PDF architecture books.
+              Use the <strong>Right Inspector</strong> and the <strong>🛡️ Governance</strong> &amp; <strong>📊 Analytics</strong> workspaces to classify components by Gartner PACE/TIME and Value Innovation PMS (`Pioneer`, `Migrator`, `Settler`), appraise CMMI Maturity Levels 1–5, assign team rate cards and WBS hours, verify SABSA/NIST security coverage, and publish interactive HTML or multi-page PDF architecture books.
+            </p>
+          </div>
+
+          <div class="pattern-card">
+            <span class="badge-inline">AUTO TAXONOMY NUMBERING + OVERRIDE</span>
+            <h4>Hierarchical IDs (<code>CAP-1.1 &rarr; CAP-1.1.1</code>) with <code>↻ Auto</code> Reset</h4>
+            <p style="font-size:13px; color:var(--text-secondary);">
+              Every element across all 10 frameworks (<code>CAP-1.1</code> &rarr; <code>CAP-1.1.1</code>, <code>VS-1.1</code>, <code>OUT-1.1</code>, <code>SC-1.1</code>, <code>ERRC-1.1</code>, <code>PATH-1.1</code>, <code>UTIL-1.1</code>, <code>PRC-1.1</code>, <code>PMS-1.1</code>, <code>NC-1.1</code>, <code>SEQ-1.1</code>, <code>CMMI-3.1</code>, <code>SABSA-2.1</code>, <code>NIST-2.1</code>, <code>BIAN-2.1</code>, <code>ISO-3.1</code>, <code>APP-2.1</code>, <code>CLS-3.1</code>, <code>TBL-3.1</code>, <code>INF-4.1</code>, <code>REQ-1.1</code>) is <strong>automatically assigned a hierarchical taxonomy number</strong> based on its package and parent-child containment (<code>1.0 &rarr; 1.1 &rarr; 1.1.1</code>). Moving an element into a parent Package or Capability cascades its number automatically—or you can type a <strong>Custom Override</strong> in the Create Element dialog, Right Inspector, Central Element Catalog, or AI Copilot / MCP, and click <strong><code>↻ Auto</code></strong> anytime to reset.
             </p>
           </div>
         </div>
 
         <h3 class="sub-heading">The 6×6 Enterprise Architecture Matrix (Audience Perspectives × Questions)</h3>
         <p style="font-size:14px; color:var(--text-secondary); margin-bottom:12px;">
-          The <strong>TreeviewEA Graph Reasoning Engine</strong> automatically organizes every element you place on a diagram into a <strong>6-Row × 6-Column Matrix</strong> (viewable in the <strong>🧠 6×6 Matrix &amp; AI</strong> workspace) so you can see how Executive Strategy, Business Architecture, Logical Design, Physical Engineering, and Cloud/SOC Operations fit together:
+          The <strong>TreeviewEA Graph Reasoning Engine</strong> automatically organizes every element you place on a diagram into a <strong>6-Row × 6-Column Matrix</strong> (viewable in the <strong>🧠 6×6 Matrix &amp; AI</strong> workspace) so you can see how Executive Strategy &amp; Value Innovation, Business Architecture, Logical Design, Physical Engineering, CMMI Maturity, and Cloud/SOC Operations fit together:
         </p>
 
         <!-- Responsive Table 1: 6x6 Orthogonal Matrix Classification -->
         <div tabindex="0" role="region" aria-labelledby="caption-6x6-matrix" class="table-wrapper">
-          <table style="--label-2: 'Layer'; --label-3: 'C1: WHAT (Data & Assets)'; --label-4: 'C2: HOW (Capabilities & Services)'; --label-5: 'C3: WHERE (Network & Trust)'; --label-6: 'C4: WHO (Stakeholders & Org)'; --label-7: 'C5/C6: WHEN (Waves) & WHY (Outcomes/Risk)';">
-            <caption id="caption-6x6-matrix">6×6 Enterprise Architecture Matrix Enriched with Gartner EA, BizBOK v14, SABSA 6×6, NIST CSF 2.0, BIAN, TOGAF, ArchiMate &amp; ISO 20022</caption>
+          <table style="--label-2: 'Layer'; --label-3: 'C1: WHAT (Data, Assets & Factors)'; --label-4: 'C2: HOW (Capabilities, Practices & Services)'; --label-5: 'C3: WHERE (Market Boundaries, Network & Trust)'; --label-6: 'C4: WHO (Buyers, Noncustomers & Org)'; --label-7: 'C5/C6: WHEN (Waves) & WHY (Outcomes, Value Innovation, CMMI & Risk)';">
+            <caption id="caption-6x6-matrix">6×6 Enterprise Architecture Matrix Enriched with All 10 Frameworks (Gartner EA, BizBOK v14, SABSA 6×6, NIST CSF 2.0, BIAN, TOGAF, ArchiMate, ISO 20022, Value Innovation &amp; CMMI v3.0)</caption>
             <thead>
               <tr>
                 <th scope="col">Audience Perspective Row</th>
                 <th scope="col">Layer</th>
-                <th scope="col">C1 · WHAT (Data &amp; Assets)</th>
-                <th scope="col">C2 · HOW (Capabilities &amp; Services)</th>
-                <th scope="col">C3 · WHERE (Network &amp; Trust)</th>
-                <th scope="col">C4 · WHO (People &amp; Authority)</th>
-                <th scope="col">C5 · WHEN &amp; C6 · WHY (Waves, Outcomes &amp; Risk)</th>
+                <th scope="col">C1 · WHAT (Data, Assets &amp; Factors)</th>
+                <th scope="col">C2 · HOW (Capabilities, Practices &amp; Services)</th>
+                <th scope="col">C3 · WHERE (Market Boundaries, Network &amp; Trust)</th>
+                <th scope="col">C4 · WHO (Buyers, Noncustomers &amp; Authority)</th>
+                <th scope="col">C5 · WHEN &amp; C6 · WHY (Waves, Outcomes, Value Innovation, CMMI &amp; Risk)</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <th scope="row">R1 · Contextual Scope (Executive Leaders)</th>
                 <td><code>L0</code></td>
-                <td>Executive Asset Inventories, High-Value Business Assets</td>
-                <td>Enterprise <code>«ValueStream»</code> (BizBOK), <code>«SignatureReadyPlan»</code> (Gartner)</td>
-                <td>Operating Geographies, <code>«ThreatDomain»</code> (SABSA L1)</td>
-                <td>Executive Sponsors, Regulators (<code>TCH</code>, <code>Fed</code>), Risk Owners (<code>GV.RR</code>)</td>
-                <td><code>«BusinessOutcome»</code>, <code>«StrategicDriver»</code>, <code>«GuardrailPrinciple»</code> (Gartner), <code>«StrategicObjective»</code> (BizBOK), <code>«BusinessRiskAttribute»</code> (SABSA L1), <code>«NIST_Govern»</code> (<code>GV.OC</code>, <code>GV.RM</code>, <code>GV.PO</code>, <code>GV.SC</code>)</td>
+                <td><code>«StrategyCanvas»</code>, <code>«CompetitiveFactor»</code>, <code>«ValueCurve»</code>, Executive Asset Inventories</td>
+                <td>Enterprise <code>«ValueStream»</code> (BizBOK), <code>«SignatureReadyPlan»</code> (Gartner), <code>«CMMI_GOV»</code>, <code>«CMMI_II»</code></td>
+                <td>Uncontested Market Space vs. Contested Market Space, <code>«SixPathsOpportunity»</code> (<code>«AlternativeIndustryPath»</code>..<code>«ExternalTrendPath»</code>), <code>«ThreatDomain»</code></td>
+                <td><code>«NoncustomerTier1»</code>, <code>«NoncustomerTier2»</code>, <code>«NoncustomerTier3»</code>, Executive Sponsors, Regulators (<code>TCH</code>, <code>Fed</code>), Risk Owners (<code>GV.RR</code>)</td>
+                <td><code>«BusinessOutcome»</code>, <code>«StrategicDriver»</code>, <code>«GuardrailPrinciple»</code> (Gartner), <code>«StrategicObjective»</code> (BizBOK), <code>«ViabilitySequenceGate»</code>, <code>«CMMIMaturityLevel1»</code>–<code>«CMMIMaturityLevel5»</code>, <code>«BusinessRiskAttribute»</code>, <code>«NIST_Govern»</code></td>
               </tr>
               <tr>
                 <th scope="row">R2 · Conceptual Business (Domain Owners)</th>
                 <td><code>L1</code></td>
-                <td><code>«InformationConcept»</code> (BizBOK), <code>«RiskAssessmentProfile»</code> (NIST <code>ID.RA</code>), Asset Inventories (<code>ID.AM</code>)</td>
-                <td><code>«ValueStreamStage»</code>, <code>«Capability»</code>, <code>«EnablementCapability»</code> (BizBOK), <code>«PackagedBusinessCapability»</code> (Gartner PBC), <code>«ServiceDomain»</code> (BIAN)</td>
-                <td>Business Channels, <code>«TrustBoundary»</code> (SABSA L2), <code>«ProductMapping»</code></td>
-                <td><code>«BusinessUnit»</code>, <code>«Stakeholder»</code> (BizBOK), <code>«BusinessActor»</code></td>
-                <td><code>«Initiative»</code>, <code>«BusinessPolicy»</code> (BizBOK), <code>«SecurityControlObjective»</code> (SABSA L2), <code>«NIST_Identify»</code>, <code>«SupplyChainRiskControl»</code></td>
+                <td><code>«InformationConcept»</code> (BizBOK), <code>«BuyerUtilityMap»</code>, <code>«UtilityLever»</code>, <code>«UtilityBlock»</code>, <code>«PriceCorridorOfTheMass»</code>, <code>«StrategicPricePoint»</code>, <code>«RiskAssessmentProfile»</code></td>
+                <td><code>«ValueStreamStage»</code>, <code>«Capability»</code>, <code>«EnablementCapability»</code> (BizBOK), <code>«FourActionsFramework»</code> &amp; <code>«ERRCGrid»</code> (<code>«EliminateFactor»</code>, <code>«ReduceFactor»</code>, <code>«RaiseFactor»</code>, <code>«CreateFactor»</code>), <code>«PackagedBusinessCapability»</code> (PBC), <code>«ServiceDomain»</code> (BIAN), <code>«CMMI_RDM»</code>, <code>«CMMI_EST»</code>, <code>«CMMI_PLAN»</code></td>
+                <td>Business Channels, <code>«StrategicGroupPath»</code>, <code>«ComplementaryOfferingPath»</code>, <code>«TrustBoundary»</code> (SABSA L2), <code>«ProductMapping»</code></td>
+                <td><code>«BuyerChainPath»</code> (Purchasers, Users, Influencers), <code>«BusinessUnit»</code>, <code>«Stakeholder»</code>, <code>«CMMI_SAM»</code></td>
+                <td><code>«BuyerExperienceStage»</code>, <code>«ExceptionalBuyerUtility»</code>, <code>«StrategicPriceGate»</code>, <code>«FunctionalEmotionalPath»</code>, <code>«Initiative»</code>, <code>«BusinessPolicy»</code>, <code>«CMMI_RSK»</code>, <code>«SecurityControlObjective»</code>, <code>«NIST_Identify»</code></td>
               </tr>
               <tr>
                 <th scope="row">R3 · Logical System (Solution &amp; Security Architects)</th>
                 <td><code>L2</code></td>
-                <td><code>«DataEntity»</code>, <code>TransactionPlatformObject</code>, <code>«ISO20022Message»</code> (<code>pacs.008</code>), <code>«ProtectedInformationAsset»</code> (SABSA L3)</td>
-                <td>Gartner PACE (<code>«SystemOfInnovation»</code>, <code>«SystemOfDifferentiation»</code>, <code>«SystemOfRecord»</code>) &amp; TIME (<code>«InvestAsset»</code>..<code>«EliminateAsset»</code>), <code>«LogicalSecurityService»</code>, <code>«NIST_Protect»</code></td>
+                <td><code>«DataEntity»</code>, <code>TransactionPlatformObject</code>, <code>«ISO20022Message»</code> (<code>pacs.008</code>), <code>«PMSPortfolioMap»</code>, <code>«ProtectedInformationAsset»</code> (SABSA L3)</td>
+                <td>Gartner PACE (<code>«SystemOfInnovation»</code>, <code>«SystemOfDifferentiation»</code>, <code>«SystemOfRecord»</code>) &amp; TIME (<code>«InvestAsset»</code>..<code>«EliminateAsset»</code>), Value Innovation PMS (<code>«PioneerOffering»</code>, <code>«MigratorOffering»</code>, <code>«SettlerOffering»</code>), <code>«CMMI_TS»</code>, <code>«CMMI_DAR»</code>, <code>«CMMI_PCM»</code>, <code>«CMMI_PAD»</code>, <code>«LogicalSecurityService»</code>, <code>«NIST_Protect»</code></td>
                 <td>Logical Security Zones (<code>«Boundary»</code>), Zero-Trust Perimeters</td>
                 <td><code>«SecurityDomainAuthority»</code> (SABSA L3), <code>«ZeroTrustAccessControl»</code> (<code>AC-2</code>, <code>AC-3</code>, <code>IA-2</code>)</td>
-                <td><code>Sequence</code> Lifelines, <code>«SecurityPolicy»</code> (SABSA L3), <code>«TargetStateGap»</code>, <code>«Requirement»</code></td>
+                <td><code>Sequence</code> Lifelines, <code>«TargetCostStructure»</code> (Value Innovation), <code>«SecurityPolicy»</code> (SABSA L3), <code>«TargetStateGap»</code>, <code>«Requirement»</code></td>
               </tr>
               <tr>
                 <th scope="row">R4 · Physical Technology (Platform &amp; Data Engineers)</th>
                 <td><code>L3</code></td>
                 <td><code>«Datastore»</code>, Physical Schemas, Redis Caches, <code>«DataSecuritySafeguard»</code></td>
-                <td><code>«ApplicationComponent»</code>, <code>«Microservice»</code>, <code>«APIGateway»</code>, <code>«PhysicalSecurityMechanism»</code> (AES-256-GCM, mTLS, HSM), <code>«NIST_Detect»</code> (<code>DE.CM</code>)</td>
+                <td><code>«ApplicationComponent»</code>, <code>«Microservice»</code>, <code>«APIGateway»</code>, <code>«CMMI_PI»</code> (Product Integration), <code>«CMMI_CM»</code> (Config Mgmt), <code>«PhysicalSecurityMechanism»</code> (AES-256-GCM, mTLS, HSM), <code>«NIST_Detect»</code> (<code>DE.CM</code>)</td>
                 <td><code>«aws_vpc»</code>, <code>«aws_subnet»</code>, Availability Zones</td>
                 <td>IAM Principals, Agile Delivery Squads, KMS Key Custodians</td>
-                <td><code>«Topic»</code> (Kafka), <code>«TransitionWave»</code> (Gartner), <code>«CryptographicProtection»</code> (<code>SC-8</code>, <code>SC-12</code>, <code>SC-28</code>), <code>«AuditAndAccountability»</code> (<code>AU-2</code>, <code>SI-4</code>)</td>
+                <td><code>«Topic»</code> (Kafka), <code>«TransitionWave»</code> (Gartner), <code>«CMMI_MC»</code> (Monitor &amp; Control), <code>«CryptographicProtection»</code> (<code>SC-8</code>, <code>SC-12</code>, <code>SC-28</code>), <code>«AuditAndAccountability»</code> (<code>AU-2</code>, <code>SI-4</code>)</td>
               </tr>
               <tr>
                 <th scope="row">R5 · Detailed Implementation (Software &amp; DB Builders)</th>
                 <td><code>L3</code></td>
-                <td><code>«Table»</code>, <code>«DBSequence»</code>, Table Columns &amp; Keys (PK/FK), <code>«SecurityDataSchema»</code> (SABSA L5)</td>
-                <td>Domain <code>Class</code> Code Objects (Class Attributes &amp; Class Methods), <code>«SecurityComponent»</code> (WAF, KMS, SIEM), <code>«AnomalyDetectionSensor»</code></td>
+                <td><code>«Table»</code>, <code>«DBSequence»</code>, Table Columns &amp; Keys (PK/FK), <code>«SecurityDataSchema»</code> (SABSA L5), <code>«CMMIAppraisalFinding»</code></td>
+                <td>Domain <code>Class</code> Code Objects (Class Attributes &amp; Class Methods), <code>«CMMI_VV»</code> (Verification &amp; Validation), <code>«CMMI_PR»</code> (Peer Reviews), <code>«CMMI_PQA»</code> (Process QA), <code>«SecurityComponent»</code> (WAF, KMS, SIEM), <code>«AnomalyDetectionSensor»</code></td>
                 <td>CIDR Blocks, Route Tables, mTLS ECDSA P-256 Endpoints</td>
                 <td>Team Roster Rate Cards (<code>$/hr</code>) &amp; RACI Matrix</td>
-                <td><code>«InitiativeWorkPackage»</code> (BizBOK), Snapshot Schedules, Row-Level Security Policies</td>
+                <td><code>«InitiativeWorkPackage»</code> (BizBOK), <code>«AdoptionHurdleMitigation»</code> (Value Innovation), Snapshot Schedules, Row-Level Security Policies</td>
               </tr>
               <tr>
                 <th scope="row">R6 · Functioning Runtime (Cloud Ops, SRE &amp; SOC)</th>
                 <td><code>L4</code></td>
-                <td>Live Production Ledgers, 180-Day Archives, <code>«AssuranceAuditTrail»</code> (SABSA L6)</td>
-                <td>Deployed Containers, <code>«Watchdog»</code>, <code>«RuntimePostureMonitor»</code>, <code>«NIST_Respond»</code> (<code>RS.MA</code>), <code>«NIST_Recover»</code> (<code>RC.RP</code>)</td>
+                <td>Live Production Ledgers, 180-Day Archives, <code>«AssuranceAuditTrail»</code> (SABSA L6), <code>«ProcessPerformanceBaseline»</code> (CMMI L4)</td>
+                <td>Deployed Containers, <code>«Watchdog»</code>, <code>«CMMI_MPM»</code> (Managing Performance &amp; Measurement), <code>«CMMI_CAR»</code> (Causal Analysis), <code>«RuntimePostureMonitor»</code>, <code>«NIST_Respond»</code> (<code>RS.MA</code>), <code>«NIST_Recover»</code> (<code>RC.RP</code>)</td>
                 <td><code>«aws_eks»</code>, <code>«aws_rds»</code>, <code>«aws_lambda»</code>, <code>«RedisCluster»</code>, <code>«Node»</code>, <code>«OperationalSecurityNode»</code></td>
-                <td>Active SREs, SOC Analysts, Incident Commanders</td>
-                <td><code>«SecurityIncidentPlaybook»</code> (SABSA L6), <code>«IncidentRecoveryPlaybook»</code>, <code>«ContingencyPlanControl»</code> (<code>CP-2</code>, <code>CP-9</code>, <code>CP-10</code>, <code>IR-4</code>), Realized FinOps TCO</td>
+                <td>Active SREs, SOC Analysts, Incident Commanders, Process Engineering Group</td>
+                <td><code>«ProcessImprovementProposal»</code> (CMMI L5 Optimizing), <code>«SecurityIncidentPlaybook»</code> (SABSA L6), <code>«IncidentRecoveryPlaybook»</code>, <code>«ContingencyPlanControl»</code> (<code>CP-2</code>, <code>CP-9</code>, <code>CP-10</code>, <code>IR-4</code>), Realized FinOps TCO</td>
               </tr>
             </tbody>
           </table>
@@ -1158,24 +1171,24 @@
             <button type="button" class="layer-card active" data-layer-idx="0" role="tab" aria-selected="true">
               <div class="layer-card-header">
                 <span class="layer-tag">STRATUM L0 · ROW R1 (EXECUTIVE CONTEXT)</span>
-                <span class="card-mult">Outcomes, Value Streams &amp; Risk Charter</span>
+                <span class="card-mult">Outcomes, Value Innovation, Maturity &amp; Risk</span>
               </div>
-              <h4>Executive Strategy, Outcomes &amp; Cybersecurity Governance</h4>
-              <p>Gartner <code>«BusinessOutcome»</code>, <code>«SignatureReadyPlan»</code> · BizBOK <code>«StrategicObjective»</code>, <code>«ValueStream»</code> · SABSA L1 <code>«BusinessRiskAttribute»</code> · <code>«NIST_Govern»</code> (<code>GV.*</code>)</p>
+              <h4>Executive Strategy, Value Innovation, CMMI Levels 1–5 &amp; Governance</h4>
+              <p>Gartner <code>«BusinessOutcome»</code> · Value Innovation <code>«StrategyCanvas»</code>, <code>«SixPathsOpportunity»</code>, <code>«NoncustomerTier1..3»</code> · CMMI <code>«CMMIMaturityLevel1..5»</code>, <code>«CMMI_GOV»</code> · BizBOK <code>«ValueStream»</code> · SABSA L1 <code>«BusinessRiskAttribute»</code> · <code>«NIST_Govern»</code></p>
             </button>
 
             <div class="layer-connector-bridge">
               <div class="bridge-line"></div>
-              <span>Realization &amp; Risk Alignment (<code>«supports»</code> / <code>«mitigates»</code>, <code>1..* &rarr; 1..*</code>)</span>
+              <span>Realization &amp; Market Space Alignment (<code>«supports»</code> / <code>«mitigates»</code>, <code>1..* &rarr; 1..*</code>)</span>
             </div>
 
             <button type="button" class="layer-card" data-layer-idx="1" role="tab" aria-selected="false">
               <div class="layer-card-header">
                 <span class="layer-tag">STRATUM L1 · ROW R2 (CONCEPTUAL BUSINESS)</span>
-                <span class="card-mult">Stage &rarr; 1..M Capabilities &rarr; 1..M Concepts</span>
+                <span class="card-mult">ERRC &amp; Stage &rarr; 1..M Capabilities &rarr; 1..M Concepts</span>
               </div>
-              <h4>BizBOK® Quartet, Gartner PBCs, BIAN Domains &amp; SABSA/NIST Identify</h4>
-              <p><code>«ValueStreamStage»</code> &rarr; <code>«Capability»</code> &rarr; <code>«InformationConcept»</code> · Gartner <code>«PackagedBusinessCapability»</code> · BIAN <code>«ServiceDomain»</code> · SABSA L2 <code>«SecurityControlObjective»</code> · <code>«NIST_Identify»</code></p>
+              <h4>BizBOK® Quartet, ERRC Grid &amp; Buyer Utility, BIAN Domains &amp; CMMI RDM/PLAN</h4>
+              <p><code>«ValueStreamStage»</code> &rarr; <code>«Capability»</code> &rarr; <code>«InformationConcept»</code> · Value Innovation <code>«FourActionsFramework»</code>, <code>«ERRCGrid»</code>, <code>«BuyerUtilityMap»</code>, <code>«PriceCorridorOfTheMass»</code> · CMMI <code>«CMMI_RDM»</code>, <code>«CMMI_PLAN»</code>, <code>«CMMI_RSK»</code> · BIAN <code>«ServiceDomain»</code></p>
             </button>
 
             <div class="layer-connector-bridge">
@@ -1185,11 +1198,11 @@
 
             <button type="button" class="layer-card" data-layer-idx="2" role="tab" aria-selected="false">
               <div class="layer-card-header">
-                <span class="layer-tag">STRATUM L2 · ROW R3:C2 (LOGICAL SYSTEM &amp; PACE/TIME)</span>
-                <span class="card-mult">1..* PACE Components per Capability</span>
+                <span class="layer-tag">STRATUM L2 · ROW R3:C2 (LOGICAL SYSTEM, PACE/TIME &amp; PMS)</span>
+                <span class="card-mult">1..* PACE &amp; PMS Components per Capability</span>
               </div>
-              <h4>Logical Components, Gartner PACE/TIME &amp; Zero-Trust Access</h4>
-              <p>PACE: <code>«SystemOfInnovation»</code>, <code>«SystemOfDifferentiation»</code>, <code>«SystemOfRecord»</code> · TIME: <code>«InvestAsset»</code>..<code>«EliminateAsset»</code> · SABSA L3 <code>«LogicalSecurityService»</code> · NIST <code>«ZeroTrustAccessControl»</code> (<code>AC-2, AC-3, IA-2</code>)</p>
+              <h4>Logical Components, Gartner PACE/TIME, PMS Portfolio &amp; CMMI Technical Solution</h4>
+              <p>PACE: <code>«SystemOfInnovation»</code>, <code>«SystemOfDifferentiation»</code>, <code>«SystemOfRecord»</code> · Value Innovation PMS: <code>«PioneerOffering»</code>, <code>«MigratorOffering»</code>, <code>«SettlerOffering»</code>, <code>«TargetCostStructure»</code> · CMMI <code>«CMMI_TS»</code>, <code>«CMMI_DAR»</code> · SABSA L3 &amp; NIST <code>«ZeroTrustAccessControl»</code></p>
             </button>
 
             <div class="layer-connector-bridge">
@@ -1213,25 +1226,25 @@
 
             <button type="button" class="layer-card" data-layer-idx="4" role="tab" aria-selected="false">
               <div class="layer-card-header">
-                <span class="layer-tag">STRATUM L3 / LAYER 3B · ROWS R4 &amp; R5 (MICROSERVICES, SQL TABLES &amp; CRYPTO)</span>
-                <span class="card-mult">1..* SQL Tables, Columns, PK/FK &amp; Waves</span>
+                <span class="layer-tag">STRATUM L3 / LAYER 3B · ROWS R4 &amp; R5 (MICROSERVICES, SQL TABLES, CMMI V&amp;V &amp; CRYPTO)</span>
+                <span class="card-mult">1..* SQL Tables, Columns, PK/FK, V&amp;V &amp; Waves</span>
               </div>
-              <h4>Physical Microservices, Database Tables (<code>«Table»</code>) &amp; Security Mechanisms</h4>
-              <p><code>«Microservice»</code>, <code>«Table»</code> (Table Columns + PK/FK/Indexes) · SABSA L4–L5 <code>«PhysicalSecurityMechanism»</code>, <code>«SecurityDataSchema»</code> · NIST <code>«CryptographicProtection»</code> (<code>SC-8, SC-28</code>), <code>«NIST_Detect»</code> (<code>DE.CM, AU-2, SI-4</code>) · <code>«TransitionWave»</code></p>
+              <h4>Physical Microservices, Database Tables (<code>«Table»</code>), CMMI Quality &amp; Security</h4>
+              <p><code>«Microservice»</code>, <code>«Table»</code> (Table Columns + PK/FK/Indexes) · CMMI <code>«CMMI_PI»</code>, <code>«CMMI_VV»</code>, <code>«CMMI_PR»</code>, <code>«CMMI_CM»</code>, <code>«CMMI_PQA»</code> · Value Innovation <code>«AdoptionHurdleMitigation»</code> · SABSA L4–L5 &amp; NIST <code>«CryptographicProtection»</code> (<code>SC-8, SC-28</code>) · <code>«TransitionWave»</code></p>
             </button>
 
             <div class="layer-connector-bridge">
               <div class="bridge-line"></div>
-              <span>Cloud Deployment &amp; SOC Monitoring (<code>Deployment «deploys» / «hosts» 1..* &rarr; 1</code>)</span>
+              <span>Cloud Deployment, Quantitative Baselines &amp; SOC (<code>Deployment «deploys» / «hosts» 1..* &rarr; 1</code>)</span>
             </div>
 
             <button type="button" class="layer-card" data-layer-idx="5" role="tab" aria-selected="false">
               <div class="layer-card-header">
-                <span class="layer-tag">STRATUM L4 · ROW R6 (CLOUD RUNTIME &amp; SOC OPERATIONS)</span>
-                <span class="card-mult">1..* Cloud Nodes &amp; Recovery Playbooks</span>
+                <span class="layer-tag">STRATUM L4 · ROW R6 (CLOUD RUNTIME, CMMI L4/L5 BASELINES &amp; SOC)</span>
+                <span class="card-mult">1..* Cloud Nodes, Baselines &amp; Playbooks</span>
               </div>
-              <h4>AWS / Kubernetes Cloud Infrastructure &amp; SABSA L6 / NIST Respond &amp; Recover</h4>
-              <p><code>«aws_eks»</code>, <code>«aws_rds»</code>, <code>«aws_vpc»</code>, <code>«RedisCluster»</code> · SABSA L6 <code>«OperationalSecurityNode»</code>, <code>«RuntimePostureMonitor»</code>, <code>«AssuranceAuditTrail»</code> · <code>«NIST_Respond»</code>, <code>«NIST_Recover»</code>, <code>«ContingencyPlanControl»</code> (<code>CP-2, CP-9, IR-4</code>)</p>
+              <h4>AWS / Kubernetes Cloud Runtime, CMMI Quantitative Baselines &amp; SABSA L6 / NIST SOC</h4>
+              <p><code>«aws_eks»</code>, <code>«aws_rds»</code>, <code>«aws_vpc»</code>, <code>«RedisCluster»</code> · CMMI L4–L5 <code>«CMMI_MPM»</code>, <code>«CMMI_CAR»</code>, <code>«ProcessPerformanceBaseline»</code>, <code>«ProcessImprovementProposal»</code> · SABSA L6 <code>«OperationalSecurityNode»</code> · <code>«NIST_Respond»</code>, <code>«NIST_Recover»</code> (<code>CP-2, CP-9, IR-4</code>)</p>
             </button>
           </div>
 
@@ -1239,51 +1252,51 @@
           <div class="lineage-detail-panel" id="lineage-inspector-panel" aria-live="polite">
             <div class="detail-header">
               <span class="layer-tag" id="insp-layer-badge">STRATUM L0 · ROW R1 (EXECUTIVE CONTEXT)</span>
-              <h3 id="insp-layer-title">Executive Strategy, Outcomes &amp; Cybersecurity Governance</h3>
+              <h3 id="insp-layer-title">Executive Strategy, Value Innovation, CMMI Levels 1–5 &amp; Governance</h3>
             </div>
 
             <div class="spec-grid">
               <div class="spec-box">
                 <div class="spec-box-label">Toolbox Element Types</div>
-                <div class="spec-box-val" id="insp-metaclass">Goal / Outcome / ValueStream / Risk Charter</div>
+                <div class="spec-box-val" id="insp-metaclass">Goal / Outcome / StrategyCanvas / ValueStream / Maturity Target</div>
               </div>
               <div class="spec-box">
                 <div class="spec-box-label">Framework Stereotypes</div>
-                <div class="spec-box-val" id="insp-stereotypes">«BusinessOutcome», «StrategicDriver», «SignatureReadyPlan», «GuardrailPrinciple», «StrategicObjective», «ValueStream», «BusinessRiskAttribute», «NIST_Govern»</div>
+                <div class="spec-box-val" id="insp-stereotypes">«BusinessOutcome», «StrategyCanvas», «ValueCurve», «SixPathsOpportunity», «NoncustomerTier1..3», «ViabilitySequenceGate», «CMMIMaturityLevel1..5», «CMMI_GOV», «StrategicObjective», «ValueStream», «BusinessRiskAttribute», «NIST_Govern»</div>
               </div>
               <div class="spec-box">
                 <div class="spec-box-label">How to Connect on Canvas</div>
-                <div class="spec-box-val" id="insp-cardinality">1..* Layer 1 Capabilities &amp; Value Stream Stages support 1..* Layer 0 Outcomes &amp; Risk Attributes</div>
+                <div class="spec-box-val" id="insp-cardinality">1..* Layer 1 Capabilities, ERRC Factors &amp; Value Stream Stages support 1..* Layer 0 Outcomes, Value Curves &amp; Maturity Targets</div>
               </div>
               <div class="spec-box">
                 <div class="spec-box-label">Real-World Modeling Example</div>
-                <div class="spec-box-val" id="insp-grounding">Unified Transaction Platform Modernization Outcome + NIST GV.RM Risk Strategy + SABSA Non-Repudiation Attribute</div>
+                <div class="spec-box-val" id="insp-grounding">Unified Transaction Platform Outcome + Uncontested Market Space Strategy Canvas + CMMI Maturity Level 3/4 Target + NIST GV.RM Risk Strategy</div>
               </div>
             </div>
 
             <div style="font-family:var(--font-mono); font-size:11px; color:var(--text-muted); margin-bottom:6px; text-transform:uppercase;">
               Step-by-Step Studio Workflow &amp; AI Copilot Prompt
             </div>
-            <pre class="code-block" id="insp-code-block">1. In the Topbar, click "🏛️ EACOE" -> "Instantiate EA Framework" and select Gartner EA, BizBOK v14, SABSA, or NIST CSF 2.0.
-2. Open your Executive Context Diagram and drag a «BusinessOutcome» ("Unify Transaction Platform Execution Across Rails"), an Enterprise «ValueStream» ("Order-to-Settlement"), a SABSA «BusinessRiskAttribute» ("Payment Integrity &amp; Non-Repudiation"), and a «NIST_Govern» policy ("GV.RM Enterprise Payment Risk Policy") onto the canvas.
-3. Connect your Layer 1 «ValueStreamStage» and «Capability» elements upward to these Layer 0 goals using a "Realisation" («supports») connector.
+            <pre class="code-block" id="insp-code-block">1. In the Topbar, click "🏛️ EACOE" -> "Instantiate EA Framework" and select Gartner EA, Value Innovation (value_innovation), CMMI v3.0 (cmmi), BizBOK v14, SABSA, or NIST CSF 2.0.
+2. Open your Executive Context Diagram and drag a «BusinessOutcome» ("Unify Transaction Platform Execution Across Rails"), a «StrategyCanvas» &amp; «ValueCurve» ("Uncontested Real-Time Settlement Profile"), a «CMMIMaturityLevel4» target, an Enterprise «ValueStream» ("Order-to-Settlement"), a SABSA «BusinessRiskAttribute» ("Payment Integrity &amp; Non-Repudiation"), and a «NIST_Govern» policy ("GV.RM Enterprise Payment Risk Policy") onto the canvas.
+3. Connect your Layer 1 «ValueStreamStage», «ERRCGrid», and «Capability» elements upward to these Layer 0 goals using a "Realisation" («supports») connector.
 
 💡 Or ask the AI Copilot (MCP):
-"Create a Gartner «BusinessOutcome» named 'Reduce Cross-Border Transaction Cost by 40%' and a SABSA «BusinessRiskAttribute» named 'Zero Unauthorized Wire Alteration' on the Executive Strategy diagram."</pre>
+"Create a Gartner «BusinessOutcome» named 'Reduce Cross-Border Transaction Cost by 40%', a Value Innovation «StrategyCanvas» named 'Uncontested Instant Settlement Curve', and a «CMMIMaturityLevel3» governance target on the Executive Strategy diagram."</pre>
           </div>
         </div>
       </section>
 
-      <!-- SECTION 3: Dedicated 8-Framework Metamodel Cross-Walk & Hierarchy Matrix -->
+      <!-- SECTION 3: Dedicated 10-Framework Metamodel Cross-Walk & Hierarchy Matrix -->
       <section class="doc-section" id="framework-hierarchy">
         <div class="section-eyebrow">03 · Multi-Framework Interoperability</div>
-        <h2>8-Framework Metamodel Cross-Walk &amp; Hierarchy Matrix (<code>L0–L4</code> &times; <code>R1–R6</code>)</h2>
+        <h2>10-Framework Metamodel Cross-Walk &amp; Hierarchy Matrix (<code>L0–L4</code> &times; <code>R1–R6</code>)</h2>
         <p>
-          In TreeviewEA, frameworks are never mutually exclusive silos. You can mix and match any of the <strong>8 supported optional frameworks</strong> inside a single project—for example, using <strong>BizBOK® v14</strong> and <strong>BIAN v12</strong> for business capabilities, <strong>Gartner EA (PACE &amp; TIME)</strong> for application portfolio strategy, <strong>ISO 20022</strong> for canonical financial messages, and <strong>SABSA® 6×6 + NIST CSF 2.0 / SP 800-53</strong> for end-to-end security and risk assurance.
+          In TreeviewEA, frameworks are never mutually exclusive silos. You can mix and match any of the <strong>10 supported optional frameworks</strong> inside a single project—for example, using <strong>Value Innovation &amp; Market Space Strategy (<code>value_innovation</code>)</strong> for uncontested market space formulation, <strong>BizBOK® v14</strong> and <strong>BIAN v12</strong> for business capabilities, <strong>Gartner EA (PACE &amp; TIME)</strong> for application portfolio strategy, <strong>CMMI® v3.0 (<code>cmmi</code>)</strong> for engineering &amp; process maturity, <strong>ISO 20022</strong> for canonical financial messages, and <strong>SABSA® 6×6 + NIST CSF 2.0 / SP 800-53</strong> for end-to-end security and risk assurance.
         </p>
 
         <div class="tier-pills" role="tablist" aria-label="Highlight a specific framework across all layers">
-          <button type="button" class="tier-pill active" data-fw-card="ALL">All 8 Frameworks</button>
+          <button type="button" class="tier-pill active" data-fw-card="ALL">All 10 Frameworks</button>
           <button type="button" class="tier-pill" data-fw-card="GARTNER">1. Gartner EA (PACE &amp; TIME)</button>
           <button type="button" class="tier-pill" data-fw-card="BIZBOK">2. BizBOK® v14</button>
           <button type="button" class="tier-pill" data-fw-card="SABSA">3. SABSA® 6×6 Security</button>
@@ -1292,6 +1305,8 @@
           <button type="button" class="tier-pill" data-fw-card="TOGAF10">6. TOGAF® 10 ADM</button>
           <button type="button" class="tier-pill" data-fw-card="ARCHIMATE3">7. ArchiMate® 3.2</button>
           <button type="button" class="tier-pill" data-fw-card="ISO20022">8. ISO 20022 Messages</button>
+          <button type="button" class="tier-pill" data-fw-card="VALUE_INNOVATION">9. Value Innovation Strategy</button>
+          <button type="button" class="tier-pill" data-fw-card="CMMI">10. CMMI® v3.0 Maturity</button>
         </div>
 
         <div class="pattern-grid" id="fw-spotlight-grid">
@@ -1358,11 +1373,27 @@
               Models <code>«ISO20022Message»</code> definitions (<code>pacs.008</code>, <code>pacs.004</code>, <code>pain.001</code>, <code>camt.053</code>) and the canonical ISO 20022 message blocks (<code>CdtTrfTxInf/Dbtr</code>, <code>TxInf/RtrRsnInf</code>, <code>CdtTrfTxInf/PmtTpInf</code>, <code>CdtTrfTxInf/XchgRateInf</code>) mapped directly to SQL columns.
             </p>
           </div>
+
+          <div class="pattern-card" data-fw-item="VALUE_INNOVATION">
+            <span class="badge-inline">FRAMEWORK 9 · VALUE INNOVATION &amp; MARKET SPACE STRATEGY</span>
+            <h4>9 Diagnostic &amp; Action Tools for Uncontested Market Space</h4>
+            <p style="font-size:13px; color:var(--text-secondary);">
+              Equips strategists and architects with <strong>9 generic analytical tools</strong>—<strong>Strategy Canvas</strong> (<code>«StrategyCanvas»</code>, <code>«CompetitiveFactor»</code>, <code>«ValueCurve»</code>), <strong>Four Actions Framework</strong> &amp; <strong>ERRC Grid</strong> (<code>«ERRCGrid»</code>, <code>«EliminateFactor»</code>, <code>«ReduceFactor»</code>, <code>«RaiseFactor»</code>, <code>«CreateFactor»</code>), <strong>Six Paths Framework</strong> (<code>«SixPathsOpportunity»</code>), <strong>Buyer Utility Map</strong> (<code>«BuyerUtilityMap»</code>), <strong>Price Corridor of the Mass</strong> (<code>«PriceCorridorOfTheMass»</code>), <strong>Pioneer-Migrator-Settler (PMS) Map</strong> (<code>«PMSPortfolioMap»</code>), <strong>Three Tiers of Noncustomers</strong> (<code>«NoncustomerTier1..3»</code>), and the <strong>Value Innovation Viability Sequence</strong> (<code>«ViabilitySequenceGate»</code>).
+            </p>
+          </div>
+
+          <div class="pattern-card" data-fw-item="CMMI">
+            <span class="badge-inline">FRAMEWORK 10 · CMMI® V3.0 CAPABILITY MATURITY</span>
+            <h4>Maturity Levels 1–5 &amp; Doing, Managing, Enabling, Improving Practices</h4>
+            <p style="font-size:13px; color:var(--text-secondary);">
+              Integrates <strong>CMMI v3.0 Maturity Levels 1–5</strong> (<code>«CMMIMaturityLevel1»</code> Initial &rarr; <code>«CMMIMaturityLevel5»</code> Optimizing) and all <strong>4 Practice Categories</strong>: <em>Doing</em> (<code>«CMMI_RDM»</code>, <code>«CMMI_TS»</code>, <code>«CMMI_PI»</code>, <code>«CMMI_VV»</code>, <code>«CMMI_PR»</code>), <em>Managing</em> (<code>«CMMI_EST»</code>, <code>«CMMI_PLAN»</code>, <code>«CMMI_MC»</code>, <code>«CMMI_RSK»</code>, <code>«CMMI_SAM»</code>), <em>Enabling</em> (<code>«CMMI_GOV»</code>, <code>«CMMI_II»</code>, <code>«CMMI_CM»</code>, <code>«CMMI_DAR»</code>, <code>«CMMI_PQA»</code>, <code>«CMMI_CAR»</code>), and <em>Improving</em> (<code>«CMMI_PCM»</code>, <code>«CMMI_PAD»</code>, <code>«CMMI_MPM»</code>, <code>«ProcessPerformanceBaseline»</code>, <code>«ProcessImprovementProposal»</code>).
+            </p>
+          </div>
         </div>
 
-        <div tabindex="0" role="region" aria-labelledby="caption-8fw-matrix" class="table-wrapper">
-          <table style="--label-2: 'Core Spine'; --label-3: 'Gartner EA'; --label-4: 'BizBOK v14'; --label-5: 'SABSA 6x6'; --label-6: 'NIST CSF 2.0 / 800-53'; --label-7: 'BIAN v12 & ISO 20022'; --label-8: 'TOGAF 10 & ArchiMate 3.2';">
-            <caption id="caption-8fw-matrix">Complete 8-Framework Cross-Walk Matrix Across Strata L0–L4 and Matrix Rows R1–R6</caption>
+        <div tabindex="0" role="region" aria-labelledby="caption-10fw-matrix" class="table-wrapper">
+          <table style="--label-2: 'Core Spine'; --label-3: 'Gartner EA'; --label-4: 'BizBOK v14'; --label-5: 'SABSA 6x6'; --label-6: 'NIST CSF 2.0 / 800-53'; --label-7: 'BIAN v12 & ISO 20022'; --label-8: 'TOGAF 10 & ArchiMate 3.2'; --label-9: 'Value Innovation Strategy'; --label-10: 'CMMI v3.0 Maturity';">
+            <caption id="caption-10fw-matrix">Complete 10-Framework Cross-Walk Matrix Across Strata L0–L4 and Matrix Rows R1–R6</caption>
             <thead>
               <tr>
                 <th scope="col">Stratum &amp; Row</th>
@@ -1373,6 +1404,8 @@
                 <th scope="col">NIST CSF 2.0 / 800-53 (<code>NIST</code>)</th>
                 <th scope="col">BIAN v12 &amp; ISO 20022</th>
                 <th scope="col">TOGAF® 10 &amp; ArchiMate® 3.2</th>
+                <th scope="col">Value Innovation (<code>value_innovation</code>)</th>
+                <th scope="col">CMMI® v3.0 (<code>cmmi</code>)</th>
               </tr>
             </thead>
             <tbody>
@@ -1385,6 +1418,8 @@
                 <td><strong>Govern (<code>GV</code>)</strong>: <code>«NIST_Govern»</code> (<code>GV.OC, GV.RM, GV.RR, GV.PO, GV.SC</code>)</td>
                 <td>Enterprise Banking Landscape &amp; Payment Scheme Mandates (<code>Fed</code>, <code>TCH</code>, <code>SWIFT</code>)</td>
                 <td>Phase A &amp; Motivation: <code>«Vision»</code>, <code>«Principle»</code>, <code>«Goal»</code>, <code>«Driver»</code></td>
+                <td><code>«StrategyCanvas»</code>, <code>«CompetitiveFactor»</code>, <code>«ValueCurve»</code>, <code>«SixPathsOpportunity»</code> (<code>«AlternativeIndustryPath»</code>..<code>«ExternalTrendPath»</code>), <code>«NoncustomerTier1»</code>..<code>«NoncustomerTier3»</code>, <code>«ViabilitySequenceGate»</code></td>
+                <td><strong>Maturity Levels 1–5</strong>: <code>«CMMIMaturityLevel1»</code>–<code>«CMMIMaturityLevel5»</code>; <strong>Enabling</strong>: <code>«CMMI_GOV»</code>, <code>«CMMI_II»</code></td>
               </tr>
               <tr>
                 <th scope="row">L1 · Row R2<br />Conceptual Business</th>
@@ -1395,6 +1430,8 @@
                 <td><strong>Identify (<code>ID</code>)</strong>: <code>«NIST_Identify»</code> (<code>ID.AM, ID.RA</code>), <code>«RiskAssessmentProfile»</code>, <code>«SupplyChainRiskControl»</code></td>
                 <td>BIAN <code>«ServiceDomain»</code> (<code>Transact, Fulfill, Track, Evaluate</code>) &amp; Payment Business Domains</td>
                 <td>Phase B &amp; Strategy/Business: <code>«BusinessCapability»</code>, <code>«BusinessProcess»</code>, <code>«BusinessActor»</code></td>
+                <td><code>«FourActionsFramework»</code>, <code>«ERRCGrid»</code> (<code>«EliminateFactor»</code>, <code>«ReduceFactor»</code>, <code>«RaiseFactor»</code>, <code>«CreateFactor»</code>), <code>«BuyerUtilityMap»</code>, <code>«BuyerExperienceStage»</code>, <code>«UtilityLever»</code>, <code>«UtilityBlock»</code>, <code>«PriceCorridorOfTheMass»</code>, <code>«StrategicPricePoint»</code>, <code>«ExceptionalBuyerUtility»</code>, <code>«StrategicPriceGate»</code></td>
+                <td><strong>Doing &amp; Managing</strong>: <code>«CMMI_RDM»</code> (Requirements Dev &amp; Mgmt), <code>«CMMI_EST»</code> (Estimating), <code>«CMMI_PLAN»</code> (Planning), <code>«CMMI_RSK»</code> (Risk &amp; Opportunity), <code>«CMMI_SAM»</code> (Supplier Mgmt)</td>
               </tr>
               <tr>
                 <th scope="row">L2 · Row R3 (C2)<br />Logical Components</th>
@@ -1405,6 +1442,8 @@
                 <td><strong>Protect (<code>PR</code>)</strong>: <code>«NIST_Protect»</code> (<code>PR.AA, PR.DS</code>), <code>«ZeroTrustAccessControl»</code> (<code>AC-2, AC-3, IA-2</code>)</td>
                 <td>BIAN <code>«ServiceOperation»</code> Behavior Qualifier APIs &amp; Message Validation Services</td>
                 <td>Phase C (Application): <code>«ApplicationComponent»</code>, <code>«ApplicationService»</code>, <code>«ApplicationInterface»</code></td>
+                <td><strong>PMS Portfolio &amp; Target Cost</strong>: <code>«PMSPortfolioMap»</code>, <code>«PioneerOffering»</code>, <code>«MigratorOffering»</code>, <code>«SettlerOffering»</code>, <code>«TargetCostStructure»</code></td>
+                <td><strong>Doing, Enabling &amp; Improving</strong>: <code>«CMMI_TS»</code> (Technical Solution), <code>«CMMI_DAR»</code> (Decision Analysis), <code>«CMMI_PCM»</code> (Process Mgmt), <code>«CMMI_PAD»</code> (Process Asset Dev), <code>«CMMIPracticeArea»</code></td>
               </tr>
               <tr>
                 <th scope="row">L2 · Layer 3A (R3:C1)<br />Code Classes &amp; Data</th>
@@ -1415,6 +1454,8 @@
                 <td>Field-Level Data Classification &amp; Protection (<code>PR.DS-01, PR.DS-02</code>)</td>
                 <td><code>TransactionPlatformObject</code> (<code>CdtTrfTxInf/Dbtr</code>, <code>XchgRateInf</code>) &amp; <code>«ISO20022Message»</code> (<code>pacs.008, pacs.004, pain.001, camt.053</code>)</td>
                 <td>Phase C (Data): <code>«DataEntity»</code>, <code>«DataObject»</code>, <code>«LogicalDataComponent»</code></td>
+                <td>Value-Innovation Canonical Domain Models &amp; Streamlined Data Contracts</td>
+                <td><code>«CMMI_TS»</code> &amp; <code>«CMMI_CM»</code> Baseline Data &amp; Code Specifications</td>
               </tr>
               <tr>
                 <th scope="row">L3 · Layer 3B (R4–R5)<br />Microservices, SQL Tables &amp; Crypto</th>
@@ -1425,6 +1466,8 @@
                 <td><strong>Safeguards &amp; Detect (<code>DE</code>)</strong>: <code>«CryptographicProtection»</code> (<code>SC-8, SC-12, SC-28</code>), <code>«DataSecuritySafeguard»</code>, <code>«NIST_Detect»</code> (<code>DE.CM, DE.AE</code>), <code>«AnomalyDetectionSensor»</code>, <code>«AuditAndAccountability»</code> (<code>AU-2, AU-6, SI-4</code>)</td>
                 <td>Deployable BIAN Microservices, Kafka Topics &amp; Relational Ledger Tables (<code>ach_payment_request</code>)</td>
                 <td>Phase D &amp; Phases E/F: <code>«PhysicalDataComponent»</code>, <code>«Artifact»</code>, <code>«WorkPackage»</code>, <code>«Plateau»</code></td>
+                <td><code>«AdoptionHurdleMitigation»</code> (Overcoming employee, partner &amp; stakeholder hurdles); retiring <code>«EliminateFactor»</code> legacy tables &amp; services</td>
+                <td><strong>Integration, Verification &amp; QA</strong>: <code>«CMMI_PI»</code> (Product Integration), <code>«CMMI_VV»</code> (Verification &amp; Validation), <code>«CMMI_PR»</code> (Peer Reviews), <code>«CMMI_MC»</code> (Monitor &amp; Control), <code>«CMMI_CM»</code> (Config Mgmt), <code>«CMMI_PQA»</code> (Process QA), <code>«CMMIAppraisalFinding»</code></td>
               </tr>
               <tr>
                 <th scope="row">L4 · Row R6<br />Cloud Runtime &amp; SOC</th>
@@ -1435,6 +1478,144 @@
                 <td><strong>Respond (<code>RS</code>) &amp; Recover (<code>RC</code>)</strong>: <code>«NIST_Respond»</code> (<code>RS.MA, RS.MI</code>), <code>«NIST_Recover»</code> (<code>RC.RP, RC.CO</code>), <code>«ContingencyPlanControl»</code> (<code>CP-2, CP-9, CP-10, IR-4</code>), <code>«IncidentRecoveryPlaybook»</code></td>
                 <td>Live BIAN Service Landscape Telemetry &amp; Settlement Rail Gateways (<code>FedNow, RTP, SWIFT</code>)</td>
                 <td>Phases G &amp; H (Implementation Governance) &amp; Technology Nodes (<code>«Node»</code>, <code>«Device»</code>)</td>
+                <td>Realized Uncontested Market Space Buyer Utility &amp; Target Cost Run-Rate</td>
+                <td><strong>High Maturity (<code>L4–L5</code>)</strong>: <code>«CMMI_MPM»</code> (Managing Performance &amp; Measurement), <code>«CMMI_CAR»</code> (Causal Analysis &amp; Resolution), <code>«ProcessPerformanceBaseline»</code>, <code>«ProcessImprovementProposal»</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="sub-heading">Deep Dive: The 9 Analytical Tools of Value Innovation &amp; Market Space Strategy (<code>value_innovation</code>)</h3>
+        <p style="font-size:14px; color:var(--text-secondary); margin-bottom:12px;">
+          The <strong>Value Innovation &amp; Market Space Strategy (<code>value_innovation</code>)</strong> framework provides 9 generic diagnostic and action-oriented analytical tools to shift architecture investments from <strong>Contested Market Space</strong> into <strong>Uncontested Market Space</strong> by simultaneously pursuing differentiation and low cost:
+        </p>
+
+        <div tabindex="0" role="region" aria-labelledby="caption-value-innovation-tools" class="table-wrapper">
+          <table style="--label-2: 'Built-In Stereotypes'; --label-3: 'Primary Layer & 6x6 Cell'; --label-4: 'Purpose'; --label-5: 'How It Works & Connects on Your Canvas';">
+            <caption id="caption-value-innovation-tools">All 9 Core Diagnostic &amp; Action-Oriented Analytical Tools in the Value Innovation &amp; Market Space Strategy Framework</caption>
+            <thead>
+              <tr>
+                <th scope="col">Analytical Tool</th>
+                <th scope="col">Built-In Stereotypes</th>
+                <th scope="col">Layer &amp; 6×6 Cell</th>
+                <th scope="col">Strategic Purpose</th>
+                <th scope="col">How It Works &amp; Connects Across L0–L4</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1. The Strategy Canvas</th>
+                <td><code>«StrategyCanvas»</code>, <code>«CompetitiveFactor»</code>, <code>«ValueCurve»</code></td>
+                <td><code>L0</code> (<code>R1:C1, R1:C6</code>)</td>
+                <td>Diagnostic tool and action framework to capture the current state of play in an existing market space and visualize an organization's strategic profile.</td>
+                <td>Maps the industry's competitive factors (<code>«CompetitiveFactor»</code>) on the horizontal axis and the level of offering customers receive on the vertical axis. The resulting <code>«ValueCurve»</code> highlights how far an organization's strategy diverges from competitors into uncontested market space.</td>
+              </tr>
+              <tr>
+                <th scope="row">2. The Four Actions Framework</th>
+                <td><code>«FourActionsFramework»</code>, <code>«EliminateFactor»</code>, <code>«ReduceFactor»</code>, <code>«RaiseFactor»</code>, <code>«CreateFactor»</code></td>
+                <td><code>L1</code> (<code>R2:C2, R2:C6</code>)</td>
+                <td>Reconstructs buyer value elements and creates a new value curve that simultaneously pursues differentiation and low cost (value innovation).</td>
+                <td>Challenges industry assumptions by asking four key questions: <strong>1. Eliminate</strong> (<code>«EliminateFactor»</code>: Which factors taken for granted should be eliminated?), <strong>2. Reduce</strong> (<code>«ReduceFactor»</code>: Which factors should be reduced well below industry standards?), <strong>3. Raise</strong> (<code>«RaiseFactor»</code>: Which factors should be raised well above industry standards?), <strong>4. Create</strong> (<code>«CreateFactor»</code>: What factors should be created that the industry has never offered?).</td>
+              </tr>
+              <tr>
+                <th scope="row">3. The ERRC Grid (Eliminate-Reduce-Raise-Create Grid)</th>
+                <td><code>«ERRCGrid»</code></td>
+                <td><code>L1 &rarr; L2/L3</code> (<code>R2:C2 &rarr; R3:C2</code>)</td>
+                <td>A practical matrix that brings the Four Actions Framework into a concrete, actionable workspace.</td>
+                <td>Teams fill out a four-box <code>«ERRCGrid»</code> based on the Four Actions Framework, forcing the organization to drop obsolete or costly features/systems (linking <code>«EliminateFactor»</code> to Gartner <code>«EliminateAsset»</code>) while introducing new sources of value (linking <code>«CreateFactor»</code> to <code>«PioneerOffering»</code> &amp; <code>«SystemOfInnovation»</code>) rather than copying rivals.</td>
+              </tr>
+              <tr>
+                <th scope="row">4. The Six Paths Framework (Six Market Boundaries)</th>
+                <td><code>«SixPathsOpportunity»</code>, <code>«AlternativeIndustryPath»</code>, <code>«StrategicGroupPath»</code>, <code>«BuyerChainPath»</code>, <code>«ComplementaryOfferingPath»</code>, <code>«FunctionalEmotionalPath»</code>, <code>«ExternalTrendPath»</code></td>
+                <td><code>L0–L1</code> (<code>R1:C3, R2:C3, R2:C4</code>)</td>
+                <td>Helps organizations systematically look across alternative market boundaries to discover commercially viable uncontested market opportunities.</td>
+                <td>Guides strategists beyond standard industry boundaries by examining: <strong>1.</strong> Alternative industries, <strong>2.</strong> Strategic groups within industries, <strong>3.</strong> The chain of buyers (purchasers, users, influencers), <strong>4.</strong> Complementary product and service offerings, <strong>5.</strong> Functional-or-emotional appeal to buyers, and <strong>6.</strong> Time (shaping external trends rather than just adapting to them).</td>
+              </tr>
+              <tr>
+                <th scope="row">5. The Buyer Utility Map</th>
+                <td><code>«BuyerUtilityMap»</code>, <code>«BuyerExperienceStage»</code>, <code>«UtilityLever»</code>, <code>«UtilityBlock»</code></td>
+                <td><code>L1</code> (<code>R2:C1, R2:C5</code>)</td>
+                <td>Evaluates how much utility an offering truly delivers to customers across their entire experience cycle.</td>
+                <td>Maps the 6 stages of the buyer's experience cycle (<em>Purchase, Delivery, Use, Supplements, Maintenance, Disposal</em>) against 6 levers of customer utility (<em>Customer Productivity, Simplicity, Convenience, Risk Reduction, Fun/Image, Environmental Friendliness</em>) to spot blocks to utility (<code>«UtilityBlock»</code>) and uncover new utility spaces.</td>
+              </tr>
+              <tr>
+                <th scope="row">6. The Price Corridor of the Mass</th>
+                <td><code>«PriceCorridorOfTheMass»</code>, <code>«StrategicPricePoint»</code></td>
+                <td><code>L1</code> (<code>R2:C1, R2:C6</code>)</td>
+                <td>Helps organizations determine the right pricing strategy to capture the absolute mass of target buyers, rather than just a niche segment.</td>
+                <td>Guides businesses to identify the price bandwidth and strategic price point (<code>«StrategicPricePoint»</code>) that attracts masses of buyers from both within the industry and from alternative, different-form industries offering the same function.</td>
+              </tr>
+              <tr>
+                <th scope="row">7. The Pioneer-Migrator-Settler (PMS) Map</th>
+                <td><code>«PMSPortfolioMap»</code>, <code>«PioneerOffering»</code>, <code>«MigratorOffering»</code>, <code>«SettlerOffering»</code></td>
+                <td><code>L2</code> (<code>R3:C1, R3:C2</code>)</td>
+                <td>Evaluates and plans an organization's portfolio matrix based on its future growth and innovation potential.</td>
+                <td>Classifies current and planned offerings into: <strong>Settlers</strong> (<code>«SettlerOffering»</code>, value-imitation / me-too offerings), <strong>Migrators</strong> (<code>«MigratorOffering»</code>, value-improvers that are better but not breakthrough), and <strong>Pioneers</strong> (<code>«PioneerOffering»</code>, value-innovators offering unprecedented buyer value in uncontested market space).</td>
+              </tr>
+              <tr>
+                <th scope="row">8. The Three Tiers of Noncustomers</th>
+                <td><code>«NoncustomerTier1»</code>, <code>«NoncustomerTier2»</code>, <code>«NoncustomerTier3»</code></td>
+                <td><code>L0</code> (<code>R1:C4</code>)</td>
+                <td>Broadens the target market scope by helping organizations look beyond existing customers to unlock massive untapped demand.</td>
+                <td>Categorizes noncustomers into: <strong>Tier 1</strong> (<code>«NoncustomerTier1»</code>: Soon-to-be noncustomers who minimally use current market offerings and are ready to jump ship), <strong>Tier 2</strong> (<code>«NoncustomerTier2»</code>: Refusing noncustomers who consciously reject the industry's offerings), and <strong>Tier 3</strong> (<code>«NoncustomerTier3»</code>: Unexplored noncustomers who have never been targeted or considered by the industry).</td>
+              </tr>
+              <tr>
+                <th scope="row">9. The Value Innovation Viability Sequence</th>
+                <td><code>«ViabilitySequenceGate»</code>, <code>«ExceptionalBuyerUtility»</code>, <code>«StrategicPriceGate»</code>, <code>«TargetCostStructure»</code>, <code>«AdoptionHurdleMitigation»</code></td>
+                <td><code>L0 &rarr; L3</code> (<code>R1:C5 &rarr; R5:C6</code>)</td>
+                <td>Ensures commercial viability and risk reduction of a value-innovation initiative before execution.</td>
+                <td>Establishes a strict order of gates that must be cleared: <strong>1. Exceptional Buyer Utility</strong> (<code>«ExceptionalBuyerUtility»</code>) &rarr; <strong>2. Strategic Price</strong> (<code>«StrategicPriceGate»</code>, accessible to the mass) &rarr; <strong>3. Target Cost</strong> (<code>«TargetCostStructure»</code>, profitable at that strategic price) &rarr; <strong>4. Overcoming Adoption Hurdles</strong> (<code>«AdoptionHurdleMitigation»</code>, managing employee, partner, or stakeholder resistance).</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="sub-heading">Deep Dive: CMMI® v3.0 — Capability Maturity Model Integration (<code>cmmi</code>)</h3>
+        <p style="font-size:14px; color:var(--text-secondary); margin-bottom:12px;">
+          The <strong>CMMI® v3.0 (<code>cmmi</code>)</strong> framework integrates <strong>Maturity Levels 1–5</strong> and all <strong>4 Practice Categories</strong> (<em>Doing</em>, <em>Managing</em>, <em>Enabling</em>, <em>Improving</em>) across <code>L0–L4</code> and the <code>6×6</code> Matrix:
+        </p>
+
+        <div tabindex="0" role="region" aria-labelledby="caption-cmmi-table" class="table-wrapper">
+          <table style="--label-2: 'Built-In Stereotypes'; --label-3: 'Primary Layer & 6x6 Cell'; --label-4: 'Practice Areas & Governance Scope';">
+            <caption id="caption-cmmi-table">CMMI v3.0 Maturity Levels 1–5 and 4 Practice Categories Across L0–L4</caption>
+            <thead>
+              <tr>
+                <th scope="col">CMMI v3.0 Dimension / Category</th>
+                <th scope="col">Built-In Stereotypes</th>
+                <th scope="col">Layer &amp; 6×6 Cell</th>
+                <th scope="col">Practice Areas &amp; Architectural Governance Scope</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Maturity Levels 1–5</th>
+                <td><code>«CMMIMaturityLevel1»</code>, <code>«CMMIMaturityLevel2»</code>, <code>«CMMIMaturityLevel3»</code>, <code>«CMMIMaturityLevel4»</code>, <code>«CMMIMaturityLevel5»</code></td>
+                <td><code>L0–L4</code> (<code>R1:C6 &rarr; R6:C6</code>)</td>
+                <td><strong>Level 1 Initial</strong> (<code>«CMMIMaturityLevel1»</code>), <strong>Level 2 Managed</strong> (<code>«CMMIMaturityLevel2»</code>), <strong>Level 3 Defined</strong> (<code>«CMMIMaturityLevel3»</code>), <strong>Level 4 Quantitatively Managed</strong> (<code>«CMMIMaturityLevel4»</code>), and <strong>Level 5 Optimizing</strong> (<code>«CMMIMaturityLevel5»</code>).</td>
+              </tr>
+              <tr>
+                <th scope="row">Doing (Delivering Value)</th>
+                <td><code>«CMMI_RDM»</code>, <code>«CMMI_TS»</code>, <code>«CMMI_PI»</code>, <code>«CMMI_VV»</code>, <code>«CMMI_PR»</code></td>
+                <td><code>L1–L3</code> (<code>R2:C2, R3:C2, R4:C2, R5:C2</code>)</td>
+                <td><strong>Requirements Development &amp; Management</strong> (<code>«CMMI_RDM»</code>), <strong>Technical Solution</strong> (<code>«CMMI_TS»</code>), <strong>Product Integration</strong> (<code>«CMMI_PI»</code>), <strong>Verification &amp; Validation</strong> (<code>«CMMI_VV»</code>), and <strong>Peer Reviews</strong> (<code>«CMMI_PR»</code>).</td>
+              </tr>
+              <tr>
+                <th scope="row">Managing (Managing Business Resilience)</th>
+                <td><code>«CMMI_EST»</code>, <code>«CMMI_PLAN»</code>, <code>«CMMI_MC»</code>, <code>«CMMI_RSK»</code>, <code>«CMMI_SAM»</code></td>
+                <td><code>L1 &amp; L3</code> (<code>R2:C2, R2:C4, R2:C6, R4:C5</code>)</td>
+                <td><strong>Estimating</strong> (<code>«CMMI_EST»</code>), <strong>Planning</strong> (<code>«CMMI_PLAN»</code>), <strong>Monitor &amp; Control</strong> (<code>«CMMI_MC»</code>), <strong>Risk &amp; Opportunity Management</strong> (<code>«CMMI_RSK»</code>), and <strong>Supplier Agreement Management</strong> (<code>«CMMI_SAM»</code>).</td>
+              </tr>
+              <tr>
+                <th scope="row">Enabling (Supporting Implementation)</th>
+                <td><code>«CMMI_GOV»</code>, <code>«CMMI_II»</code>, <code>«CMMI_CM»</code>, <code>«CMMI_DAR»</code>, <code>«CMMI_PQA»</code>, <code>«CMMI_CAR»</code></td>
+                <td><code>L0, L2–L4</code> (<code>R1:C2, R3:C2, R4:C2, R5:C2, R6:C2</code>)</td>
+                <td><strong>Governance</strong> (<code>«CMMI_GOV»</code>), <strong>Implementation Infrastructure</strong> (<code>«CMMI_II»</code>), <strong>Configuration Management</strong> (<code>«CMMI_CM»</code>), <strong>Decision Analysis &amp; Resolution</strong> (<code>«CMMI_DAR»</code>), <strong>Process Quality Assurance</strong> (<code>«CMMI_PQA»</code>), and <strong>Causal Analysis &amp; Resolution</strong> (<code>«CMMI_CAR»</code>).</td>
+              </tr>
+              <tr>
+                <th scope="row">Improving (Sustaining Habit &amp; Persistence)</th>
+                <td><code>«CMMI_PCM»</code>, <code>«CMMI_PAD»</code>, <code>«CMMI_MPM»</code>, <code>«CMMIPracticeArea»</code>, <code>«CMMIAppraisalFinding»</code>, <code>«ProcessPerformanceBaseline»</code>, <code>«ProcessImprovementProposal»</code></td>
+                <td><code>L2–L4</code> (<code>R3:C2, R5:C1, R6:C1, R6:C2, R6:C6</code>)</td>
+                <td><strong>Process Management</strong> (<code>«CMMI_PCM»</code>), <strong>Process Asset Development</strong> (<code>«CMMI_PAD»</code>), <strong>Managing Performance &amp; Measurement</strong> (<code>«CMMI_MPM»</code>), appraisal findings (<code>«CMMIAppraisalFinding»</code>), statistical baselines (<code>«ProcessPerformanceBaseline»</code>), and continuous optimization proposals (<code>«ProcessImprovementProposal»</code>).</td>
               </tr>
             </tbody>
           </table>
@@ -1475,7 +1656,7 @@
 
         <div tabindex="0" role="region" aria-labelledby="caption-cardinality-matrix" class="table-wrapper">
           <table id="cardinality-table" style="--label-2: 'Target Layer & Element'; --label-3: 'Connector Type'; --label-4: 'Stereotype'; --label-5: 'Cardinality (Source -> Target)'; --label-6: 'Customer Modeling Guidance';">
-            <caption id="caption-cardinality-matrix">Cross-Layer &amp; Multi-Framework Connector Rules (Core Spine + Gartner, BizBOK, SABSA &amp; NIST)</caption>
+            <caption id="caption-cardinality-matrix">Cross-Layer &amp; Multi-Framework Connector Rules (Core Spine + Gartner, BizBOK, SABSA, NIST, Value Innovation &amp; CMMI v3.0)</caption>
             <thead>
               <tr>
                 <th scope="col">From Element (Source)</th>
@@ -1494,6 +1675,22 @@
                 <td><code>«supports»</code> / <code>«governs»</code></td>
                 <td><code>1..* &rarr; 1..*</code></td>
                 <td><strong>Gartner EA &amp; BizBOK L0</strong>: Link executive plans and architectural guardrails to measurable business outcomes.</td>
+              </tr>
+              <tr data-src="L0" data-ctype="Realisation">
+                <th scope="row">L0 <code>«StrategyCanvas»</code> / <code>«ValueCurve»</code> / <code>«SixPathsOpportunity»</code> / <code>«NoncustomerTier1..3»</code></th>
+                <td>L0 <code>«BusinessOutcome»</code> / <code>«ViabilitySequenceGate»</code></td>
+                <td><code>Realisation</code> / <code>Dependency</code></td>
+                <td><code>«shapes»</code> / <code>«supports»</code></td>
+                <td><code>1..* &rarr; 1..*</code></td>
+                <td><strong>Value Innovation L0</strong>: Connect Strategy Canvas value curves, Six Market Boundaries, and Three Tiers of Noncustomers to executive business outcomes.</td>
+              </tr>
+              <tr data-src="L0" data-ctype="Dependency">
+                <th scope="row">L0 <code>«CMMIMaturityLevel1..5»</code> / <code>«CMMI_GOV»</code> / <code>«CMMI_II»</code></th>
+                <td>L0/L1 Enterprise <code>«ValueStream»</code> / <code>«Capability»</code></td>
+                <td><code>Dependency</code> / <code>Association</code></td>
+                <td><code>«governs»</code> / <code>«appraises»</code></td>
+                <td><code>1..* &rarr; 1..*</code></td>
+                <td><strong>CMMI v3.0 L0</strong>: Set target Maturity Levels (1–5) and organizational governance across enterprise value streams and capability domains.</td>
               </tr>
               <tr data-src="L0" data-ctype="Security">
                 <th scope="row">L0 <code>«NIST_Govern»</code> (<code>GV.RM, GV.PO, GV.SC</code>)</th>
@@ -1519,6 +1716,14 @@
                 <td><code>1..* &rarr; 1..*</code></td>
                 <td><strong>BizBOK Core Quartet (Step 1)</strong>: Show which <code>1...M</code> Business Capabilities enable each Value Stream Stage.</td>
               </tr>
+              <tr data-src="L1" data-ctype="Realisation">
+                <th scope="row">L1 <code>«FourActionsFramework»</code> / <code>«ERRCGrid»</code> / <code>«BuyerUtilityMap»</code> / <code>«PriceCorridorOfTheMass»</code></th>
+                <td>L1 <code>«Capability»</code> / <code>«ValueStreamStage»</code> / <code>«BuyerExperienceStage»</code></td>
+                <td><code>Realisation</code> / <code>Dependency</code></td>
+                <td><code>«reconstructs»</code> / <code>«unlocks»</code></td>
+                <td><code>1..* &rarr; 1..*</code></td>
+                <td><strong>Value Innovation L1</strong>: Link ERRC Grid factors (<code>«EliminateFactor»</code>, <code>«ReduceFactor»</code>, <code>«RaiseFactor»</code>, <code>«CreateFactor»</code>), Buyer Utility Levers, and Price Corridor targets to Capabilities.</td>
+              </tr>
               <tr data-src="L1" data-ctype="Dependency">
                 <th scope="row">L1 <code>«Capability»</code> / <code>«EnablementCapability»</code></th>
                 <td>L1 <code>«InformationConcept»</code> / <code>«BusinessPolicy»</code></td>
@@ -1536,20 +1741,20 @@
                 <td>Decompose L0 Value Streams and L1 Capabilities into L2/L3 nested sub-capabilities.</td>
               </tr>
               <tr data-src="L1" data-ctype="Security">
-                <th scope="row">L1 <code>«SecurityControlObjective»</code> / <code>«NIST_Identify»</code> (<code>ID.AM, ID.RA</code>)</th>
-                <td>L0 <code>«BusinessRiskAttribute»</code> / <code>«ThreatDomain»</code></td>
+                <th scope="row">L1 <code>«SecurityControlObjective»</code> / <code>«NIST_Identify»</code> / <code>«CMMI_RDM»</code> / <code>«CMMI_RSK»</code></th>
+                <td>L0/L1 <code>«BusinessRiskAttribute»</code> / <code>«Capability»</code></td>
                 <td><code>Realisation</code> / <code>Dependency</code></td>
-                <td><code>«mitigates»</code> / <code>«trace»</code></td>
+                <td><code>«mitigates»</code> / <code>«governs»</code></td>
                 <td><code>1..* &rarr; 1..*</code></td>
-                <td><strong>SABSA L2 &rarr; L1 &amp; NIST Identify</strong>: Trace conceptual security control objectives to business risk attributes.</td>
+                <td><strong>SABSA L2, NIST Identify &amp; CMMI Doing/Managing</strong>: Trace conceptual security control objectives, requirements management, and risk practices to capabilities.</td>
               </tr>
               <tr data-src="L2" data-ctype="Realisation">
-                <th scope="row">L2 PACE Component (<code>«SystemOfInnovation»</code>, <code>«SystemOfDifferentiation»</code>, <code>«SystemOfRecord»</code>)</th>
-                <td>L1 <code>«Capability»</code> / <code>«PackagedBusinessCapability»</code> / <code>«ServiceDomain»</code></td>
+                <th scope="row">L2 PACE &amp; PMS Component (<code>«SystemOfInnovation»</code>, <code>«SystemOfDifferentiation»</code>, <code>«SystemOfRecord»</code>, <code>«PioneerOffering»</code>, <code>«MigratorOffering»</code>, <code>«SettlerOffering»</code>)</th>
+                <td>L1 <code>«Capability»</code> / <code>«PackagedBusinessCapability»</code> / <code>«ServiceDomain»</code> / <code>«CreateFactor»</code></td>
                 <td><code>Realisation</code> / <code>Dependency</code></td>
                 <td><code>«trace»</code> / <code>«BIAN»</code> / <code>«GARTNER»</code></td>
                 <td><code>1..* &rarr; 1</code></td>
-                <td><strong>Core Realization Bridge</strong>: Connect the <code>1...M</code> PACE-stratified components that realize a Business Capability.</td>
+                <td><strong>Core Realization Bridge</strong>: Connect the <code>1...M</code> PACE- and PMS-stratified components that realize a Business Capability or ERRC factor.</td>
               </tr>
               <tr data-src="L2" data-ctype="Realisation">
                 <th scope="row">L2 <code>«Microservice»</code> / <code>«SystemOfRecord»</code></th>
@@ -1576,12 +1781,12 @@
                 <td>Link a microservice to the <code>1...M</code> domain code classes &amp; canonical DTOs (with Class Attributes &amp; Class Methods) that build it.</td>
               </tr>
               <tr data-src="L2" data-ctype="Security">
-                <th scope="row">L2 <code>«ProtectedInformationAsset»</code> / <code>«LogicalSecurityService»</code> / <code>«ZeroTrustAccessControl»</code></th>
+                <th scope="row">L2 <code>«ProtectedInformationAsset»</code> / <code>«LogicalSecurityService»</code> / <code>«ZeroTrustAccessControl»</code> / <code>«CMMI_TS»</code> / <code>«CMMI_DAR»</code></th>
                 <td>Layer 3A <code>Class</code> (<code>TransactionPlatformObject</code>) &amp; L2 Component</td>
                 <td><code>Dependency</code> / <code>Association</code></td>
                 <td><code>«governs»</code> / <code>«protects»</code></td>
                 <td><code>1..* &rarr; 1..*</code></td>
-                <td><strong>SABSA L3 &amp; NIST Protect (<code>AC-2, AC-3, IA-2</code>)</strong>: Govern <code>Class</code> code objects and services with zero-trust access &amp; field classification rules.</td>
+                <td><strong>SABSA L3, NIST Protect &amp; CMMI Engineering</strong>: Govern <code>Class</code> code objects and services with zero-trust access, field classification, and technical solution decisions.</td>
               </tr>
               <tr data-src="L3A" data-ctype="Dependency">
                 <th scope="row">Layer 3A Code Class (<code>TransactionPlatformObject</code>)</th>
@@ -1608,20 +1813,20 @@
                 <td>Physical ERD Foreign Key constraint backed by Table Keys &amp; Indexes (<code>PK</code> / <code>FK</code>).</td>
               </tr>
               <tr data-src="L3B" data-ctype="Security">
-                <th scope="row">L3 <code>«PhysicalSecurityMechanism»</code> / <code>«SecurityDataSchema»</code> / <code>«CryptographicProtection»</code> (<code>SC-28</code>)</th>
+                <th scope="row">L3 <code>«PhysicalSecurityMechanism»</code> / <code>«SecurityDataSchema»</code> / <code>«CryptographicProtection»</code> (<code>SC-28</code>) / <code>«CMMI_VV»</code> / <code>«CMMI_PR»</code> / <code>«CMMI_PQA»</code></th>
                 <td>Layer 3B <code>«Table»</code> &amp; L3 <code>«Microservice»</code></td>
                 <td><code>Dependency</code> / <code>Realisation</code></td>
-                <td><code>«protects»</code> / <code>«encrypts»</code> / <code>«monitors»</code></td>
+                <td><code>«protects»</code> / <code>«verifies»</code> / <code>«monitors»</code></td>
                 <td><code>1..* &rarr; 1..*</code></td>
-                <td><strong>SABSA L4–L5 &amp; NIST (<code>SC-8, SC-28, AU-2, SI-4</code>)</strong>: Govern physical SQL <code>Table</code> objects with AES-256-GCM encryption, HSM tokenization, and SIEM audit logging.</td>
+                <td><strong>SABSA L4–L5, NIST (<code>SC-8, SC-28, AU-2, SI-4</code>) &amp; CMMI Quality</strong>: Govern physical SQL <code>Table</code> objects and services with AES-256-GCM encryption, peer reviews, V&amp;V, and PQA audits.</td>
               </tr>
               <tr data-src="L3B" data-ctype="Deployment">
-                <th scope="row">L3 Gartner <code>«TransitionWave»</code> / BizBOK <code>«InitiativeWorkPackage»</code></th>
+                <th scope="row">L3 Gartner <code>«TransitionWave»</code> / BizBOK <code>«InitiativeWorkPackage»</code> / <code>«AdoptionHurdleMitigation»</code></th>
                 <td>L2/L3 <code>«Microservice»</code>, <code>«Table»</code>, or <code>«SecurityComponent»</code></td>
                 <td><code>Dependency</code> / <code>Aggregation</code></td>
                 <td><code>«delivers»</code> / <code>«sequences»</code></td>
                 <td><code>1 &rarr; 1..*</code></td>
-                <td><strong>Gartner &amp; BizBOK Roadmapping</strong>: Sequence <code>1...M</code> microservices, schema changes, and security controls into funded delivery waves.</td>
+                <td><strong>Gartner, BizBOK &amp; Value Innovation Roadmapping</strong>: Sequence <code>1...M</code> microservices, schema changes, and adoption hurdle mitigations into funded delivery waves.</td>
               </tr>
               <tr data-src="L3B" data-ctype="Deployment">
                 <th scope="row">L2/L3 <code>«Microservice»</code> / <code>«SecurityComponent»</code></th>
@@ -1640,12 +1845,12 @@
                 <td>Host <code>1...M</code> physical relational tables and sequences inside a managed cloud database cluster.</td>
               </tr>
               <tr data-src="L4" data-ctype="Security">
-                <th scope="row">L4 <code>«OperationalSecurityNode»</code> / <code>«RuntimePostureMonitor»</code> / <code>«ContingencyPlanControl»</code> (<code>CP-2, IR-4</code>)</th>
+                <th scope="row">L4 <code>«OperationalSecurityNode»</code> / <code>«RuntimePostureMonitor»</code> / <code>«ContingencyPlanControl»</code> / <code>«CMMI_MPM»</code> / <code>«ProcessPerformanceBaseline»</code></th>
                 <td>L4 Cloud Runtime Node (<code>«aws_eks»</code>, <code>«aws_rds»</code>, <code>«aws_vpc»</code>)</td>
                 <td><code>Dependency</code> / <code>Association</code></td>
-                <td><code>«monitors»</code> / <code>«recovers»</code> / <code>«assures»</code></td>
+                <td><code>«monitors»</code> / <code>«baselines»</code> / <code>«recovers»</code></td>
                 <td><code>1..* &rarr; 1..*</code></td>
-                <td><strong>SABSA L6 &amp; NIST Respond/Recover (<code>RS, RC, CP-2, CP-9, IR-4</code>)</strong>: Attach live SOC posture monitoring and multi-region failover playbooks to cloud nodes.</td>
+                <td><strong>SABSA L6, NIST Respond/Recover &amp; CMMI L4/L5</strong>: Attach live SOC posture monitoring, multi-region failover playbooks, and quantitative process baselines to cloud nodes.</td>
               </tr>
             </tbody>
           </table>
@@ -1706,7 +1911,7 @@
         <div class="tier-pills" role="tablist" aria-label="Filter tools by functional taxonomy tier">
           <button type="button" class="tier-pill active" data-tier="ALL">All 7 Tiers (39 Capabilities)</button>
           <button type="button" class="tier-pill" data-tier="T1">Tier 1 · Project &amp; Database Sync (5)</button>
-          <button type="button" class="tier-pill" data-tier="T2">Tier 2 · 8-Framework Wizards (3)</button>
+          <button type="button" class="tier-pill" data-tier="T2">Tier 2 · 10-Framework Wizards (3)</button>
           <button type="button" class="tier-pill" data-tier="T3">Tier 3 · Elements, Classes &amp; Tables (9)</button>
           <button type="button" class="tier-pill" data-tier="T4">Tier 4 · Connectors &amp; Impact Matrices (5)</button>
           <button type="button" class="tier-pill" data-tier="T5">Tier 5 · Diagrams &amp; Auto-Layout (8)</button>
@@ -1780,9 +1985,9 @@
               <tr data-tier="T2">
                 <th scope="row"><code>instantiate_ea_framework</code></th>
                 <td>Tier 2 · Frameworks</td>
-                <td>All 8 Supported Industry Frameworks</td>
+                <td>All 10 Supported Industry Frameworks</td>
                 <td><code>🏛️ EACOE &rarr; Instantiate EA Framework</code></td>
-                <td>Instantiates ready-to-use folders, diagrams, and stereotyped elements for <code>GARTNER</code>, <code>BIZBOK</code>, <code>SABSA</code>, <code>NIST</code>, <code>BIAN</code>, <code>TOGAF10</code>, <code>ARCHIMATE3</code>, and <code>ISO20022</code>.</td>
+                <td>Instantiates ready-to-use folders, diagrams, and stereotyped elements for <code>GARTNER</code>, <code>BIZBOK</code>, <code>SABSA</code>, <code>NIST</code>, <code>BIAN</code>, <code>TOGAF10</code>, <code>ARCHIMATE3</code>, <code>ISO20022</code>, <code>VALUE_INNOVATION</code> (<code>value_innovation</code>), and <code>CMMI</code> (<code>cmmi</code>).</td>
               </tr>
               <tr data-tier="T2">
                 <th scope="row"><code>create_project_folder</code></th>
@@ -2057,16 +2262,16 @@
           </div>
         </div>
 
-        <h3 class="sub-heading">Sample <code>1...M</code> Model Transformation Wave Plan (Integrating All 8 Frameworks)</h3>
+        <h3 class="sub-heading">Sample <code>1...M</code> Model Transformation Wave Plan (Integrating All 10 Frameworks)</h3>
         <div tabindex="0" role="region" aria-labelledby="caption-1m-wave-plan" class="table-wrapper">
-          <table style="--label-2: 'Package / Model Scope'; --label-3: 'Gartner PACE & TIME'; --label-4: 'BizBOK & BIAN Alignment'; --label-5: 'SABSA 6x6 & NIST Security Gate'; --label-6: 'WBS Effort, RACI Team & FinOps'; --label-7: 'Wave & Status';">
-            <caption id="caption-1m-wave-plan">End-to-End 1...M Transaction Platform Modernization Wave Plan Across Gartner PACE/TIME, BizBOK, SABSA, NIST &amp; FinOps</caption>
+          <table style="--label-2: 'Package / Model Scope'; --label-3: 'Gartner PACE/TIME & Value Innovation'; --label-4: 'BizBOK, BIAN & CMMI v3.0'; --label-5: 'SABSA 6x6 & NIST Security Gate'; --label-6: 'WBS Effort, RACI Team & FinOps'; --label-7: 'Wave & Status';">
+            <caption id="caption-1m-wave-plan">End-to-End 1...M Transaction Platform Modernization Wave Plan Across Gartner PACE/TIME, Value Innovation, BizBOK, CMMI v3.0, SABSA, NIST &amp; FinOps</caption>
             <thead>
               <tr>
                 <th scope="col">Model Wave &amp; Key Elements</th>
                 <th scope="col">Package / Model Scope</th>
-                <th scope="col">Gartner PACE &amp; TIME</th>
-                <th scope="col">BizBOK® v14 &amp; BIAN v12 Scope</th>
+                <th scope="col">Gartner PACE/TIME &amp; Value Innovation</th>
+                <th scope="col">BizBOK® v14, BIAN v12 &amp; CMMI® v3.0</th>
                 <th scope="col">SABSA® 6×6 &amp; NIST CSF 2.0 / 800-53 Gate</th>
                 <th scope="col">WBS Effort, RACI Team &amp; Financial Ledger</th>
                 <th scope="col">Wave &amp; Status</th>
@@ -2076,8 +2281,8 @@
               <tr>
                 <th scope="row">Model 0 · Shared Canonical Core (<code>TransactionPlatformObject</code>, <code>ach_payment_request</code>)</th>
                 <td><code>01. Canonical Data &amp; BIAN Core</code> (Reused across all <code>M</code> domain models)</td>
-                <td><code>«SystemOfRecord»</code><br /><code>Invest</code> · <code>Transform</code><br />BV: <code>95</code> / Tech: <code>92</code></td>
-                <td>Realizes BizBOK <code>«InformationConcept»</code> (<em>Payment Order</em>) &amp; BIAN <em>Payment Execution</em></td>
+                <td><code>«SystemOfRecord»</code> · <code>Invest</code><br /><code>«StrategyCanvas»</code> &amp; <code>«TargetCostStructure»</code><br />BV: <code>95</code> / Tech: <code>92</code></td>
+                <td>Realizes BizBOK <code>«InformationConcept»</code> (<em>Payment Order</em>), BIAN <em>Payment Execution</em>, &amp; <code>«CMMIMaturityLevel3»</code> (<code>«CMMI_TS»</code>, <code>«CMMI_CM»</code>)</td>
                 <td><strong>SABSA L3/L5 &amp; NIST <code>PR.DS</code> / <code>SC-28</code></strong>: <code>«ProtectedInformationAsset»</code> &amp; <code>«SecurityDataSchema»</code> column encryption</td>
                 <td><code>320 hrs</code> (Elena Vance <code>$205/hr</code> [A], Sarah Chen <code>$210/hr</code> [R])<br />CapEx: <code>$95,000</code> · RDS OpEx: <code>$29,500/yr</code></td>
                 <td><code>Wave 0 / 1.0</code><br /><code>Validated</code></td>
@@ -2085,8 +2290,8 @@
               <tr>
                 <th scope="row">Model 1 · Wave 1 Instant Rails (<code>ACH Origination MS</code>, <code>RTP Service</code>, <code>Watchdog</code>)</th>
                 <td><code>02. Wave 1 — ACH &amp; RTP Instant Payment Rails</code></td>
-                <td><code>«SystemOfRecord»</code><br /><code>Invest</code> · <code>Transform</code><br />BV: <code>92</code> / Tech: <code>88</code></td>
-                <td><code>«Initiative»</code>: Unified Transaction Intake &amp; <code>«ValueStreamStage»</code> <em>1. Originate &amp; Validate</em></td>
+                <td><code>«SystemOfRecord»</code> &amp; <code>«MigratorOffering»</code><br /><code>Invest</code> · <code>«RaiseFactor»</code> &amp; <code>«ExceptionalBuyerUtility»</code></td>
+                <td><code>«Initiative»</code>: Unified Transaction Intake; <code>«ValueStreamStage»</code> <em>1. Originate</em>; <code>«CMMI_RDM»</code>, <code>«CMMI_PLAN»</code>, <code>«CMMI_VV»</code></td>
                 <td><strong>SABSA L3/L4 &amp; NIST <code>AC-2, AC-3, IA-2, SC-8</code></strong>: <code>«ZeroTrustAccessControl»</code> &amp; mTLS ECDSA P-256 across all APIs</td>
                 <td><code>480 hrs</code> (Mike Lee <code>$225/hr</code> [A], Brian Burnett <code>$175/hr</code> [R])<br />CapEx: <code>$330,000</code> · EKS/MSK OpEx: <code>$42,000/yr</code></td>
                 <td><code>Phase 1.0</code><br /><code>Approved &rarr; Implemented</code></td>
@@ -2094,8 +2299,8 @@
               <tr>
                 <th scope="row">Model 2 · Wave 2 High-Value Wire &amp; SWIFT (<code>Wire Intake</code>, <code>FX Quote Engine</code>, <code>pacs.008</code>)</th>
                 <td><code>03. Wave 2 — High-Value RTGS &amp; SWIFT ISO 20022</code></td>
-                <td><code>«SystemOfDifferentiation»</code><br /><code>Invest</code> &amp; <code>Migrate</code> · <code>Grow</code><br />BV: <code>94</code> / Tech: <code>86</code></td>
-                <td><code>«InitiativeWorkPackage»</code>: Cross-Border Settlement &amp; ISO 20022 (<code>pacs.008, pacs.004, camt.053</code>)</td>
+                <td><code>«SystemOfDifferentiation»</code> &amp; <code>«PioneerOffering»</code><br /><code>«CreateFactor»</code> (Uncontested Market Space Real-Time FX)</td>
+                <td><code>«InitiativeWorkPackage»</code>: Cross-Border ISO 20022 (<code>pacs.008, pacs.004, camt.053</code>); <code>«CMMIMaturityLevel4»</code> (<code>«CMMI_PI»</code>, <code>«CMMI_PQA»</code>, <code>«ProcessPerformanceBaseline»</code>)</td>
                 <td><strong>SABSA L4/L5 &amp; NIST <code>DE.CM, AU-2, SI-4</code></strong>: FIPS 140-3 HSM tokenization, <code>«AnomalyDetectionSensor»</code> &amp; SIEM audit logs</td>
                 <td><code>540 hrs</code> (Stephen Maguire <code>$195/hr</code> [A], Marcus Chen <code>$185/hr</code> [R])<br />Labor CapEx: <code>$102,600</code> · OpEx: <code>$38,500/yr</code></td>
                 <td><code>Phase 2.0</code><br /><code>Proposed &rarr; Approved</code></td>
@@ -2103,8 +2308,8 @@
               <tr>
                 <th scope="row">Model 3 · Wave 3 Legacy Mainframe Bridge Retirement &amp; Multi-Region SOC</th>
                 <td><code>04. Wave 3 — Legacy Swivel-Chair Decommission &amp; SOC</code></td>
-                <td><code>«EliminateAsset»</code><br /><code>Eliminate</code> · <code>Run</code><br />BV: <code>35</code> / Tech: <code>28</code></td>
-                <td>Retire redundant legacy batch capabilities; achieve target Value Stream SLA targets</td>
+                <td><code>«EliminateAsset»</code> &amp; <code>«EliminateFactor»</code> (<code>«ERRCGrid»</code>)<br /><code>«AdoptionHurdleMitigation»</code> cleared</td>
+                <td>Retire redundant legacy batch capabilities; achieve <code>«CMMIMaturityLevel5»</code> (<code>«CMMI_MPM»</code>, <code>«CMMI_CAR»</code>, <code>«ProcessImprovementProposal»</code>)</td>
                 <td><strong>SABSA L6 &amp; NIST <code>RS, RC, CP-2, CP-9, IR-4</code></strong>: <code>«RuntimePostureMonitor»</code>, <code>«ContingencyPlanControl»</code> &amp; active/active recovery</td>
                 <td><code>300 hrs</code> (Brian Burnett <code>140h</code>, Eric Smith <code>100h</code>, Mike Lee <code>60h</code>)<br />Annual OpEx Savings: <code>+$130,000/yr</code></td>
                 <td><code>Phase 3.0</code><br /><code>Deprecated</code></td>
@@ -2122,7 +2327,7 @@
       <div>
         <strong style="color:var(--text-primary);">TreeviewEA by Treeview Software, LLC</strong>
         <p style="font-size:12.5px; margin-top:4px;">
-          Customer Modeling Guide: 6-Stratum Metamodel, 8 Industry Frameworks, 39 Studio &amp; AI Capabilities &amp; 1...M Model Planning.
+          Customer Modeling Guide: 6-Stratum Metamodel, 10 Industry Frameworks, 39 Studio &amp; AI Capabilities &amp; 1...M Model Planning.
         </p>
       </div>
       <div style="display:flex; gap:20px; font-size:13px; flex-wrap:wrap;">
@@ -2173,47 +2378,47 @@
     const layerSpecs = [
       {
         badge: 'STRATUM L0 · ROW R1 (EXECUTIVE CONTEXT)',
-        title: 'Executive Strategy, Outcomes & Cybersecurity Governance',
-        metaclass: 'Goal / Outcome / ValueStream / Risk Charter',
-        stereotypes: '«BusinessOutcome», «StrategicDriver», «SignatureReadyPlan», «GuardrailPrinciple», «StrategicObjective», «ValueStream», «BusinessRiskAttribute», «NIST_Govern»',
-        cardinality: '1..* Layer 1 Capabilities & Value Stream Stages support 1..* Layer 0 Outcomes & Risk Attributes',
-        grounding: 'Unified Transaction Platform Modernization Outcome + NIST GV.RM Risk Strategy + SABSA Non-Repudiation Attribute',
-        code: `1. In the Topbar, click "🏛️ EACOE" -> "Instantiate EA Framework" and select Gartner EA, BizBOK v14, SABSA, or NIST CSF 2.0.
-2. Open your Executive Context Diagram and drag a «BusinessOutcome» ("Unify Transaction Platform Execution Across Rails"), an Enterprise «ValueStream» ("Order-to-Settlement"), a SABSA «BusinessRiskAttribute» ("Payment Integrity & Non-Repudiation"), and a «NIST_Govern» policy ("GV.RM Enterprise Payment Risk Policy") onto the canvas.
-3. Connect your Layer 1 «ValueStreamStage» and «Capability» elements upward to these Layer 0 goals using a "Realisation" («supports») connector.
+        title: 'Executive Strategy, Value Innovation, CMMI Levels 1–5 & Governance',
+        metaclass: 'Goal / Outcome / StrategyCanvas / ValueStream / Maturity Target',
+        stereotypes: '«BusinessOutcome», «StrategyCanvas», «ValueCurve», «SixPathsOpportunity», «NoncustomerTier1..3», «ViabilitySequenceGate», «CMMIMaturityLevel1..5», «CMMI_GOV», «StrategicObjective», «ValueStream», «BusinessRiskAttribute», «NIST_Govern»',
+        cardinality: '1..* Layer 1 Capabilities, ERRC Factors & Value Stream Stages support 1..* Layer 0 Outcomes, Value Curves & Maturity Targets',
+        grounding: 'Unified Transaction Platform Outcome + Uncontested Market Space Strategy Canvas + CMMI Maturity Level 3/4 Target + NIST GV.RM Risk Strategy',
+        code: `1. In the Topbar, click "🏛️ EACOE" -> "Instantiate EA Framework" and select Gartner EA, Value Innovation (value_innovation), CMMI v3.0 (cmmi), BizBOK v14, SABSA, or NIST CSF 2.0.
+2. Open your Executive Context Diagram and drag a «BusinessOutcome» ("Unify Transaction Platform Execution Across Rails"), a «StrategyCanvas» & «ValueCurve» ("Uncontested Real-Time Settlement Profile"), a «CMMIMaturityLevel4» target, an Enterprise «ValueStream» ("Order-to-Settlement"), a SABSA «BusinessRiskAttribute» ("Payment Integrity & Non-Repudiation"), and a «NIST_Govern» policy ("GV.RM Enterprise Payment Risk Policy") onto the canvas.
+3. Connect your Layer 1 «ValueStreamStage», «ERRCGrid», and «Capability» elements upward to these Layer 0 goals using a "Realisation" («supports») connector.
 
 💡 Or ask the AI Copilot (MCP):
-"Create a Gartner «BusinessOutcome» named 'Reduce Cross-Border Transaction Cost by 40%' and a SABSA «BusinessRiskAttribute» named 'Zero Unauthorized Wire Alteration' on the Executive Strategy diagram."`
+"Create a Gartner «BusinessOutcome» named 'Reduce Cross-Border Transaction Cost by 40%', a Value Innovation «StrategyCanvas» named 'Uncontested Instant Settlement Curve', and a «CMMIMaturityLevel3» governance target on the Executive Strategy diagram."`
       },
       {
         badge: 'STRATUM L1 · ROW R2 (CONCEPTUAL BUSINESS)',
-        title: 'BizBOK® Quartet, Gartner PBCs, BIAN Domains & SABSA/NIST Identify',
-        metaclass: 'Capability / ValueStreamStage / InformationConcept / ServiceDomain',
-        stereotypes: '«ValueStreamStage», «Capability», «EnablementCapability», «InformationConcept», «PackagedBusinessCapability», «ServiceDomain», «SecurityControlObjective», «NIST_Identify»',
-        cardinality: 'ValueStreamStage realized by 1..M Capabilities; Capability governs 1..M InformationConcepts & realized by 1..M Components',
-        grounding: 'Wire Payment Request Intake Capability + BIAN Payment Execution Domain + BizBOK Payment Order InformationConcept',
-        code: `1. Model the BizBOK v14 Core Quartet on your Business Architecture Diagram:
-   • Place a «ValueStreamStage» ("1. Originate & Validate Payment").
-   • Connect 1..M «Capability» or Gartner «PackagedBusinessCapability» (PBC) elements to the stage using a "Realisation" («realized-by») connector.
+        title: 'BizBOK® Quartet, ERRC Grid & Buyer Utility, BIAN Domains & CMMI RDM/PLAN',
+        metaclass: 'Capability / ValueStreamStage / ERRCGrid / BuyerUtilityMap / InformationConcept',
+        stereotypes: '«ValueStreamStage», «Capability», «InformationConcept», «FourActionsFramework», «ERRCGrid», «EliminateFactor», «ReduceFactor», «RaiseFactor», «CreateFactor», «BuyerUtilityMap», «PriceCorridorOfTheMass», «CMMI_RDM», «CMMI_PLAN», «CMMI_RSK», «ServiceDomain»',
+        cardinality: 'ValueStreamStage & ERRC Factors realized by 1..M Capabilities; Capability governs 1..M InformationConcepts & realized by 1..M Components',
+        grounding: 'Wire Payment Request Intake Capability + ERRC Grid («CreateFactor» Instant FX Transparency) + CMMI «CMMI_RDM» + BIAN Payment Execution',
+        code: `1. Model the BizBOK v14 Core Quartet and Value Innovation ERRC Grid on your Business Architecture Diagram:
+   • Place a «ValueStreamStage» ("1. Originate & Validate Payment") and an «ERRCGrid» («EliminateFactor», «ReduceFactor», «RaiseFactor», «CreateFactor»).
+   • Connect 1..M «Capability» or Gartner «PackagedBusinessCapability» (PBC) elements to the stage and ERRC factors using a "Realisation" («realized-by») connector.
    • Connect each «Capability» to 1..M «InformationConcept» elements ("Payment Order", "Counterparty") using a "Dependency" («uses/governs») connector.
-2. Add a SABSA «SecurityControlObjective» and «NIST_Identify» ("ID.RA Payment Risk Profile") to govern critical capabilities.
+2. Add CMMI «CMMI_RDM» (Requirements Dev & Mgmt), «CMMI_PLAN», and «CMMI_RSK», plus SABSA «SecurityControlObjective» and «NIST_Identify» ("ID.RA Payment Risk Profile").
 
 💡 Tip: Drag child capabilities inside a parent «Capability» or «Boundary» container (or press ⌘G) to build nested L0 -> L1 -> L2 capability maps!`
       },
       {
-        badge: 'STRATUM L2 · ROW R3:C2 (LOGICAL SYSTEM & PACE/TIME)',
-        title: 'Logical Application Components, Gartner PACE/TIME & Zero-Trust Access',
-        metaclass: 'ApplicationComponent / Interface / LogicalSecurityService',
-        stereotypes: '«SystemOfInnovation», «SystemOfDifferentiation», «SystemOfRecord», «InvestAsset», «MigrateAsset», «LogicalSecurityService», «ZeroTrustAccessControl»',
-        cardinality: '1..* PACE Components realize 1 Capability; 1 Component exposes 1..* APIs & contains 1..* Code Classes',
-        grounding: 'Payment Initiation Service («SystemOfRecord», TIME: Invest, BV: 95) + Zero-Trust PDP («ZeroTrustAccessControl» AC-3, IA-2)',
-        code: `1. Drag 1..M Application Components onto your Logical Architecture Diagram and connect them to the Layer 1 «Capability» they realize ("Realisation", 1..* -> 1).
-2. In the Right Inspector, assign a Gartner PACE stereotype:
-   • «SystemOfRecord» for core ledgers & Transaction Platform execution
-   • «SystemOfDifferentiation» for smart routing, FX pricing & fraud scoring
-   • «SystemOfInnovation» for rapid digital channel experiences
-3. Open "🛡️ Governance" -> "Gartner TIME Matrix" (or use the Inspector) to score TIME Quadrant ("Invest", "Tolerate", "Migrate", "Eliminate"), Business Value (1-100), and Tech Quality (1-100).
-4. Attach SABSA «LogicalSecurityService» and NIST «ZeroTrustAccessControl» (SP 800-53 AC-2, AC-3, IA-2) to enforce mutual authentication and RBAC.`
+        badge: 'STRATUM L2 · ROW R3:C2 (LOGICAL SYSTEM, PACE/TIME & PMS)',
+        title: 'Logical Application Components, Gartner PACE/TIME, PMS Portfolio & CMMI Technical Solution',
+        metaclass: 'ApplicationComponent / PMSPortfolioMap / Interface / LogicalSecurityService',
+        stereotypes: '«SystemOfInnovation», «SystemOfDifferentiation», «SystemOfRecord», «PioneerOffering», «MigratorOffering», «SettlerOffering», «TargetCostStructure», «CMMI_TS», «CMMI_DAR», «LogicalSecurityService», «ZeroTrustAccessControl»',
+        cardinality: '1..* PACE & PMS Components realize 1 Capability; 1 Component exposes 1..* APIs & contains 1..* Code Classes',
+        grounding: 'Payment Initiation Service («SystemOfRecord», «MigratorOffering», TIME: Invest) + Real-Time FX Router («SystemOfDifferentiation», «PioneerOffering») + «CMMI_TS»',
+        code: `1. Drag 1..M Application Components onto your Logical Architecture Diagram and connect them to the Layer 1 «Capability» or «CreateFactor» they realize ("Realisation", 1..* -> 1).
+2. In the Right Inspector, assign Gartner PACE and Value Innovation PMS stereotypes:
+   • «SystemOfRecord» / «SettlerOffering» for core ledgers & Transaction Platform execution
+   • «SystemOfDifferentiation» / «MigratorOffering» for smart routing, FX pricing & fraud scoring
+   • «SystemOfInnovation» / «PioneerOffering» for breakthrough offerings in uncontested market space
+3. Open "🛡️ Governance" -> "Gartner TIME Matrix" to score TIME Quadrant ("Invest", "Tolerate", "Migrate", "Eliminate") and verify «TargetCostStructure».
+4. Attach CMMI «CMMI_TS» (Technical Solution) & «CMMI_DAR» (Decision Analysis) alongside SABSA «LogicalSecurityService» and NIST «ZeroTrustAccessControl» (AC-2, AC-3, IA-2).`
       },
       {
         badge: 'LAYER 3A · ROW R3:C1 (CODE CLASSES & CANONICAL DATA)',
@@ -2234,30 +2439,31 @@
 4. Attach a SABSA «ProtectedInformationAsset» control to govern sensitive personal or PCI fields.`
       },
       {
-        badge: 'STRATUM L3 / LAYER 3B · ROWS R4 & R5 (MICROSERVICES, SQL TABLES & CRYPTO)',
-        title: 'Physical Microservices, Database Tables («Table») & Security Mechanisms',
+        badge: 'STRATUM L3 / LAYER 3B · ROWS R4 & R5 (MICROSERVICES, SQL TABLES, CMMI V&V & CRYPTO)',
+        title: 'Physical Microservices, Database Tables («Table»), CMMI Quality & Security',
         metaclass: 'Microservice / Table + Table Columns + Table Keys & Indexes (PK/FK)',
-        stereotypes: '«Microservice», «APIGateway», «Topic», «Table», «PhysicalSecurityMechanism», «SecurityDataSchema», «CryptographicProtection», «NIST_Detect», «TransitionWave»',
+        stereotypes: '«Microservice», «APIGateway», «Topic», «Table», «CMMI_PI», «CMMI_VV», «CMMI_PR», «CMMI_CM», «CMMI_PQA», «AdoptionHurdleMitigation», «PhysicalSecurityMechanism», «SecurityDataSchema», «CryptographicProtection», «TransitionWave»',
         cardinality: '1..* Code Classes persist to 1..* SQL Tables; Child Table 0..* -> 1 Parent Table («FK»); 1 Wave delivers 1..* Services/Tables',
-        grounding: 'ach_payment_request «Table» (payment_id PK, payment_poid unique, nacha_header_id_fk FK) + NIST SC-28 AES-256-GCM Encryption',
+        grounding: 'ach_payment_request «Table» (payment_id PK, payment_poid unique, nacha_header_id_fk FK) + CMMI «CMMI_VV» & «CMMI_PQA» + NIST SC-28 Encryption',
         code: `1. Place a Database «Table» element (e.g., "ach_payment_request") on your Physical Data ERD and connect your Code Class or Microservice to it using a "Dependency" («persists» or «reads/writes») connector.
 2. Select the «Table» and use the Right Inspector:
    • Add physical SQL Table Columns: payment_id (bigserial, PK), payment_poid (text, unique), saga_type (text), payment_status (text), nacha_header_id_fk (bigint, FK).
    • Add Table Keys & Indexes: ach_payment_request_pkey (PK), idx_payment_status (index), FK_ach_payment_request_nacha_header (FK).
    • Draw an "Association" («FK», 0..* -> 1) connector to the parent table ("nacha_header").
-3. Attach SABSA «SecurityDataSchema» and NIST «CryptographicProtection» (SC-8 mTLS, SC-28 encryption at rest) + «AuditAndAccountability» (AU-2, SI-4).
-4. Open the "🗄️ Database" workspace to export ready-to-run PostgreSQL/SQLite CREATE TABLE DDL!`
+3. Attach CMMI «CMMI_PI» (Product Integration), «CMMI_VV» (Verification & Validation), «CMMI_PR» (Peer Reviews), «CMMI_CM» (Config Mgmt), and «CMMI_PQA» (Process QA), plus Value Innovation «AdoptionHurdleMitigation».
+4. Attach SABSA «SecurityDataSchema» and NIST «CryptographicProtection» (SC-8 mTLS, SC-28 encryption at rest) and export SQL CREATE TABLE DDL in the "🗄️ Database" workspace!`
       },
       {
-        badge: 'STRATUM L4 · ROW R6 (CLOUD RUNTIME & SOC OPERATIONS)',
-        title: 'AWS / Kubernetes Cloud Infrastructure & SABSA L6 / NIST Respond & Recover',
-        metaclass: 'Cloud Node / VPC Boundary / Operational Security & Recovery Playbook',
-        stereotypes: '«aws_eks», «aws_rds», «aws_vpc», «aws_subnet», «aws_lambda», «RedisCluster», «OperationalSecurityNode», «RuntimePostureMonitor», «NIST_Respond», «NIST_Recover», «ContingencyPlanControl»',
+        badge: 'STRATUM L4 · ROW R6 (CLOUD RUNTIME, CMMI L4/L5 BASELINES & SOC)',
+        title: 'AWS / Kubernetes Cloud Runtime, CMMI Quantitative Baselines & SABSA L6 / NIST SOC',
+        metaclass: 'Cloud Node / VPC Boundary / CMMI Baseline / SOC Recovery Playbook',
+        stereotypes: '«aws_eks», «aws_rds», «aws_vpc», «aws_subnet», «aws_lambda», «RedisCluster», «CMMI_MPM», «CMMI_CAR», «ProcessPerformanceBaseline», «ProcessImprovementProposal», «OperationalSecurityNode», «RuntimePostureMonitor», «NIST_Respond», «NIST_Recover», «ContingencyPlanControl»',
         cardinality: '1..* Microservices & Tables deployed to 1..* Cloud Nodes nested inside 1 VPC/Subnet Boundary',
-        grounding: 'AWS VPC Container -> EKS Cluster & Aurora PostgreSQL Multi-AZ + NIST CP-2/CP-9/IR-4 Active-Active Failover Playbook',
+        grounding: 'AWS VPC Container -> EKS Cluster & Aurora PostgreSQL Multi-AZ + CMMI «ProcessPerformanceBaseline» (L4/L5) + NIST CP-2/CP-9/IR-4 Active-Active Failover',
         code: `1. On a Deployment Diagram, place an «aws_vpc» and «aws_subnet» boundary container, then drag «aws_eks» (Kubernetes), «aws_rds» (Aurora PostgreSQL), and «RedisCluster» nodes inside the boundary.
 2. Draw "Deployment" connectors from your Layer 3 Microservices («deploys», 1..* -> 1) to «aws_eks», and from your «Table» database schemas («hosts», 1..* -> 1) to «aws_rds».
-3. Attach SABSA Layer 6 «OperationalSecurityNode», «RuntimePostureMonitor», and «AssuranceAuditTrail» elements, plus NIST «NIST_Respond» (RS.MA), «NIST_Recover» (RC.RP), and «ContingencyPlanControl» (CP-2, CP-9, CP-10, IR-4) to document multi-AZ disaster recovery.`
+3. Attach CMMI Level 4 & Level 5 elements: «CMMI_MPM» (Managing Performance & Measurement), «ProcessPerformanceBaseline», «CMMI_CAR» (Causal Analysis & Resolution), and «ProcessImprovementProposal».
+4. Attach SABSA Layer 6 «OperationalSecurityNode», «RuntimePostureMonitor», and «AssuranceAuditTrail» elements, plus NIST «NIST_Respond» (RS.MA), «NIST_Recover» (RC.RP), and «ContingencyPlanControl» (CP-2, CP-9, CP-10, IR-4).`
       }
     ];
 
