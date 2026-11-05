@@ -1,0 +1,1301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TreeviewEA — Visual Enterprise Architecture &amp; AI Co-Pilot Studio for macOS</title>
+  <meta name="description" content="TreeviewEA by Treeview Software, LLC — Native macOS Enterprise Architecture Studio with 1-click scaffolding for Value Innovation &amp; Market Strategy (ERRC, Strategy Canvas &amp; PMS), CMMI v3.0, Gartner EA (PACE &amp; TIME), BizBOK v14, SABSA 6x6 Security, NIST CSF 2.0 &amp; SP 800-53, TOGAF 10, ArchiMate 3.2, BIAN v12, and ISO 20022, plus an AI Architecture Co-Pilot for Claude Desktop &amp; Cursor." />
+  <meta name="theme-color" content="#0b1120" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+  <link rel="shortcut icon" href="favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg-deep: #070b14;
+      --bg-surface: #0f172a;
+      --bg-card: rgba(15, 23, 42, 0.78);
+      --bg-elevated: #1e293b;
+      --border-subtle: rgba(148, 163, 184, 0.16);
+      --border-highlight: rgba(56, 189, 248, 0.45);
+      --text-primary: #f8fafc;
+      --text-secondary: #cbd5e1;
+      --text-muted: #94a3b8;
+      --sky: #38bdf8;
+      --blue: #3b82f6;
+      --indigo: #6366f1;
+      --violet: #8b5cf6;
+      --emerald: #10b981;
+      --amber: #f59e0b;
+      --rose: #f43f5e;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+      --font-mono: 'JetBrains Mono', 'SF Mono', Menlo, monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--bg-deep);
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      background:
+        radial-gradient(circle at 15% 10%, rgba(56, 189, 248, 0.13), transparent 36%),
+        radial-gradient(circle at 85% 12%, rgba(139, 92, 246, 0.13), transparent 38%),
+        radial-gradient(circle at 50% 65%, rgba(16, 185, 129, 0.07), transparent 45%),
+        var(--bg-deep);
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Sticky Glass Navigation */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      background: rgba(7, 11, 20, 0.86);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .navbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 70px;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      font-size: 18px;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: #070b14;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding: 0;
+      border: 1px solid rgba(56, 189, 248, 0.45);
+      box-shadow: 0 6px 20px rgba(6, 182, 212, 0.35);
+    }
+
+    .brand-mark img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .brand-sub {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--text-muted);
+      display: block;
+      margin-top: -2px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      scroll-target-group: auto;
+    }
+
+    .nav-links a {
+      padding: 6px 12px;
+      border-radius: 8px;
+      border: 1px solid transparent;
+      transition: background 0.16s ease, color 0.16s ease, border-color 0.16s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:is(:target-current, .target-current) {
+      color: var(--sky);
+      background: rgba(56, 189, 248, 0.08);
+    }
+
+    .nav-links a.active {
+      color: #ffffff;
+      background: rgba(56, 189, 248, 0.14);
+      border-color: rgba(56, 189, 248, 0.38);
+    }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 9px 16px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 13.5px;
+      cursor: pointer;
+      border: 1px solid var(--border-subtle);
+      background: rgba(30, 41, 59, 0.75);
+      color: var(--text-primary);
+      transition: all 0.18s ease;
+    }
+
+    .btn:hover {
+      border-color: var(--border-highlight);
+      background: rgba(30, 41, 59, 0.98);
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #2563eb 0%, #0284c7 100%);
+      border-color: rgba(56, 189, 248, 0.55);
+      color: #ffffff;
+      box-shadow: 0 10px 28px rgba(37, 99, 235, 0.35);
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #1d4ed8 0%, #0369a1 100%);
+      box-shadow: 0 14px 34px rgba(56, 189, 248, 0.42);
+    }
+
+    .btn-lg {
+      padding: 14px 24px;
+      font-size: 15.5px;
+      border-radius: 12px;
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 76px 0 56px;
+      text-align: center;
+      position: relative;
+    }
+
+    .pill-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      color: #7dd3fc;
+      font-size: 12.5px;
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+
+    .pill-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--emerald);
+      box-shadow: 0 0 10px var(--emerald);
+    }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 5vw, 4.1rem);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      line-height: 1.08;
+      max-width: 980px;
+      margin: 0 auto 22px;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #34d399 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      font-size: clamp(1.05rem, 1.6vw, 1.24rem);
+      color: var(--text-secondary);
+      max-width: 820px;
+      margin: 0 auto 34px;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+
+    .hero-meta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      font-size: 12.5px;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+    }
+
+    .hero-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Interactive Studio Mockup Showcase */
+    .studio-preview-wrap {
+      margin-top: 44px;
+      border-radius: 18px;
+      background: linear-gradient(180deg, rgba(56, 189, 248, 0.28), rgba(15, 23, 42, 0.8));
+      padding: 2px;
+      box-shadow: 0 30px 90px rgba(0, 0, 0, 0.72), 0 0 60px rgba(56, 189, 248, 0.12);
+    }
+
+    .studio-window {
+      background: #0b1324;
+      border-radius: 16px;
+      overflow: hidden;
+      text-align: left;
+    }
+
+    .window-titlebar {
+      height: 44px;
+      background: #131c31;
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 16px;
+      gap: 12px;
+    }
+
+    .window-dots {
+      display: flex;
+      gap: 7px;
+    }
+
+    .window-dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+    }
+
+    .preview-tabs {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .preview-tab {
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+      padding: 5px 12px;
+      border-radius: 7px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .preview-tab.active {
+      background: var(--blue);
+      border-color: var(--sky);
+      color: #fff;
+    }
+
+    .preview-pane {
+      display: none;
+      padding: 24px;
+    }
+
+    .preview-pane.active {
+      display: block;
+    }
+
+    /* KPI Strip */
+    .stats-bar {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin: 56px 0;
+    }
+
+    .stat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      padding: 22px;
+      text-align: center;
+    }
+
+    .stat-val {
+      font-size: 30px;
+      font-weight: 900;
+      font-family: var(--font-mono);
+      color: var(--sky);
+      line-height: 1.1;
+      margin-bottom: 6px;
+    }
+
+    .stat-lbl {
+      font-size: 13px;
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+
+    /* Section Headings */
+    .section {
+      padding: 72px 0;
+      border-top: 1px solid rgba(148, 163, 184, 0.1);
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 780px;
+      margin: 0 auto 48px;
+    }
+
+    .section-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--sky);
+      margin-bottom: 10px;
+    }
+
+    .section-header h2 {
+      font-size: clamp(1.85rem, 3.2vw, 2.65rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 14px;
+    }
+
+    .section-header p {
+      color: var(--text-secondary);
+      font-size: 16px;
+    }
+
+    /* Bento Grid */
+    .bento-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .bento-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      padding: 26px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .bento-card:hover {
+      border-color: var(--border-highlight);
+      transform: translateY(-3px);
+    }
+
+    .bento-card.span-2 {
+      grid-column: span 2;
+    }
+
+    .card-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 11px;
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.16), rgba(37, 99, 235, 0.14));
+      border: 1px solid rgba(56, 189, 248, 0.38);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      color: #38bdf8;
+      box-shadow: 0 6px 18px rgba(14, 165, 233, 0.18);
+    }
+
+    .card-icon svg {
+      width: 22px;
+      height: 22px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.9;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .bento-card h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .bento-card p {
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+
+    .code-Tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: auto;
+      padding-top: 8px;
+    }
+
+    .code-tag {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 6px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid var(--border-subtle);
+      color: #93c5fd;
+    }
+
+    /* 6x6 Orthogonal Matrix Interactive Demo */
+    .matrix-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 5px;
+      font-size: 12px;
+    }
+
+    .matrix-table th {
+      background: #131c31;
+      color: #7dd3fc;
+      padding: 9px 8px;
+      border-radius: 7px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      text-align: center;
+      border: 1px solid rgba(56, 189, 248, 0.25);
+    }
+
+    .matrix-table td.row-hdr {
+      background: #131c31;
+      color: #e2e8f0;
+      font-weight: 700;
+      padding: 8px 10px;
+      border-radius: 7px;
+      font-size: 11.5px;
+      border: 1px solid var(--border-subtle);
+      white-space: nowrap;
+    }
+
+    .matrix-cell {
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      border-radius: 7px;
+      padding: 8px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .matrix-cell:hover,
+    .matrix-cell.selected {
+      border-color: var(--sky);
+      background: rgba(56, 189, 248, 0.16);
+      transform: scale(1.02);
+    }
+
+    .matrix-cell .cell-id {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--sky);
+      font-weight: 700;
+    }
+
+    .matrix-cell .cell-name {
+      font-size: 11px;
+      color: var(--text-primary);
+      font-weight: 600;
+      display: block;
+      margin-top: 2px;
+    }
+
+    /* Comparison Table */
+    .comp-table-wrap {
+      overflow: auto;
+      max-inline-size: 100%;
+      container-type: inline-size;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      padding: 8px;
+    }
+
+    .comp-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      font-size: 14px;
+    }
+
+    .comp-table thead {
+      position: sticky;
+      inset-block-start: 0;
+      z-index: 2;
+      background: var(--bg-surface);
+    }
+
+    .comp-table th,
+    .comp-table td {
+      padding: 14px 16px;
+      text-align: left;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .comp-table tbody th {
+      position: sticky;
+      inset-inline-start: 0;
+      background: var(--bg-surface);
+      font-weight: 700;
+      color: var(--text-primary);
+      z-index: 1;
+    }
+
+    .comp-table th {
+      color: var(--text-secondary);
+      font-size: 12.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .comp-table td.highlight-col,
+    .comp-table th.highlight-col {
+      background: rgba(56, 189, 248, 0.08);
+      color: #fff;
+      font-weight: 700;
+    }
+
+    /* Terminal / Code Block */
+    .terminal-box {
+      background: #050811;
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      padding: 20px;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: #e2e8f0;
+      overflow-x: auto;
+      line-height: 1.7;
+    }
+
+    .terminal-box .cmd-comment {
+      color: #64748b;
+    }
+
+    .terminal-box .cmd-prompt {
+      color: #38bdf8;
+      user-select: none;
+    }
+
+    /* Footer */
+    .footer {
+      border-top: 1px solid var(--border-subtle);
+      padding: 48px 0;
+      color: var(--text-muted);
+      font-size: 13.5px;
+    }
+
+    @media (max-width: 960px) {
+      .bento-grid {
+        grid-template-columns: 1fr;
+      }
+      .bento-card.span-2 {
+        grid-column: span 1;
+      }
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation -->
+  <header class="navbar">
+    <div class="container navbar-inner">
+      <a href="index.html" class="brand">
+        <div class="brand-mark"><img src="icon-192.png" alt="TreeviewEA" width="38" height="38" /></div>
+        <div>
+          TreeviewEA
+          <span class="brand-sub">by Treeview Software, LLC</span>
+        </div>
+      </a>
+
+      <nav class="nav-links" aria-label="Primary Navigation">
+        <a href="index.html" class="active" aria-current="page">Overview</a>
+        <a href="documentation.html">Documentation</a>
+        <a href="taxonomy.html">Metamodel &amp; Taxonomy</a>
+        <a href="mcp-reference.html">MCP &amp; AI Engine</a>
+        <a href="index.html#download">Download .DMG</a>
+      </nav>
+
+      <div class="nav-cta">
+        <a href="https://github.com/symbioticllc/treeviewea-web/releases/latest/download/TreeviewEA-0.9.1-macOS-arm64.dmg" class="btn btn-primary">
+          <span> Download macOS .DMG</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="pill-badge">
+          <span class="pill-dot"></span>
+          <span>TreeviewEA v0.9.1 for macOS — 10 Built-In Frameworks · Smart Diagram Canvas · AI Architecture Co-Pilot</span>
+        </div>
+
+        <h1>
+          Design, Govern &amp; Modernize Your<br />
+          <span class="gradient-text">Enterprise Architecture in Minutes</span>
+        </h1>
+
+        <p>
+          Connect business outcomes, uncontested market strategy, and capabilities directly to applications, data models, security controls, and cloud infrastructure.
+          Includes 1-click starter blueprints for <strong>Value Innovation &amp; Market Strategy (ERRC &amp; PMS)</strong>, <strong>CMMI® v3.0</strong>, <strong>Gartner EA (PACE &amp; TIME)</strong>, <strong>BizBOK® v14</strong>, <strong>SABSA® Security</strong>,
+          <strong>NIST CSF 2.0</strong>, <strong>TOGAF® 10</strong>, <strong>ArchiMate® 3.2</strong>, <strong>BIAN v12</strong>, and <strong>ISO 20022</strong>.
+        </p>
+
+        <div class="hero-actions">
+          <a href="https://github.com/symbioticllc/treeviewea-web/releases/latest/download/TreeviewEA-0.9.1-macOS-arm64.dmg" class="btn btn-primary btn-lg">
+            <span> Download TreeviewEA 0.9.1 (.DMG)</span>
+          </a>
+          <a href="documentation.html" class="btn btn-lg">
+            <span>📖 First-Time User Guide →</span>
+          </a>
+          <a href="taxonomy.html" class="btn btn-lg">
+            <span>🧭 Frameworks &amp; Element Guide →</span>
+          </a>
+        </div>
+
+        <div class="hero-meta">
+          <span>✓ Drag-and-Drop macOS App (.DMG)</span>
+          <span>✓ 10 Strategy, Architecture &amp; Security Frameworks</span>
+          <span>✓ Portable Single-File <code>.tvwx</code> Projects</span>
+          <span>✓ Claude Desktop &amp; Cursor AI Integration</span>
+        </div>
+
+        <!-- Interactive Live Preview Window -->
+        <div class="studio-preview-wrap">
+          <div class="studio-window">
+            <div class="window-titlebar">
+              <div style="display:flex; align-items:center; gap:12px;">
+                <div class="window-dots">
+                  <span class="window-dot" style="background:#f43f5e;"></span>
+                  <span class="window-dot" style="background:#f59e0b;"></span>
+                  <span class="window-dot" style="background:#10b981;"></span>
+                </div>
+                <span style="font-family:var(--font-mono); font-size:12px; color:#93c5fd;">
+                  TreeviewEA Studio — Enterprise-Modernization-Blueprint.tvwx
+                </span>
+              </div>
+              <div class="preview-tabs" role="tablist">
+                <button type="button" class="preview-tab active" data-preview-target="pane-canvas">🎨 Interactive Diagram Studio</button>
+                <button type="button" class="preview-tab" data-preview-target="pane-matrix">🧭 6×6 Architecture Alignment Matrix</button>
+                <button type="button" class="preview-tab" data-preview-target="pane-objects">📦 Central Element Catalog</button>
+              </div>
+            </div>
+
+            <!-- Preview Pane 1: Interactive Canvas SVG Showcase -->
+            <div class="preview-pane active" id="pane-canvas">
+              <div style="display:grid; grid-template-columns: 2.1fr 1fr; gap:18px; align-items:stretch;">
+                <div style="background:#111a2e; border:1px solid var(--border-subtle); border-radius:12px; padding:16px; position:relative; overflow:hidden;">
+                  <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; font-size:12px; color:var(--text-secondary);">
+                    <span>✨ <strong>Smart Canvas:</strong> Double-Click Rename (<code>F2</code>), Package Drop-In Nesting (<code>«contains»</code>), Edge Snap &amp; 360° Rotation</span>
+                    <span style="font-family:var(--font-mono); color:#38bdf8;">Zoom: 100% · Snap: 15°</span>
+                  </div>
+                  <svg viewBox="0 0 760 320" style="width:100%; height:auto; background:#0d1526; border-radius:8px; border:1px solid rgba(56,189,248,0.2);">
+                    <defs>
+                      <marker id="arrow-sky" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                        <path d="M 0 1 L 10 5 L 0 9 z" fill="#38bdf8" />
+                      </marker>
+                      <marker id="arrow-emerald" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                        <path d="M 0 1 L 10 5 L 0 9 z" fill="#10b981" />
+                      </marker>
+                    </defs>
+                    <!-- Package Container -->
+                    <rect x="24" y="22" width="136" height="22" rx="4" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5" />
+                    <text x="34" y="37" fill="#fcd34d" font-size="10" font-weight="700" font-family="monospace">📁 Transaction Hub</text>
+                    <rect x="24" y="42" width="320" height="252" rx="8" fill="rgba(30,41,59,0.45)" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="6,4" />
+                    <text x="38" y="64" fill="#fde68a" font-size="11" font-weight="700">📦 Transaction Hub Core («contains»)</text>
+
+                    <!-- Nested Child 1 -->
+                    <rect x="48" y="82" width="270" height="76" rx="8" fill="#172554" stroke="#38bdf8" stroke-width="2" />
+                    <text x="64" y="104" fill="#7dd3fc" font-size="10" font-family="monospace">«ServiceDomain»</text>
+                    <text x="64" y="124" fill="#f8fafc" font-size="13" font-weight="700">Payment Execution Router</text>
+                    <text x="64" y="144" fill="#93c5fd" font-size="10" font-family="monospace">📦 Auto-Nested · ISO 20022 pacs.008</text>
+
+                    <!-- Nested Child 2 -->
+                    <rect x="48" y="192" width="270" height="76" rx="8" fill="#064e3b" stroke="#10b981" stroke-width="1.8" />
+                    <text x="64" y="214" fill="#6ee7b7" font-size="10" font-family="monospace">«ISO20022Message»</text>
+                    <text x="64" y="234" fill="#f8fafc" font-size="13" font-weight="700">pacs.008 Credit Transfer</text>
+                    <text x="64" y="254" fill="#a7f3d0" font-size="10" font-family="monospace">CdtTrfTxInf/Dbtr · XchgRateInf</text>
+
+                    <!-- Rotated Decision / Gateway Node with Rotation Handle -->
+                    <g transform="rotate(-15, 585, 125)">
+                      <line x1="585" y1="80" x2="585" y2="56" stroke="#38bdf8" stroke-width="1.6" stroke-dasharray="2,2" />
+                      <circle cx="585" cy="50" r="8" fill="#0f172a" stroke="#38bdf8" stroke-width="2" />
+                      <text x="585" y="53.5" text-anchor="middle" fill="#38bdf8" font-size="10" font-weight="800">↻</text>
+                      <rect x="475" y="80" width="220" height="90" rx="10" fill="#2e1065" stroke="#a855f7" stroke-width="2.2" />
+                      <text x="492" y="104" fill="#d8b4fe" font-size="10" font-family="monospace">«SystemOfDifferentiation»</text>
+                      <text x="492" y="126" fill="#ffffff" font-size="13" font-weight="700">Settlement Rail Gateway</text>
+                      <text x="492" y="146" fill="#c4b5fd" font-size="10" font-family="monospace">FedNow · RTP · SWIFT ISO 20022</text>
+                      <rect x="481" y="152" width="38" height="14" rx="3.5" fill="#0f172a" stroke="#38bdf8" stroke-width="1" />
+                      <text x="500" y="162" text-anchor="middle" fill="#7dd3fc" font-size="8.5" font-weight="700" font-family="monospace">↻345°</text>
+                    </g>
+
+                    <!-- Edge-Point Snapped Connector -->
+                    <path d="M 318 120 L 474 120" stroke="#38bdf8" stroke-width="2.2" fill="none" marker-end="url(#arrow-sky)" />
+                    <circle cx="474" cy="120" r="5" fill="#10b981" stroke="#fff" stroke-width="1.5" />
+                    <rect x="352" y="96" width="108" height="18" rx="4" fill="#064e3b" stroke="#10b981" stroke-width="1" />
+                    <text x="406" y="108" text-anchor="middle" fill="#a7f3d0" font-size="9.5" font-family="monospace">🎯 Edge-Point Snap</text>
+
+                    <!-- Body Auto-Snapped Connector -->
+                    <path d="M 183 158 L 183 192" stroke="#10b981" stroke-width="2" stroke-dasharray="5,3" fill="none" marker-end="url(#arrow-emerald)" />
+                  </svg>
+                </div>
+
+                <div style="display:flex; flex-direction:column; gap:12px;">
+                  <div style="background:#111a2e; border:1px solid var(--border-subtle); border-radius:12px; padding:16px;">
+                    <div style="font-size:11px; font-family:var(--font-mono); color:#38bdf8; text-transform:uppercase; margin-bottom:6px;">Drag-and-Drop Nesting</div>
+                    <h4 style="font-size:15px; margin-bottom:6px;">Automatic Package Containment</h4>
+                    <p style="font-size:13px; color:var(--text-secondary);">
+                      Drag any element into a Package boundary on the canvas to automatically group it inside and create a formal <code>«contains»</code> relationship. Drag it out at any time to detach.
+                    </p>
+                  </div>
+                  <div style="background:#111a2e; border:1px solid var(--border-subtle); border-radius:12px; padding:16px;">
+                    <div style="font-size:11px; font-family:var(--font-mono); color:#a78bfa; text-transform:uppercase; margin-bottom:6px;">In-Line Rename &amp; 360° Rotation</div>
+                    <h4 style="font-size:15px; margin-bottom:6px;">Fast, Intuitive Canvas Editing</h4>
+                    <p style="font-size:13px; color:var(--text-secondary);">
+                      <strong>Double-click</strong> any shape (or press <code>F2</code>) to rename it right on the canvas. Drag the top <code>↻</code> handle to rotate in 15° increments (or hold <code>Shift</code> for 1° precision).
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Preview Pane 2: 6x6 Orthogonal Matrix Interactive Preview -->
+            <div class="preview-pane" id="pane-matrix">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; flex-wrap:wrap; gap:10px;">
+                <div>
+                  <strong style="color:#f8fafc; font-size:14.5px;">🧭 36-Cell 6×6 Architecture Alignment Matrix (Perspectives × Dimensions)</strong>
+                  <p style="font-size:12.5px; color:var(--text-secondary);">Click any cell below to see how TreeviewEA organizes elements from Executive Strategy down to Cloud Operations across all 10 frameworks.</p>
+                </div>
+                <span id="matrix-live-pill" style="font-family:var(--font-mono); font-size:12px; padding:5px 12px; border-radius:8px; background:rgba(16,185,129,0.16); border:1px solid rgba(16,185,129,0.4); color:#6ee7b7;">
+                  Selected: R3:C1 — Logical Data Model (Canonical Transaction Hub Object)
+                </span>
+              </div>
+              <div style="overflow-x:auto;">
+                <table class="matrix-table">
+                  <thead>
+                    <tr>
+                      <th>Perspective \ Dimension</th>
+                      <th>C1: WHAT (Data)</th>
+                      <th>C2: HOW (Function)</th>
+                      <th>C3: WHERE (Network)</th>
+                      <th>C4: WHO (Actors)</th>
+                      <th>C5: WHEN (Events)</th>
+                      <th>C6: WHY (Motivation)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="row-hdr">R1: Executive Scope</td>
+                      <td class="matrix-cell" data-cell-info="R1:C1 — Core Business Entities &amp; Domain Glossary"><span class="cell-id">R1:C1</span><span class="cell-name">Domain Entities</span></td>
+                      <td class="matrix-cell" data-cell-info="R1:C2 — BizBOK Value Streams &amp; Executive Capabilities"><span class="cell-id">R1:C2</span><span class="cell-name">Value Streams</span></td>
+                      <td class="matrix-cell" data-cell-info="R1:C3 — Global Operating Regions &amp; SABSA Threat Domains"><span class="cell-id">R1:C3</span><span class="cell-name">Operating Regions</span></td>
+                      <td class="matrix-cell" data-cell-info="R1:C4 — Business Units, Stakeholders &amp; Regulators"><span class="cell-id">R1:C4</span><span class="cell-name">Business Units</span></td>
+                      <td class="matrix-cell" data-cell-info="R1:C5 — Gartner Transition Waves &amp; Strategic Horizons"><span class="cell-id">R1:C5</span><span class="cell-name">Transition Waves</span></td>
+                      <td class="matrix-cell" data-cell-info="R1:C6 — Gartner Business Outcomes, SABSA Risk Attributes &amp; NIST Govern (GV)"><span class="cell-id">R1:C6</span><span class="cell-name">Business Outcomes</span></td>
+                    </tr>
+                    <tr>
+                      <td class="row-hdr">R2: Business Concepts</td>
+                      <td class="matrix-cell" data-cell-info="R2:C1 — BizBOK Information Concepts &amp; BIAN Control Records"><span class="cell-id">R2:C1</span><span class="cell-name">Information Concepts</span></td>
+                      <td class="matrix-cell" data-cell-info="R2:C2 — BizBOK Capabilities, Value Stages &amp; BIAN Service Domains"><span class="cell-id">R2:C2</span><span class="cell-name">Capabilities &amp; BIAN</span></td>
+                      <td class="matrix-cell" data-cell-info="R2:C3 — SABSA Trust Boundaries &amp; Business Channels"><span class="cell-id">R2:C3</span><span class="cell-name">Trust Boundaries</span></td>
+                      <td class="matrix-cell" data-cell-info="R2:C4 — Domain Owners, Stewards &amp; Business Actors"><span class="cell-id">R2:C4</span><span class="cell-name">Role Taxonomy</span></td>
+                      <td class="matrix-cell" data-cell-info="R2:C5 — Business Events, Cutoffs &amp; Initiative Milestones"><span class="cell-id">R2:C5</span><span class="cell-name">Business Events</span></td>
+                      <td class="matrix-cell" data-cell-info="R2:C6 — BizBOK Business Policies, SABSA Control Objectives &amp; NIST Identify (ID)"><span class="cell-id">R2:C6</span><span class="cell-name">Control Objectives</span></td>
+                    </tr>
+                    <tr>
+                      <td class="row-hdr">R3: System Logic</td>
+                      <td class="matrix-cell selected" data-cell-info="R3:C1 — Canonical Payment Object, ISO 20022 Messages &amp; SABSA Protected Assets"><span class="cell-id">R3:C1</span><span class="cell-name">Canonical Schema</span></td>
+                      <td class="matrix-cell" data-cell-info="R3:C2 — Gartner PACE Systems (Innovation/Differentiation/Record) &amp; SABSA Security Services"><span class="cell-id">R3:C2</span><span class="cell-name">PACE App Systems</span></td>
+                      <td class="matrix-cell" data-cell-info="R3:C3 — Service Mesh, Zero-Trust Zones &amp; API Gateways"><span class="cell-id">R3:C3</span><span class="cell-name">Security Zones</span></td>
+                      <td class="matrix-cell" data-cell-info="R3:C4 — NIST Zero-Trust Access Control (AC/IA) &amp; RACI Roles"><span class="cell-id">R3:C4</span><span class="cell-name">Zero-Trust Access</span></td>
+                      <td class="matrix-cell" data-cell-info="R3:C5 — Sequence Flows, Sagas &amp; State Machines"><span class="cell-id">R3:C5</span><span class="cell-name">Sequence Flows</span></td>
+                      <td class="matrix-cell" data-cell-info="R3:C6 — Gartner TIME Dispositions, NIST Protect (PR) &amp; SABSA Policies"><span class="cell-id">R3:C6</span><span class="cell-name">TIME &amp; NIST Protect</span></td>
+                    </tr>
+                    <tr>
+                      <td class="row-hdr">R4: Technology &amp; Ops</td>
+                      <td class="matrix-cell" data-cell-info="R4:C1 — Physical SQL Tables, SABSA Security Schemas &amp; Cryptographic Protection (SC-8/28)"><span class="cell-id">R4:C1</span><span class="cell-name">Database Tables</span></td>
+                      <td class="matrix-cell" data-cell-info="R4:C2 — Microservices, SABSA Security Mechanisms &amp; NIST Detect/Respond (DE/RS)"><span class="cell-id">R4:C2</span><span class="cell-name">Runtime Services</span></td>
+                      <td class="matrix-cell" data-cell-info="R4:C3 — AWS VPCs, EKS Clusters, Subnets &amp; Cloud Nodes"><span class="cell-id">R4:C3</span><span class="cell-name">AWS Cloud Nodes</span></td>
+                      <td class="matrix-cell" data-cell-info="R4:C4 — IAM Principals, mTLS Certificates &amp; SRE Operators"><span class="cell-id">R4:C4</span><span class="cell-name">IAM Principals</span></td>
+                      <td class="matrix-cell" data-cell-info="R4:C5 — SABSA Incident Playbooks, Kafka Streams &amp; NIST Recover (RC)"><span class="cell-id">R4:C5</span><span class="cell-name">Incident &amp; Recovery</span></td>
+                      <td class="matrix-cell" data-cell-info="R4:C6 — NIST Audit &amp; Accountability (AU/SI), SABSA Assurance Trails &amp; FinOps Metrics"><span class="cell-id">R4:C6</span><span class="cell-name">Audit &amp; FinOps</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Preview Pane 3: High-Contrast Central Object Catalog -->
+            <div class="preview-pane" id="pane-objects">
+              <div style="background:#0d1526; border:1px solid var(--border-subtle); border-radius:12px; padding:16px;">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
+                  <span style="font-weight:700; color:#f8fafc;">📦 Central Element Catalog — Auto-Numbered Taxonomies (with 1-Click Override) &amp; Instant Sync</span>
+                  <span style="font-size:12px; color:#6ee7b7; font-family:var(--font-mono);">✓ Auto 1.0 → 1.1 → 1.1.1 · Custom Override · ↻ Auto Reset</span>
+                </div>
+                <table style="width:100%; border-collapse:collapse; font-size:12.5px;">
+                  <thead>
+                    <tr style="border-bottom:1px solid var(--border-subtle); color:var(--text-muted); text-align:left;">
+                      <th style="padding:8px;">ID</th>
+                      <th style="padding:8px;">Taxonomy # (Auto / Override)</th>
+                      <th style="padding:8px;">Element Name</th>
+                      <th style="padding:8px;">Element Type</th>
+                      <th style="padding:8px;">Framework Stereotype «»</th>
+                      <th style="padding:8px;">Project Folder</th>
+                      <th style="padding:8px;">Lifecycle Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr style="border-bottom:1px solid rgba(148,163,184,0.12);">
+                      <td style="padding:8px; font-family:var(--font-mono); color:#94a3b8;">#108</td>
+                      <td style="padding:8px; font-family:var(--font-mono);"><span style="background:rgba(16,185,129,0.14); border:1px solid rgba(16,185,129,0.4); color:#6ee7b7; padding:3px 8px; border-radius:5px; font-weight:700;">APP-2.1</span> <span style="font-size:10.5px; color:#94a3b8;">Auto</span></td>
+                      <td style="padding:8px; font-weight:700; color:#f8fafc;">💠 Payment Execution Router</td>
+                      <td style="padding:8px;"><span style="display:inline-block; background:#0d182e; border:1.5px solid #38bdf8; color:#7dd3fc; padding:4px 12px; border-radius:6px; font-weight:600;">Component ▾</span></td>
+                      <td style="padding:8px; color:#38bdf8; font-family:var(--font-mono);">«ServiceDomain»</td>
+                      <td style="padding:8px;"><span style="display:inline-block; background:#0d182e; border:1.5px solid #60a5fa; color:#f8fafc; padding:4px 12px; border-radius:6px; font-weight:600;">Transaction Hub Core ▾</span></td>
+                      <td style="padding:8px;"><span style="display:inline-block; background:#0d182e; border:1.5px solid #10b981; color:#6ee7b7; padding:4px 12px; border-radius:6px; font-weight:600;">Implemented ▾</span></td>
+                    </tr>
+                    <tr>
+                      <td style="padding:8px; font-family:var(--font-mono); color:#94a3b8;">#114</td>
+                      <td style="padding:8px; font-family:var(--font-mono);"><span style="background:rgba(245,158,11,0.16); border:1px solid rgba(245,158,11,0.45); color:#fcd34d; padding:3px 8px; border-radius:5px; font-weight:700;">ISO-PACS-008</span> <span style="font-size:10.5px; color:#fcd34d;">Custom Override · ↻ Auto</span></td>
+                      <td style="padding:8px; font-weight:700; color:#f8fafc;">💳 Canonical Payment Object</td>
+                      <td style="padding:8px;"><span style="display:inline-block; background:#0d182e; border:1.5px solid #38bdf8; color:#7dd3fc; padding:4px 12px; border-radius:6px; font-weight:600;">Class ▾</span></td>
+                      <td style="padding:8px; color:#38bdf8; font-family:var(--font-mono);">«TransactionHubObject»</td>
+                      <td style="padding:8px;"><span style="display:inline-block; background:#0d182e; border:1.5px solid #60a5fa; color:#f8fafc; padding:4px 12px; border-radius:6px; font-weight:600;">Canonical Data ▾</span></td>
+                      <td style="padding:8px;"><span style="display:inline-block; background:#0d182e; border:1.5px solid #10b981; color:#6ee7b7; padding:4px 12px; border-radius:6px; font-weight:600;">Approved ▾</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Key Metrics Strip -->
+        <div class="stats-bar">
+          <div class="stat-card">
+            <div class="stat-val">10 Frameworks</div>
+            <div class="stat-lbl">Value Innovation, CMMI v3.0, Gartner, BizBOK, SABSA, NIST, TOGAF, ArchiMate, BIAN &amp; ISO 20022</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-val">12+ Diagrams</div>
+            <div class="stat-lbl">Capabilities, UML, ERD, Sequence, ArchiMate, BPMN &amp; AWS Cloud</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-val">36-Cell Matrix</div>
+            <div class="stat-lbl">6×6 Enterprise Alignment &amp; End-to-End Traceability</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-val">AI Co-Pilot</div>
+            <div class="stat-lbl">4-Agent Review Board + Claude Desktop &amp; Cursor Integration</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Studio Capabilities Bento Grid -->
+    <section class="section" id="features">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-eyebrow">Built for Enterprise, Business, Solution &amp; Security Architects</div>
+          <h2>Everything You Need to Model, Govern &amp; Present Your Architecture</h2>
+          <p>
+            Unlike static drawing whiteboards, every shape you place in TreeviewEA is a reusable architecture element with attributes, relationships, cost metrics, and full <code>⌘Z</code> / <code>⇧⌘Z</code> undo/redo history.
+          </p>
+        </div>
+
+        <div class="bento-grid">
+          <div class="bento-card span-2">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M3 21h18"/><path d="M5 21V8l7-5 7 5v13"/><path d="M9 21v-8h6v8"/><path d="M9 10h6"/></svg>
+            </div>
+            <h3>10 Strategy, Architecture &amp; Security Frameworks Ready in 1 Click</h3>
+            <p>
+              Start from a blank canvas or scaffold a complete multi-layer project in seconds. TreeviewEA ships with built-in templates, shape palettes, and guided workflows for <strong>Value Innovation &amp; Market Strategy (ERRC, Strategy Canvas &amp; PMS)</strong>, <strong>CMMI® v3.0 Maturity &amp; Practice Areas</strong>, <strong>Gartner EA (PACE &amp; TIME)</strong>, <strong>BizBOK® v14 Business Architecture</strong>, <strong>SABSA® 6×6 Security Architecture</strong>, <strong>NIST CSF 2.0 &amp; SP 800-53 Rev. 5</strong>, <strong>TOGAF® 10 ADM</strong>, <strong>ArchiMate® 3.2</strong>, <strong>BIAN v12 Banking</strong>, and <strong>Transaction Hub / ISO 20022</strong>.
+            </p>
+            <div class="code-Tags">
+              <span class="code-tag">Value Innovation (ERRC &amp; PMS)</span>
+              <span class="code-tag">CMMI® v3.0</span>
+              <span class="code-tag">Gartner EA (PACE &amp; TIME)</span>
+              <span class="code-tag">BizBOK® v14</span>
+              <span class="code-tag">SABSA® 6×6 Security</span>
+              <span class="code-tag">NIST CSF 2.0 / SP 800-53</span>
+              <span class="code-tag">BIAN v12</span>
+              <span class="code-tag">TOGAF 10</span>
+              <span class="code-tag">ArchiMate 3.2</span>
+              <span class="code-tag">Transaction Hub / ISO 20022</span>
+            </div>
+          </div>
+
+          <div class="bento-card">
+            <div class="card-icon" style="color:#a78bfa; border-color:rgba(167,139,250,0.4); background:linear-gradient(135deg,rgba(139,92,246,0.18),rgba(59,130,246,0.12));" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><path d="M10 6.5h4"/><path d="M17.5 10v4"/><path d="M6.5 10v4"/></svg>
+            </div>
+            <h3>Smart Canvas, Auto-Numbered Taxonomies &amp; 360° Rotation</h3>
+            <p>
+              Every element is automatically assigned a hierarchical taxonomy number (<code>CAP-1.1 → CAP-1.1.1</code>, <code>APP-2.1</code>, <code>ERRC-1.1</code>) that cascades when you drag-and-drop nest it inside a parent Package (<code>«contains»</code>)—with 1-click custom override anytime. <strong>Double-click</strong> any shape (or press <code>F2</code>) to rename in-line and rotate <code>0°–359°</code>.
+            </p>
+            <div class="code-Tags">
+              <span class="code-tag">Auto Taxonomy # (1-Click Override)</span>
+              <span class="code-tag">Double-Click Rename</span>
+              <span class="code-tag">Auto Package Nesting</span>
+            </div>
+          </div>
+
+          <div class="bento-card">
+            <div class="card-icon" style="color:#34d399; border-color:rgba(52,211,153,0.4); background:linear-gradient(135deg,rgba(16,185,129,0.18),rgba(6,182,212,0.12));" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="12" r="2.5"/><circle cx="5" cy="19" r="2"/><circle cx="12" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M10.5 7L7.5 10"/><path d="M13.5 7l3 3"/><path d="M6 14.5L5 17"/><path d="M7.5 14l3.5 3.5"/><path d="M18 14.5l1 2.5"/></svg>
+            </div>
+            <h3>End-to-End Traceability &amp; 6×6 Matrix</h3>
+            <p>
+              Trace how strategic <strong>Business Outcomes</strong> and <strong>Capabilities</strong> are realized by <strong>Applications</strong>, <strong>Classes</strong>, <strong>Database Tables</strong>, <strong>Security Controls</strong>, and <strong>AWS Cloud Infrastructure</strong>—and visualize blast radius in one click.
+            </p>
+            <div class="code-Tags">
+              <span class="code-tag">Strategy → Infra Lineage</span>
+              <span class="code-tag">36-Cell 6×6 Matrix</span>
+              <span class="code-tag">Impact Analysis</span>
+            </div>
+          </div>
+
+          <div class="bento-card">
+            <div class="card-icon" style="color:#fbbf24; border-color:rgba(251,191,36,0.4); background:linear-gradient(135deg,rgba(245,158,11,0.18),rgba(16,185,129,0.12));" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 16l4-5 4 3 5-7"/><circle cx="20" cy="7" r="1.5"/></svg>
+            </div>
+            <h3>Gartner TIME Portfolio, Roadmaps &amp; FinOps</h3>
+            <p>
+              Score applications across <strong>Invest, Tolerate, Migrate, and Eliminate</strong>, plan <code>1…M</code> transition waves, estimate engineering effort with Three-Point PERT &amp; rate cards, and roll up CapEx, OpEx, and annual savings for executive leadership.
+            </p>
+            <div class="code-Tags">
+              <span class="code-tag">TIME Quadrant</span>
+              <span class="code-tag">1…M Transition Waves</span>
+              <span class="code-tag">CapEx / OpEx / Savings</span>
+            </div>
+          </div>
+
+          <div class="bento-card">
+            <div class="card-icon" style="color:#38bdf8; border-color:rgba(56,189,248,0.4); background:linear-gradient(135deg,rgba(56,189,248,0.18),rgba(139,92,246,0.15));" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 3l1.9 4.6L18.5 9.5l-4.6 1.9L12 16l-1.9-4.6L5.5 9.5l4.6-1.9L12 3z"/><path d="M19 15l.9 2.1L22 18l-2.1.9L19 21l-.9-2.1L16 18l2.1-.9L19 15z"/><path d="M5 16l.7 1.6L7.3 18.3l-1.6.7L5 20.6l-.7-1.6-1.6-.7 1.6-.7L5 16z"/></svg>
+            </div>
+            <h3>AI Architecture Co-Pilot &amp; Review Board</h3>
+            <p>
+              Run a 1-click <strong>4-Specialist Architecture Review Board (ARB)</strong> to spot missing links or governance gaps, or connect <strong>Claude Desktop</strong> and <strong>Cursor</strong> via the built-in MCP server to generate diagrams and reports by natural-language prompt.
+            </p>
+            <div class="code-Tags">
+              <span class="code-tag">Claude &amp; Cursor Co-Pilot</span>
+              <span class="code-tag">4-Agent ARB Audit</span>
+              <span class="code-tag">1-Click Auto-Fix</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portable Multi-Backend Architecture -->
+    <section class="section" id="backends">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-eyebrow">Flexible Project Storage &amp; Publishing</div>
+          <h2>Start With a Simple Local File — Scale to Team Databases Anytime</h2>
+          <p>
+            Every project starts as a self-contained <code>.tvwx</code> file on your Mac that you can save, back up, or share with colleagues—and you can connect to enterprise databases or export executive books whenever you need.
+          </p>
+        </div>
+
+        <div class="bento-grid">
+          <div class="bento-card">
+            <h3>📁 Portable Single-File <code>.tvwx</code> Projects</h3>
+            <p>Work offline with zero database setup. Create instant point-in-time snapshots, or open existing legacy model archives (<code>.qea</code> / <code>.eapx</code>) and CSV/Excel inventories directly.</p>
+            <div class="code-Tags"><span class="code-tag">.tvwx Project File</span><span class="code-tag">.qea / .eapx &amp; Excel Import</span></div>
+          </div>
+          <div class="bento-card">
+            <h3>🐘 Team SQL Databases &amp; Live AWS Import</h3>
+            <p>Connect to PostgreSQL, MySQL, or Redis for multi-architect collaboration, generate production SQL DDL scripts from your data models, or import live AWS VPC, EKS, RDS, and Lambda topologies.</p>
+            <div class="code-Tags"><span class="code-tag">PostgreSQL &amp; MySQL</span><span class="code-tag">Live AWS Discovery</span></div>
+          </div>
+          <div class="bento-card">
+            <h3>📤 One-Click Executive Dossiers &amp; Exports</h3>
+            <p>Publish interactive HTML specification portals, multi-page vector PDF architecture books, Markdown docs, or export diagrams to draw.io, Microsoft Visio, OmniGraffle, Mermaid, PlantUML, PNG, and SVG.</p>
+            <div class="code-Tags"><span class="code-tag">HTML &amp; PDF Books</span><span class="code-tag">Visio · draw.io · Mermaid</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Documentation & Metamodel Taxonomy Portal Section -->
+    <section class="section" id="docs-portal">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-eyebrow">New User Onboarding &amp; Practical Guides</div>
+          <h2>Learn How to Use TreeviewEA Step by Step</h2>
+          <p>
+            Whether you are installing TreeviewEA for the first time, choosing the right enterprise framework for your initiative, or connecting Claude Desktop as an AI co-pilot, our guides walk you through every workflow.
+          </p>
+        </div>
+
+        <div class="bento-grid">
+          <a href="documentation.html" class="bento-card" style="text-decoration:none;">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><path d="M8 7h8"/><path d="M8 11h6"/></svg>
+            </div>
+            <h3>First-Time User &amp; Studio Guide</h3>
+            <p>
+              Step-by-step installation, creating your first project, touring the 4-panel Studio, using all 10 frameworks (Value Innovation &amp; Market Strategy, CMMI v3.0, Gartner EA, BizBOK v14, SABSA, NIST CSF 2.0, TOGAF 10, ArchiMate 3.2, BIAN v12, ISO 20022), working with elements &amp; connectors, and publishing reports.
+            </p>
+            <div class="code-Tags">
+              <span class="code-tag">Getting Started</span>
+              <span class="code-tag">Using the 10 Frameworks</span>
+              <span class="code-tag">Canvas &amp; Elements</span>
+              <span class="code-tag">Read User Guide →</span>
+            </div>
+          </a>
+
+          <a href="taxonomy.html" class="bento-card" style="text-decoration:none;">
+            <div class="card-icon" style="color:#34d399; border-color:rgba(52,211,153,0.4);" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 12 12 17 22 12"/><polyline points="2 17 12 22 22 17"/></svg>
+            </div>
+            <h3>Framework &amp; Element Taxonomy Guide</h3>
+            <p>
+              Practical blueprint guide showing how to connect <strong>Business Capabilities</strong> and <strong>Value Streams</strong> down to <strong>PACE Applications</strong>, <strong>Classes</strong>, <strong>Database Tables</strong>, <strong>Security Controls</strong>, and <strong>Cloud Infrastructure</strong> across <code>1…M</code> transition waves.
+            </p>
+            <div class="code-Tags">
+              <span class="code-tag">Layer-by-Layer Blueprints</span>
+              <span class="code-tag">1…M Roadmap Plans</span>
+              <span class="code-tag">Element Stereotypes</span>
+              <span class="code-tag">Explore Taxonomy →</span>
+            </div>
+          </a>
+
+          <a href="mcp-reference.html" class="bento-card" style="text-decoration:none;">
+            <div class="card-icon" style="color:#a78bfa; border-color:rgba(167,139,250,0.4);" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3"/><rect x="9" y="9" width="6" height="6" rx="1"/><path d="M9 1v3"/><path d="M15 1v3"/><path d="M9 20v3"/><path d="M15 20v3"/><path d="M20 9h3"/><path d="M20 14h3"/><path d="M1 9h3"/><path d="M1 14h3"/></svg>
+            </div>
+            <h3>AI Co-Pilot, 6×6 Matrix &amp; MCP Guide</h3>
+            <p>
+              Learn how to connect <strong>Claude Desktop</strong>, <strong>Cursor</strong>, or custom AI agents to TreeviewEA in 2 minutes, use ready-made prompts to scaffold architectures, run the <strong>4-Agent Review Board (ARB)</strong>, and explore the 36-cell <strong>6×6 Alignment Matrix</strong>.
+            </p>
+            <div class="code-Tags">
+              <span class="code-tag">2-Min Claude / Cursor Setup</span>
+              <span class="code-tag">6×6 Matrix Explorer</span>
+              <span class="code-tag">42 AI Tools Catalog</span>
+              <span class="code-tag">Open AI Guide →</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Feature Comparison Table -->
+    <section class="section" id="comparison">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-eyebrow">Why Architects Choose TreeviewEA</div>
+          <h2>True Repository Modeling Meets Effortless Modern UX</h2>
+          <p>Purpose-built to replace clunky Windows-only legacy modelers and disconnected drawing whiteboards.</p>
+        </div>
+
+        <div tabindex="0" role="region" aria-label="Feature Comparison Table" class="comp-table-wrap">
+          <table class="comp-table">
+            <thead>
+              <tr>
+                <th>Capability</th>
+                <th class="highlight-col">TreeviewEA v0.9.1</th>
+                <th>Legacy Desktop EA Tools</th>
+                <th>Cloud Drawing Whiteboards</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>10 Built-In Frameworks (Value Innovation, CMMI v3.0, Gartner, BizBOK, SABSA, NIST, TOGAF, ArchiMate, BIAN, ISO 20022)</th>
+                <td class="highlight-col">✓ 1-Click Project Scaffolding &amp; Dedicated Toolboxes</td>
+                <td>Complex manual XML/MDG add-ins</td>
+                <td>✕ Static stencil shapes only</td>
+              </tr>
+              <tr>
+                <th>Central Element Catalog &amp; Auto-Numbered Taxonomies (with 1-Click Override)</th>
+                <td class="highlight-col">✓ Auto 1.0 → 1.1 → 1.1.1 Taxonomy Numbering, Custom Override &amp; Instant Sync</td>
+                <td>Manual numbering &amp; buried multi-dialog property sheets</td>
+                <td>✕ Copy-pasted shapes drift out of sync</td>
+              </tr>
+              <tr>
+                <th>Smart Canvas (In-Line Rename, Auto Package Nesting &amp; 360° Rotation)</th>
+                <td class="highlight-col">✓ Double-Click / F2 Rename, Auto «contains», Edge Snap &amp; Rotate</td>
+                <td>Rigid manual connectors &amp; modal-only edits</td>
+                <td>Visual-only grouping (no model hierarchy)</td>
+              </tr>
+              <tr>
+                <th>Gartner TIME Portfolio, 1…M Roadmaps &amp; FinOps Rollups</th>
+                <td class="highlight-col">✓ Built-in TIME Quadrant, PERT Estimates &amp; CapEx/OpEx/Savings</td>
+                <td>Requires separate portfolio add-on</td>
+                <td>✕ Manual spreadsheets required</td>
+              </tr>
+              <tr>
+                <th>AI Co-Pilot (Claude Desktop, Cursor &amp; 4-Agent Review Board)</th>
+                <td class="highlight-col">✓ Built-in 4-Agent ARB + 42-Tool MCP Server</td>
+                <td>✕ None</td>
+                <td>Basic text sticky-note generators</td>
+              </tr>
+              <tr>
+                <th>Installation &amp; Project Portability</th>
+                <td class="highlight-col">✓ Native macOS App + Portable .tvwx Files + SQL/Redis Sync</td>
+                <td>Windows-only installers &amp; locked DBs</td>
+                <td>Cloud-locked subscription only</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Download & Quickstart Section -->
+    <section class="section" id="download">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-eyebrow">First-Time User Quickstart</div>
+          <h2>Download &amp; Start Modeling in 3 Simple Steps</h2>
+          <p>
+            TreeviewEA installs like any native macOS application—no external database servers, Java runtimes, or command-line setup required.
+          </p>
+        </div>
+
+        <div style="display:grid; grid-template-columns: 1fr 1.2fr; gap:24px; align-items:center;">
+          <div class="bento-card" style="padding:32px;">
+            <div style="display:flex; align-items:center; gap:16px; margin-bottom:6px;">
+              <img src="icon-192.png" alt="TreeviewEA macOS App Icon" width="64" height="64" style="width:64px; height:64px; border-radius:15px; border:1px solid rgba(56,189,248,0.45); box-shadow:0 10px 26px rgba(6,182,212,0.35); flex-shrink:0;" />
+              <div>
+                <div style="font-family:var(--font-mono); font-size:12px; color:#6ee7b7; margin-bottom:4px;">LATEST RELEASE · v0.9.1 · APPLE SILICON (ARM64)</div>
+                <h3 style="font-size:22px; margin:0;">TreeviewEA for macOS</h3>
+              </div>
+            </div>
+            <p style="margin-bottom:18px;">
+              Includes the complete macOS Studio application, all 10 Strategy, Enterprise &amp; Security Framework templates, starter architecture blueprints, and the built-in AI Co-Pilot server.
+            </p>
+            <a href="https://github.com/symbioticllc/treeviewea-web/releases/latest/download/TreeviewEA-0.9.1-macOS-arm64.dmg" class="btn btn-primary btn-lg" style="width:100%;">
+              <span> Download TreeviewEA-0.9.1-macOS-arm64.dmg</span>
+            </a>
+          </div>
+
+          <div class="terminal-box">
+            <div class="cmd-comment"># Step 1: Open the downloaded .DMG and drag TreeviewEA.app to /Applications</div>
+            <div><span class="cmd-prompt">1.</span> Double-click <strong>TreeviewEA-0.9.1-macOS-arm64.dmg</strong> and drag <strong>TreeviewEA.app</strong> to <strong>Applications</strong>.</div>
+            <br />
+            <div class="cmd-comment"># Step 2: Launch TreeviewEA and pick a starter template (or Blank Project)</div>
+            <div><span class="cmd-prompt">2.</span> Open <strong>TreeviewEA</strong> → click <strong>🗂️ Project ▾ → New Project (⌘N)</strong> → choose <em>Value Innovation &amp; Market Strategy</em>, <em>CMMI v3.0</em>, <em>Gartner PACE &amp; TIME</em>, <em>BizBOK v14</em>, <em>SABSA Security</em>, <em>NIST CSF 2.0</em>, <em>TOGAF 10</em>, <em>ArchiMate 3.2</em>, <em>BIAN v12</em>, or <em>Blank Project</em>.</div>
+            <br />
+            <div class="cmd-comment"># Step 3: Drag elements onto the canvas, double-click to rename, and connect!</div>
+            <div><span class="cmd-prompt">3.</span> Use the <strong>Left Toolbox</strong> to place elements, <strong>Double-Click</strong> shapes to rename, and click <strong>🏛️ Frameworks</strong> anytime to scaffold new architecture layers.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
+      <div>
+        <strong style="color:var(--text-primary);">TreeviewEA by Treeview Software, LLC</strong>
+        <p style="font-size:12.5px; margin-top:4px;">
+          Enterprise Architecture &amp; Autonomous AI Reasoning Studio.
+        </p>
+      </div>
+      <div style="display:flex; gap:20px; font-size:13px; flex-wrap:wrap;">
+        <a href="documentation.html">Documentation</a>
+        <a href="taxonomy.html">Metamodel &amp; Taxonomy</a>
+        <a href="mcp-reference.html">MCP &amp; AI Engine</a>
+        <a href="#features">Studio Capabilities</a>
+        <a href="#backends">Portable Backends</a>
+        <a href="#download">Download .DMG</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Interactive Studio Preview Tabs
+    document.querySelectorAll("[data-preview-target]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const targetId = btn.getAttribute("data-preview-target");
+        document.querySelectorAll("[data-preview-target]").forEach((b) => b.classList.remove("active"));
+        document.querySelectorAll(".preview-pane").forEach((p) => p.classList.remove("active"));
+        btn.classList.add("active");
+        document.getElementById(targetId)?.classList.add("active");
+      });
+    });
+
+    // Interactive 6x6 Orthogonal Matrix Cell Inspector
+    document.querySelectorAll(".matrix-cell").forEach((cell) => {
+      cell.addEventListener("click", () => {
+        document.querySelectorAll(".matrix-cell").forEach((c) => c.classList.remove("selected"));
+        cell.classList.add("selected");
+        const info = cell.getAttribute("data-cell-info");
+        const pill = document.getElementById("matrix-live-pill");
+        if (pill && info) {
+          pill.textContent = "Selected: " + info;
+        }
+      });
+    });
+  </script>
+</body>
+</html>
