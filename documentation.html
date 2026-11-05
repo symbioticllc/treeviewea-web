@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Documentation — TreeviewEA v2.5.0 Studio &amp; Technical Reference</title>
-  <meta name="description" content="Comprehensive product and technical documentation for TreeviewEA v2.5.0 by Treeview Software, LLC — Quickstart, CLI flags, 11+ Diagram Types, In-Line Rename, Package Containment, 360° Rotation, Central Object Catalog, TOGAF/BIAN/ArchiMate/PayEx/ISO 20022, Live AWS Discovery, TIME/FinOps, WBS PERT Estimation, and 20-Table tview_* Multi-Backend Persistence." />
+  <title>User Guide &amp; Framework Manual — TreeviewEA v2.5.0 Studio</title>
+  <meta name="description" content="Complete User Guide and Onboarding Manual for TreeviewEA v2.5.0 — First-time macOS installation, creating your first project, touring the 4-panel Studio, practical guidance on using all 8 Enterprise &amp; Security Frameworks (Gartner PACE/TIME, BizBOK v14, SABSA 6x6 Security, NIST CSF 2.0 &amp; SP 800-53, TOGAF 10, ArchiMate 3.2, BIAN v12, ISO 20022), modeling elements &amp; connectors, TIME/FinOps portfolio planning, and exporting reports." />
   <meta name="theme-color" content="#070b14" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -850,13 +850,13 @@
         <div>
           <div class="pill-badge">
             <span class="pill-dot"></span>
-            <span>TreeviewEA v2.5.0 Complete Studio &amp; Engine Reference</span>
+            <span>TreeviewEA v2.5.0 — First-Time User Onboarding, Framework Guide &amp; Modeling Manual</span>
           </div>
           <h1>
-            Product &amp; Technical <span class="gradient-text">Documentation</span>
+            Studio User Guide &amp; <span class="gradient-text">Architecture Manual</span>
           </h1>
           <p>
-            The definitive engineering and architect guide to TreeviewEA v2.5.0 — covering native macOS runtime modes, the 4-quadrant infinite Diagram Studio, Central Object Catalog, TOGAF/BIAN/ArchiMate/PayEx/ISO 20022 frameworks, live AWS discovery, TIME/FinOps governance, and the 20-table <code>tview_*</code> multi-backend engine.
+            Welcome to TreeviewEA! This guide walks you through downloading and installing the macOS application for the first time, creating your first project, choosing and using the <strong>8 built-in Enterprise &amp; Security Frameworks</strong> (Gartner EA, BizBOK v14, SABSA, NIST CSF 2.0, TOGAF 10, ArchiMate 3.2, BIAN v12, ISO 20022), working with elements and diagrams on the Smart Canvas, and publishing executive reports.
           </p>
         </div>
       </div>
@@ -867,7 +867,7 @@
           <input
             type="search"
             id="doc-live-search"
-            placeholder="Filter documentation sections, CLI flags, shortcuts, tables, or SQL schemas…"
+            placeholder="Search guides, frameworks (Gartner, BizBOK, SABSA, NIST…), elements, shortcuts, or exports…"
             aria-label="Filter documentation sections and tables"
           />
           <span class="search-shortcut">
@@ -886,40 +886,40 @@
     <!-- Sticky Left Sidebar Navigation -->
     <aside class="doc-sidebar">
       <div class="sidebar-heading">
-        <span>Studio Manual</span>
+        <span>User Guide</span>
         <span>v2.5.0</span>
       </div>
       <nav class="doc-sidebar-nav" aria-label="Documentation Sections">
         <a href="#quickstart" class="target-current" aria-current="true">
           <span class="nav-sec-num">01</span>
-          <span>Quickstart &amp; Runtime Modes</span>
+          <span>Install &amp; First Project</span>
         </a>
         <a href="#diagram-studio">
           <span class="nav-sec-num">02</span>
-          <span>Diagramming Studio &amp; Canvas</span>
+          <span>Diagrams &amp; Smart Canvas</span>
         </a>
         <a href="#object-catalog">
           <span class="nav-sec-num">03</span>
-          <span>Object Catalog &amp; Inspector</span>
+          <span>Elements &amp; Object Catalog</span>
         </a>
         <a href="#frameworks">
           <span class="nav-sec-num">04</span>
-          <span>Frameworks, PayEx &amp; AWS</span>
+          <span>Using the 8 Frameworks</span>
         </a>
         <a href="#governance-finops">
           <span class="nav-sec-num">05</span>
-          <span>Governance, TIME &amp; FinOps</span>
+          <span>Roadmaps, TIME &amp; FinOps</span>
         </a>
         <a href="#backends-exports">
           <span class="nav-sec-num">06</span>
-          <span>20-Table Schema &amp; Exports</span>
+          <span>Saving, Sharing &amp; Exports</span>
         </a>
       </nav>
 
       <div class="sidebar-sub-links">
-        <div style="font-family:var(--font-mono); font-size:10.5px; color:var(--text-muted); padding:0 10px 4px; text-transform:uppercase;">Companion References</div>
-        <a href="taxonomy.html"><span>«» Metamodel &amp; Stereotypes</span><span>→</span></a>
-        <a href="mcp-reference.html"><span>🔌 MCP Tools &amp; 6×6 AI Matrix</span><span>→</span></a>
+        <div style="font-family:var(--font-mono); font-size:10.5px; color:var(--text-muted); padding:0 10px 4px; text-transform:uppercase;">Companion Guides</div>
+        <a href="taxonomy.html"><span>🧭 Framework &amp; Element Taxonomy</span><span>→</span></a>
+        <a href="mcp-reference.html"><span>🤖 AI Co-Pilot &amp; Claude/Cursor</span><span>→</span></a>
         <a href="index.html#download"><span> macOS .DMG Installer</span><span>→</span></a>
       </div>
     </aside>
@@ -928,200 +928,192 @@
     <main class="doc-main" id="doc-main-content">
 
       <!-- ================================================================= -->
-      <!-- SECTION 1: QUICKSTART, INSTALLATION & RUNTIME MODES               -->
+      <!-- SECTION 1: FIRST-TIME INSTALLATION, STUDIO TOUR & FIRST PROJECT   -->
       <!-- ================================================================= -->
       <section class="doc-section" id="quickstart">
         <div class="sec-header">
-          <div class="sec-eyebrow">Section 01 · Architecture &amp; Deployment</div>
-          <h2>Quickstart, Installation &amp; Runtime Modes</h2>
+          <div class="sec-eyebrow">Section 01 · Getting Started in 3 Minutes</div>
+          <h2>Installing TreeviewEA &amp; Creating Your First Project</h2>
           <p>
-            TreeviewEA v2.5.0 ships as a zero-dependency signed macOS application bundle (<code>TreeviewEA.app</code>) powered by an embedded Go HTTP/HTTPS server, a native Cocoa <code>WKWebView</code> window, a Rust Compressed Sparse Row (CSR) graph engine, and a Python ONNX/Ollama/Redis drift worker.
+            TreeviewEA is a self-contained macOS application. You do not need to install any external database server, Java runtime, or browser extension to start modeling—everything works out of the box from the moment you drag <code>TreeviewEA.app</code> into your Applications folder.
           </p>
         </div>
 
-        <h3 class="sub-heading"> 1.1 macOS Native Application Bundle &amp; WebKit Shell</h3>
-        <p style="color:var(--text-secondary); font-size:14.5px; margin-bottom:14px;">
-          When launched from <code>/Applications/TreeviewEA.app</code> (distributed via <code>TreeviewEA-2.5.0-macOS-arm64.dmg</code>), the binary links directly against macOS <code>AppKit.framework</code>, <code>WebKit.framework</code>, and <code>PDFKit.framework</code> (<code>internal/macos/webview_darwin.go</code> &amp; <code>window_darwin.go</code>):
-        </p>
-
+        <h3 class="sub-heading"> 1.1 Step-by-Step First-Time Installation</h3>
         <div class="feature-grid">
           <div class="feature-card">
-            <h4>🪟 Native Cocoa WKWebView Window</h4>
+            <h4>1️⃣ Step 1: Download &amp; Drag to Applications</h4>
             <p>
-              Hardware-accelerated <code>WKWebView</code> shell with native macOS menu bar integration (<code>⌘Z</code> Undo, <code>⇧⌘Z</code> Redo, <code>⌘X/C/V/A/D</code>, <code>⌘P</code> Print), native file dialogs (<code>NSOpenPanel</code> / <code>NSSavePanel</code>), and Finder reveal (<code>NSWorkspace</code>).
+              Download <code>TreeviewEA-2.5.0-macOS-arm64.dmg</code>, double-click to open the disk image, and drag <strong>TreeviewEA.app</strong> into your macOS <strong>/Applications</strong> folder. Launch TreeviewEA from Spotlight, Launchpad, or Finder.
             </p>
             <div class="tag-row">
-              <span class="code-tag">webview_darwin.go</span>
-              <span class="code-tag">WKWebView</span>
-              <span class="code-tag">NSPrintOperation</span>
+              <span class="code-tag">Apple Silicon (arm64)</span>
+              <span class="code-tag">Zero Dependencies</span>
             </div>
           </div>
 
           <div class="feature-card">
-            <h4>⚡ Embedded Go + SQLite + TLS Engine</h4>
+            <h4>2️⃣ Step 2: Create or Open a Project (<code>⌘N</code> / <code>⌘O</code>)</h4>
             <p>
-              Binds to an automatic loopback port (or a user-specified <code>-port</code>) for REST API calls and simultaneously launches a dedicated HTTPS/TLS 1.3 MCP listener on <code>https://localhost:8443/api/mcp</code> with auto-trusted local Root CA certificates.
+              On first launch, TreeviewEA creates a dedicated <code>~/TreeviewEA/</code> workspace folder in your home directory. Click <strong>🗂️ Project ▾ → New Project (⌘N)</strong> to start with a clean <strong>Blank Project</strong> or choose a <strong>1-Click Industry Framework Template</strong> that pre-builds folders, starter elements, and a master diagram for you.
             </p>
             <div class="tag-row">
-              <span class="code-tag">server.go</span>
-              <span class="code-tag">mcp_tls.go</span>
-              <span class="code-tag">https://localhost:8443</span>
+              <span class="code-tag">~/TreeviewEA/</span>
+              <span class="code-tag">Blank or Template</span>
+              <span class="code-tag">.tvwx File</span>
             </div>
           </div>
 
           <div class="feature-card">
-            <h4>🗂️ Workspace Auto-Discovery &amp; Seeding</h4>
+            <h4>3️⃣ Step 3: Model Visually or Use the AI Co-Pilot</h4>
             <p>
-              On first launch, TreeviewEA seeds <code>~/TreeviewEA/</code> from <code>TreeviewEA.app/Contents/Resources/Templates/</code>, preferring <code>Blank-Project.tvwx</code> as the clean startup repository and discovering all <code>.tvwx</code>, <code>.qea</code>, and <code>.eapx</code> files.
+              Drag elements from the <strong>Left Toolbox</strong> onto the canvas, <strong>Double-Click</strong> any shape (or press <kbd>F2</kbd>) to rename it, draw connectors between layers, or open the <strong>🤖 AI Architecture Advisor</strong> (and optional Claude Desktop / Cursor integration) to scaffold and review models automatically.
             </p>
             <div class="tag-row">
-              <span class="code-tag">~/TreeviewEA</span>
-              <span class="code-tag">Blank-Project.tvwx</span>
-              <span class="code-tag">Info.plist</span>
+              <span class="code-tag">Left Toolbox</span>
+              <span class="code-tag">Double-Click Rename</span>
+              <span class="code-tag">⌘Z Undo / Redo</span>
             </div>
           </div>
         </div>
 
-        <div class="code-panel">
-          <div class="code-panel-header">
-            <span>macOS Installation &amp; CLI Execution</span>
-            <button type="button" class="copy-btn" data-copy-target="code-install">Copy</button>
-          </div>
-          <pre id="code-install"><span class="cmd-comment"># 1. Mount the signed macOS Disk Image (.DMG) and copy TreeviewEA.app to /Applications</span>
-<span class="cmd-prompt">$</span> hdiutil attach TreeviewEA-2.5.0-macOS-arm64.dmg
-<span class="cmd-prompt">$</span> cp -R /Volumes/TreeviewEA/TreeviewEA.app /Applications/
-<span class="cmd-prompt">$</span> open -a /Applications/TreeviewEA.app
+        <h3 class="sub-heading">🧭 1.2 Tour of the 4-Panel Studio Interface</h3>
+        <p style="color:var(--text-secondary); font-size:14.5px; margin-bottom:14px;">
+          When you open a project, the TreeviewEA window is organized into four intuitive areas designed to keep your model hierarchy, visual diagrams, and element properties in sync at all times:
+        </p>
 
-<span class="cmd-comment"># 2. Launch with a specific .tvwx or legacy .qea repository file</span>
-<span class="cmd-prompt">$</span> /Applications/TreeviewEA.app/Contents/MacOS/treeview-ea -file ~/TreeviewEA/TransactionPlatform-Architecture.tvwx
-
-<span class="cmd-comment"># 3. Run in headless HTTP + HTTPS MCP server mode (CI/CD, browser access, or remote agent workflows)</span>
-<span class="cmd-prompt">$</span> /Applications/TreeviewEA.app/Contents/MacOS/treeview-ea -server -port 8080 -mcp-tls-port 8443 -file ./Enterprise.tvwx
-
-<span class="cmd-comment"># 4. Initialize a pristine, empty Blank-Project.tvwx from the command line</span>
-<span class="cmd-prompt">$</span> /Applications/TreeviewEA.app/Contents/MacOS/treeview-ea -init-blank ./Clean-Architecture.tvwx</pre>
-        </div>
-
-        <h3 class="sub-heading">⚙️ 1.2 CLI Flags &amp; Environment Variables Reference</h3>
-        <div tabindex="0" role="region" aria-label="CLI Flags and Environment Variables Reference" class="table-wrapper">
+        <div tabindex="0" role="region" aria-label="Tour of the 4-Panel TreeviewEA Studio Interface" class="table-wrapper">
           <table class="doc-table">
-            <caption>CLI Flags, Runtime Arguments &amp; Environment Variables (`cmd/treeview-ea/main.go`)</caption>
+            <caption>The 4 Studio Panels &amp; How You Use Them Every Day</caption>
             <thead>
               <tr>
-                <th>Flag / Variable</th>
-                <th>Default</th>
-                <th>Mode / Scope</th>
-                <th>Description &amp; Behavior</th>
+                <th>Studio Area</th>
+                <th>Where to Find It</th>
+                <th>What You Do Here</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <th><code>-file &lt;path&gt;</code> / <code>-db &lt;path&gt;</code></th>
-                <td data-label="Default"><code>~/TreeviewEA/Blank-Project.tvwx</code></td>
-                <td data-label="Mode">GUI &amp; Server</td>
-                <td data-label="Description">Path to the target <code>.tvwx</code>, <code>.sqlite</code>, <code>.db</code>, <code>.qea</code>, or <code>.eapx</code> repository file to open at startup.</td>
+                <th><strong>1. Top Workspace Bar &amp; Project Menu</strong></th>
+                <td data-label="Location">Top of Window</td>
+                <td data-label="What You Do">Switch between workspaces: <strong>🎨 Diagram Studio</strong> (visual modeling), <strong>📦 Object Catalog</strong> (spreadsheet-style element manager), <strong>🏛️ Frameworks</strong> (1-click framework scaffolding), <strong>🧭 6×6 Matrix &amp; AI Advisor</strong> (alignment &amp; architecture reviews), <strong>📊 TIME &amp; FinOps Reporting</strong>, and <strong>☁️ AWS Import</strong>. Also houses <strong>🗂️ Project ▾</strong>, <strong>↩️ Undo / Redo</strong>, and <strong>📤 Export</strong>.</td>
               </tr>
               <tr>
-                <th><code>-server</code></th>
-                <td data-label="Default"><code>false</code></td>
-                <td data-label="Mode">Headless HTTP/HTTPS</td>
-                <td data-label="Description">Runs TreeviewEA in headless server mode without opening the native macOS <code>WKWebView</code> window. Ideal for browser access or autonomous agent pipelines.</td>
+                <th><strong>2. Left Model Explorer &amp; Shape Toolbox</strong></th>
+                <td data-label="Location">Left Sidebar</td>
+                <td data-label="What You Do">
+                  • <strong>Project Browser Tree:</strong> Organize your architecture into nested Project Folders (Packages), Diagrams, and reusable Elements. Click <code>+ New</code> on any folder to open the <strong>Contextual Creation Wizard</strong>.<br />
+                  • <strong>Toolbox Palettes:</strong> Drag and drop shapes onto the active diagram. Click <strong><code>+ Shapes</code></strong> at the top of the toolbox to turn optional framework palettes on or off (including <code>gartner</code>, <code>bizbok</code>, <code>sabsa</code>, <code>nist</code>, <code>archimate</code>, <code>data_tp</code>, and <code>aws_compute</code>).
+                </td>
               </tr>
               <tr>
-                <th><code>-port &lt;int&gt;</code></th>
-                <td data-label="Default"><code>0</code> (Auto free port)</td>
-                <td data-label="Mode">HTTP REST &amp; UI</td>
-                <td data-label="Description">TCP port for the HTTP Studio UI and REST API server (e.g. <code>-port 8080</code> or <code>18950</code>).</td>
+                <th><strong>3. Center Interactive Diagram Canvas</strong></th>
+                <td data-label="Location">Center Workspace</td>
+                <td data-label="What You Do">Open multiple diagrams in tabs across an infinite 4-quadrant canvas. Drag shapes, <strong>Double-Click (or press <kbd>F2</kbd>)</strong> to rename shapes in-line, drop elements inside a Package to nest them automatically (<code>«contains»</code>), draw connectors with edge-point or body auto-snap, rotate shapes <code>0°–359°</code>, and run 1-click Auto-Layout.</td>
               </tr>
               <tr>
-                <th><code>-mcp-tls-port &lt;int&gt;</code> / <code>-mcp-sse-port</code></th>
-                <td data-label="Default"><code>8443</code></td>
-                <td data-label="Mode">HTTPS MCP Server</td>
-                <td data-label="Description">Dedicated TLS 1.3 HTTPS port serving the 44-tool Model Context Protocol (MCP) Streamable HTTP and SSE endpoints at <code>https://localhost:8443/api/mcp</code>.</td>
-              </tr>
-              <tr>
-                <th><code>-mcp</code></th>
-                <td data-label="Default"><code>true</code> (Built-in)</td>
-                <td data-label="Mode">stdio &amp; HTTP/HTTPS</td>
-                <td data-label="Description">Enables the Model Context Protocol JSON-RPC 2.0 router across <code>/api/mcp</code>, <code>/api/mcp/sse</code>, <code>/mcp</code>, and <code>/sse</code>.</td>
-              </tr>
-              <tr>
-                <th><code>-init-blank &lt;path&gt;</code></th>
-                <td data-label="Default"><em>None</em></td>
-                <td data-label="Mode">One-Shot CLI</td>
-                <td data-label="Description">Initializes a pristine, empty <code>.tvwx</code> repository with all 20 <code>tview_*</code> tables and 100+ seeded stereotypes at <code>&lt;path&gt;</code>, checkpoints WAL, and exits.</td>
-              </tr>
-              <tr>
-                <th><code>OLLAMA_HOST</code></th>
-                <td data-label="Default"><code>http://localhost:11434</code></td>
-                <td data-label="Mode">AI Co-Creator &amp; Drift</td>
-                <td data-label="Description">Overrides the local Ollama inference endpoint used by the <code>ollama_redis</code> and <code>hybrid</code> reasoning engine directions (`nomic-embed-text`).</td>
-              </tr>
-              <tr>
-                <th><code>GEMINI_API_KEY</code> / <code>ANTHROPIC_API_KEY</code> / <code>OPENAI_API_KEY</code></th>
-                <td data-label="Default"><code>tview_config.json</code></td>
-                <td data-label="Mode">Multi-Agent ARB</td>
-                <td data-label="Description">Optional cloud LLM credentials for the 4-Specialist Multi-Agent ARB and Co-Creator (falls back automatically to deterministic offline synthesis when unset).</td>
+                <th><strong>4. Right Inspector &amp; Properties Panel</strong></th>
+                <td data-label="Location">Right Sidebar</td>
+                <td data-label="What You Do">Click any element or connector on the canvas to view and edit its details: Name, Framework Stereotype (<code>«»</code>), Status, Color, Rotation angle, Class Attributes / Database Columns (<code>PK</code>/<code>FK</code>), Operations / APIs, Tagged Values, Gartner TIME disposition, RACI owners, and CapEx/OpEx cost estimates.</td>
               </tr>
             </tbody>
           </table>
         </div>
 
-        <h3 class="sub-heading">🗂️ 1.3 Project Manager &amp; Multi-Workspace Lifecycle</h3>
+        <h3 class="sub-heading">🗂️ 1.3 Creating Projects, Starter Templates &amp; Multi-Project Prefix Presets</h3>
         <p style="color:var(--text-secondary); font-size:14.5px; margin-bottom:14px;">
-          Accessible via the topbar <strong>🗂️ Project ▾</strong> menu (<code>⌘N</code>, <code>⌘O</code>, <code>⇧⌘S</code>, <code>⇧⌘W</code>) or the <strong>No Project Currently Open Hub</strong> (<code>#project-closed-hub</code>), the Project Manager (<code>project-manager.js</code> + <code>internal/server/projects.go</code>) supports two isolation models:
+          Open <strong>🗂️ Project ▾ → New Project (⌘N)</strong> to create a new architecture repository. You can either save each project as its own standalone <code>.tvwx</code> file or store multiple isolated projects inside a single database using <strong>Table-Prefix Presets</strong>:
         </p>
-        <div class="feature-grid">
-          <div class="feature-card">
-            <h4>📄 Standalone <code>.tvwx</code> Files</h4>
-            <p>
-              Create a blank project or instantiate a pre-built architecture template (Transaction Hub, AWS Cloud, ArchiMate 3.2, TOGAF 10, BIAN v12) into its own portable <code>.tvwx</code> file, or open legacy <code>.qea</code> / <code>.eapx</code> repositories with automatic <code>t_* → tview_*</code> migration.
-            </p>
-            <div class="tag-row">
-              <span class="code-tag">POST /api/projects/new</span>
-              <span class="code-tag">POST /api/projects/open</span>
-            </div>
-          </div>
-          <div class="feature-card">
-            <h4>🏷️ Multi-Project Table-Prefix Schemas (<code>&lt;prefix&gt;_*</code>)</h4>
-            <p>
-              Host multiple independent architecture projects inside a single database file using custom table prefixes (e.g., <code>tview_*</code>, <code>tp_*</code>, <code>core_*</code>). Switching schemas dynamically rebinds SQLite views to the active <code>&lt;prefix&gt;_*</code> physical tables in 0ms.
-            </p>
-            <div class="tag-row">
-              <span class="code-tag">POST /api/projects/schemas</span>
-              <span class="code-tag">POST /api/projects/save-as</span>
-            </div>
-          </div>
-          <div class="feature-card">
-            <h4>📁 Hierarchical Project Folders &amp; Tab Lifecycle</h4>
-            <p>
-              Organize models into nested <code>tview_packages</code> folders. Collapsing or deleting a folder in the Project Browser automatically closes any open diagram tabs belonging to that folder or its descendant subtree (<code>closeDiagramsForPackageSubtree</code>).
-            </p>
-            <div class="tag-row">
-              <span class="code-tag">tview_packages</span>
-              <span class="code-tag">Contextual Creation Wizard</span>
-            </div>
-          </div>
+
+        <div tabindex="0" role="region" aria-label="Project Manager Starter Templates and Prefix Presets" class="table-wrapper">
+          <table class="doc-table">
+            <caption>Project Manager Starter Templates (`templateId`) &amp; Multi-Project Prefix Presets (`tablePrefix`)</caption>
+            <thead>
+              <tr>
+                <th>Starter Template Name</th>
+                <th>Template ID</th>
+                <th>Prefix Preset</th>
+                <th>What It Scaffolds for You Out of the Box</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th><strong>Blank Project</strong></th>
+                <td data-label="Template ID"><code>blank</code></td>
+                <td data-label="Prefix"><code>ea_</code></td>
+                <td data-label="Scaffolds">A clean, empty repository with all 8 framework stereotype libraries pre-loaded so you can build your own folder structure from scratch.</td>
+              </tr>
+              <tr>
+                <th><strong>Gartner PACE &amp; TIME Enterprise Architecture</strong></th>
+                <td data-label="Template ID"><code>gartner-pace-ea</code></td>
+                <td data-label="Prefix"><code>gartner_</code></td>
+                <td data-label="Scaffolds">Future-State Business Outcomes, PACE-Layered Application Strategy (Systems of Innovation, Differentiation &amp; Record), Gartner TIME Portfolio Valuation, and `1…M` Transition Waves.</td>
+              </tr>
+              <tr>
+                <th><strong>BizBOK® v14 Business Architecture</strong></th>
+                <td data-label="Template ID"><code>bizbok-business-arch</code></td>
+                <td data-label="Prefix"><code>bizbok_</code></td>
+                <td data-label="Scaffolds">Business Architecture Guild Core Quartet (Capabilities, Value Streams, Value Stages, Information Concepts, Business Units), Extended Domains, and Value Stage × Capability × System cross-maps.</td>
+              </tr>
+              <tr>
+                <th><strong>SABSA® 6×6 Zero-Trust Security Architecture</strong></th>
+                <td data-label="Template ID"><code>sabsa-zero-trust</code></td>
+                <td data-label="Prefix"><code>sabsa_</code></td>
+                <td data-label="Scaffolds">6-Layer Sherwood Applied Business Security Architecture matrix (`L1 Contextual` Risk Attributes &amp; Threat Domains down to `L6 Operational` Incident Playbooks &amp; Audit Trails).</td>
+              </tr>
+              <tr>
+                <th><strong>NIST CSF 2.0 &amp; SP 800-53 Governance</strong></th>
+                <td data-label="Template ID"><code>nist-csf-governance</code></td>
+                <td data-label="Prefix"><code>nist_</code></td>
+                <td data-label="Scaffolds">All 6 NIST CSF 2.0 Core Functions (`Govern [GV]`, `Identify [ID]`, `Protect [PR]`, `Detect [DE]`, `Respond [RS]`, `Recover [RC]`) wired to SP 800-53 Rev. 5 security controls.</td>
+              </tr>
+              <tr>
+                <th><strong>Payment &amp; Transaction Hub (BIAN v12 + ISO 20022)</strong></th>
+                <td data-label="Template ID"><code>transactionplatform</code></td>
+                <td data-label="Prefix"><code>tp_</code></td>
+                <td data-label="Scaffolds">BIAN v12 Payment Execution Service Domains, the Canonical Payment Object (`$.onBehalfOfPayer`, `$.exchangeRate`), ISO 20022 `pacs.008` flows, and settlement ledger tables.</td>
+              </tr>
+              <tr>
+                <th><strong>TOGAF® 10 ADM Cycle</strong></th>
+                <td data-label="Template ID"><code>togaf-adm</code></td>
+                <td data-label="Prefix"><code>togaf_</code></td>
+                <td data-label="Scaffolds">Preliminary Principles + ADM Phases A through H packages with Architecture Building Blocks (`ABB`), Solution Building Blocks (`SBB`), and Transition Plateaus.</td>
+              </tr>
+              <tr>
+                <th><strong>ArchiMate® 3.2 Layered Enterprise</strong></th>
+                <td data-label="Template ID"><code>archimate-enterprise</code></td>
+                <td data-label="Prefix"><code>arch_</code></td>
+                <td data-label="Scaffolds">7-layer ArchiMate model spanning Strategy, Motivation, Business, Application, Technology, Physical, and Implementation &amp; Migration.</td>
+              </tr>
+              <tr>
+                <th><strong>AWS Cloud Landing Zone</strong></th>
+                <td data-label="Template ID"><code>aws-landing-zone</code></td>
+                <td data-label="Prefix"><code>aws_</code></td>
+                <td data-label="Scaffolds">Multi-AZ AWS VPC, Public/Private Subnets, EKS/ECS compute, Aurora PostgreSQL, S3, and API Gateway topology ready for live AWS CLI discovery.</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </section>
 
+      <!-- ================================================================= -->
       <!-- ================================================================= -->
       <!-- SECTION 2: INTERACTIVE DIAGRAMMING STUDIO & SMART CANVAS          -->
       <!-- ================================================================= -->
       <section class="doc-section" id="diagram-studio">
         <div class="sec-header">
-          <div class="sec-eyebrow">Section 02 · Visual Modeling Engine</div>
+          <div class="sec-eyebrow">Section 02 · Working with Diagrams &amp; Shapes</div>
           <h2>Interactive Diagramming Studio &amp; Smart Canvas</h2>
           <p>
-            The TreeviewEA Diagram Studio operates on an unconstrained 4-quadrant infinite 2D coordinate space <code>(-∞, +∞)</code> with cursor-centered focal zoom (<code>5%–500%</code>), zero coordinate clamping, SVG <code>&lt;clipPath&gt;</code> text containment, and real-time repository synchronization.
+            The TreeviewEA Diagram Studio gives you an infinite 4-quadrant canvas where every shape is backed by your central architecture repository. You can place new shapes from the Left Toolbox, drag existing elements from the Model Explorer onto multiple diagrams, and use smart canvas gestures to model rapidly.
           </p>
         </div>
 
         <!-- Visual SVG Diagram of Canvas Features -->
         <div style="background:#0a1120; border:1px solid var(--border-subtle); border-radius:16px; padding:20px; margin-bottom:28px;">
           <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom:14px;">
-            <span style="font-size:13px; font-weight:700; color:#f8fafc;">🎨 Interactive Smart Canvas Architecture — In-Line Rename, Package Drop-In Containment, Precision Snap &amp; 360° Rotation</span>
-            <span style="font-family:var(--font-mono); font-size:11.5px; color:#38bdf8;">4-Quadrant Infinite Space (-∞, +∞) · ⌘Z Transactional Undo</span>
+            <span style="font-size:13px; font-weight:700; color:#f8fafc;">🎨 Everyday Smart Canvas Workflows — In-Line Rename (Double-Click / F2), Package Drop-In Nesting, Edge Snap &amp; 360° Rotation</span>
+            <span style="font-family:var(--font-mono); font-size:11.5px; color:#38bdf8;">Infinite Canvas · Multi-Tab Diagrams · ⌘Z Undo / Redo</span>
           </div>
           <svg viewBox="0 0 920 310" style="width:100%; height:auto; background:#070c18; border-radius:10px; border:1px solid rgba(56,189,248,0.22);" role="img" aria-label="Diagram showing Package Drop-In Containment, In-Line Shape Rename, Precision Edge-Point Snap vs Body Auto-Snap, and 360-degree Object Rotation">
             <defs>
@@ -1138,23 +1130,23 @@
 
             <!-- 1. Package Container (Drop-In Containment) -->
             <rect x="22" y="20" width="150" height="22" rx="4" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5" />
-            <text x="32" y="35" fill="#fcd34d" font-size="10" font-weight="700" font-family="monospace">📁 Package #104</text>
+            <text x="32" y="35" fill="#fcd34d" font-size="10" font-weight="700" font-family="monospace">📁 Package Container</text>
             <rect x="22" y="40" width="310" height="248" rx="8" fill="rgba(30,41,59,0.4)" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="6,4" />
             <text x="36" y="62" fill="#fde68a" font-size="11" font-weight="700">📦 Transaction Hub Core («contains»)</text>
 
             <!-- Child 1 with In-Line Rename Editor Active -->
             <rect x="42" y="78" width="270" height="82" rx="8" fill="#172554" stroke="#38bdf8" stroke-width="2" />
-            <text x="56" y="98" fill="#7dd3fc" font-size="9.5" font-family="monospace">«ServiceDomain» · Dbl-Click / F2 Active</text>
+            <text x="56" y="98" fill="#7dd3fc" font-size="9.5" font-family="monospace">«ServiceDomain» · Double-Click / F2</text>
             <!-- In-line Rename Input Box Overlay -->
             <rect x="52" y="106" width="250" height="28" rx="5" fill="#050811" stroke="#38bdf8" stroke-width="2" />
             <text x="62" y="124" fill="#ffffff" font-size="12" font-weight="700" font-family="monospace">Payment Execution Router|</text>
-            <text x="56" y="150" fill="#93c5fd" font-size="9.5" font-family="monospace">↵ Enter Commit · Esc Cancel · 0ms Sync</text>
+            <text x="56" y="150" fill="#93c5fd" font-size="9.5" font-family="monospace">↵ Enter to Save · Esc to Cancel</text>
 
             <!-- Child 2 (Nested via Drop-In) -->
             <rect x="42" y="190" width="270" height="78" rx="8" fill="#064e3b" stroke="#10b981" stroke-width="1.8" />
             <text x="56" y="210" fill="#6ee7b7" font-size="9.5" font-family="monospace">«TransactionHub_CanonicalObject»</text>
-            <text x="56" y="230" fill="#f8fafc" font-size="12.5" font-weight="700">PayExPaymentObject</text>
-            <text x="56" y="250" fill="#a7f3d0" font-size="9.5" font-family="monospace">Parent_ID=104 · Auto «contains» Link</text>
+            <text x="56" y="230" fill="#f8fafc" font-size="12.5" font-weight="700">Canonical Payment Object</text>
+            <text x="56" y="250" fill="#a7f3d0" font-size="9.5" font-family="monospace">📦 Auto-Nested Inside Folder</text>
 
             <!-- Body Auto-Snap Connector between Child 1 & Child 2 -->
             <path d="M 177 160 L 177 190" stroke="#10b981" stroke-width="2" stroke-dasharray="4,3" fill="none" marker-end="url(#doc-arrow-emerald)" />
@@ -1179,7 +1171,7 @@
               <circle cx="690" cy="58" r="9" fill="#0f172a" stroke="#38bdf8" stroke-width="2" />
               <text x="690" y="62" text-anchor="middle" fill="#38bdf8" font-size="11" font-weight="800">↻</text>
               <rect x="560" y="95" width="260" height="100" rx="10" fill="#2e1065" stroke="#a855f7" stroke-width="2.2" />
-              <text x="578" y="119" fill="#d8b4fe" font-size="10" font-family="monospace">«ISO20022_Gateway»</text>
+              <text x="578" y="119" fill="#d8b4fe" font-size="10" font-family="monospace">«SystemOfDifferentiation»</text>
               <text x="578" y="142" fill="#ffffff" font-size="13.5" font-weight="700">FedNow / SWIFT pacs.008 Rail</text>
               <text x="578" y="162" fill="#c4b5fd" font-size="10" font-family="monospace">15° Snap · Shift=1° · R / ⇧R / 0</text>
               <rect x="578" y="170" width="52" height="16" rx="4" fill="#0f172a" stroke="#38bdf8" stroke-width="1" />
@@ -1188,208 +1180,243 @@
           </svg>
         </div>
 
-        <h3 class="sub-heading">🗺️ 2.1 All 11+ Supported Diagram Types</h3>
+        <h3 class="sub-heading">🗺️ 2.1 Choosing the Right Diagram Type (12+ Built-In Diagram Views)</h3>
         <p style="color:var(--text-secondary); font-size:14.5px; margin-bottom:12px;">
-          Every diagram in <code>tview_diagrams</code> supports cross-framework element reuse, tailored Toolbox Feature Sets (<code>+ Shapes</code>), and specialized rendering semantics:
+          When creating a diagram (via <code>+ New</code> on a folder or the top toolbar), choose the diagram type that best matches the audience and layer you are modeling. Note that you can freely mix and reuse elements across any diagram type:
         </p>
 
         <div tabindex="0" role="region" aria-label="Supported Diagram Types in TreeviewEA" class="table-wrapper">
           <table class="doc-table">
-            <caption>11+ First-Class Diagram Types &amp; Notation Engines (`tview_diagrams.Diagram_Type`)</caption>
+            <caption>12+ Diagram Types &amp; When to Use Each View</caption>
             <thead>
               <tr>
                 <th>#</th>
                 <th>Diagram Type</th>
-                <th>Repository Code</th>
-                <th>Primary Stereotypes &amp; Shapes</th>
-                <th>Specialized Canvas Capabilities</th>
+                <th>When to Use It</th>
+                <th>Primary Elements &amp; Stereotypes</th>
+                <th>Key Visual Features</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <th>01</th>
-                <td data-label="Diagram Type"><strong>UML Class Diagram</strong></td>
-                <td data-label="Code"><code>Logical</code> / <code>Class</code></td>
-                <td data-label="Stereotypes"><code>«entity»</code>, <code>«interface»</code>, <code>«enumeration»</code>, <code>«control»</code></td>
-                <td data-label="Capabilities">3-compartment rendering (Header, <code>tview_attributes</code> with visibility/types, <code>tview_operations</code> with signatures), Inheritance, Realization, Aggregation &amp; Composition markers.</td>
+                <td data-label="Diagram Type"><strong>UML Class / Logical Data Diagram</strong> (<code>Logical</code>)</td>
+                <td data-label="When to Use">Designing domain data models, canonical schemas, or object-oriented class hierarchies.</td>
+                <td data-label="Elements"><code>Class</code>, <code>Interface</code>, <code>«DataEntity»</code>, <code>«TransactionHub_CanonicalObject»</code></td>
+                <td data-label="Features">3-compartment boxes showing Header, Attributes/Fields with data types, and Operations/Methods, plus Inheritance, Realization, and Composition arrows.</td>
               </tr>
               <tr>
                 <th>02</th>
-                <td data-label="Diagram Type"><strong>UML Sequence Diagram</strong></td>
-                <td data-label="Code"><code>Sequence</code></td>
-                <td data-label="Stereotypes"><code>«lifeline»</code>, <code>«actor»</code>, <code>«boundary»</code>, <code>«control»</code>, <code>«entity»</code></td>
-                <td data-label="Capabilities">Dual free-form + vertical dashed lifelines, activation bars, ordered <code>SeqNo</code> synchronous/asynchronous/return message arrows, and self-invocation loops.</td>
+                <td data-label="Diagram Type"><strong>Database Entity-Relationship (ERD)</strong> (<code>ERD</code> / <code>Data</code>)</td>
+                <td data-label="When to Use">Modeling physical database tables, primary/foreign keys, and generating SQL DDL scripts.</td>
+                <td data-label="Elements"><code>«Table»</code>, <code>«View»</code>, <code>«PK»</code>, <code>«FK»</code></td>
+                <td data-label="Features">Displays column data types, <code>PK</code>/<code>FK</code> key badges, Crow's Foot (`1..*`) cardinality, and 1-click SQL DDL generation for PostgreSQL, MySQL, and SQLite.</td>
               </tr>
               <tr>
                 <th>03</th>
-                <td data-label="Diagram Type"><strong>UML Use Case Diagram</strong></td>
-                <td data-label="Code"><code>Use Case</code></td>
-                <td data-label="Stereotypes"><code>«actor»</code>, <code>«businessActor»</code>, <code>«useCase»</code>, <code>Boundary</code></td>
-                <td data-label="Capabilities">Stick-figure Actor glyphs, elliptical Use Case nodes, Subject system boundaries, <code>«include»</code> and <code>«extend»</code> dashed relationships.</td>
+                <td data-label="Diagram Type"><strong>Application &amp; Component Diagram</strong> (<code>Component</code>)</td>
+                <td data-label="When to Use">Mapping microservices, APIs, Gartner PACE layers, and system integrations.</td>
+                <td data-label="Elements"><code>Component</code>, <code>«SystemOfInnovation»</code>, <code>«SystemOfDifferentiation»</code>, <code>«SystemOfRecord»</code>, <code>«Microservice»</code></td>
+                <td data-label="Features">Component badges, API interfaces, nested subsystem containers, and synchronous/asynchronous dependency flows.</td>
               </tr>
               <tr>
                 <th>04</th>
-                <td data-label="Diagram Type"><strong>UML Activity Diagram</strong></td>
-                <td data-label="Code"><code>Activity</code></td>
-                <td data-label="Stereotypes"><code>Activity</code>, <code>Action</code>, <code>«decision»</code>, <code>Swimlane</code></td>
-                <td data-label="Capabilities">Rounded action states, diamond decision/merge nodes, fork/join bars, swimlane partitions, and control/object flow connectors.</td>
+                <td data-label="Diagram Type"><strong>UML Sequence Diagram</strong> (<code>Sequence</code>)</td>
+                <td data-label="When to Use">Tracing step-by-step runtime API calls, payment clearing flows, or event choreography.</td>
+                <td data-label="Elements"><code>«lifeline»</code>, <code>«actor»</code>, <code>«boundary»</code>, <code>«control»</code>, <code>«entity»</code></td>
+                <td data-label="Features">Vertical dashed lifelines, activation bars, numbered request/reply message arrows, and self-call loops.</td>
               </tr>
               <tr>
                 <th>05</th>
-                <td data-label="Diagram Type"><strong>UML State Machine Diagram</strong></td>
-                <td data-label="Code"><code>Statechart</code></td>
-                <td data-label="Stereotypes"><code>State</code>, <code>StateNode</code>, <code>«initial»</code>, <code>«final»</code>, <code>«choice»</code></td>
-                <td data-label="Capabilities">Composite nested states, initial bullseye, final states, guard conditions <code>[guard] / action</code> on transition lines, and cyclical self-transitions.</td>
+                <td data-label="Diagram Type"><strong>Business Capability &amp; Value Stream Map</strong> (<code>Custom</code> / <code>ArchiMate3</code>)</td>
+                <td data-label="When to Use">Executive roadmapping, BizBOK® v14 capability heatmaps, and Gartner outcome mapping.</td>
+                <td data-label="Elements"><code>«Capability»</code>, <code>«ValueStream»</code>, <code>«ValueStreamStage»</code>, <code>«BusinessOutcome»</code></td>
+                <td data-label="Features">Nested L1 → L2 → L3 capability hierarchy via drag-and-drop containment and Gartner TIME color coding.</td>
               </tr>
               <tr>
                 <th>06</th>
-                <td data-label="Diagram Type"><strong>UML Component Diagram</strong></td>
-                <td data-label="Code"><code>Component</code></td>
-                <td data-label="Stereotypes"><code>«service»</code>, <code>«subsystem»</code>, <code>«Microservice»</code>, <code>Interface</code></td>
-                <td data-label="Capabilities">Component glyph badges, provided/required lollipop &amp; socket interfaces, ports, and nested package/component containment.</td>
+                <td data-label="Diagram Type"><strong>ArchiMate 3.2 Layered View</strong> (<code>ArchiMate3</code>)</td>
+                <td data-label="When to Use">End-to-end enterprise views linking Strategy &amp; Business down to Applications &amp; Technology.</td>
+                <td data-label="Elements"><code>«Driver»</code>, <code>«Goal»</code>, <code>«BusinessProcess»</code>, <code>«ApplicationComponent»</code>, <code>«Node»</code></td>
+                <td data-label="Features">Color-coded across all 7 ArchiMate layers with official corner glyphs and TOGAF ADM transition plateaus.</td>
               </tr>
               <tr>
                 <th>07</th>
-                <td data-label="Diagram Type"><strong>UML Deployment Diagram</strong></td>
-                <td data-label="Code"><code>Deployment</code></td>
-                <td data-label="Stereotypes"><code>«device»</code>, <code>«executionEnvironment»</code>, <code>«artifact»</code>, <code>Node</code></td>
-                <td data-label="Capabilities">3D hardware/cloud Node boxes, nested Execution Environments, deployed Artifacts, and network communication paths.</td>
+                <td data-label="Diagram Type"><strong>BIAN v12 Banking Landscape</strong> (<code>BIAN</code>)</td>
+                <td data-label="When to Use">Financial services &amp; payment hub modernization aligned to BIAN Service Domains.</td>
+                <td data-label="Elements"><code>«ServiceDomain»</code>, <code>«ControlRecord»</code>, <code>«BehaviorQualifier»</code>, <code>«ISO20022Message»</code></td>
+                <td data-label="Features">Models BIAN Business Areas, Service Domains, control records, and ISO 20022 message flows.</td>
               </tr>
               <tr>
                 <th>08</th>
-                <td data-label="Diagram Type"><strong>Entity-Relationship (ERD / Physical DDL)</strong></td>
-                <td data-label="Code"><code>ERD</code> / <code>Data</code></td>
-                <td data-label="Stereotypes"><code>«tview_table»</code>, <code>«table»</code>, <code>«view»</code>, <code>«PK»</code>, <code>«FK»</code></td>
-                <td data-label="Capabilities">Physical column types, <code>PK</code>/<code>FK</code> key badges, Crow's Foot / `1..*` cardinality notation, and live SQL DDL generation for PostgreSQL, MySQL, and SQLite.</td>
+                <td data-label="Diagram Type"><strong>SABSA &amp; NIST Security Architecture</strong> (<code>Custom</code> / <code>Deployment</code>)</td>
+                <td data-label="When to Use">Zero-trust boundaries, threat modeling, SABSA L1–L6 traceability, and NIST CSF 2.0 compliance.</td>
+                <td data-label="Elements"><code>«TrustBoundary»</code>, <code>«SecurityControlObjective»</code>, <code>«NIST_Protect»</code>, <code>«ZeroTrustAccessControl»</code></td>
+                <td data-label="Features">Visualizes trust zones, security policies, encrypted data flows, and NIST SP 800-53 controls protecting critical assets.</td>
               </tr>
               <tr>
                 <th>09</th>
-                <td data-label="Diagram Type"><strong>ArchiMate 3.2 Layered View</strong></td>
-                <td data-label="Code"><code>ArchiMate3</code></td>
-                <td data-label="Stereotypes"><code>«Capability»</code>, <code>«BusinessProcess»</code>, <code>«ApplicationComponent»</code>, <code>«Node»</code></td>
-                <td data-label="Capabilities">Color-coded across all 7 ArchiMate layers (Strategy, Motivation, Business, Application, Technology, Physical, Implementation &amp; Migration) with official corner badges.</td>
+                <td data-label="Diagram Type"><strong>AWS &amp; Cloud Deployment Topology</strong> (<code>AWS</code> / <code>Deployment</code>)</td>
+                <td data-label="When to Use">Designing cloud landing zones, VPCs, Kubernetes clusters, or importing live AWS accounts.</td>
+                <td data-label="Elements"><code>«AWS_VPC»</code>, <code>«AWS_Subnet»</code>, <code>«AWS_EKS»</code>, <code>«AWS_RDS»</code>, <code>«AWS_Lambda»</code>, <code>Node</code></td>
+                <td data-label="Features">65+ official AWS vector icons, nested Region → VPC → Subnet boundaries, and 1-click live AWS CLI import.</td>
               </tr>
               <tr>
-                <th>10</th>
-                <td data-label="Diagram Type"><strong>BIAN v12 Service Landscape</strong></td>
-                <td data-label="Code"><code>BIAN</code></td>
-                <td data-label="Stereotypes"><code>«ServiceDomain»</code>, <code>«ControlRecord»</code>, <code>«BehaviorQualifier»</code></td>
-                <td data-label="Capabilities">Banking Industry Architecture Network v12 Business Areas, Business Domains, functional pattern stereotypes, and PayEx / ISO 20022 message bindings.</td>
-              </tr>
-              <tr>
-                <th>11</th>
-                <td data-label="Diagram Type"><strong>AWS Cloud Architecture Topology</strong></td>
-                <td data-label="Code"><code>AWS</code></td>
-                <td data-label="Stereotypes"><code>«AWS_VPC»</code>, <code>«AWS_EKS»</code>, <code>«AWS_Lambda»</code>, <code>«AWS_RDS»</code>, <code>«AWS_S3»</code></td>
-                <td data-label="Capabilities">65+ category-colored AWS vector icons (`aws-icons.js`), hierarchical Cloud/Region/AZ/VPC/Subnet boundary containers, and 1-click live AWS CLI account import.</td>
-              </tr>
-              <tr>
-                <th>12+</th>
-                <td data-label="Diagram Type"><strong>BPMN 2.0, SysML 1.6, C4 &amp; Diagram-as-Code</strong></td>
-                <td data-label="Code"><code>BPMN2.0</code> / <code>SysML</code> / <code>C4</code></td>
-                <td data-label="Stereotypes"><code>«UserTask»</code>, <code>«Gateway»</code>, <code>«block»</code>, <code>«requirement»</code>, <code>«Container»</code></td>
-                <td data-label="Capabilities">Pools/Swimlanes, BPMN gateways &amp; events, SysML Requirement &amp; Parametric blocks, C4 Context/Container views, and live Mermaid/DSL Diagram-as-Code materialization.</td>
+                <th>10–12+</th>
+                <td data-label="Diagram Type"><strong>Use Case, Activity, State Machine, BPMN 2.0 &amp; SysML</strong></td>
+                <td data-label="When to Use">User journeys (Use Case), process workflows (Activity / BPMN 2.0), lifecycle states (Statechart), and systems engineering (SysML).</td>
+                <td data-label="Elements"><code>«useCase»</code>, <code>Activity</code>, <code>«decision»</code>, <code>State</code>, <code>«UserTask»</code>, <code>«requirement»</code></td>
+                <td data-label="Features">Stick-figure actors, diamond decision gateways, swimlanes, state transition guards, and Mermaid Diagram-as-Code sync.</td>
               </tr>
             </tbody>
           </table>
         </div>
 
-        <h3 class="sub-heading">✏️ 2.2 In-Line Shape Rename, Package Containment, Precision Snap &amp; 360° Rotation</h3>
+        <h3 class="sub-heading">🧰 2.2 Left Toolbox &amp; Optional Framework Palettes (<code>+ Shapes</code>)</h3>
+        <p style="color:var(--text-secondary); font-size:14.5px; margin-bottom:14px;">
+          The <strong>Left Toolbox</strong> keeps your everyday shapes clean and uncluttered while letting you turn specialized industry and security palettes on or off at any time using the <strong><code>+ Shapes</code></strong> button at the top of the toolbox (or via the AI Co-Pilot <code>enableToolkits</code> command):
+        </p>
+
         <div class="feature-grid">
           <div class="feature-card">
-            <h4>✏️ In-Line Canvas Shape Rename</h4>
+            <h4>🎯 Gartner EA Palette (<code>gartner</code>)</h4>
             <p>
-              Trigger via <strong>Double-Click</strong> on any shape, pressing <kbd>F2</kbd>, clicking <code>✏️ Rename</code> in the floating selection bar, or selecting <code>✏️ Rename Element…</code> from the right-click context menu. Opens <code>#canvas-inline-rename-overlay</code> directly over the shape's label with automatic font/alignment matching, <strong>0ms optimistic canvas update</strong>, IME-safe <kbd>Enter</kbd> commit, <kbd>Escape</kbd> cancel, and full <kbd>⌘Z</kbd> Undo/Redo.
+              Provides drag-and-drop stencils for <strong>Future-State Business Outcomes</strong> (<code>«BusinessOutcome»</code>, <code>«SignatureReadyPlan»</code>), <strong>PACE Application Layers</strong> (<code>«SystemOfInnovation»</code>, <code>«SystemOfDifferentiation»</code>, <code>«SystemOfRecord»</code>, <code>«PackagedBusinessCapability»</code>), <strong>TIME Dispositions</strong>, and <strong>Transition Waves</strong> (<code>«TargetStateGap»</code>, <code>«TransitionWave»</code>).
             </p>
             <div class="tag-row">
-              <span class="code-tag">startInlineShapeRename()</span>
-              <span class="code-tag">Dbl-Click / F2</span>
-              <span class="code-tag">0ms Optimistic UI</span>
+              <span class="code-tag">Toolbox ID: gartner</span>
+              <span class="code-tag">PACE &amp; TIME</span>
             </div>
           </div>
 
           <div class="feature-card">
-            <h4>📦 Automatic Package Drop-In Containment (<code>«contains»</code>)</h4>
+            <h4>🏛️ BizBOK® v14 Palette (<code>bizbok</code>)</h4>
             <p>
-              Dragging any element into a Package or Container boundary on the canvas invokes <code>SyncDiagramObjectsContainment</code>: it updates the child's <code>ParentID</code> and <code>Package_ID</code>, creates a formal <code>Nesting</code> (<code>«contains»</code>) connector in <code>tview_connectors</code>, and displays a <code>📦 N</code> nested badge. Dragging the element back out cleanly detaches it and removes the containment link.
+              Provides Business Architecture Guild stencils for the <strong>Core Quartet</strong> (<code>«Capability»</code>, <code>«ValueStream»</code>, <code>«ValueStreamStage»</code>, <code>«InformationConcept»</code>, <code>«BusinessUnit»</code>), <strong>Extended Domains</strong> (<code>«StrategicObjective»</code>, <code>«BusinessPolicy»</code>, <code>«Stakeholder»</code>, <code>«ProductMapping»</code>, <code>«Initiative»</code>), and cross-mapping connectors.
             </p>
             <div class="tag-row">
-              <span class="code-tag">SyncDiagramObjectsContainment</span>
-              <span class="code-tag">ParentID</span>
+              <span class="code-tag">Toolbox ID: bizbok</span>
+              <span class="code-tag">Core Quartet</span>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <h4>🛡️ SABSA® 6×6 Security Palette (<code>sabsa</code>)</h4>
+            <p>
+              Provides Sherwood Security Matrix stencils across all 6 layers: <code>«BusinessRiskAttribute»</code>, <code>«ThreatDomain»</code>, <code>«SecurityControlObjective»</code>, <code>«TrustBoundary»</code>, <code>«LogicalSecurityService»</code>, <code>«SecurityPolicy»</code>, <code>«ProtectedInformationAsset»</code>, <code>«PhysicalSecurityMechanism»</code>, <code>«SecurityComponent»</code>, and <code>«OperationalSecurityNode»</code>.
+            </p>
+            <div class="tag-row">
+              <span class="code-tag">Toolbox ID: sabsa</span>
+              <span class="code-tag">Layers L1–L6</span>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <h4>🔐 NIST CSF 2.0 &amp; SP 800-53 Palette (<code>nist</code>)</h4>
+            <p>
+              Provides stencils for all 6 NIST CSF 2.0 Core Functions (<code>«NIST_Govern»</code>, <code>«NIST_Identify»</code>, <code>«NIST_Protect»</code>, <code>«NIST_Detect»</code>, <code>«NIST_Respond»</code>, <code>«NIST_Recover»</code>) and SP 800-53 Rev. 5 controls (<code>«ZeroTrustAccessControl»</code>, <code>«CryptographicProtection»</code>, <code>«AuditAndAccountability»</code>, <code>«ContingencyPlanControl»</code>).
+            </p>
+            <div class="tag-row">
+              <span class="code-tag">Toolbox ID: nist</span>
+              <span class="code-tag">CSF 2.0 + 800-53</span>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <h4>💳 Core UML, ArchiMate, BIAN &amp; Transaction Platform Palettes</h4>
+            <p>
+              Enable <code>archimate</code> (7-layer ArchiMate 3.2 &amp; TOGAF 10), <code>data_tp</code> (Database Tables, BIAN Service Domains, ISO 20022 messages &amp; Transaction Platform Canonical Objects), <code>bpmn_sysml</code> (Workflows &amp; Requirements), and <code>aws_compute</code> / <code>aws_network</code> (65+ AWS Cloud icons).
+            </p>
+            <div class="tag-row">
+              <span class="code-tag">archimate</span>
+              <span class="code-tag">data_tp</span>
+              <span class="code-tag">aws_compute</span>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <h4>🎨 18 Customizable Visual Shapes &amp; Image Paste</h4>
+            <p>
+              Override any element's appearance across <strong>18 visual shapes</strong> (<code>RoundedBox</code>, <code>Rectangle</code>, <code>Pill</code>, <code>Card</code>, <code>Diamond</code>, <code>Hexagon</code>, <code>Octagon</code>, <code>Cylinder</code>, <code>Cloud</code>, <code>DocumentShape</code>, <code>SystemNote</code>, <code>Boundary</code>, etc.), or press <kbd>⌘V</kbd> to paste screenshots directly onto the canvas.
+            </p>
+            <div class="tag-row">
+              <span class="code-tag">18 Node Shapes</span>
+              <span class="code-tag">⌘V Image Paste</span>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="sub-heading">✏️ 2.3 Everyday Canvas Workflows (Rename, Nest, Connect &amp; Rotate)</h3>
+        <div class="feature-grid">
+          <div class="feature-card">
+            <h4>✏️ Double-Click (or <kbd>F2</kbd>) In-Line Shape Rename</h4>
+            <p>
+              To rename any element on the canvas, simply <strong>Double-Click</strong> its shape (or select it and press <kbd>F2</kbd>). Type the new name right on the diagram and press <kbd>Enter</kbd> to save (or <kbd>Esc</kbd> to cancel). The new name automatically updates in the Model Explorer, Object Catalog, and every other diagram where that element appears.
+            </p>
+            <div class="tag-row">
+              <span class="code-tag">Double-Click / F2</span>
+              <span class="code-tag">Enter to Save</span>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <h4>📦 Drag-and-Drop Package Nesting (<code>«contains»</code>)</h4>
+            <p>
+              To group capabilities, microservices, or cloud resources inside a parent Package or Boundary container, simply <strong>drag the element inside the container box</strong> on the canvas. TreeviewEA automatically nests the element inside the parent folder, creates a formal <code>«contains»</code> relationship, and moves children together when you drag the parent. Drag it back out anytime to detach.
+            </p>
+            <div class="tag-row">
+              <span class="code-tag">Auto Parent Nesting</span>
               <span class="code-tag">«contains»</span>
             </div>
           </div>
 
           <div class="feature-card">
-            <h4>🎯 Precision Connector Routing (Edge-Point vs. Body Snap)</h4>
+            <h4>🎯 Drawing Connectors: Edge Snap vs. Body Auto-Snap</h4>
             <p>
-              Pulling a connector endpoint to a specific perimeter point locks exact <code>SrcAnchorX/Y</code> and <code>DstAnchorX/Y</code> coordinates (<strong>Edge-Point Snap</strong>). Dropping onto an object's interior activates dynamic <strong>Body Auto-Snap</strong> using nearest-edge orthogonal (<code>elbow</code>), smooth curve (<code>vector</code>), cyclical loop, or <code>straight</code> routing. Drag <strong>orange bend handles (<code>■</code>)</strong> or click <strong>blue midpoint <code>+</code> handles (<code>⊞</code>)</strong> to add/reshape waypoints with automatic collinear simplification.
+              Select the Connector tool (<kbd>L</kbd> or <kbd>C</kbd>) or drag from a shape's connection handle:
+              <br />• <strong>Edge-Point Snap:</strong> Drop the line on a specific point along a shape's border to lock that exact anchor point.
+              <br />• <strong>Body Auto-Snap:</strong> Drop the line anywhere inside the shape body to let TreeviewEA automatically route along the nearest edge. Drag <strong>orange bend handles (<code>■</code>)</strong> or click <strong>blue <code>+</code> midpoints</strong> to add custom corners.
             </p>
             <div class="tag-row">
               <span class="code-tag">Edge-Point Snap</span>
               <span class="code-tag">Body Auto-Snap</span>
-              <span class="code-tag">manage_connectors_and_bends</span>
+              <span class="code-tag">Bend Waypoints</span>
             </div>
           </div>
 
           <div class="feature-card">
-            <h4>🔄 360° Object Rotation (<code>0°–359°</code>)</h4>
+            <h4>🔄 360° Shape Rotation &amp; 1-Click Auto-Layout</h4>
             <p>
-              Drag the top-center <code>↻</code> rotation handle on any selected node to rotate around its center with <strong>15° snap increments</strong> (hold <kbd>Shift</kbd> or <kbd>Option</kbd> for <strong>1° free precision</strong>). Also controllable via <kbd>R</kbd> (<code>+90° CW</code>), <kbd>⇧R</kbd> (<code>-90° CCW</code>), <kbd>0</kbd> (reset <code>0°</code>), the floating selection bar, Right Inspector (<code>#insp-rotation</code>), and Central Object Catalog.
+              Rotate any selected shape around its center by dragging its top <code>↻</code> handle (snaps every <strong>15°</strong>, or hold <kbd>Shift</kbd> for <strong>1° precision</strong>), or press <kbd>R</kbd> (<code>+90°</code>), <kbd>⇧R</kbd> (<code>-90°</code>), or <kbd>0</kbd> (reset). Need to tidy up a complex diagram? Click <strong>📐 Auto-Layout</strong> in the toolbar to arrange elements into a clean hierarchy, flow, radial ring, or grid.
             </p>
             <div class="tag-row">
-              <span class="code-tag">PUT /api/diagrams/{id}/rotation</span>
-              <span class="code-tag">15° / 1° Snap</span>
-              <span class="code-tag">R / ⇧R</span>
-            </div>
-          </div>
-
-          <div class="feature-card">
-            <h4>📐 8-Mode Auto-Layout, Grouping &amp; Alignment</h4>
-            <p>
-              Run 1-click <code>computeUniversalLayout</code> across 8 algorithms: <strong>Hierarchical Top-Down</strong> &amp; <strong>Left-to-Right</strong> (Dagre/Sugiyama), <strong>Linear Flow Horizontal/Vertical</strong>, <strong>Radial Concentric Rings</strong>, <strong>Circular Ring</strong>, <strong>Force-Directed Organic</strong>, and <strong>Smart Grid</strong>. Group objects (<kbd>⌘G</kbd> / <kbd>⇧⌘G</kbd>) for synchronized parent-child dragging, align edges/centers (top/middle/bottom/left/center/right), and distribute evenly.
-            </p>
-            <div class="tag-row">
-              <span class="code-tag">auto_layout_diagram</span>
-              <span class="code-tag">group_and_ungroup_objects</span>
-              <span class="code-tag">⌘G / ⇧⌘G</span>
-            </div>
-          </div>
-
-          <div class="feature-card">
-            <h4>🎨 18 Node Shapes, 6 Toolkits &amp; Image Paste (<code>⌘V</code>)</h4>
-            <p>
-              Switch any element across <strong>18 visual shapes</strong> (<code>Auto</code>, <code>Rectangle</code>, <code>RoundedBox</code>, <code>Pill</code>, <code>Card</code>, <code>Diamond</code>, <code>Circle</code>, <code>Hexagon</code>, <code>Octagon</code>, <code>Parallelogram</code>, <code>Trapezoid</code>, <code>Triangle</code>, <code>Cylinder</code>, <code>Cloud</code>, <code>DocumentShape</code>, <code>SystemNote</code>, <code>Callout</code>, <code>Boundary</code>), activate <strong>6 Visual Modeling Toolkits</strong>, or press <kbd>⌘V</kbd> to paste screenshots directly into <code>tview_images</code>.
-            </p>
-            <div class="tag-row">
-              <span class="code-tag">18 Shapes</span>
-              <span class="code-tag">6 Modeling Toolkits</span>
-              <span class="code-tag">insert_diagram_image</span>
+              <span class="code-tag">360° Rotate (R / ⇧R)</span>
+              <span class="code-tag">8 Auto-Layout Modes</span>
             </div>
           </div>
         </div>
 
-        <h3 class="sub-heading">⌨️ 2.3 Complete Studio Keyboard Shortcuts Reference</h3>
+        <h3 class="sub-heading">⌨️ 2.4 Keyboard &amp; Mouse Shortcuts Cheat Sheet</h3>
         <div tabindex="0" role="region" aria-label="TreeviewEA Studio Keyboard Shortcuts Reference" class="table-wrapper">
           <table class="doc-table">
-            <caption>Complete Keyboard &amp; Mouse Shortcuts in TreeviewEA Studio (`internal/ui/dist/app.js`)</caption>
+            <caption>Essential Keyboard &amp; Mouse Shortcuts for Everyday Modeling</caption>
             <thead>
               <tr>
                 <th>Shortcut / Gesture</th>
                 <th>Category</th>
-                <th>Action &amp; Studio Behavior</th>
+                <th>What It Does</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <th><kbd>Double-Click</kbd> / <kbd>F2</kbd></th>
-                <td data-label="Category">In-Line Editing</td>
-                <td data-label="Action">Opens the <strong>In-Line Shape Rename Editor</strong> directly over the selected canvas shape (or opens the System Note Editor modal on <code>SystemNote</code> boxes). Press <kbd>Enter</kbd> to commit or <kbd>Esc</kbd> to cancel.</td>
+                <td data-label="Category">In-Line Rename</td>
+                <td data-label="Action">Renames the selected shape directly on the canvas (or opens the Rich Note Editor on <code>SystemNote</code> cards). Press <kbd>Enter</kbd> to save or <kbd>Esc</kbd> to cancel.</td>
               </tr>
               <tr>
                 <th><kbd>⌘Z</kbd> / <kbd>⇧⌘Z</kbd> (or <kbd>⌘Y</kbd>)</th>
-                <td data-label="Category">Transactional History</td>
-                <td data-label="Action">Executes atomic server-backed SQLite Undo / Redo across all 20 <code>tview_*</code> tables and refreshes the canvas non-destructively.</td>
+                <td data-label="Category">Undo / Redo</td>
+                <td data-label="Action">Undoes or redoes any canvas edit, rename, deletion, bulk update, or AI Co-Pilot action across your entire project.</td>
               </tr>
               <tr>
                 <th><kbd>R</kbd> / <kbd>⇧R</kbd> / <kbd>0</kbd></th>
@@ -1398,53 +1425,43 @@
               </tr>
               <tr>
                 <th><kbd>⌘G</kbd> / <kbd>⇧⌘G</kbd></th>
-                <td data-label="Category">Containment &amp; Grouping</td>
-                <td data-label="Action">Groups 2+ selected objects into a composite parent container (`ParentID`) with synchronized parent-child dragging (<kbd>⌘G</kbd>), or ungroups them (<kbd>⇧⌘G</kbd>).</td>
+                <td data-label="Category">Group / Ungroup</td>
+                <td data-label="Action">Groups 2+ selected shapes into a composite container so they move together (<kbd>⌘G</kbd>), or ungroups them (<kbd>⇧⌘G</kbd>).</td>
               </tr>
               <tr>
                 <th><kbd>⌘A</kbd> / <kbd>⌘D</kbd></th>
-                <td data-label="Category">Selection &amp; Cloning</td>
-                <td data-label="Action">Selects all objects on the active diagram (<kbd>⌘A</kbd>) or duplicates the selected objects with offset coordinates (<kbd>⌘D</kbd>).</td>
+                <td data-label="Category">Select &amp; Duplicate</td>
+                <td data-label="Action">Selects all shapes on the active diagram (<kbd>⌘A</kbd>) or duplicates the selected shapes (<kbd>⌘D</kbd>).</td>
               </tr>
               <tr>
                 <th><kbd>⌘C</kbd> / <kbd>⌘X</kbd> / <kbd>⌘V</kbd></th>
-                <td data-label="Category">Clipboard &amp; Image Paste</td>
-                <td data-label="Action">Copies or cuts selected diagram shapes, or pastes shapes/clipboard images (screenshots are stored in <code>tview_images</code> and placed as resizable image nodes).</td>
+                <td data-label="Category">Copy, Cut &amp; Paste</td>
+                <td data-label="Action">Copies or cuts selected diagram shapes, or pastes shapes and clipboard screenshots onto the diagram.</td>
               </tr>
               <tr>
                 <th><kbd>⌥⌘C</kbd> / <kbd>⌥⌘V</kbd> / <kbd>⇧⌘C</kbd></th>
-                <td data-label="Category">Style &amp; Retina Copy</td>
-                <td data-label="Action">Copies visual style (<kbd>⌥⌘C</kbd>), pastes style onto selected elements (<kbd>⌥⌘V</kbd>), or copies a 2x Retina PNG of the diagram/selection to the macOS clipboard (<kbd>⇧⌘C</kbd>).</td>
+                <td data-label="Category">Style &amp; Image Copy</td>
+                <td data-label="Action">Copies visual color/shape style (<kbd>⌥⌘C</kbd>), pastes style onto selected elements (<kbd>⌥⌘V</kbd>), or copies a crisp 2x Retina PNG of your diagram to the macOS clipboard (<kbd>⇧⌘C</kbd>).</td>
               </tr>
               <tr>
                 <th><kbd>Delete</kbd> / <kbd>Backspace</kbd></th>
-                <td data-label="Category">Deletion &amp; Pruning</td>
-                <td data-label="Action">Removes selected connector(s) or object(s) from the diagram (or deletes selected objects from the repository in Central Object Catalog) with full <kbd>⌘Z</kbd> undo.</td>
+                <td data-label="Category">Remove / Delete</td>
+                <td data-label="Action">Removes selected connector(s) or shape(s) from the diagram (reversible with <kbd>⌘Z</kbd>).</td>
               </tr>
               <tr>
                 <th><kbd>V</kbd> / <kbd>H</kbd> / <kbd>L</kbd> (<kbd>C</kbd>) / <kbd>B</kbd> / <kbd>K</kbd> / <kbd>N</kbd></th>
-                <td data-label="Category">Canvas Tool Modes</td>
-                <td data-label="Action">Switches active tool: Select (<kbd>V</kbd>), Hand Pan (<kbd>H</kbd>), Draw Connector (<kbd>L</kbd> or <kbd>C</kbd>), Stamp Block (<kbd>B</kbd>), Stamp Capability (<kbd>K</kbd>), or Stamp System Note (<kbd>N</kbd>).</td>
+                <td data-label="Category">Quick Tool Modes</td>
+                <td data-label="Action">Switches active cursor tool: Select (<kbd>V</kbd>), Hand Pan (<kbd>H</kbd>), Draw Connector (<kbd>L</kbd> or <kbd>C</kbd>), Stamp Block (<kbd>B</kbd>), Stamp Capability (<kbd>K</kbd>), or Stamp System Note (<kbd>N</kbd>).</td>
               </tr>
               <tr>
-                <th><kbd>Space + Drag</kbd> / <kbd>⌥ + Drag</kbd></th>
-                <td data-label="Category">Infinite Canvas Pan</td>
-                <td data-label="Action">Pans smoothly across the 4-quadrant infinite canvas <code>(-∞, +∞)</code>. When no shape is selected, <kbd>↑</kbd><kbd>↓</kbd><kbd>←</kbd><kbd>→</kbd> arrow keys also pan the viewport.</td>
+                <th><kbd>Space + Drag</kbd> / <kbd>⌘+</kbd> / <kbd>⌘-</kbd> / <kbd>⌘0</kbd></th>
+                <td data-label="Category">Pan &amp; Zoom</td>
+                <td data-label="Action">Pans smoothly across the infinite canvas (<kbd>Space + Drag</kbd>), zooms in/out (<kbd>⌘+</kbd>/<kbd>⌘-</kbd>), or fits the entire diagram into view (<kbd>⌘0</kbd>).</td>
               </tr>
               <tr>
-                <th><kbd>↑</kbd><kbd>↓</kbd><kbd>←</kbd><kbd>→</kbd> / <kbd>⇧ + Arrow</kbd></th>
-                <td data-label="Category">Precision Nudge</td>
-                <td data-label="Action">Nudges selected unlocked shape(s) by <code>5px</code> (or <code>20px</code> with <kbd>Shift</kbd>).</td>
-              </tr>
-              <tr>
-                <th><kbd>⌘+</kbd> / <kbd>⌘-</kbd> / <kbd>⌘0</kbd> / <kbd>⌘1</kbd></th>
-                <td data-label="Category">Viewport Zoom</td>
-                <td data-label="Action">Zooms in (<kbd>⌘+</kbd>), zooms out (<kbd>⌘-</kbd>), fits and centers the entire diagram bounding box (<kbd>⌘0</kbd>), or resets zoom to <code>100%</code> (<kbd>⌘1</kbd>).</td>
-              </tr>
-              <tr>
-                <th><kbd>⌘F</kbd> / <kbd>⌘K</kbd> / <kbd>⌘R</kbd> / <kbd>M</kbd> / <kbd>?</kbd></th>
-                <td data-label="Category">Workspace &amp; HUD</td>
-                <td data-label="Action">Opens Universal Finder (<kbd>⌘F</kbd>/<kbd>⌘K</kbd>), non-destructively refreshes workspace from SQLite (<kbd>⌘R</kbd>), toggles mini-map radar (<kbd>M</kbd>), or opens the Shortcuts sheet (<kbd>?</kbd>).</td>
+                <th><kbd>⌘F</kbd> / <kbd>⌘K</kbd> / <kbd>M</kbd> / <kbd>?</kbd></th>
+                <td data-label="Category">Search &amp; Navigation</td>
+                <td data-label="Action">Opens Universal Search (<kbd>⌘F</kbd>/<kbd>⌘K</kbd>), toggles the corner Mini-Map radar (<kbd>M</kbd>), or opens the Keyboard Shortcuts guide (<kbd>?</kbd>).</td>
               </tr>
             </tbody>
           </table>
@@ -1452,94 +1469,166 @@
       </section>
 
       <!-- ================================================================= -->
-      <!-- SECTION 3: CENTRAL OBJECT CATALOG, INSPECTOR & REPOSITORY BROWSER -->
+      <!-- SECTION 3: ELEMENTS, ATTRIBUTES, WIZARD & CENTRAL OBJECT CATALOG  -->
       <!-- ================================================================= -->
       <section class="doc-section" id="object-catalog">
         <div class="sec-header">
-          <div class="sec-eyebrow">Section 03 · Master Repository Management</div>
-          <h2>Central Object Catalog, Inspector &amp; Repository Browser</h2>
+          <div class="sec-eyebrow">Section 03 · Working with Architecture Elements</div>
+          <h2>Guide to Elements, Attributes, Wizard Profiles &amp; the Object Catalog</h2>
           <p>
-            Every element in TreeviewEA is stored once in <code>tview_objects</code> and referenced across any number of diagrams via <code>tview_diagram_objects</code>. Editing an element in the Central Object Catalog (`#ws-objects`) or Right Inspector immediately updates every diagram where it appears.
+            In TreeviewEA, every shape you place is a real architecture object stored in your central repository. You can place the same Capability, Microservice, or Database Table on multiple diagrams—and whenever you update its name, stereotype, attributes, or status in one place, every diagram updates automatically.
           </p>
         </div>
 
-        <h3 class="sub-heading">📦 3.1 High-Contrast Inline Enum Editors &amp; Live Synchronization</h3>
+        <h3 class="sub-heading">🧱 3.1 Practical Guide to Element Types &amp; How to Connect Them</h3>
         <p style="color:var(--text-secondary); font-size:14.5px; margin-bottom:14px;">
-          The <strong>Central Object Catalog</strong> (<code>#ws-objects</code>, backed by <code>internal/earepo/object_catalog.go</code>) displays all repository objects with instant multi-facet filtering and high-contrast inline dropdown editors (`#0d182e` background with `#38bdf8` / `#10b981` borders):
+          Use this table as a practical reference for which element type and stereotype to choose at each layer of your architecture, and how to connect them from strategy down to infrastructure:
         </p>
 
-        <div class="feature-grid">
-          <div class="feature-card">
-            <h4>🎛️ Inline Enum Dropdowns</h4>
-            <p>
-              Change <code>Object_Type</code> (Class, Component, ServiceDomain, Capability, Activity, Interface, Node, Table, etc.), <code>«Stereotype»</code>, owning <code>Package</code>, <code>Status</code> (Proposed, Approved, Implemented, Mandatory, Validated), <code>Phase</code> (1.0, 2.0, Target), <code>Complexity</code>, and <code>Rotation (0°–359°)</code> directly in the table row.
-            </p>
-            <div class="tag-row">
-              <span class="code-tag">GET /api/objects/catalog</span>
-              <span class="code-tag">PUT /api/objects/{id}</span>
-            </div>
-          </div>
-
-          <div class="feature-card">
-            <h4>🔬 Deep Object Properties Modal &amp; Inspector</h4>
-            <p>
-              Inspect and author <strong>Attributes / Columns</strong> (<code>tview_attributes</code> / <code>tview_attribute</code>: types, <code>«PK»</code>/<code>«FK»</code>, scope, defaults), <strong>Operations / APIs</strong> (<code>tview_operations</code> / <code>tview_operation</code>: parameters, return types, visibility), <strong>Tagged Values</strong> (<code>tview_object_properties</code> / <code>tview_tagged_value</code>), Constraints, Requirements, and <strong>System Notes</strong> (<code>SystemNoteEditorModal</code>).
-            </p>
-            <div class="tag-row">
-              <span class="code-tag">tview_attributes</span>
-              <span class="code-tag">tview_operations</span>
-              <span class="code-tag">tview_object_properties</span>
-            </div>
-          </div>
-
-          <div class="feature-card">
-            <h4>📎 Attached Artifacts &amp; System Note Boxes</h4>
-            <p>
-              Attach rich documents (PDFs, Word docs, spreadsheets, images, or external URLs) to any package or diagram via <code>attach_artifact_or_document</code> (<code>ArtifactItem</code>), and place multi-line folded-corner <code>SystemNote</code> cards with 6 color themes (`Amber`, `Blue`, `Emerald`, `Rose`, `Purple`, `Slate`).
-            </p>
-            <div class="tag-row">
-              <span class="code-tag">artifacts_import.go</span>
-              <span class="code-tag">SystemNoteEditorModal</span>
-            </div>
-          </div>
-        </div>
-
-        <h3 class="sub-heading">🔍 3.2 Bulk Find &amp; Replace, Tabular Import &amp; People/RACI Governance</h3>
-        <div tabindex="0" role="region" aria-label="Object Catalog Bulk Operations and People Governance" class="table-wrapper">
+        <div tabindex="0" role="region" aria-label="Practical Guide to Element Types and Layer Connections" class="table-wrapper">
           <table class="doc-table">
-            <caption>Repository Bulk Operations, Tabular Ingestion &amp; RACI Governance Stereotypes</caption>
+            <caption>Core Element Families, Stereotypes &amp; Recommended Relationships Across Layers</caption>
             <thead>
               <tr>
-                <th>Capability</th>
-                <th>REST / MCP Interface</th>
-                <th>Target Tables</th>
-                <th>Functional Specification</th>
+                <th>Architecture Layer</th>
+                <th>Element Types &amp; Key Stereotypes</th>
+                <th>What You Model With Them</th>
+                <th>How to Connect Them to Other Layers</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <th><strong>Bulk Find &amp; Replace</strong></th>
-                <td data-label="Interface"><code>POST /api/objects/find-replace</code><br /><code>bulk_find_and_replace_objects</code></td>
-                <td data-label="Tables"><code>tview_objects</code>, <code>tview_packages</code>, <code>tview_diagrams</code></td>
-                <td data-label="Specification">Case-sensitive or case-insensitive find &amp; replace across <code>Name</code>, <code>Alias</code>, <code>Stereotype</code>, and <code>Notes</code>, plus batch updates for Package, Status, Phase, Color, and Rotation.</td>
+                <th><strong>L0 · Executive Strategy, Outcomes &amp; Risk</strong></th>
+                <td data-label="Stereotypes"><code>«BusinessOutcome»</code>, <code>«SignatureReadyPlan»</code>, <code>«StrategicObjective»</code>, <code>«Driver»</code>, <code>«Goal»</code>, <code>«BusinessRiskAttribute»</code>, <code>«NIST_Govern»</code></td>
+                <td data-label="What You Model">Executive business goals, measurable target outcomes, regulatory mandates, enterprise risk attributes, and governance policies.</td>
+                <td data-label="Connections">Connect from <strong>Value Streams</strong> and <strong>Capabilities</strong> using <code>Realisation</code> or <code>Association</code> connectors to show which capabilities deliver each business outcome.</td>
               </tr>
               <tr>
-                <th><strong>Tabular CSV / JSON Import</strong></th>
-                <td data-label="Interface"><code>POST /api/import/tabular</code><br /><code>import_tabular_objects</code></td>
-                <td data-label="Tables"><code>tview_objects</code>, <code>tview_attributes</code>, <code>tview_connectors</code></td>
-                <td data-label="Specification">Ingests structured CSV spreadsheets or JSON arrays of elements, attributes, and relationships directly into a target package with optional auto-diagram generation.</td>
+                <th><strong>L1 · Business Capabilities &amp; Value Streams</strong></th>
+                <td data-label="Stereotypes"><code>«Capability»</code>, <code>«ValueStream»</code>, <code>«ValueStreamStage»</code>, <code>«BusinessUnit»</code>, <code>«ServiceDomain»</code>, <code>«BusinessProcess»</code></td>
+                <td data-label="What You Model">What the business does (L1–L3 Capabilities), end-to-end customer/transaction value streams, BIAN v12 Service Domains, and organizational ownership.</td>
+                <td data-label="Connections">Nest sub-capabilities inside parent capabilities by dragging them inside on the canvas (<code>«contains»</code>). Link <strong>Application Components</strong> upward to the <strong>Capabilities</strong> they realize.</td>
               </tr>
               <tr>
-                <th><strong>People Roster &amp; RACI Stereotypes</strong></th>
-                <td data-label="Interface"><code>GET/POST /api/people</code><br /><code>POST /api/people/assign</code><br /><code>manage_people_roster</code></td>
-                <td data-label="Tables"><code>tview_people</code>, <code>tview_resources</code>, <code>tview_object_resources</code></td>
-                <td data-label="Specification">Manages the enterprise stakeholder directory (<code>Full_Name</code>, <code>Role</code>, <code>Department</code>, <code>Org_Unit</code>, <code>Hourly_Rate</code>, <code>Weekly_Capacity</code>, <code>Skills</code>) and binds people to elements using RACI &amp; governance stereotypes: <code>«Responsible»</code>, <code>«Accountable»</code>, <code>«Consulted»</code>, <code>«Informed»</code>, <code>«DomainOwner»</code>, and <code>«Architect»</code>.</td>
+                <th><strong>L2 · Logical Data, Information &amp; Security Policy</strong></th>
+                <td data-label="Stereotypes"><code>«InformationConcept»</code>, <code>«DataEntity»</code>, <code>«TransactionHub_CanonicalObject»</code>, <code>«ISO20022Message»</code>, <code>«TrustBoundary»</code>, <code>«SecurityPolicy»</code>, <code>«NIST_Identify»</code>, <code>«NIST_Protect»</code></td>
+                <td data-label="What You Model">Canonical business data definitions, ISO 20022 messages (`pacs.008`, `pain.001`), Transaction Platform canonical fields (`$.onBehalfOfPayer`, `$.exchangeRate`), and zero-trust security boundaries.</td>
+                <td data-label="Connections">Add data fields in the <strong>Attributes</strong> tab of the Right Inspector. Connect microservices to data objects with <code>Dependency</code> (<code>«flow»</code>) connectors.</td>
               </tr>
               <tr>
-                <th><strong>Contextual Creation Wizard</strong></th>
-                <td data-label="Interface"><code>POST /api/wizard/create</code><br /><code>#dlg-creation-wizard</code></td>
-                <td data-label="Tables"><code>tview_packages</code>, <code>tview_diagrams</code>, <code>tview_objects</code></td>
-                <td data-label="Specification">Infers 1 of 8 domain profiles from the clicked folder (<code>transaction_hub</code>, <code>capability</code>, <code>application</code>, <code>data</code>, <code>process</code>, <code>infrastructure</code>, <code>sysml</code>, <code>general</code>) with a 1-click <strong>⚡ Override Detected Context</strong> toggle.</td>
+                <th><strong>L3 · Applications, PACE Systems, Classes &amp; DB Tables</strong></th>
+                <td data-label="Stereotypes"><code>«SystemOfInnovation»</code>, <code>«SystemOfDifferentiation»</code>, <code>«SystemOfRecord»</code>, <code>«PackagedBusinessCapability»</code>, <code>«ApplicationComponent»</code>, <code>«Microservice»</code>, <code>Class</code>, <code>«Table»</code></td>
+                <td data-label="What You Model">Deployable applications, Gartner PACE-layered systems, code classes with methods/APIs, and physical SQL database tables with typed <code>PK</code>/<code>FK</code> columns.</td>
+                <td data-label="Connections">Link applications to the L1 <strong>Capabilities</strong> they realize, connect <strong>Classes</strong> and <strong>Database Tables</strong> (`«Table»`) to the components that own them, and score TIME dispositions (`Invest`, `Tolerate`, `Migrate`, `Eliminate`).</td>
+              </tr>
+              <tr>
+                <th><strong>L4 · Cloud Infrastructure, Runtime &amp; Security Ops</strong></th>
+                <td data-label="Stereotypes"><code>Node</code>, <code>«AWS_VPC»</code>, <code>«AWS_Subnet»</code>, <code>«AWS_EKS»</code>, <code>«AWS_RDS»</code>, <code>«AWS_Lambda»</code>, <code>«OperationalSecurityNode»</code>, <code>«NIST_Detect»</code>, <code>«NIST_Respond»</code>, <code>«NIST_Recover»</code></td>
+                <td data-label="What You Model">Physical servers, AWS cloud regions/VPCs/clusters, runtime databases, incident response playbooks, and continuous monitoring controls.</td>
+                <td data-label="Connections">Nest subnets and clusters inside VPC boundaries, and draw <code>Realisation</code> / deployment links from cloud runtime nodes to the L3 microservices and database tables they host.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="sub-heading">📦 3.2 Central Object Catalog &amp; Right Inspector</h3>
+        <div class="feature-grid">
+          <div class="feature-card">
+            <h4>🎛️ Spreadsheet-Style Inline Editing</h4>
+            <p>
+              Switch to <strong>📦 Object Catalog</strong> in the top bar to view, search, and filter every element in your project. Use the high-contrast dropdowns directly in any table row to change an element's <strong>Type</strong>, <strong>«Stereotype»</strong>, <strong>Project Folder</strong>, <strong>Status</strong> (Proposed, Approved, Implemented), <strong>Phase</strong>, or <strong>Rotation angle</strong> with instant sync across all diagrams.
+            </p>
+            <div class="tag-row">
+              <span class="code-tag">📦 Object Catalog</span>
+              <span class="code-tag">Inline Dropdowns</span>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <h4>🔬 Adding Attributes, Database Columns &amp; APIs</h4>
+            <p>
+              Select any Class, Canonical Object, or Database Table (`«Table»`) and use the <strong>Right Inspector</strong> (or double-click in the catalog) to add:
+              <br />• <strong>Attributes / Columns:</strong> Name, data type (`uuid`, `varchar(64)`, `numeric(18,2)`, `JSONObject`), and Primary/Foreign Key (`PK`/`FK`) flags.
+              <br />• <strong>Operations / APIs:</strong> Method signatures, REST/gRPC endpoints, and return types.
+              <br />• <strong>Tagged Values:</strong> Custom key-value metadata (e.g., `SLA = 15ms`, `Owner = Core Payments`).
+            </p>
+            <div class="tag-row">
+              <span class="code-tag">Attributes &amp; PK/FK</span>
+              <span class="code-tag">Operations / APIs</span>
+              <span class="code-tag">Tagged Values</span>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <h4>📎 Attaching Documents, Links &amp; System Notes</h4>
+            <p>
+              Keep all architectural context in one place: attach PDF specifications, Word documents, Excel sheets, or external Google Docs / Confluence URLs directly to any folder or diagram, or stamp color-coded <strong>System Note</strong> cards (`N`) onto the canvas to document design decisions and assumptions.
+            </p>
+            <div class="tag-row">
+              <span class="code-tag">Attached Documents</span>
+              <span class="code-tag">SystemNote Cards</span>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="sub-heading">🧙 3.3 Contextual Creation Wizard Profiles, Bulk Operations &amp; Excel/CSV Import</h3>
+        <p style="color:var(--text-secondary); font-size:14.5px; margin-bottom:14px;">
+          Clicking <strong><code>+ New</code></strong> next to any folder in the Left Model Explorer opens the <strong>Contextual Creation Wizard</strong>. It automatically recommends sub-folders, diagram types, and starter blueprints tailored to your chosen architecture domain (including all 8 optional frameworks):
+        </p>
+
+        <div tabindex="0" role="region" aria-label="Contextual Creation Wizard Profiles and Bulk Catalog Operations" class="table-wrapper">
+          <table class="doc-table">
+            <caption>Contextual Creation Wizard Profiles (`contextProfile`), Tabular Import &amp; Governance Tools</caption>
+            <thead>
+              <tr>
+                <th>Feature / Wizard Profile</th>
+                <th>Profile / Tool ID</th>
+                <th>Starter Blueprint &amp; Toolbox Palette</th>
+                <th>How It Helps You Build Faster</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th><strong>Gartner PACE &amp; TIME Wizard Profile</strong></th>
+                <td data-label="ID"><code>gartner-pace-time</code></td>
+                <td data-label="Blueprint">Blueprint: <code>gartner-pace-ea</code><br />Toolbox: <code>gartner</code></td>
+                <td data-label="How It Helps">Scaffolds Future-State Business Outcomes, PACE Application Layers (Innovation, Differentiation, Record), TIME valuation quadrants, and `1…M` Transition Waves.</td>
+              </tr>
+              <tr>
+                <th><strong>BizBOK® v14 Business Architecture Profile</strong></th>
+                <td data-label="ID"><code>bizbok-guild</code></td>
+                <td data-label="Blueprint">Blueprint: <code>bizbok-business-arch</code><br />Toolbox: <code>bizbok</code></td>
+                <td data-label="How It Helps">Scaffolds the Business Architecture Guild Core Quartet (Capabilities, Value Streams, Value Stages, Information Concepts, Business Units) and Value-to-System cross-maps.</td>
+              </tr>
+              <tr>
+                <th><strong>SABSA® 6×6 Security Architecture Profile</strong></th>
+                <td data-label="ID"><code>sabsa-security</code></td>
+                <td data-label="Blueprint">Blueprint: <code>sabsa-zero-trust</code><br />Toolbox: <code>sabsa</code></td>
+                <td data-label="How It Helps">Scaffolds the 6-layer Sherwood Security Matrix (`L1 Contextual` Risk &amp; Threat Domains through `L6 Operational` Incident Playbooks &amp; Assurance Trails).</td>
+              </tr>
+              <tr>
+                <th><strong>NIST CSF 2.0 &amp; SP 800-53 Profile</strong></th>
+                <td data-label="ID"><code>nist-csf-80053</code></td>
+                <td data-label="Blueprint">Blueprint: <code>nist-csf-governance</code><br />Toolbox: <code>nist</code></td>
+                <td data-label="How It Helps">Scaffolds all 6 NIST CSF 2.0 Core Functions (`GV`, `ID`, `PR`, `DE`, `RS`, `RC`) and SP 800-53 Rev. 5 Zero-Trust Access, Crypto, Audit, and Contingency controls.</td>
+              </tr>
+              <tr>
+                <th><strong>Core Domain Wizard Profiles</strong></th>
+                <td data-label="ID"><code>transactionplatform-bian</code> · <code>archimate-togaf</code> · <code>capability-strategy</code> · <code>data-erd</code> · <code>sequence-interaction</code> · <code>bpmn-process</code> · <code>aws-cloud</code> · <code>uml-sysml</code></td>
+                <td data-label="Blueprint">Blueprints: <code>tp-payment-hub</code>, <code>archimate-layered</code>, <code>capability-map</code>, <code>data-erd-tables</code>, <code>aws-landing-zone</code>, etc.</td>
+                <td data-label="How It Helps">Automatically detects the domain from your folder name (or lets you override with 1 click) to pre-populate sub-folders, diagrams, and connected starter elements.</td>
+              </tr>
+              <tr>
+                <th><strong>Excel / CSV Tabular Import</strong></th>
+                <td data-label="ID"><code>📦 Import CSV / Excel</code><br />(<code>import_tabular_objects</code>)</td>
+                <td data-label="Blueprint">Supports <code>.xlsx</code>, <code>.csv</code>, <code>.tsv</code>, or pasted spreadsheet rows</td>
+                <td data-label="How It Helps">Turns existing application inventories, capability lists, or database column spreadsheets into repository objects, attributes, and an auto-laid-out diagram in seconds.</td>
+              </tr>
+              <tr>
+                <th><strong>Bulk Find &amp; Replace + People Roster</strong></th>
+                <td data-label="ID"><code>🔍 Find &amp; Replace</code> · <code>👥 People Roster</code></td>
+                <td data-label="Blueprint">RACI Stereotypes: <code>«Responsible»</code>, <code>«Accountable»</code>, <code>«Consulted»</code>, <code>«Informed»</code></td>
+                <td data-label="How It Helps">Rename terms or update statuses/colors across hundreds of elements at once, and assign architects, owners, and hourly rate cards for automated labor cost rollups.</td>
               </tr>
             </tbody>
           </table>
@@ -1547,75 +1636,149 @@
       </section>
 
       <!-- ================================================================= -->
-      <!-- SECTION 4: ENTERPRISE FRAMEWORKS, CANONICAL SCHEMAS & AWS CLOUD   -->
+      <!-- SECTION 4: ENTERPRISE FRAMEWORKS, TRANSACTION PLATFORM & CLOUD    -->
       <!-- ================================================================= -->
       <section class="doc-section" id="frameworks">
         <div class="sec-header">
-          <div class="sec-eyebrow">Section 04 · Standards, Payments &amp; Cloud Discovery</div>
-          <h2>Enterprise Frameworks, Canonical Schemas &amp; Cloud Discovery</h2>
+          <div class="sec-eyebrow">Section 04 · Practical Guide to the 8 Frameworks</div>
+          <h2>Using the 8 Enterprise Frameworks, Transaction Platform &amp; Cloud Import</h2>
           <p>
-            TreeviewEA natively unifies industry EA standards (TOGAF 10, ArchiMate 3.2, BIAN v12, SysML 1.6, BPMN 2.0, C4, EACOE 6×6), the <strong>PayEx / Transaction Hub Canonical Payment Schema</strong>, <strong>ISO 20022</strong> financial messaging, and live <strong>AWS Cloud Discovery</strong>.
+            TreeviewEA gives you <strong>8 built-in Enterprise Architecture &amp; Security Frameworks</strong> that you can turn on individually or combine inside the same project. Click <strong>🏛️ Frameworks</strong> in the top toolbar at any time to scaffold a complete, pre-wired folder hierarchy and starter diagram in 1 click, or toggle any framework's stencil palette in the <strong>Left Toolbox (<code>+ Shapes</code>)</strong>.
           </p>
         </div>
 
-        <h3 class="sub-heading">🏛️ 4.1 1-Click Framework Wizard &amp; Architecture Scaffolding</h3>
+        <h3 class="sub-heading">🏛️ 4.1 When &amp; How to Use Each of the 8 Optional Frameworks</h3>
         <p style="color:var(--text-secondary); font-size:14.5px; margin-bottom:14px;">
-          In the <strong>🏛️ Frameworks &amp; MDG</strong> workspace (<code>internal/earepo/frameworks.go</code>, <code>instantiate_ea_framework</code>, and <code>wizard_scaffold_architecture</code>), architects can instantiate complete, pre-wired domain packages and master diagrams in one click:
+          Not sure which framework fits your initiative? Use this practical comparison to pick the right methodology—or mix and match them across your repository:
         </p>
 
         <div class="feature-grid">
           <div class="feature-card">
-            <h4>🏛️ TOGAF® 10 ADM (Preliminary + Phases A–H)</h4>
+            <h4>🎯 1. Gartner Enterprise Architecture Method (<code>GARTNER</code>)</h4>
             <p>
-              Scaffolds the full Architecture Development Method cycle: Preliminary Framework &amp; Principles, Phase A (Architecture Vision), Phase B (Business Architecture), Phase C (Information Systems — Data &amp; Application), Phase D (Technology Architecture), Phase E (Opportunities &amp; Solutions), Phase F (Migration Planning), Phase G (Implementation Governance), and Phase H (Change Management) with <code>«ArchitectureBuildingBlock»</code> (ABB) and <code>«SolutionBuildingBlock»</code> (SBB) lineage.
+              <strong>Best for:</strong> CIO/CTO roadmaps, application portfolio rationalization, and linking executive business outcomes to investment decisions.
+              <br />• <strong> Layer 1 — Future-State Business Outcomes:</strong> <code>«BusinessOutcome»</code> &amp; <code>«SignatureReadyPlan»</code>.
+              <br />• <strong>Layer 2 — PACE-Layered Application Strategy:</strong> Classify systems by rate of change and competitive advantage: <code>«SystemOfInnovation»</code> (fast experimentation), <code>«SystemOfDifferentiation»</code> (unique IP), <code>«SystemOfRecord»</code> (core ledger/ERP), and <code>«PackagedBusinessCapability»</code> (composable API building blocks).
+              <br />• <strong>Layer 3 — TIME Portfolio Valuation:</strong> Score assets as <code>«InvestAsset»</code>, <code>«TolerateAsset»</code>, <code>«MigrateAsset»</code>, or <code>«EliminateAsset»</code>.
+              <br />• <strong>Layer 4 — Gap Analysis &amp; <code>1…M</code> Transition Waves:</strong> <code>«TargetStateGap»</code> &amp; <code>«TransitionWave»</code>.
             </p>
             <div class="tag-row">
-              <span class="code-tag">TOGAF 10 ADM</span>
-              <span class="code-tag">Phases A–H</span>
+              <span class="code-tag">Framework: GARTNER</span>
+              <span class="code-tag">Toolbox: gartner</span>
+              <span class="code-tag">Wizard: gartner-pace-time</span>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <h4>🏛️ 2. BizBOK® v14 Business Architecture Guild (<code>BIZBOK</code>)</h4>
+            <p>
+              <strong>Best for:</strong> Business architects building L1–L3 capability maps, end-to-end customer value streams, and business-to-IT cross-mappings.
+              <br />• <strong>Layer 1 — Core Quartet Blueprints:</strong> <code>«Capability»</code>, <code>«ValueStream»</code>, <code>«ValueStreamStage»</code>, <code>«InformationConcept»</code>, and <code>«BusinessUnit»</code>.
+              <br />• <strong>Layer 2 — Extended Governance Domains:</strong> <code>«StrategicObjective»</code>, <code>«BusinessPolicy»</code>, <code>«Stakeholder»</code>, <code>«ProductMapping»</code>, and <code>«Initiative»</code>.
+              <br />• <strong>Layer 3 — Cross-Mapping Blueprints:</strong> Connect value stages to enabling capabilities and IT systems using <code>«ValueStageCapabilityMap»</code>, <code>«CapabilityToSystemLink»</code>, and <code>«InformationToEntityLink»</code>.
+            </p>
+            <div class="tag-row">
+              <span class="code-tag">Framework: BIZBOK</span>
+              <span class="code-tag">Toolbox: bizbok</span>
+              <span class="code-tag">Wizard: bizbok-guild</span>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <h4>🛡️ 3. SABSA® 6×6 Enterprise Security Architecture (<code>SABSA</code>)</h4>
+            <p>
+              <strong>Best for:</strong> Security architects designing zero-trust architectures where every technical control traces back to a business risk attribute across all 6 Sherwood rows (<code>R1..R6</code>):
+              <br />• <strong>L1 Contextual (<code>R1</code>):</strong> <code>«BusinessRiskAttribute»</code>, <code>«ThreatDomain»</code>
+              <br />• <strong>L2 Conceptual (<code>R2</code>):</strong> <code>«SecurityControlObjective»</code>, <code>«TrustBoundary»</code>
+              <br />• <strong>L3 Logical (<code>R3</code>):</strong> <code>«LogicalSecurityService»</code>, <code>«SecurityPolicy»</code>, <code>«ProtectedInformationAsset»</code>
+              <br />• <strong>L4 Physical (<code>R4</code>):</strong> <code>«PhysicalSecurityMechanism»</code>, <code>«SecurityDataSchema»</code>
+              <br />• <strong>L5 Component (<code>R5</code>):</strong> <code>«SecurityComponent»</code>
+              <br />• <strong>L6 Operational (<code>R6</code>):</strong> <code>«OperationalSecurityNode»</code>, <code>«SecurityIncidentPlaybook»</code>, <code>«AssuranceAuditTrail»</code>
+            </p>
+            <div class="tag-row">
+              <span class="code-tag">Framework: SABSA</span>
+              <span class="code-tag">Toolbox: sabsa</span>
+              <span class="code-tag">Wizard: sabsa-security</span>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <h4>🔐 4. NIST CSF 2.0 &amp; SP 800-53 Rev. 5 (<code>NIST</code>)</h4>
+            <p>
+              <strong>Best for:</strong> Cybersecurity compliance, audit readiness, and mapping NIST controls directly onto applications, databases, and cloud infrastructure:
+              <br />• <strong>All 6 NIST CSF 2.0 Core Functions:</strong> <code>«NIST_Govern»</code> (<strong>GV</strong>), <code>«NIST_Identify»</code> (<strong>ID</strong>), <code>«NIST_Protect»</code> (<strong>PR</strong>), <code>«NIST_Detect»</code> (<strong>DE</strong>), <code>«NIST_Respond»</code> (<strong>RS</strong>), and <code>«NIST_Recover»</code> (<strong>RC</strong>).
+              <br />• <strong>NIST SP 800-53 Rev. 5 Control Families:</strong> <code>«ZeroTrustAccessControl»</code> (<strong>AC/IA</strong>), <code>«CryptographicProtection»</code> (<strong>SC-8/SC-28</strong>), <code>«AuditAndAccountability»</code> (<strong>AU/SI</strong>), and <code>«ContingencyPlanControl»</code> (<strong>CP/IR</strong>).
+            </p>
+            <div class="tag-row">
+              <span class="code-tag">Framework: NIST</span>
+              <span class="code-tag">Toolbox: nist</span>
+              <span class="code-tag">Wizard: nist-csf-80053</span>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <h4>🏛️ 5. TOGAF® Standard, 10th Edition (<code>TOGAF10</code>)</h4>
+            <p>
+              <strong>Best for:</strong> Structured enterprise transformation following the Architecture Development Method (ADM). Scaffolds <strong>Preliminary Principles</strong>, <strong>Phase A</strong> (Architecture Vision), <strong>Phase B</strong> (Business Architecture), <strong>Phase C</strong> (Data &amp; Application Architecture), <strong>Phase D</strong> (Technology Architecture), <strong>Phases E &amp; F</strong> (Opportunities, Solutions &amp; Migration Planning), and <strong>Phases G &amp; H</strong> (Implementation Governance &amp; Change Management) with <code>«ArchitectureBuildingBlock»</code> (ABB) and <code>«SolutionBuildingBlock»</code> (SBB) traceability.
+            </p>
+            <div class="tag-row">
+              <span class="code-tag">Framework: TOGAF10</span>
+              <span class="code-tag">ADM Phases A–H</span>
               <span class="code-tag">ABB / SBB</span>
             </div>
           </div>
 
           <div class="feature-card">
-            <h4>📐 ArchiMate® 3.2 Full-Stack Metamodel</h4>
+            <h4>📐 6. ArchiMate® 3.2 Enterprise Notation (<code>ARCHIMATE3</code>)</h4>
             <p>
-              Provides complete stereotype and visual notation coverage across all ArchiMate 3.2 layers: <strong>Strategy</strong> (<code>«Capability»</code>, <code>«ValueStream»</code>, <code>«CourseOfAction»</code>), <strong>Motivation</strong> (<code>«Driver»</code>, <code>«Goal»</code>, <code>«Principle»</code>), <strong>Business</strong>, <strong>Application</strong>, <strong>Technology</strong>, <strong>Physical</strong>, and <strong>Implementation &amp; Migration</strong> (<code>«WorkPackage»</code>, <code>«Plateau»</code>, <code>«Gap»</code>).
+              <strong>Best for:</strong> Standards-based visual modeling across all 7 ArchiMate layers with official color coding and corner badges: <strong>Strategy</strong> (<code>«Capability»</code>, <code>«ValueStream»</code>, <code>«CourseOfAction»</code>), <strong>Motivation</strong> (<code>«Driver»</code>, <code>«Goal»</code>, <code>«Principle»</code>), <strong>Business</strong> (<code>«BusinessActor»</code>, <code>«BusinessProcess»</code>), <strong>Application</strong> (<code>«ApplicationComponent»</code>, <code>«DataObject»</code>), <strong>Technology</strong> (<code>«Node»</code>, <code>«SystemSoftware»</code>), and <strong>Implementation &amp; Migration</strong> (<code>«WorkPackage»</code>, <code>«Plateau»</code>, <code>«Gap»</code>).
             </p>
             <div class="tag-row">
-              <span class="code-tag">ArchiMate 3.2</span>
-              <span class="code-tag">7 Layers</span>
-              <span class="code-tag">tview_xrefs</span>
+              <span class="code-tag">Framework: ARCHIMATE3</span>
+              <span class="code-tag">Toolbox: archimate</span>
+              <span class="code-tag">7 Color-Coded Layers</span>
             </div>
           </div>
 
           <div class="feature-card">
-            <h4>🏦 BIAN v12, SysML 1.6, BPMN 2.0 &amp; C4</h4>
+            <h4>🏦 7. BIAN v12 Banking Service Landscape (<code>BIAN</code>)</h4>
             <p>
-              Models Banking Industry Architecture Network (BIAN v12) <code>«ServiceDomain»</code>, <code>«ControlRecord»</code>, and <code>«BehaviorQualifier»</code> building blocks alongside OMG SysML 1.6 <code>«block»</code> / <code>«requirement»</code> engineering, BPMN 2.0 choreography, and C4 Model (<code>«Person»</code>, <code>«SoftwareSystem»</code>, <code>«Container»</code>, <code>«Microservice»</code>) hierarchies.
+              <strong>Best for:</strong> Financial institutions modeling composable banking services, core banking modernization, and payment execution domains. Scaffolds BIAN Business Areas, <code>«ServiceDomain»</code> functional cores, <code>«ControlRecord»</code> state structures, <code>«BehaviorQualifier»</code> sub-functions, and <code>«BusinessScenario»</code> choreographies.
             </p>
             <div class="tag-row">
-              <span class="code-tag">BIAN v12</span>
-              <span class="code-tag">SysML 1.6</span>
-              <span class="code-tag">BPMN 2.0</span>
-              <span class="code-tag">C4 Model</span>
+              <span class="code-tag">Framework: BIAN</span>
+              <span class="code-tag">Toolbox: data_tp</span>
+              <span class="code-tag">Service Domains</span>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <h4>💳 8. Transaction Platform &amp; ISO 20022 (<code>ISO20022</code>)</h4>
+            <p>
+              <strong>Best for:</strong> Payment hubs, clearing &amp; settlement platforms, and canonical financial message design. Scaffolds <code>«ISO20022Message»</code> definitions (<code>pacs.008</code>, <code>pacs.009</code>, <code>pacs.004</code>, <code>pain.001</code>, <code>camt.053</code>), the <code>«TransactionHub_CanonicalObject»</code> (<code>TransactionPlatformObject</code>), and rail routing across <strong>ACH</strong>, <strong>Fedwire</strong>, <strong>RTP</strong>, <strong>FedNow</strong>, <strong>SWIFT</strong>, <strong>Debit</strong>, and <strong>Check</strong>.
+            </p>
+            <div class="tag-row">
+              <span class="code-tag">Framework: ISO20022</span>
+              <span class="code-tag">TransactionPlatformObject</span>
+              <span class="code-tag">pacs.008 / pain.001</span>
             </div>
           </div>
         </div>
 
-        <h3 class="sub-heading">💳 4.2 PayEx / Transaction Hub Canonical Schema &amp; ISO 20022 Lineage</h3>
+        <h3 class="sub-heading">💳 4.2 Transaction Platform Canonical Schema &amp; ISO 20022 Mapping</h3>
         <div class="callout emerald">
-          <strong>Canonical Payment Object &amp; ISO 20022 Standard Mapping:</strong> TreeviewEA includes built-in domain intelligence (`setup_config.go`, `frameworks.go`, and the `Transaction Hub & Data Architect` ARB specialist) for the <strong>PayEx / Transaction Hub</strong> ecosystem, mapping the canonical dot-notation hierarchy directly to ISO 20022 messages and physical SQL DDL tables.
+          <strong>Canonical Transaction Object &amp; ISO 20022 Standard Alignment:</strong> When you instantiate the <strong>Transaction Platform / ISO 20022</strong> framework (or pick the <code>tp-payment-hub</code> starter blueprint), TreeviewEA pre-populates the canonical <code>TransactionPlatformObject</code> (<code>«TransactionHub_CanonicalObject»</code>) with its hierarchical dot-notation schema and maps each branch to ISO 20022 messages and physical database tables.
         </div>
 
-        <div tabindex="0" role="region" aria-label="PayEx Canonical Payment Object Dot-Notation Schema and ISO 20022 Mapping" class="table-wrapper">
+        <div tabindex="0" role="region" aria-label="Transaction Platform Canonical Object Dot-Notation Schema and ISO 20022 Mapping" class="table-wrapper">
           <table class="doc-table">
-            <caption>PayEx / Transaction Hub Canonical Schema (`PayExPaymentObject` / `«TransactionHub_CanonicalObject»`) &amp; ISO 20022 Lineage</caption>
+            <caption>Transaction Platform Canonical Schema (`TransactionPlatformObject` / `«TransactionHub_CanonicalObject»`) &amp; ISO 20022 Lineage</caption>
             <thead>
               <tr>
                 <th>Canonical Dot-Notation Path</th>
                 <th>Key Child Attributes</th>
                 <th>ISO 20022 Message &amp; XPath Target</th>
-                <th>Physical Table &amp; Patent Microservice Mapping</th>
+                <th>Physical Table &amp; Platform Microservice Mapping</th>
               </tr>
             </thead>
             <tbody>
@@ -1623,64 +1786,64 @@
                 <th><code>$.onBehalfOfPayer</code></th>
                 <td data-label="Attributes"><code>countryCode</code>, <code>accountNumber</code>, <code>idType</code>, <code>partyName</code>, <code>bicFi</code></td>
                 <td data-label="ISO 20022"><code>pacs.008.001.10</code> / <code>pain.001.001.11</code><br /><code>UltmtDbtr</code> &amp; <code>DbtrAcct/Id</code></td>
-                <td data-label="Physical Mapping"><code>tview_tp_party_enrichment</code> · Validated by <strong>Configurable Rules Microservice</strong> (US 11,037,168) for OFAC &amp; ultimate debtor transparency.</td>
+                <td data-label="Physical Mapping"><code>tp_party_enrichment</code> · Validated by the <strong>Configurable Rules Microservice</strong> for sanctions screening and ultimate debtor transparency.</td>
               </tr>
               <tr>
                 <th><code>$.returnSpecificInfo</code></th>
                 <td data-label="Attributes"><code>reasonCode</code>, <code>originalPaymentType</code>, <code>originalEndToEndId</code>, <code>returnTimestamp</code></td>
                 <td data-label="ISO 20022"><code>pacs.004.001.11</code> (PaymentReturn) &amp; <code>camt.056</code><br /><code>RtrRsnInf/Rsn/Cd</code></td>
-                <td data-label="Physical Mapping"><code>tview_tp_payment_order</code> · Monitored by <strong>Watchdog Microservice</strong> (US 11,068,903) for R-code anomaly detection and automated return routing.</td>
+                <td data-label="Physical Mapping"><code>tp_payment_order</code> · Monitored by the <strong>Watchdog &amp; Exception Microservice</strong> for return reason code routing and automated repair.</td>
               </tr>
               <tr>
                 <th><code>$.enrichedDataInExchange</code></th>
                 <td data-label="Attributes"><code>productCode</code>, <code>officeId</code>, <code>accountStatus</code>, <code>clearingChannel</code>, <code>slaTier</code></td>
                 <td data-label="ISO 20022"><code>pacs.008</code> / <code>pacs.009</code> (FICreditTransfer)<br /><code>PmtTpInf/SvcLvl</code> &amp; <code>SplmtryData</code></td>
-                <td data-label="Physical Mapping"><code>tview_tp_settlement_entry</code> · Enriched in-flight by <strong>Streaming Microservice</strong> (US 11,023,528) across ACH, Fedwire, TCH RTP, FedNow, and SWIFT rails.</td>
+                <td data-label="Physical Mapping"><code>tp_settlement_entry</code> · Enriched in-flight by the <strong>Streaming Enrichment Microservice</strong> across ACH, Fedwire, RTP, FedNow, Debit, Check, and SWIFT rails.</td>
               </tr>
               <tr>
                 <th><code>$.exchangeRate</code></th>
                 <td data-label="Attributes"><code>instructedAmount</code>, <code>rate</code>, <code>tradeDetails</code>, <code>sourceCurrency</code>, <code>targetCurrency</code></td>
                 <td data-label="ISO 20022"><code>pacs.008</code> / <code>camt.053.001.10</code> (BankToCustomerStatement)<br /><code>XchgRateInf/XchgRate</code> &amp; <code>InstdAmt</code></td>
-                <td data-label="Physical Mapping"><code>tview_tp_immutable_audit_ledger</code> · Captured by <strong>Snapshot Microservice</strong> (US 10,891,615) with Pacioli double-entry accounting invariants.</td>
+                <td data-label="Physical Mapping"><code>tp_immutable_audit_ledger</code> · Recorded by the <strong>Snapshot &amp; Ledger Microservice</strong> with double-entry accounting integrity.</td>
               </tr>
             </tbody>
           </table>
         </div>
 
-        <h3 class="sub-heading">☁️ 4.3 Live AWS Cloud Discovery &amp; Topology Generator (`awsimport`)</h3>
+        <h3 class="sub-heading">☁️ 4.3 Live AWS Cloud Discovery &amp; Diagram Generator</h3>
         <p style="color:var(--text-secondary); font-size:14.5px; margin-bottom:14px;">
-          Click <strong>☁️ AWS Import</strong> in the Studio topbar (`aws-import.js` + `internal/server/aws.go` + `internal/awsimport/`) to connect to any local AWS CLI profile (`~/.aws/config` / AWS SSO) and materialize live cloud infrastructure into a layered architecture diagram:
+          Want to generate an accurate cloud architecture diagram from your existing AWS environment instead of drawing by hand? Click <strong>☁️ AWS Import</strong> in the top toolbar to scan your local AWS CLI profile (<code>~/.aws/config</code> or AWS SSO) in read-only mode:
         </p>
 
         <div class="feature-grid">
           <div class="feature-card">
-            <h4>🔐 Read-Only STS &amp; Multi-Region Scan</h4>
+            <h4>🔐 Step 1: Pick Your AWS Profile &amp; Regions</h4>
             <p>
-              Verifies credentials via <code>aws sts get-caller-identity</code> (`POST /api/aws/test`) and scans one or more AWS regions in parallel (`POST /api/aws/discover`) across 12 service groups without mutating any cloud resource.
+              Select any configured AWS profile and one or more regions (e.g., <code>us-east-1</code>, <code>us-west-2</code>). TreeviewEA verifies your read-only session with <code>aws sts get-caller-identity</code> and never modifies any cloud resource.
             </p>
             <div class="tag-row">
-              <span class="code-tag">GET /api/aws/profiles</span>
-              <span class="code-tag">POST /api/aws/discover</span>
+              <span class="code-tag">100% Read-Only</span>
+              <span class="code-tag">Multi-Region Scan</span>
             </div>
           </div>
           <div class="feature-card">
-            <h4>🕸️ 12 Discovered AWS Service Groups</h4>
+            <h4>🕸️ Step 2: Discover 12 AWS Service Families</h4>
             <p>
               Automatically discovers <strong>VPCs, Subnets, IGW/NAT/TGW</strong>, <strong>EC2</strong>, <strong>ALB/NLB (+Target Groups)</strong>, <strong>EKS &amp; ECS/Fargate</strong>, <strong>Lambda (+Event Triggers)</strong>, <strong>RDS/Aurora</strong>, <strong>DynamoDB</strong>, <strong>ElastiCache</strong>, <strong>S3</strong>, <strong>SQS/SNS/EventBridge/Step Functions</strong>, <strong>API Gateway</strong>, and <strong>CloudFront</strong>.
             </p>
             <div class="tag-row">
               <span class="code-tag">12 Service Groups</span>
-              <span class="code-tag">Auto-Wired Edges</span>
+              <span class="code-tag">Auto-Wired Links</span>
             </div>
           </div>
           <div class="feature-card">
-            <h4>🎨 65+ Official AWS Vector Icons</h4>
+            <h4>🎨 Step 3: Materialize Your Cloud Diagram</h4>
             <p>
-              Materializes (`POST /api/aws/import`) nested Account → Region → VPC → Public/Private Subnet boundary containers populated with 65+ category-colored AWS vector tiles (`aws-icons.js`) and tagged with live ARNs, CIDR blocks, engine versions, and instance sizes.
+              Generates nested Account → Region → VPC → Public/Private Subnet boundary containers populated with 65+ official AWS vector icons and tagged with live ARNs, CIDR blocks, engine versions, and instance sizes.
             </p>
             <div class="tag-row">
-              <span class="code-tag">aws-icons.js</span>
-              <span class="code-tag">POST /api/aws/import</span>
+              <span class="code-tag">65+ AWS Vector Icons</span>
+              <span class="code-tag">Nested VPC Boundaries</span>
             </div>
           </div>
         </div>
@@ -1691,83 +1854,83 @@
       <!-- ================================================================= -->
       <section class="doc-section" id="governance-finops">
         <div class="sec-header">
-          <div class="sec-eyebrow">Section 05 · Executive Portfolio &amp; Graph Intelligence</div>
-          <h2>Portfolio Governance, TIME/FinOps, Estimation &amp; Roadmaps</h2>
+          <div class="sec-eyebrow">Section 05 · Portfolio Governance, Costing &amp; Roadmaps</div>
+          <h2>TIME Application Rationalization, FinOps Costing &amp; Roadmaps</h2>
           <p>
-            TreeviewEA embeds full financial governance, Gartner/EA TIME application rationalization, Three-Point PERT engineering estimation, multi-wave roadmaps, and N-hop blast-radius impact analysis directly into the architecture repository (`internal/earepo/reporting.go` &amp; `reasoning_engine.go`).
+            Beyond visual diagramming, TreeviewEA helps you answer executive questions directly from your model: <em>Which systems should we invest in or retire? How much does each capability cost to run? How many engineering hours will our target state take, and what breaks if a core service goes down?</em>
           </p>
         </div>
 
-        <h3 class="sub-heading">🎯 5.1 APM TIME Matrix, FinOps &amp; Executive Amount Summation (`∑`)</h3>
+        <h3 class="sub-heading">🎯 5.1 Gartner TIME Portfolio Quadrant, FinOps (`∑`) &amp; PERT Estimation</h3>
         <div class="feature-grid">
           <div class="feature-card">
-            <h4>🧭 APM TIME Portfolio Quadrant (2×2)</h4>
+            <h4>🧭 TIME Portfolio Quadrant (2×2 View)</h4>
             <p>
-              Evaluate every application, service domain, and platform component on <strong>Technical Fit (1–10)</strong> vs. <strong>Business Value (1–10)</strong> via <code>update_time_and_finops</code> or the <strong>🎯 TIME Portfolio Quadrant</strong> view:
-              <br />• <strong>Invest</strong> (High Value, High Fit)
-              <br />• <strong>Migrate</strong> (High Value, Low Fit — Modernization Target)
-              <br />• <strong>Tolerate</strong> (Low Value, High Fit — Maintain/Optimize)
-              <br />• <strong>Eliminate</strong> (Low Value, Low Fit — Decommission)
+              Click <strong>🎯 TIME Quadrant</strong> in the top bar (or use the Right Inspector) to score any application or service on <strong>Technical Fit (1–10)</strong> vs. <strong>Business Value (1–10)</strong>:
+              <br />• <strong>Invest</strong> (High Value, High Fit — Scale &amp; innovate)
+              <br />• <strong>Migrate</strong> (High Value, Low Fit — Modernize / re-platform)
+              <br />• <strong>Tolerate</strong> (Low Value, High Fit — Maintain efficiently)
+              <br />• <strong>Eliminate</strong> (Low Value, Low Fit — Retire &amp; reclaim spend)
             </p>
             <div class="tag-row">
-              <span class="code-tag">update_time_and_finops</span>
-              <span class="code-tag">Tolerate · Invest · Migrate · Eliminate</span>
+              <span class="code-tag">🎯 TIME Quadrant</span>
+              <span class="code-tag">Invest · Migrate · Tolerate · Eliminate</span>
             </div>
           </div>
 
           <div class="feature-card">
-            <h4>💰 FinOps Ledger &amp; Amount Summation (`∑`)</h4>
+            <h4>💰 FinOps Ledger &amp; Executive Cost Rollups (`∑`)</h4>
             <p>
-              Attach financial line items in <code>tview_object_metrics</code> across <strong>CapEx</strong>, <strong>OpEx</strong>, <strong>License</strong>, <strong>Cloud Infra Run-Rate</strong>, <strong>Savings</strong>, and <strong>Valuation</strong>. The Executive Reporting workspace (`#ws-reporting`) computes live rollups by Package, Capability, TIME quadrant, and Net Cost After Savings.
+              Attach financial line items to any application, database, or cloud node across <strong>CapEx</strong>, <strong>OpEx</strong>, <strong>Software Licensing</strong>, <strong>Cloud Infrastructure Run-Rate</strong>, and <strong>Projected Savings</strong>. Open <strong>📊 Executive Reporting</strong> to view live cost rollups by Folder, Business Capability, and TIME disposition.
             </p>
             <div class="tag-row">
-              <span class="code-tag">tview_object_metrics</span>
-              <span class="code-tag">GET /api/reporting</span>
-              <span class="code-tag">Annual TCO</span>
+              <span class="code-tag">CapEx &amp; OpEx</span>
+              <span class="code-tag">Cloud Run-Rate</span>
+              <span class="code-tag">Net TCO Rollups</span>
             </div>
           </div>
 
           <div class="feature-card">
-            <h4>📐 Three-Point PERT &amp; WBS Cost Estimation</h4>
+            <h4>📐 Three-Point PERT Effort &amp; Labor Costing</h4>
             <p>
-              Compute engineering effort and labor costs (`update_component_estimates` &amp; `get_component_estimates`) using <strong>Three-Point Estimation</strong>:
-              <br /><code>Expected Hours (PERT) = (Optimistic + 4 × MostLikely + Pessimistic) / 6</code>
-              <br />Combined with Story Points, Role Hourly Rates (<code>$150–$225/hr</code>), and resource allocations in <code>tview_object_resources</code> &amp; <code>tview_object_efforts</code>.
+              Estimate delivery effort on any component using industry-standard <strong>Three-Point PERT Estimation</strong>:
+              <br /><code>Expected Hours = (Optimistic + 4 × MostLikely + Pessimistic) / 6</code>
+              <br />Assign team members from the <strong>👥 People Roster</strong> (`Responsible`, `Accountable`, `Consulted`, `Informed`) to automatically calculate engineering labor costs from hourly rate cards.
             </p>
             <div class="tag-row">
               <span class="code-tag">PERT (O + 4M + P) / 6</span>
               <span class="code-tag">Story Points</span>
-              <span class="code-tag">tview_object_efforts</span>
+              <span class="code-tag">RACI Rate Cards</span>
             </div>
           </div>
         </div>
 
-        <h3 class="sub-heading">🗓️ 5.2 Project Lifecycle Roadmaps (`tview_roadmap_phase`) &amp; Intersection Matrix (`tview_xref_matrix`)</h3>
+        <h3 class="sub-heading">🗓️ 5.2 Transition Roadmaps, Intersection Matrices &amp; Blast-Radius Impact</h3>
         <div tabindex="0" role="region" aria-label="Roadmaps, Intersection Matrix, and Dependency Impact Analysis" class="table-wrapper">
           <table class="doc-table">
-            <caption>Lifecycle Roadmaps, Universal Intersection Matrix &amp; Blast-Radius Dependency Impact Analysis</caption>
+            <caption>How to Plan Multi-Wave Roadmaps, Cross-Layer Matrices &amp; Dependency Impact Analysis</caption>
             <thead>
               <tr>
-                <th>Subsystem</th>
-                <th>Schema / API</th>
-                <th>Scoring &amp; Analytical Model</th>
+                <th>Governance View</th>
+                <th>How to Open It</th>
+                <th>What You Can Do With It</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <th><strong>Project Lifecycle Roadmaps</strong></th>
-                <td data-label="Schema / API"><code>tview_roadmap_phase</code><br /><code>tview_object_properties</code><br /><code>manage_project_lifecycle</code></td>
-                <td data-label="Model">Plans <code>1...M</code> transition architectures across <strong>Q1–Q4 waves</strong> (`WbsWave`, `WbsCode`, `WbsStart`, `WbsEnd`, `WbsPredecessor`, `WbsProgress`), tracking Baseline vs. Target plateau state transitions.</td>
+                <th><strong><code>1…M</code> Transition Roadmaps</strong></th>
+                <td data-label="How to Open">Top Bar → <strong>📊 Reporting &amp; Roadmaps</strong> (or Right Inspector → <strong>Roadmap / WBS</strong>)</td>
+                <td data-label="What You Can Do">Plan multi-quarter transformation waves (<strong>Wave 1..N / Q1–Q4</strong>) with start/end dates, predecessor dependencies, completion percentages, and Baseline vs. Target architecture states.</td>
               </tr>
               <tr>
                 <th><strong>Universal Intersection Matrix</strong></th>
-                <td data-label="Schema / API"><code>tview_xref_matrix</code> (`tview_xrefs`)<br /><code>GET /api/reporting/matrix</code><br /><code>query_intersection_matrix</code></td>
-                <td data-label="Model">Computes 4-dimensional coupling scores between any two architecture elements or packages:<br />1. <strong>Direct Connectors</strong> (`tview_connectors`, weight <code>3</code>)<br />2. <strong>Co-Diagram Placement</strong> (`tview_diagram_objects`, weight <code>2</code>)<br />3. <strong>Shared People / RACI Resources</strong> (`tview_object_resources`, weight <code>2</code>)<br />4. <strong>Parent-Child Containment</strong> (`ParentID`, weight <code>4</code>)</td>
+                <td data-label="How to Open">Top Bar → <strong>📊 Reporting → Intersection Matrix</strong></td>
+                <td data-label="What You Can Do">Compare any two folders or layers (e.g., <em>Business Capabilities × Microservices</em> or <em>SABSA Risks × NIST Controls</em>) in a heatmap grid showing direct connectors, shared diagrams, and shared RACI owners.</td>
               </tr>
               <tr>
                 <th><strong>Blast-Radius Dependency Impact</strong></th>
-                <td data-label="Schema / API"><code>analyze_dependency_impact</code><br /><code>tview_graph_edges</code><br /><code>tview_graph_embeddings</code></td>
-                <td data-label="Model">Powered by the <strong>Rust CSR Graph Core</strong>: traverses N-hop upstream/downstream dependency chains (`maxHops: 1..10`), computes <strong>Tarjan Strongly Connected Components (SCC)</strong> for circular dependency detection, <strong>Brandes Betweenness Centrality</strong> for bottleneck identification, and <strong>PageRank</strong> for blast-radius severity scoring.</td>
+                <td data-label="How to Open">Right-click any element → <strong>💥 Analyze Impact</strong> (or ask the AI Co-Pilot)</td>
+                <td data-label="What You Can Do">Trace <code>1..10</code> hops upstream and downstream to see every business capability, API, or database affected if a component changes or fails—automatically highlighting circular dependencies and single-point-of-failure bottlenecks.</td>
               </tr>
             </tbody>
           </table>
@@ -1775,278 +1938,119 @@
       </section>
 
       <!-- ================================================================= -->
-      <!-- SECTION 6: MULTI-BACKEND PERSISTENCE, BACKUPS & EXPORTS           -->
+      <!-- SECTION 6: SAVING, BACKUPS, DATABASES & EXPORTING REPORTS         -->
       <!-- ================================================================= -->
       <section class="doc-section" id="backends-exports">
         <div class="sec-header">
-          <div class="sec-eyebrow">Section 06 · Persistence, Resilience &amp; Publishing</div>
-          <h2>Multi-Backend Persistence, Backups &amp; Exports</h2>
+          <div class="sec-eyebrow">Section 06 · Saving, Backups, Team Databases &amp; Publishing</div>
+          <h2>Saving Projects, Importing Models, Backups &amp; Exporting Reports</h2>
           <p>
-            TreeviewEA stores all architecture, governance, financial, and AI graph telemetry inside a canonical <strong>20-table <code>tview_*</code> relational schema</strong> that can run locally in a portable <code>.tvwx</code> file or hot-switch to enterprise SQL and Redis backends.
+            By default, TreeviewEA stores your entire project in a single portable <strong><code>.tvwx</code> file</strong> on your Mac—no database server setup required. When your team is ready to collaborate on a shared database or publish board-ready deliverables, everything is built right in.
           </p>
         </div>
 
-        <h3 class="sub-heading">🗄️ 6.1 Complete 20-Table `tview_*` Database Schema Reference</h3>
-        <div tabindex="0" role="region" aria-label="Complete 20-Table tview_* Database Schema Reference" class="table-wrapper">
-          <table class="doc-table">
-            <caption>Complete 20-Table `tview_*` Repository Schema (`internal/earepo/people_stereotypes.go` &amp; `reasoning_engine.go`)</caption>
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Table Name ( &amp; Alias)</th>
-                <th>Primary Key</th>
-                <th>Legacy Auto-Migration</th>
-                <th>Purpose &amp; Key Columns</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th>01</th>
-                <td data-label="Table"><code>tview_packages</code></td>
-                <td data-label="Primary Key"><code>Package_ID</code></td>
-                <td data-label="Migration"><code>t_package</code> / <code>tv_packages</code></td>
-                <td data-label="Columns">Hierarchical project folders &amp; namespaces (`Name`, `Parent_ID`, `Notes`, `Version`, `ea_guid`, `CreatedDate`, `ModifiedDate`).</td>
-              </tr>
-              <tr>
-                <th>02</th>
-                <td data-label="Table"><code>tview_diagrams</code></td>
-                <td data-label="Primary Key"><code>Diagram_ID</code></td>
-                <td data-label="Migration"><code>t_diagram</code> / <code>tv_diagrams</code></td>
-                <td data-label="Columns">Visual architecture diagrams across 11+ types (`Package_ID`, `ParentID`, `Diagram_Type`, `Name`, `Author`, `cx`, `cy`, `Scale`, `StyleEx`, `ea_guid`).</td>
-              </tr>
-              <tr>
-                <th>03</th>
-                <td data-label="Table"><code>tview_objects</code></td>
-                <td data-label="Primary Key"><code>Object_ID</code></td>
-                <td data-label="Migration"><code>t_object</code> / <code>tv_objects</code></td>
-                <td data-label="Columns">Master catalog of all architecture elements (`Object_Type`, `Stereotype`, `Name`, `Alias`, `Status`, `Phase`, `Complexity`, `Package_ID`, `ParentID`, `Note`, `Backcolor`, `BorderColor`, `Fontcolor`, `PDATA1`, `ea_guid`).</td>
-              </tr>
-              <tr>
-                <th>04</th>
-                <td data-label="Table"><code>tview_diagram_objects</code></td>
-                <td data-label="Primary Key"><code>Instance_ID</code></td>
-                <td data-label="Migration"><code>t_diagramobjects</code></td>
-                <td data-label="Columns">4-quadrant 2D placement, z-order &amp; per-diagram styling (`Diagram_ID`, `Object_ID`, `RectLeft`, `RectTop`, `RectRight`, `RectBottom`, `Sequence`, `ObjectStyle` including `Rotation=<deg>;` &amp; `Shape=<kind>;`).</td>
-              </tr>
-              <tr>
-                <th>05</th>
-                <td data-label="Table"><code>tview_connectors</code></td>
-                <td data-label="Primary Key"><code>Connector_ID</code></td>
-                <td data-label="Migration"><code>t_connector</code></td>
-                <td data-label="Columns">Semantic relationships &amp; sequence flows (`Name`, `Connector_Type`, `Stereotype`, `Direction`, `Start_Object_ID`, `End_Object_ID`, `SeqNo`, `SourceRole`, `DestRole`, `SourceCard`, `DestCard`, `PDATA1..5`, `StyleEx`, `ea_guid`).</td>
-              </tr>
-              <tr>
-                <th>06</th>
-                <td data-label="Table"><code>tview_diagram_links</code></td>
-                <td data-label="Primary Key"><code>Instance_ID</code></td>
-                <td data-label="Migration"><code>t_diagramlinks</code></td>
-                <td data-label="Columns">Diagram-specific connector routing, anchor points &amp; custom waypoint bends (`DiagramID`, `ConnectorID`, `Geometry`, `Style`, `Hidden`, `Path`).</td>
-              </tr>
-              <tr>
-                <th>07</th>
-                <td data-label="Table"><code>tview_attributes</code><br />(<code>tview_attribute</code>)</td>
-                <td data-label="Primary Key"><code>ID</code></td>
-                <td data-label="Migration"><code>t_attribute</code></td>
-                <td data-label="Columns">Class attributes, JSON fields &amp; physical SQL columns (`Object_ID`, `Name`, `Type`, `Stereotype` [`PK`/`FK`], `Scope`, `Pos`, `Length`, `Precision`, `Scale`, `Default`, `Notes`, `ea_guid`).</td>
-              </tr>
-              <tr>
-                <th>08</th>
-                <td data-label="Table"><code>tview_operations</code><br />(<code>tview_operation</code>)</td>
-                <td data-label="Primary Key"><code>OperationID</code></td>
-                <td data-label="Migration"><code>t_operation</code></td>
-                <td data-label="Columns">Class methods, BIAN service operations &amp; REST/gRPC endpoints (`Object_ID`, `Name`, `Type` [Return Type], `Stereotype`, `Scope`, `Pos`, `Behaviour`, `Code`, `Notes`, `ea_guid`).</td>
-              </tr>
-              <tr>
-                <th>09</th>
-                <td data-label="Table"><code>tview_object_properties</code><br />(<code>tview_tagged_value</code> / <code>tview_roadmap_phase</code>)</td>
-                <td data-label="Primary Key"><code>PropertyID</code></td>
-                <td data-label="Migration"><code>t_objectproperties</code></td>
-                <td data-label="Columns">Extended tagged values, TIME scores (`businessValue`, `technicalFit`, `timeDisposition`), WBS roadmap phases (`wbsWave`, `wbsStart`, `wbsEnd`), and PERT estimates (`Object_ID`, `Property`, `Value`, `Notes`, `ea_guid`).</td>
-              </tr>
-              <tr>
-                <th>10</th>
-                <td data-label="Table"><code>tview_xrefs</code><br />(<code>tview_xref_matrix</code>)</td>
-                <td data-label="Primary Key"><code>XrefID</code></td>
-                <td data-label="Migration"><code>t_xref</code></td>
-                <td data-label="Columns">MDG technology profile bindings (`@STEREO;Name=...;FQName=...;`) and cross-reference intersection links (`Name`, `Type`, `Client`, `Supplier`, `Description`).</td>
-              </tr>
-              <tr>
-                <th>11</th>
-                <td data-label="Table"><code>tview_images</code></td>
-                <td data-label="Primary Key"><code>ImageID</code></td>
-                <td data-label="Migration"><code>t_image</code></td>
-                <td data-label="Columns">Binary store for pasted screenshots (`⌘V`), diagram images &amp; attached document blobs (`Name`, `Type`, `Image` BLOB).</td>
-              </tr>
-              <tr>
-                <th>12</th>
-                <td data-label="Table"><code>tview_people</code></td>
-                <td data-label="Primary Key"><code>Person_ID</code></td>
-                <td data-label="Migration"><code>tv_people</code> (Seeded)</td>
-                <td data-label="Columns">Ecosystem People &amp; Stakeholder Directory (`Full_Name`, `Role`, `Department`, `Org_Unit`, `Email`, `Phone`, `Location`, `Employment_Type`, `Hourly_Rate`, `Weekly_Capacity`, `Skills`, `RACI_Default`, `Status`, `Manager`, `ea_guid`).</td>
-              </tr>
-              <tr>
-                <th>13</th>
-                <td data-label="Table"><code>tview_resources</code></td>
-                <td data-label="Primary Key"><code>Name</code></td>
-                <td data-label="Migration"><code>t_resources</code></td>
-                <td data-label="Columns">Project resource roster synchronized bi-directionally with `tview_people` (`Name`, `Organisation`, `Phone1`, `Mobile`, `Email`, `Roles`, `Notes`).</td>
-              </tr>
-              <tr>
-                <th>14</th>
-                <td data-label="Table"><code>tview_object_resources</code></td>
-                <td data-label="Primary Key"><code>(Object_ID, Resource, Role)</code></td>
-                <td data-label="Migration"><code>t_objectresource</code></td>
-                <td data-label="Columns">Element-level RACI assignments, planned vs. actual hours &amp; labor rates (`ExpectedHours`, `ActualHours`, `PercentComplete`, `Time` [Rate], `DateStart`, `DateEnd`, `Notes`).</td>
-              </tr>
-              <tr>
-                <th>15</th>
-                <td data-label="Table"><code>tview_object_metrics</code></td>
-                <td data-label="Primary Key"><code>(Object_ID, Metric)</code></td>
-                <td data-label="Migration"><code>t_objectmetrics</code></td>
-                <td data-label="Columns">FinOps &amp; Executive Amount Summation ledger (`Metric`, `MetricType` [`CapEx`, `OpEx`, `License`, `Cloud Infra`, `Savings`, `Valuation`], `EValue` [Dollar Amount], `Notes`).</td>
-              </tr>
-              <tr>
-                <th>16</th>
-                <td data-label="Table"><code>tview_object_efforts</code></td>
-                <td data-label="Primary Key"><code>(Object_ID, Effort)</code></td>
-                <td data-label="Migration"><code>t_objecteffort</code></td>
-                <td data-label="Columns">Engineering WBS &amp; PERT effort breakdowns (`Effort`, `EffortType`, `EValue` [Hours], `Notes`).</td>
-              </tr>
-              <tr>
-                <th>17</th>
-                <td data-label="Table"><code>tview_stereotypes</code></td>
-                <td data-label="Primary Key"><code>Stereotype_ID</code></td>
-                <td data-label="Migration"><code>tv_stereotypes</code> (Seeded)</td>
-                <td data-label="Columns">Multi-framework stereotype taxonomy registry (`Stereotype`, `Framework`, `Category`, `Base_Object_Type`, `FQ_Name`, `Default_Color`, `Description`).</td>
-              </tr>
-              <tr>
-                <th>18</th>
-                <td data-label="Table"><code>tview_system_config</code><br />( &amp; <code>tview_reasoning_config</code>)</td>
-                <td data-label="Primary Key"><code>Config_Key</code></td>
-                <td data-label="Migration"><code>tv_system_config</code></td>
-                <td data-label="Columns">Repository-persisted backend profiles, PEMM/EACOE governance rules, PayEx rail settings &amp; AI reasoning direction (`Config_Key`, `Config_Value`, `Updated_At`).</td>
-              </tr>
-              <tr>
-                <th>19</th>
-                <td data-label="Table"><code>tview_graph_edges</code> &amp;<br /><code>tview_graph_embeddings</code></td>
-                <td data-label="Primary Key"><code>Edge_ID</code> / <code>Object_ID</code></td>
-                <td data-label="Migration">Native v2.5.0</td>
-                <td data-label="Columns">Rust CSR graph topology &amp; 6×6 Orthogonal Matrix coordinates (`Source_Stratum`, `Target_Stratum`, `Matrix_Row`, `Matrix_Col`, `PageRank_Score`, `Betweenness`, `Blast_Radius`, `Structural_Vec`, `Semantic_Vec`).</td>
-              </tr>
-              <tr>
-                <th>20</th>
-                <td data-label="Table"><code>tview_drift_findings</code></td>
-                <td data-label="Primary Key"><code>Finding_ID</code></td>
-                <td data-label="Migration">Native v2.5.0</td>
-                <td data-label="Columns">30d/90d Deep ML architectural drift findings &amp; executable 1-click remediations (`Drift_Category`, `Severity`, `Drift_Score`, `Forecast_Horizon`, `Matrix_Cell`, `Optimization_Strategy`, `Remediation_JSON`, `Status`).</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <h3 class="sub-heading">🔄 6.2 Live Multi-Backend Switching, Undo/Redo, Backups &amp; Name Repair</h3>
+        <h3 class="sub-heading">💾 6.1 Portable `.tvwx` Files, Snapshots, Legacy Imports &amp; Team Databases</h3>
         <div class="feature-grid">
           <div class="feature-card">
-            <h4>⚡ 5-Backend Live Transfer (`setup_config.go`)</h4>
+            <h4>📁 Portable `.tvwx` Project Files &amp; Auto-Save</h4>
             <p>
-              Switch active persistence at any time via <code>POST /api/setup/activate-backend</code> or <code>manage_database_backends</code> across:
-              <br />1. <strong>Portable <code>.tvwx</code></strong> (Local single-file SQLite WAL)
-              <br />2. <strong>SQLite 3 Primary Engine</strong> (`backends/TreeviewEA-SQLite-Primary.tvwx`)
-              <br />3. <strong>PostgreSQL 16 + <code>pgvector</code></strong> (`localhost:5432/tview_ea`)
-              <br />4. <strong>MySQL 8.0 / MariaDB</strong> (`localhost:3306/tview_ea`)
-              <br />5. <strong>Redis Stack 7+</strong> (`tview:ea:*` Hashes, Sets &amp; HNSW vectors)
+              Every edit you make is saved automatically to your local <code>.tvwx</code> project file, and full multi-step <strong>Undo (<kbd>⌘Z</kbd>) / Redo (<kbd>⇧⌘Z</kbd>)</strong> works across canvas shapes, renames, catalog edits, and AI actions. You can share a <code>.tvwx</code> file with a colleague via Slack, email, or Git and they can open it immediately.
             </p>
             <div class="tag-row">
-              <span class="code-tag">TransferAllToSQLiteFile</span>
-              <span class="code-tag">GenerateFullCanonicalSQLDump</span>
+              <span class="code-tag">Single-File .tvwx</span>
+              <span class="code-tag">Instant Auto-Save</span>
+              <span class="code-tag">⌘Z / ⇧⌘Z Undo</span>
             </div>
           </div>
 
           <div class="feature-card">
-            <h4>↩️ Transactional Trigger Undo/Redo (`undoredo.go`)</h4>
+            <h4>🛡️ 1-Click Point-in-Time Backups &amp; Legacy Model Import</h4>
             <p>
-              Installs in-memory SQLite <code>TEMP TRIGGER _tvwx_tr_*</code> hooks across all <code>tview_*</code> tables (`InitUndoRedoTriggers`). Every <code>INSERT</code>, <code>UPDATE</code>, and <code>DELETE</code> records exact row-level inverse SQL statements with interaction group coalescing (`X-Undo-Group`), enabling sub-millisecond <kbd>⌘Z</kbd> / <kbd>⇧⌘Z</kbd> rollback with zero primary-key drift.
+              Before making major architecture changes, click <strong>🛡️ Backups</strong> in the Project Manager to save a labeled point-in-time snapshot that you can restore in one click. Migrating from an existing desktop modeling repository? Open any <strong><code>.qea</code></strong> or <strong><code>.eapx</code></strong> file directly—TreeviewEA automatically imports your packages, diagrams, elements, connectors, and attributes.
             </p>
             <div class="tag-row">
-              <span class="code-tag">undoredo.go</span>
-              <span class="code-tag">POST /api/undo</span>
-              <span class="code-tag">POST /api/redo</span>
+              <span class="code-tag">1-Click Snapshots</span>
+              <span class="code-tag">.qea / .eapx Model Import</span>
             </div>
           </div>
 
           <div class="feature-card">
-            <h4>🛡️ Point-in-Time Backups &amp; `tview_name_repair`</h4>
+            <h4>🗄️ Optional Team SQL &amp; Redis Database Backends</h4>
             <p>
-              Create, list, restore, and delete WAL-checkpointed snapshots in <code>&lt;workDir&gt;/backups/&lt;stem&gt;__&lt;timestamp&gt;__&lt;label&gt;.tvwx</code> (`backup.go`, `manage_repository_backups`). When importing legacy Sparx EA <code>.qea</code> / <code>.eapx</code> files, <code>tview_name_repair.go</code> automatically heals repeated prefixes (`repairRepeatedTviewPrefixes`) and normalizes legacy payment terminology (`sanitizePaymentTerminology`).
+              Want to host your architecture repository on a shared enterprise database? Open <strong>⚙️ Setup &amp; Database Backends</strong> in the top bar to connect and transfer your active model live to <strong>PostgreSQL 16 (<code>pgvector</code>)</strong>, <strong>MySQL 8.0 / MariaDB</strong>, or <strong>Redis Stack 7+</strong>—or export a full SQL backup at any time.
             </p>
             <div class="tag-row">
-              <span class="code-tag">backup.go</span>
-              <span class="code-tag">tview_name_repair.go</span>
-              <span class="code-tag">.qea / .eapx Import</span>
+              <span class="code-tag">PostgreSQL 16</span>
+              <span class="code-tag">MySQL 8.0</span>
+              <span class="code-tag">Redis Stack 7+</span>
             </div>
           </div>
         </div>
 
-        <h3 class="sub-heading">📤 6.3 Multi-Format Publisher &amp; Diagram Exporters (`export.go` &amp; `collection_report.go`)</h3>
+        <h3 class="sub-heading">📤 6.2 Exporting Executive Books, Diagrams, Visio/draw.io &amp; SQL DDL</h3>
+        <p style="color:var(--text-secondary); font-size:14.5px; margin-bottom:14px;">
+          Click <strong>📤 Export / Publish</strong> in the top toolbar to generate architecture books, vector diagrams, editable Visio/draw.io files, or database DDL scripts for your engineering teams:
+        </p>
+
         <div tabindex="0" role="region" aria-label="Supported Export and Report Formats in TreeviewEA" class="table-wrapper">
           <table class="doc-table">
-            <caption>Executive Collection Reports, Diagram Exporters &amp; Code Generators (`export_architecture_artifacts`)</caption>
+            <caption>Complete Guide to Executive Reports, Diagram Exports &amp; Code Generation</caption>
             <thead>
               <tr>
                 <th>Export Format</th>
-                <th>Extension / MIME</th>
-                <th>API Endpoint / Parameter</th>
-                <th>Output Contents &amp; Target Consumers</th>
+                <th>File Extension</th>
+                <th>How to Export</th>
+                <th>What You Get &amp; Best Use Case</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <th><strong>Rational Rose HTML Dossier</strong></th>
-                <td data-label="Extension"><code>.html</code> (`text/html`)</td>
-                <td data-label="Endpoint"><code>GET /api/export/collection?format=rose-html</code></td>
-                <td data-label="Contents">Self-contained interactive single-file HTML specification portal with collapsible Model Browser sidebar, embedded vector SVGs for all diagrams (with clickable `#obj-<id>` links), End-to-End Connector Flow tables, full Rational Rose Object Specification cards, and SQL DDL catalog.</td>
+                <th><strong>Interactive HTML Architecture Portal</strong></th>
+                <td data-label="Extension"><code>.html</code></td>
+                <td data-label="How to Export"><strong>📤 Export → HTML Architecture Dossier</strong></td>
+                <td data-label="What You Get">A self-contained, single-file interactive web portal with a collapsible folder sidebar, clickable vector SVG diagrams, connector flow tables, and full element specification cards—ideal for sharing with stakeholders who don't have TreeviewEA installed.</td>
               </tr>
               <tr>
-                <th><strong>Multi-Page Vector PDF Book</strong></th>
-                <td data-label="Extension"><code>.pdf</code> (`application/pdf`)</td>
-                <td data-label="Endpoint"><code>GET /api/export/collection?format=collection-pdf</code></td>
-                <td data-label="Contents">Pure-Go `%PDF-1.4` vector architecture book: Executive Cover Page, Repository KPIs, TOC, full-page landscape vector diagrams (`Diagram 1..N`), and paginated Object Specification sheets. Also powers native macOS multi-diagram printing (`POST /api/export/native-print`).</td>
+                <th><strong>Multi-Page Vector PDF Architecture Book</strong></th>
+                <td data-label="Extension"><code>.pdf</code></td>
+                <td data-label="How to Export"><strong>📤 Export → Vector PDF Book</strong> (or <kbd>⌘P</kbd> Print)</td>
+                <td data-label="What You Get">A publication-ready PDF book with an Executive Cover Page, Repository KPIs, Table of Contents, full-page landscape vector diagrams, and element specification sheets for architecture review boards.</td>
               </tr>
               <tr>
-                <th><strong>Markdown Specification Book</strong></th>
-                <td data-label="Extension"><code>.md</code> (`text/markdown`)</td>
-                <td data-label="Endpoint"><code>GET /api/export/collection?format=collection-md</code></td>
-                <td data-label="Contents">Git-friendly Markdown architecture book with TOC, Package Catalog, Mermaid flowcharts per diagram, Object Specification tables, and SQL DDL blocks.</td>
+                <th><strong>Git-Friendly Markdown Specification Book</strong></th>
+                <td data-label="Extension"><code>.md</code></td>
+                <td data-label="How to Export"><strong>📤 Export → Markdown Book</strong></td>
+                <td data-label="What You Get">A complete Markdown specification with Table of Contents, embedded Mermaid flowcharts for every diagram, element tables, and SQL DDL blocks ready to commit to GitHub, GitLab, or Confluence.</td>
               </tr>
               <tr>
-                <th><strong>PlantUML &amp; Mermaid Diagrams</strong></th>
+                <th><strong>2x Retina PNG &amp; Crisp Vector SVG</strong></th>
+                <td data-label="Extension"><code>.png</code> / <code>.svg</code></td>
+                <td data-label="How to Export">Press <kbd>⇧⌘C</kbd> (Copy PNG to Clipboard) or <strong>📤 Export → PNG / SVG</strong></td>
+                <td data-label="What You Get">High-resolution 2x Retina PNG images or infinitely scalable vector SVGs ready to paste straight into PowerPoint, Keynote, Google Slides, or Word.</td>
+              </tr>
+              <tr>
+                <th><strong>Microsoft Visio, draw.io, OmniGraffle &amp; XMI</strong></th>
+                <td data-label="Extension"><code>.vdx</code>, <code>.drawio</code>, <code>.graffle</code>, <code>.xmi</code></td>
+                <td data-label="How to Export"><strong>📤 Export → Visio / draw.io / OmniGraffle / XMI</strong></td>
+                <td data-label="What You Get">Editable node coordinates, containers, and routed connectors for teams using Microsoft Visio, diagrams.net (draw.io), OmniGraffle, or ArchiMate/UML XMI tools.</td>
+              </tr>
+              <tr>
+                <th><strong>PlantUML &amp; Mermaid Diagram-as-Code</strong></th>
                 <td data-label="Extension"><code>.puml</code> / <code>.mmd</code></td>
-                <td data-label="Endpoint"><code>export_architecture_artifacts</code> (`plantuml` / `mermaid`)</td>
-                <td data-label="Contents">Generates Diagram-as-Code source with stereotyped classes/components, package containers, and directed relationships for Git PRs and docs-as-code pipelines.</td>
+                <td data-label="How to Export"><strong>📤 Export → PlantUML / Mermaid</strong> (or <strong>🧬 Diagram-as-Code</strong> drawer)</td>
+                <td data-label="What You Get">Clean PlantUML or Mermaid source code with stereotyped components, packages, and directed relationships for docs-as-code pipelines and pull requests.</td>
               </tr>
               <tr>
-                <th><strong>Multi-Dialect SQL DDL</strong></th>
-                <td data-label="Extension"><code>.sql</code> (`application/sql`)</td>
-                <td data-label="Endpoint"><code>GET /api/database-tables</code> / `sql_ddl`</td>
-                <td data-label="Contents">Generates production `CREATE TABLE`, primary/foreign key constraints, and index DDL for **PostgreSQL 16**, **MySQL 8.0**, and **SQLite 3** from `«tview_table»` / `«table»` models.</td>
+                <th><strong>Production SQL DDL Generator</strong></th>
+                <td data-label="Extension"><code>.sql</code></td>
+                <td data-label="How to Export"><strong>📤 Export → SQL DDL</strong> (PostgreSQL, MySQL, or SQLite)</td>
+                <td data-label="What You Get">Generates ready-to-run <code>CREATE TABLE</code> statements, primary/foreign key constraints, and indexes directly from your modeled <code>«Table»</code> database tables.</td>
               </tr>
               <tr>
-                <th><strong>ArchiMate / UML XMI, draw.io, Visio &amp; OmniGraffle</strong></th>
-                <td data-label="Extension"><code>.xmi</code>, <code>.drawio</code>, <code>.vdx</code>, <code>.graffle</code></td>
-                <td data-label="Endpoint"><code>GET /api/diagrams/{id}/export?format=...</code></td>
-                <td data-label="Contents">Round-trip XML/XMI model exchange and native vector geometry export for draw.io (`mxGraphModel`), Microsoft Visio (`.vdx`), and OmniGraffle (`.graffle` plist).</td>
-              </tr>
-              <tr>
-                <th><strong>2x Retina PNG, SVG, CSV &amp; `.std` JSON Bundle</strong></th>
-                <td data-label="Extension"><code>.png</code>, <code>.svg</code>, <code>.csv</code>, <code>.std</code></td>
-                <td data-label="Endpoint"><code>GET /api/diagrams/{id}/export?format=png|svg|standard</code></td>
-                <td data-label="Contents">macOS CoreGraphics/PDFKit 2x Retina PNG rasterization, standalone dark/light vector SVG, tabular CSV, and `.std` ZIP bundles containing JSON + CSV + SVG.</td>
-              </tr>
-              <tr>
-                <th><strong>LLM Architecture Prompt Studio</strong></th>
+                <th><strong>LLM Architecture Prompt Bundle</strong></th>
                 <td data-label="Extension"><code>-llm-prompt.md</code></td>
-                <td data-label="Endpoint"><code>GET /api/diagrams/{id}/export?format=llm-prompt</code></td>
-                <td data-label="Contents">Structured context bundle with 6 persona presets (`architecture-review`, `code-ddl-gen`, `payex-iso20022`, `threat-model`, `exec-roadmap`, `diagram-as-code`), Mermaid topology, DDL attributes, financials/RACI, and live token count estimation.</td>
+                <td data-label="How to Export"><strong>📤 Export → LLM Prompt Studio</strong></td>
+                <td data-label="What You Get">Packages your diagram topology, attributes, financials, and RACI owners into a structured prompt with 6 specialist presets (<code>architecture-review</code>, <code>code-ddl-gen</code>, <code>tp-iso20022</code>, <code>threat-model</code>, <code>exec-roadmap</code>, <code>diagram-as-code</code>).</td>
               </tr>
             </tbody>
           </table>
@@ -2062,7 +2066,7 @@
       <div>
         <strong style="color:var(--text-primary);">TreeviewEA v2.5.0 by Treeview Software, LLC</strong>
         <p style="font-size:12.5px; margin-top:4px;">
-          Comprehensive Studio &amp; Technical Documentation · <a href="https://ea.treeviewsoftware.com" style="color:var(--sky);">ea.treeviewsoftware.com</a>
+          User Guide, Frameworks &amp; Onboarding Documentation · <a href="https://ea.treeviewsoftware.com" style="color:var(--sky);">ea.treeviewsoftware.com</a>
         </p>
       </div>
       <div style="display:flex; gap:20px; font-size:13px; flex-wrap:wrap;">
