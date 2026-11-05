@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" fill="none">
+  <defs>
+    <linearGradient id="bg-grad" x1="0" y1="0" x2="512" y2="512" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0b1329"/>
+      <stop offset="52%" stop-color="#070c1a"/>
+      <stop offset="100%" stop-color="#040711"/>
+    </linearGradient>
+    <radialGradient id="top-glow" cx="256" cy="96" r="240" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.32"/>
+      <stop offset="55%" stop-color="#2563eb" stop-opacity="0.10"/>
+      <stop offset="100%" stop-color="#070b14" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="rim-grad" x1="32" y1="24" x2="480" y2="488" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.75"/>
+      <stop offset="50%" stop-color="#3b82f6" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#10b981" stop-opacity="0.65"/>
+    </linearGradient>
+    <linearGradient id="wire-grad" x1="256" y1="136" x2="256" y2="390" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#7dd3fc"/>
+      <stop offset="55%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#34d399"/>
+    </linearGradient>
+    <linearGradient id="apex-grad" x1="196" y1="68" x2="316" y2="164" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#2563eb"/>
+    </linearGradient>
+    <linearGradient id="node-emerald" x1="68" y1="224" x2="184" y2="312" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#047857"/>
+    </linearGradient>
+    <linearGradient id="node-blue" x1="198" y1="224" x2="314" y2="312" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#1d4ed8"/>
+    </linearGradient>
+    <linearGradient id="node-violet" x1="328" y1="224" x2="444" y2="312" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#a855f7"/>
+      <stop offset="100%" stop-color="#6d28d9"/>
+    </linearGradient>
+    <filter id="soft-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- macOS Squircle Base -->
+  <rect x="16" y="16" width="480" height="480" rx="108" fill="url(#bg-grad)"/>
+  <rect x="16" y="16" width="480" height="480" rx="108" fill="url(#top-glow)"/>
+  <rect x="19" y="19" width="474" height="474" rx="105" stroke="url(#rim-grad)" stroke-width="6"/>
+
+  <!-- Subtle Architecture Grid Backdrop -->
+  <g stroke="#1e293b" stroke-width="1.5" opacity="0.55">
+    <line x1="64" y1="168" x2="448" y2="168"/>
+    <line x1="64" y1="268" x2="448" y2="268"/>
+    <line x1="64" y1="368" x2="448" y2="368"/>
+    <line x1="126" y1="64" x2="126" y2="448"/>
+    <line x1="256" y1="64" x2="256" y2="448"/>
+    <line x1="386" y1="64" x2="386" y2="448"/>
+  </g>
+
+  <!-- Orthogonal Multi-Layer Architecture Connectors -->
+  <g stroke="url(#wire-grad)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" filter="url(#soft-glow)">
+    <!-- L0 Apex -> L1/L2 Spine -->
+    <path d="M 256 154 L 256 232"/>
+    <path d="M 256 192 L 126 192 L 126 232"/>
+    <path d="M 256 192 L 386 192 L 386 232"/>
+    <!-- L2 -> L3/L4 Infrastructure Spine -->
+    <path d="M 126 306 L 126 364"/>
+    <path d="M 256 306 L 256 364"/>
+    <path d="M 386 306 L 386 364"/>
+    <path d="M 126 392 L 386 392"/>
+  </g>
+
+  <!-- Stratum L0/L1 Apex Strategy & Capability Node -->
+  <g>
+    <rect x="176" y="72" width="160" height="84" rx="22" fill="url(#apex-grad)" stroke="#bae6fd" stroke-width="4"/>
+    <circle cx="212" cy="114" r="10" fill="#e0f2fe"/>
+    <rect x="234" y="102" width="76" height="10" rx="5" fill="#ffffff"/>
+    <rect x="234" y="120" width="52" height="8" rx="4" fill="#bae6fd" opacity="0.85"/>
+  </g>
+
+  <!-- Stratum L2/L3 Left Node (Emerald — Business & Data) -->
+  <g>
+    <rect x="68" y="232" width="116" height="76" rx="18" fill="url(#node-emerald)" stroke="#6ee7b7" stroke-width="3.5"/>
+    <rect x="88" y="254" width="76" height="9" rx="4.5" fill="#ecfdf5"/>
+    <rect x="88" y="272" width="52" height="8" rx="4" fill="#a7f3d0" opacity="0.9"/>
+  </g>
+
+  <!-- Stratum L2/L3 Center Node (Cobalt — Application & Services) -->
+  <g>
+    <rect x="198" y="232" width="116" height="76" rx="18" fill="url(#node-blue)" stroke="#93c5fd" stroke-width="3.5"/>
+    <rect x="218" y="254" width="76" height="9" rx="4.5" fill="#eff6ff"/>
+    <rect x="218" y="272" width="52" height="8" rx="4" fill="#bfdbfe" opacity="0.9"/>
+  </g>
+
+  <!-- Stratum L2/L3 Right Node (Violet — Security & AI Governance) -->
+  <g>
+    <rect x="328" y="232" width="116" height="76" rx="18" fill="url(#node-violet)" stroke="#d8b4fe" stroke-width="3.5"/>
+    <rect x="348" y="254" width="76" height="9" rx="4.5" fill="#faf5ff"/>
+    <rect x="348" y="272" width="52" height="8" rx="4" fill="#e9d5ff" opacity="0.9"/>
+  </g>
+
+  <!-- Stratum L4 Foundation Nodes (Cloud & Runtime Infrastructure) -->
+  <g>
+    <circle cx="126" cy="392" r="24" fill="#0f172a" stroke="#34d399" stroke-width="6"/>
+    <circle cx="126" cy="392" r="9" fill="#34d399"/>
+
+    <circle cx="256" cy="392" r="24" fill="#0f172a" stroke="#38bdf8" stroke-width="6"/>
+    <circle cx="256" cy="392" r="9" fill="#38bdf8"/>
+
+    <circle cx="386" cy="392" r="24" fill="#0f172a" stroke="#c084fc" stroke-width="6"/>
+    <circle cx="386" cy="392" r="9" fill="#c084fc"/>
+  </g>
+</svg>

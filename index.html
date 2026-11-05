@@ -6,6 +6,10 @@
   <title>TreeviewEA — Visual Enterprise Architecture &amp; AI Co-Pilot Studio for macOS</title>
   <meta name="description" content="TreeviewEA by Treeview Software, LLC — Native macOS Enterprise Architecture Studio with 1-click scaffolding for Gartner EA (PACE &amp; TIME), BizBOK v14, SABSA 6x6 Security, NIST CSF 2.0 &amp; SP 800-53, TOGAF 10, ArchiMate 3.2, BIAN v12, and ISO 20022, plus an AI Architecture Co-Pilot for Claude Desktop &amp; Cursor." />
   <meta name="theme-color" content="#0b1120" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+  <link rel="shortcut icon" href="favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
@@ -99,14 +103,21 @@
       width: 38px;
       height: 38px;
       border-radius: 10px;
-      background: linear-gradient(135deg, #2563eb 0%, #06b6d4 55%, #10b981 100%);
+      background: #070b14;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-weight: 900;
-      font-size: 15px;
-      color: #fff;
+      overflow: hidden;
+      padding: 0;
+      border: 1px solid rgba(56, 189, 248, 0.45);
       box-shadow: 0 6px 20px rgba(6, 182, 212, 0.35);
+    }
+
+    .brand-mark img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
     .brand-sub {
@@ -433,15 +444,27 @@
     }
 
     .card-icon {
-      width: 42px;
-      height: 42px;
-      border-radius: 10px;
-      background: rgba(56, 189, 248, 0.12);
-      border: 1px solid rgba(56, 189, 248, 0.3);
+      width: 44px;
+      height: 44px;
+      border-radius: 11px;
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.16), rgba(37, 99, 235, 0.14));
+      border: 1px solid rgba(56, 189, 248, 0.38);
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 20px;
+      color: #38bdf8;
+      box-shadow: 0 6px 18px rgba(14, 165, 233, 0.18);
+    }
+
+    .card-icon svg {
+      width: 22px;
+      height: 22px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.9;
+      stroke-linecap: round;
+      stroke-linejoin: round;
     }
 
     .bento-card h3 {
@@ -639,7 +662,7 @@
   <header class="navbar">
     <div class="container navbar-inner">
       <a href="index.html" class="brand">
-        <div class="brand-mark">TV</div>
+        <div class="brand-mark"><img src="icon-192.png" alt="TreeviewEA" width="38" height="38" /></div>
         <div>
           TreeviewEA
           <span class="brand-sub">by Treeview Software, LLC</span>
@@ -943,7 +966,9 @@
 
         <div class="bento-grid">
           <div class="bento-card span-2">
-            <div class="card-icon">🏛️</div>
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M3 21h18"/><path d="M5 21V8l7-5 7 5v13"/><path d="M9 21v-8h6v8"/><path d="M9 10h6"/></svg>
+            </div>
             <h3>8 Industry &amp; Security Frameworks Ready in 1 Click</h3>
             <p>
               Start from a blank canvas or scaffold a complete multi-layer project in seconds. TreeviewEA ships with built-in templates, shape palettes, and guided workflows for <strong>Gartner EA (PACE &amp; TIME)</strong>, <strong>BizBOK® v14 Business Architecture</strong>, <strong>SABSA® 6×6 Security Architecture</strong>, <strong>NIST CSF 2.0 &amp; SP 800-53 Rev. 5</strong>, <strong>TOGAF® 10 ADM</strong>, <strong>ArchiMate® 3.2</strong>, <strong>BIAN v12 Banking</strong>, and <strong>Transaction Hub / ISO 20022</strong>.
@@ -961,7 +986,9 @@
           </div>
 
           <div class="bento-card">
-            <div class="card-icon">🎨</div>
+            <div class="card-icon" style="color:#a78bfa; border-color:rgba(167,139,250,0.4); background:linear-gradient(135deg,rgba(139,92,246,0.18),rgba(59,130,246,0.12));" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><path d="M10 6.5h4"/><path d="M17.5 10v4"/><path d="M6.5 10v4"/></svg>
+            </div>
             <h3>Smart Canvas, Nesting &amp; 360° Rotation</h3>
             <p>
               <strong>Double-click</strong> any shape (or press <code>F2</code>) to rename it in-line. Drag elements into a Package to nest them automatically (<code>«contains»</code>). Snap connectors to exact perimeter points or shape bodies, and rotate any element <code>0°–359°</code>.
@@ -974,7 +1001,9 @@
           </div>
 
           <div class="bento-card">
-            <div class="card-icon">🧭</div>
+            <div class="card-icon" style="color:#34d399; border-color:rgba(52,211,153,0.4); background:linear-gradient(135deg,rgba(16,185,129,0.18),rgba(6,182,212,0.12));" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="12" r="2.5"/><circle cx="5" cy="19" r="2"/><circle cx="12" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M10.5 7L7.5 10"/><path d="M13.5 7l3 3"/><path d="M6 14.5L5 17"/><path d="M7.5 14l3.5 3.5"/><path d="M18 14.5l1 2.5"/></svg>
+            </div>
             <h3>End-to-End Traceability &amp; 6×6 Matrix</h3>
             <p>
               Trace how strategic <strong>Business Outcomes</strong> and <strong>Capabilities</strong> are realized by <strong>Applications</strong>, <strong>Classes</strong>, <strong>Database Tables</strong>, <strong>Security Controls</strong>, and <strong>AWS Cloud Infrastructure</strong>—and visualize blast radius in one click.
@@ -987,7 +1016,9 @@
           </div>
 
           <div class="bento-card">
-            <div class="card-icon">📊</div>
+            <div class="card-icon" style="color:#fbbf24; border-color:rgba(251,191,36,0.4); background:linear-gradient(135deg,rgba(245,158,11,0.18),rgba(16,185,129,0.12));" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 16l4-5 4 3 5-7"/><circle cx="20" cy="7" r="1.5"/></svg>
+            </div>
             <h3>Gartner TIME Portfolio, Roadmaps &amp; FinOps</h3>
             <p>
               Score applications across <strong>Invest, Tolerate, Migrate, and Eliminate</strong>, plan <code>1…M</code> transition waves, estimate engineering effort with Three-Point PERT &amp; rate cards, and roll up CapEx, OpEx, and annual savings for executive leadership.
@@ -1000,7 +1031,9 @@
           </div>
 
           <div class="bento-card">
-            <div class="card-icon">🤖</div>
+            <div class="card-icon" style="color:#38bdf8; border-color:rgba(56,189,248,0.4); background:linear-gradient(135deg,rgba(56,189,248,0.18),rgba(139,92,246,0.15));" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 3l1.9 4.6L18.5 9.5l-4.6 1.9L12 16l-1.9-4.6L5.5 9.5l4.6-1.9L12 3z"/><path d="M19 15l.9 2.1L22 18l-2.1.9L19 21l-.9-2.1L16 18l2.1-.9L19 15z"/><path d="M5 16l.7 1.6L7.3 18.3l-1.6.7L5 20.6l-.7-1.6-1.6-.7 1.6-.7L5 16z"/></svg>
+            </div>
             <h3>AI Architecture Co-Pilot &amp; Review Board</h3>
             <p>
               Run a 1-click <strong>4-Specialist Architecture Review Board (ARB)</strong> to spot missing links or governance gaps, or connect <strong>Claude Desktop</strong> and <strong>Cursor</strong> via the built-in MCP server to generate diagrams and reports by natural-language prompt.
@@ -1059,7 +1092,9 @@
 
         <div class="bento-grid">
           <a href="documentation.html" class="bento-card" style="text-decoration:none;">
-            <div class="card-icon">📖</div>
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><path d="M8 7h8"/><path d="M8 11h6"/></svg>
+            </div>
             <h3>First-Time User &amp; Studio Guide</h3>
             <p>
               Step-by-step installation, creating your first project, touring the 4-panel Studio, using all 8 frameworks (Gartner EA, BizBOK v14, SABSA, NIST CSF 2.0, TOGAF 10, ArchiMate 3.2, BIAN v12, ISO 20022), working with elements &amp; connectors, and publishing reports.
@@ -1073,7 +1108,9 @@
           </a>
 
           <a href="taxonomy.html" class="bento-card" style="text-decoration:none;">
-            <div class="card-icon">🧭</div>
+            <div class="card-icon" style="color:#34d399; border-color:rgba(52,211,153,0.4);" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 12 12 17 22 12"/><polyline points="2 17 12 22 22 17"/></svg>
+            </div>
             <h3>Framework &amp; Element Taxonomy Guide</h3>
             <p>
               Practical blueprint guide showing how to connect <strong>Business Capabilities</strong> and <strong>Value Streams</strong> down to <strong>PACE Applications</strong>, <strong>Classes</strong>, <strong>Database Tables</strong>, <strong>Security Controls</strong>, and <strong>Cloud Infrastructure</strong> across <code>1…M</code> transition waves.
@@ -1087,7 +1124,9 @@
           </a>
 
           <a href="mcp-reference.html" class="bento-card" style="text-decoration:none;">
-            <div class="card-icon">🤖</div>
+            <div class="card-icon" style="color:#a78bfa; border-color:rgba(167,139,250,0.4);" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3"/><rect x="9" y="9" width="6" height="6" rx="1"/><path d="M9 1v3"/><path d="M15 1v3"/><path d="M9 20v3"/><path d="M15 20v3"/><path d="M20 9h3"/><path d="M20 14h3"/><path d="M1 9h3"/><path d="M1 14h3"/></svg>
+            </div>
             <h3>AI Co-Pilot, 6×6 Matrix &amp; MCP Guide</h3>
             <p>
               Learn how to connect <strong>Claude Desktop</strong>, <strong>Cursor</strong>, or custom AI agents to TreeviewEA in 2 minutes, use ready-made prompts to scaffold architectures, run the <strong>4-Agent Review Board (ARB)</strong>, and explore the 36-cell <strong>6×6 Alignment Matrix</strong>.
@@ -1178,8 +1217,13 @@
 
         <div style="display:grid; grid-template-columns: 1fr 1.2fr; gap:24px; align-items:center;">
           <div class="bento-card" style="padding:32px;">
-            <div style="font-family:var(--font-mono); font-size:12px; color:#6ee7b7; margin-bottom:6px;">LATEST RELEASE · v0.7.0 · APPLE SILICON (ARM64)</div>
-            <h3 style="font-size:22px; margin-bottom:8px;">TreeviewEA for macOS</h3>
+            <div style="display:flex; align-items:center; gap:16px; margin-bottom:6px;">
+              <img src="icon-192.png" alt="TreeviewEA macOS App Icon" width="64" height="64" style="width:64px; height:64px; border-radius:15px; border:1px solid rgba(56,189,248,0.45); box-shadow:0 10px 26px rgba(6,182,212,0.35); flex-shrink:0;" />
+              <div>
+                <div style="font-family:var(--font-mono); font-size:12px; color:#6ee7b7; margin-bottom:4px;">LATEST RELEASE · v0.7.0 · APPLE SILICON (ARM64)</div>
+                <h3 style="font-size:22px; margin:0;">TreeviewEA for macOS</h3>
+              </div>
+            </div>
             <p style="margin-bottom:18px;">
               Includes the complete macOS Studio application, all 8 Enterprise &amp; Security Framework templates, starter architecture blueprints, and the built-in AI Co-Pilot server.
             </p>
