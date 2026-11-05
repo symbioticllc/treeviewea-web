@@ -67,7 +67,7 @@
     }
 
     .container {
-      max-width: 1380px;
+      max-width: 1360px;
       margin: 0 auto;
       padding: 0 24px;
     }
@@ -125,16 +125,17 @@
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 22px;
+      gap: 14px;
       font-size: 14px;
-      font-weight: 500;
+      font-weight: 600;
       color: var(--text-secondary);
     }
 
     .nav-links a {
-      padding: 6px 10px;
+      padding: 6px 12px;
       border-radius: 8px;
-      transition: all 0.15s ease;
+      border: 1px solid transparent;
+      transition: background 0.16s ease, color 0.16s ease, border-color 0.16s ease;
     }
 
     .nav-links a:hover {
@@ -143,10 +144,9 @@
     }
 
     .nav-links a.active {
-      color: #fff;
-      font-weight: 700;
+      color: #ffffff;
       background: rgba(56, 189, 248, 0.14);
-      border: 1px solid rgba(56, 189, 248, 0.35);
+      border-color: rgba(56, 189, 248, 0.38);
     }
 
     .nav-cta {
@@ -367,28 +367,27 @@
     }
 
     .doc-section {
-      background: rgba(15, 23, 42, 0.52);
+      background: rgba(15, 23, 42, 0.55);
       border: 1px solid var(--border-subtle);
-      border-radius: 18px;
+      border-radius: 20px;
       padding: 34px;
       box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+      scroll-margin-top: 92px;
     }
 
     .section-eyebrow {
       font-family: var(--font-mono);
-      font-size: 11.5px;
+      font-size: 12px;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.08em;
       color: var(--sky);
       margin-bottom: 6px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
     }
 
     .doc-section h2 {
-      font-size: clamp(1.55rem, 2.5vw, 2.1rem);
+      font-size: 1.85rem;
+      line-height: 1.25;
       font-weight: 800;
       letter-spacing: -0.02em;
       margin-bottom: 12px;
@@ -991,7 +990,7 @@
 
       <div class="nav-cta">
         <a href="https://github.com/symbioticllc/treeviewea-web/releases/latest/download/TreeviewEA-2.5.0-macOS-arm64.dmg" class="btn btn-primary">
-          <span> Download .DMG</span>
+          <span> Download macOS .DMG</span>
         </a>
       </div>
     </div>
@@ -1453,11 +1452,11 @@ curl --cacert .treeview-certs/treeview-ea-root-ca.crt -s \
     "arguments": {
       "action": "add_attribute",
       "objectId": 502,
-      "name": "$.onBehalfOfPayer",
-      "dataType": "JSONObject",
-      "stereotype": "canonical",
+      "name": "CdtTrfTxInf/Dbtr",
+      "dataType": "PartyIdentification135",
+      "stereotype": "ISO20022Element",
       "isPK": false,
-      "notes": "Country code, account number, and payer ID type"
+      "notes": "ISO 20022 Debtor Name, PostalAddress/Country, and DebtorAccount/IBAN"
     }
   },
   {
@@ -1580,7 +1579,7 @@ curl --cacert .treeview-certs/treeview-ea-root-ca.crt -s \
           "effort": "ISO 20022 pacs.008 & Canonical Transaction Object Engine",
           "effortType": "Core Platform Engineering",
           "hours": 480,
-          "notes": "Implements $.onBehalfOfPayer and $.exchangeRate validation pipeline"
+          "notes": "Implements CdtTrfTxInf/Dbtr and XchgRateInf validation pipeline"
         },
         {
           "effort": "Multi-AZ EKS + Aurora PostgreSQL Zero-RPO Cutover",
@@ -1721,7 +1720,7 @@ curl --cacert .treeview-certs/treeview-ea-root-ca.crt -s \
           <div class="info-card">
             <h4>💳 3. Canonical Data Completeness</h4>
             <p>
-              Checks that payment and transaction entities in Column <code>C1 (WHAT · Data)</code> include the 4 canonical <code>TransactionPlatformObject</code> branches (<code>$.onBehalfOfPayer</code>, <code>$.returnSpecificInfo</code>, <code>$.enrichedDataInExchange</code>, <code>$.exchangeRate</code>) and primary keys.
+              Checks that payment and transaction entities in Column <code>C1 (WHAT · Data)</code> include the 4 standard ISO 20022 message blocks (<code>CdtTrfTxInf/Dbtr</code>, <code>TxInf/RtrRsnInf</code>, <code>CdtTrfTxInf/PmtTpInf</code>, <code>CdtTrfTxInf/XchgRateInf</code>) and primary keys.
             </p>
           </div>
 
@@ -1744,7 +1743,7 @@ curl --cacert .treeview-certs/treeview-ea-root-ca.crt -s \
             <span id="mi-stratum" style="font-family:var(--font-mono); font-size:11.5px; padding:3px 10px; border-radius:999px; background:rgba(16,185,129,0.16); color:#6ee7b7; border:1px solid rgba(16,185,129,0.35);">Stratum L2 · Logical Architecture</span>
           </div>
           <p id="mi-desc" style="font-size:13.5px; color:var(--text-primary); margin-bottom:6px;">
-            Canonical Logical Data Contracts including the TransactionPlatformObject ($.onBehalfOfPayer, $.returnSpecificInfo, $.enrichedDataInExchange, $.exchangeRate), BizBOK Information Concepts, SABSA Protected Information Assets, and ISO 20022 pacs.008 / pain.001 message schemas.
+            Canonical Logical Data Contracts including ISO 20022 pacs.008 / pacs.004 / pain.001 / camt.053 message blocks (CdtTrfTxInf/Dbtr, TxInf/RtrRsnInf, CdtTrfTxInf/PmtTpInf, CdtTrfTxInf/XchgRateInf), BizBOK Information Concepts, and SABSA Protected Information Assets.
           </p>
           <div id="mi-stereotypes" style="font-family:var(--font-mono); font-size:12px; color:#93c5fd;">
             Canonical Stereotypes: «TransactionHub_CanonicalObject», «InformationConcept», «ProtectedInformationAsset», «ISO20022Message», «DataEntity»
@@ -1843,8 +1842,8 @@ curl --cacert .treeview-certs/treeview-ea-root-ca.crt -s \
               <tr>
                 <th scope="row"><code>CANONICAL_SCHEMA_DRIFT</code></th>
                 <td><code>HIGH</code><br />Horizon: <code>30_DAYS</code></td>
-                <td>A payment or transaction data entity in Column <code>C1</code> is missing the canonical <code>TransactionPlatformObject</code> dot-notation attributes.</td>
-                <td><code>inject_tp_canonical_attributes</code>: Adds <code>$.onBehalfOfPayer</code>, <code>$.returnSpecificInfo</code>, <code>$.enrichedDataInExchange</code>, and <code>$.exchangeRate</code>.</td>
+                <td>A payment or transaction data entity in Column <code>C1</code> is missing standard ISO 20022 message blocks.</td>
+                <td><code>inject_tp_canonical_attributes</code>: Adds <code>CdtTrfTxInf/Dbtr</code>, <code>TxInf/RtrRsnInf</code>, <code>CdtTrfTxInf/PmtTpInf</code>, and <code>CdtTrfTxInf/XchgRateInf</code>.</td>
               </tr>
               <tr>
                 <th scope="row"><code>LAYER_BYPASS_EROSION</code></th>
@@ -2039,9 +2038,9 @@ curl --cacert .treeview-certs/treeview-ea-root-ca.crt -s \
             {
               name: "TransactionPlatformObject",
               objectType: "Class",
-              stereotype: "TransactionHub_CanonicalObject",
+              stereotype: "ISO20022Message",
               fillColor: "#065f46",
-              attributes: ["$.onBehalfOfPayer:JSONObject", "$.returnSpecificInfo:JSONObject", "$.enrichedDataInExchange:JSONObject", "$.exchangeRate:JSONObject"],
+              attributes: ["CdtTrfTxInf/Dbtr:PartyIdentification135", "TxInf/RtrRsnInf:PaymentReturnReason6", "CdtTrfTxInf/PmtTpInf:PaymentTypeInformation28", "CdtTrfTxInf/XchgRateInf:ExchangeRate1"],
               tags: { Standard: "ISO 20022" }
             }
           ]
@@ -2771,7 +2770,7 @@ curl --cacert .treeview-certs/treeview-ea-root-ca.crt -s \
       { code: "R2:C6", r: 2, c: 6, short: "Control Objectives & Principles", stereo: "«SecurityControlObjective», «BusinessPolicy», «Principle»", desc: "SABSA L2 Security Control Objectives, BizBOK Business Policies, and TOGAF 10 Architecture Principles." },
 
       // R3: Logical System (L2)
-      { code: "R3:C1", r: 3, c: 1, short: "Canonical Schema & NIST ID", stereo: "«TransactionHub_CanonicalObject», «InformationConcept», «ProtectedInformationAsset», «NIST_Identify», «ISO20022Message»", desc: "TransactionPlatformObject ($.onBehalfOfPayer, $.returnSpecificInfo, $.enrichedDataInExchange, $.exchangeRate), BizBOK Information Concepts, SABSA Protected Assets, NIST Identify (ID), & ISO 20022." },
+      { code: "R3:C1", r: 3, c: 1, short: "Canonical Schema & NIST ID", stereo: "«ISO20022Message», «InformationConcept», «ProtectedInformationAsset», «NIST_Identify», «DataEntity»", desc: "ISO 20022 Message Blocks (CdtTrfTxInf/Dbtr, TxInf/RtrRsnInf, CdtTrfTxInf/PmtTpInf, CdtTrfTxInf/XchgRateInf), BizBOK Information Concepts, SABSA Protected Assets, and NIST Identify (ID)." },
       { code: "R3:C2", r: 3, c: 2, short: "PBCs, Logical Services & NIST PR", stereo: "«PackagedBusinessCapability», «LogicalSecurityService», «NIST_Protect», «ValueStageCapabilityMap», «ApplicationService»", desc: "Gartner Packaged Business Capabilities (PBCs), SABSA L3 Logical Security Services, NIST Protect (PR) safeguards, and BizBOK Value-to-Capability maps." },
       { code: "R3:C3", r: 3, c: 3, short: "Logical Security Zones", stereo: "«Boundary», «Zone»", desc: "Logical network zones, zero-trust security perimeters, and domain partitions." },
       { code: "R3:C4", r: 3, c: 4, short: "System Roles & RACI", stereo: "«Role», «Squad»", desc: "RBAC system personas and RACI governance assignments (Responsible, Accountable, Consulted, Informed)." },

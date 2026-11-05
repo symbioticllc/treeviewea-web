@@ -145,16 +145,17 @@
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 22px;
+      gap: 14px;
       font-size: 14px;
-      font-weight: 500;
+      font-weight: 600;
       color: var(--text-secondary);
     }
 
     .nav-links a {
-      padding: 6px 10px;
+      padding: 6px 12px;
       border-radius: 8px;
-      transition: all 0.16s ease;
+      border: 1px solid transparent;
+      transition: background 0.16s ease, color 0.16s ease, border-color 0.16s ease;
     }
 
     .nav-links a:hover {
@@ -163,10 +164,9 @@
     }
 
     .nav-links a.active {
-      color: #fff;
+      color: #ffffff;
       background: rgba(56, 189, 248, 0.14);
-      border: 1px solid rgba(56, 189, 248, 0.38);
-      font-weight: 600;
+      border-color: rgba(56, 189, 248, 0.38);
     }
 
     .nav-cta {
@@ -473,7 +473,8 @@
     }
 
     .sec-header h2 {
-      font-size: clamp(1.55rem, 2.5vw, 2.1rem);
+      font-size: 1.85rem;
+      line-height: 1.25;
       font-weight: 800;
       letter-spacing: -0.02em;
       color: var(--text-primary);
@@ -1067,7 +1068,7 @@
                 <th><strong>Payment &amp; Transaction Hub (BIAN v12 + ISO 20022)</strong></th>
                 <td data-label="Template ID"><code>transactionplatform</code></td>
                 <td data-label="Prefix"><code>tp_</code></td>
-                <td data-label="Scaffolds">BIAN v12 Payment Execution Service Domains, the Canonical Payment Object (<code>$.onBehalfOfPayer</code>, <code>$.exchangeRate</code>), ISO 20022 <code>pacs.008</code> flows, and settlement ledger tables.</td>
+                <td data-label="Scaffolds">BIAN v12 Payment Execution Service Domains, ISO 20022 <code>pacs.008</code> / <code>pacs.004</code> / <code>pain.001</code> / <code>camt.053</code> message objects (<code>CdtTrfTxInf/Dbtr</code>, <code>XchgRateInf</code>), and settlement ledger tables.</td>
               </tr>
               <tr>
                 <th><strong>TOGAF® 10 ADM Cycle</strong></th>
@@ -1508,7 +1509,7 @@
               <tr>
                 <th><strong>L2 · Logical Data, Information &amp; Security Policy</strong></th>
                 <td data-label="Stereotypes"><code>«InformationConcept»</code>, <code>«DataEntity»</code>, <code>«TransactionHub_CanonicalObject»</code>, <code>«ISO20022Message»</code>, <code>«TrustBoundary»</code>, <code>«SecurityPolicy»</code>, <code>«NIST_Identify»</code>, <code>«NIST_Protect»</code></td>
-                <td data-label="What You Model">Canonical business data definitions, ISO 20022 messages (<code>pacs.008</code>, <code>pain.001</code>), Transaction Platform canonical fields (<code>$.onBehalfOfPayer</code>, <code>$.exchangeRate</code>), and zero-trust security boundaries.</td>
+                <td data-label="What You Model">Canonical business data definitions, ISO 20022 message blocks (<code>pacs.008</code>, <code>pacs.004</code>, <code>pain.001</code>, <code>camt.053</code>: <code>CdtTrfTxInf/Dbtr</code>, <code>XchgRateInf</code>), and zero-trust security boundaries.</td>
                 <td data-label="Connections">Add data fields in the <strong>Attributes</strong> tab of the Right Inspector. Connect microservices to data objects with <code>Dependency</code> (<code>«flow»</code>) connectors.</td>
               </tr>
               <tr>
@@ -1761,45 +1762,45 @@
           </div>
         </div>
 
-        <h3 class="sub-heading">💳 4.2 Transaction Platform Canonical Schema &amp; ISO 20022 Mapping</h3>
+        <h3 class="sub-heading">💳 4.2 ISO 20022 Message Format &amp; Transaction Platform Schema Mapping</h3>
         <div class="callout emerald">
-          <strong>Canonical Transaction Object &amp; ISO 20022 Standard Alignment:</strong> When you instantiate the <strong>Transaction Platform / ISO 20022</strong> framework (or pick the <code>tp-payment-hub</code> starter blueprint), TreeviewEA pre-populates the canonical <code>TransactionPlatformObject</code> (<code>«TransactionHub_CanonicalObject»</code>) with its hierarchical dot-notation schema and maps each branch to ISO 20022 messages and physical database tables.
+          <strong>ISO 20022 Canonical Message Alignment:</strong> When you instantiate the <strong>Transaction Platform / ISO 20022</strong> framework (or pick the <code>tp-payment-hub</code> starter blueprint), TreeviewEA pre-populates standard ISO 20022 message definitions (<code>pacs.008.001.10</code>, <code>pacs.004.001.11</code>, <code>pain.001.001.11</code>, <code>camt.053.001.10</code>) and maps each ISO 20022 XPath block directly to physical database tables and microservices.
         </div>
 
-        <div tabindex="0" role="region" aria-label="Transaction Platform Canonical Object Dot-Notation Schema and ISO 20022 Mapping" class="table-wrapper">
+        <div tabindex="0" role="region" aria-label="ISO 20022 Message Format Blocks and Physical Schema Mapping" class="table-wrapper">
           <table class="doc-table">
-            <caption>Transaction Platform Canonical Schema (<code>TransactionPlatformObject</code> / <code>«TransactionHub_CanonicalObject»</code>) &amp; ISO 20022 Lineage</caption>
+            <caption>ISO 20022 Canonical Message Format Blocks (<code>«ISO20022Message»</code>) &amp; Physical Database Lineage</caption>
             <thead>
               <tr>
-                <th>Canonical Dot-Notation Path</th>
-                <th>Key Child Attributes</th>
-                <th>ISO 20022 Message &amp; XPath Target</th>
+                <th>ISO 20022 XPath Block</th>
+                <th>Standard ISO 20022 Elements</th>
+                <th>ISO 20022 Message Definition</th>
                 <th>Physical Table &amp; Platform Microservice Mapping</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <th><code>$.onBehalfOfPayer</code></th>
-                <td data-label="Attributes"><code>countryCode</code>, <code>accountNumber</code>, <code>idType</code>, <code>partyName</code>, <code>bicFi</code></td>
-                <td data-label="ISO 20022"><code>pacs.008.001.10</code> / <code>pain.001.001.11</code><br /><code>UltmtDbtr</code> &amp; <code>DbtrAcct/Id</code></td>
-                <td data-label="Physical Mapping"><code>tp_party_enrichment</code> · Validated by the <strong>Configurable Rules Microservice</strong> for sanctions screening and ultimate debtor transparency.</td>
+                <th><code>CdtTrfTxInf/Dbtr</code> &amp; <code>UltmtDbtr</code></th>
+                <td data-label="Elements"><code>Dbtr/Nm</code>, <code>Dbtr/PstlAdr/Ctry</code>, <code>DbtrAcct/Id/IBAN</code>, <code>DbtrAgt/FinInstnId/BICFI</code>, <code>InitgPty/Id/OrgId/LEI</code></td>
+                <td data-label="ISO 20022"><code>pacs.008.001.10</code> (FIToFICustomerCreditTransfer)<br /><code>pain.001.001.11</code> (CustomerCreditTransferInitiation)</td>
+                <td data-label="Physical Mapping"><code>tp_party_enrichment</code> · Validated by the <strong>Configurable Rules Microservice</strong> for sanctions screening and debtor/creditor transparency.</td>
               </tr>
               <tr>
-                <th><code>$.returnSpecificInfo</code></th>
-                <td data-label="Attributes"><code>reasonCode</code>, <code>originalPaymentType</code>, <code>originalEndToEndId</code>, <code>returnTimestamp</code></td>
-                <td data-label="ISO 20022"><code>pacs.004.001.11</code> (PaymentReturn) &amp; <code>camt.056</code><br /><code>RtrRsnInf/Rsn/Cd</code></td>
-                <td data-label="Physical Mapping"><code>tp_payment_order</code> · Monitored by the <strong>Watchdog &amp; Exception Microservice</strong> for return reason code routing and automated repair.</td>
+                <th><code>TxInf/RtrRsnInf</code></th>
+                <td data-label="Elements"><code>RtrRsnInf/Rsn/Cd</code>, <code>OrgnlGrpInf/OrgnlMsgNmId</code>, <code>OrgnlEndToEndId</code>, <code>OrgnlUETR</code>, <code>RtrdIntrBkSttlmAmt</code></td>
+                <td data-label="ISO 20022"><code>pacs.004.001.11</code> (PaymentReturn)<br /><code>camt.056.001.10</code> (FIToFIPaymentCancellationRequest)</td>
+                <td data-label="Physical Mapping"><code>tp_payment_order</code> · Monitored by the <strong>Watchdog &amp; Exception Microservice</strong> for ISO 20022 return reason routing and automated exception repair.</td>
               </tr>
               <tr>
-                <th><code>$.enrichedDataInExchange</code></th>
-                <td data-label="Attributes"><code>productCode</code>, <code>officeId</code>, <code>accountStatus</code>, <code>clearingChannel</code>, <code>slaTier</code></td>
-                <td data-label="ISO 20022"><code>pacs.008</code> / <code>pacs.009</code> (FICreditTransfer)<br /><code>PmtTpInf/SvcLvl</code> &amp; <code>SplmtryData</code></td>
+                <th><code>CdtTrfTxInf/PmtTpInf</code> &amp; <code>SplmtryData</code></th>
+                <td data-label="Elements"><code>PmtTpInf/InstrPrty</code>, <code>PmtTpInf/SvcLvl/Cd</code>, <code>PmtTpInf/LclInstrm/Cd</code>, <code>PmtTpInf/CtgyPurp/Cd</code>, <code>SplmtryData/Envlp</code></td>
+                <td data-label="ISO 20022"><code>pacs.008.001.10</code> &amp; <code>pacs.009.001.10</code> (FinancialInstitutionCreditTransfer)</td>
                 <td data-label="Physical Mapping"><code>tp_settlement_entry</code> · Enriched in-flight by the <strong>Streaming Enrichment Microservice</strong> across ACH, Fedwire, RTP, FedNow, Debit, Check, and SWIFT rails.</td>
               </tr>
               <tr>
-                <th><code>$.exchangeRate</code></th>
-                <td data-label="Attributes"><code>instructedAmount</code>, <code>rate</code>, <code>tradeDetails</code>, <code>sourceCurrency</code>, <code>targetCurrency</code></td>
-                <td data-label="ISO 20022"><code>pacs.008</code> / <code>camt.053.001.10</code> (BankToCustomerStatement)<br /><code>XchgRateInf/XchgRate</code> &amp; <code>InstdAmt</code></td>
+                <th><code>CdtTrfTxInf/XchgRateInf</code> &amp; <code>IntrBkSttlmAmt</code></th>
+                <td data-label="Elements"><code>IntrBkSttlmAmt</code>, <code>InstdAmt</code>, <code>XchgRateInf/XchgRate</code>, <code>XchgRateInf/UnitCcy</code>, <code>XchgRateInf/CtrctId</code></td>
+                <td data-label="ISO 20022"><code>pacs.008.001.10</code> &amp; <code>camt.053.001.10</code> (BankToCustomerStatement)</td>
                 <td data-label="Physical Mapping"><code>tp_immutable_audit_ledger</code> · Recorded by the <strong>Snapshot &amp; Ledger Microservice</strong> with double-entry accounting integrity.</td>
               </tr>
             </tbody>
