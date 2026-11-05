@@ -490,9 +490,7 @@
       font-weight: 700;
       color: var(--text-primary);
       margin: 28px 0 12px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
+      line-height: 1.35;
     }
 
     .sub-heading:first-of-type {
@@ -527,9 +525,7 @@
       font-size: 15.5px;
       font-weight: 700;
       color: var(--text-primary);
-      display: flex;
-      align-items: center;
-      gap: 8px;
+      line-height: 1.35;
     }
 
     .feature-card p {
@@ -1027,7 +1023,7 @@
 
         <div tabindex="0" role="region" aria-label="Project Manager Starter Templates and Prefix Presets" class="table-wrapper">
           <table class="doc-table">
-            <caption>Project Manager Starter Templates (`templateId`) &amp; Multi-Project Prefix Presets (`tablePrefix`)</caption>
+            <caption>Project Manager Starter Templates &amp; Multi-Project Prefix Presets</caption>
             <thead>
               <tr>
                 <th>Starter Template Name</th>
@@ -1047,7 +1043,7 @@
                 <th><strong>Gartner PACE &amp; TIME Enterprise Architecture</strong></th>
                 <td data-label="Template ID"><code>gartner-pace-ea</code></td>
                 <td data-label="Prefix"><code>gartner_</code></td>
-                <td data-label="Scaffolds">Future-State Business Outcomes, PACE-Layered Application Strategy (Systems of Innovation, Differentiation &amp; Record), Gartner TIME Portfolio Valuation, and `1…M` Transition Waves.</td>
+                <td data-label="Scaffolds">Future-State Business Outcomes, PACE-Layered Application Strategy (Systems of Innovation, Differentiation &amp; Record), Gartner TIME Portfolio Valuation, and <code>1…M</code> Transition Waves.</td>
               </tr>
               <tr>
                 <th><strong>BizBOK® v14 Business Architecture</strong></th>
@@ -1059,25 +1055,25 @@
                 <th><strong>SABSA® 6×6 Zero-Trust Security Architecture</strong></th>
                 <td data-label="Template ID"><code>sabsa-zero-trust</code></td>
                 <td data-label="Prefix"><code>sabsa_</code></td>
-                <td data-label="Scaffolds">6-Layer Sherwood Applied Business Security Architecture matrix (`L1 Contextual` Risk Attributes &amp; Threat Domains down to `L6 Operational` Incident Playbooks &amp; Audit Trails).</td>
+                <td data-label="Scaffolds">6-Layer Sherwood Applied Business Security Architecture matrix (<code>L1 Contextual</code> Risk Attributes &amp; Threat Domains down to <code>L6 Operational</code> Incident Playbooks &amp; Audit Trails).</td>
               </tr>
               <tr>
                 <th><strong>NIST CSF 2.0 &amp; SP 800-53 Governance</strong></th>
                 <td data-label="Template ID"><code>nist-csf-governance</code></td>
                 <td data-label="Prefix"><code>nist_</code></td>
-                <td data-label="Scaffolds">All 6 NIST CSF 2.0 Core Functions (`Govern [GV]`, `Identify [ID]`, `Protect [PR]`, `Detect [DE]`, `Respond [RS]`, `Recover [RC]`) wired to SP 800-53 Rev. 5 security controls.</td>
+                <td data-label="Scaffolds">All 6 NIST CSF 2.0 Core Functions (<code>Govern [GV]</code>, <code>Identify [ID]</code>, <code>Protect [PR]</code>, <code>Detect [DE]</code>, <code>Respond [RS]</code>, <code>Recover [RC]</code>) wired to SP 800-53 Rev. 5 security controls.</td>
               </tr>
               <tr>
                 <th><strong>Payment &amp; Transaction Hub (BIAN v12 + ISO 20022)</strong></th>
                 <td data-label="Template ID"><code>transactionplatform</code></td>
                 <td data-label="Prefix"><code>tp_</code></td>
-                <td data-label="Scaffolds">BIAN v12 Payment Execution Service Domains, the Canonical Payment Object (`$.onBehalfOfPayer`, `$.exchangeRate`), ISO 20022 `pacs.008` flows, and settlement ledger tables.</td>
+                <td data-label="Scaffolds">BIAN v12 Payment Execution Service Domains, the Canonical Payment Object (<code>$.onBehalfOfPayer</code>, <code>$.exchangeRate</code>), ISO 20022 <code>pacs.008</code> flows, and settlement ledger tables.</td>
               </tr>
               <tr>
                 <th><strong>TOGAF® 10 ADM Cycle</strong></th>
                 <td data-label="Template ID"><code>togaf-adm</code></td>
                 <td data-label="Prefix"><code>togaf_</code></td>
-                <td data-label="Scaffolds">Preliminary Principles + ADM Phases A through H packages with Architecture Building Blocks (`ABB`), Solution Building Blocks (`SBB`), and Transition Plateaus.</td>
+                <td data-label="Scaffolds">Preliminary Principles + ADM Phases A through H packages with Architecture Building Blocks (<code>ABB</code>), Solution Building Blocks (<code>SBB</code>), and Transition Plateaus.</td>
               </tr>
               <tr>
                 <th><strong>ArchiMate® 3.2 Layered Enterprise</strong></th>
@@ -1210,7 +1206,7 @@
                 <td data-label="Diagram Type"><strong>Database Entity-Relationship (ERD)</strong> (<code>ERD</code> / <code>Data</code>)</td>
                 <td data-label="When to Use">Modeling physical database tables, primary/foreign keys, and generating SQL DDL scripts.</td>
                 <td data-label="Elements"><code>«Table»</code>, <code>«View»</code>, <code>«PK»</code>, <code>«FK»</code></td>
-                <td data-label="Features">Displays column data types, <code>PK</code>/<code>FK</code> key badges, Crow's Foot (`1..*`) cardinality, and 1-click SQL DDL generation for PostgreSQL, MySQL, and SQLite.</td>
+                <td data-label="Features">Displays column data types, <code>PK</code>/<code>FK</code> key badges, Crow's Foot (<code>1..*</code>) cardinality, and 1-click SQL DDL generation for PostgreSQL, MySQL, and SQLite.</td>
               </tr>
               <tr>
                 <th>03</th>
@@ -1512,14 +1508,14 @@
               <tr>
                 <th><strong>L2 · Logical Data, Information &amp; Security Policy</strong></th>
                 <td data-label="Stereotypes"><code>«InformationConcept»</code>, <code>«DataEntity»</code>, <code>«TransactionHub_CanonicalObject»</code>, <code>«ISO20022Message»</code>, <code>«TrustBoundary»</code>, <code>«SecurityPolicy»</code>, <code>«NIST_Identify»</code>, <code>«NIST_Protect»</code></td>
-                <td data-label="What You Model">Canonical business data definitions, ISO 20022 messages (`pacs.008`, `pain.001`), Transaction Platform canonical fields (`$.onBehalfOfPayer`, `$.exchangeRate`), and zero-trust security boundaries.</td>
+                <td data-label="What You Model">Canonical business data definitions, ISO 20022 messages (<code>pacs.008</code>, <code>pain.001</code>), Transaction Platform canonical fields (<code>$.onBehalfOfPayer</code>, <code>$.exchangeRate</code>), and zero-trust security boundaries.</td>
                 <td data-label="Connections">Add data fields in the <strong>Attributes</strong> tab of the Right Inspector. Connect microservices to data objects with <code>Dependency</code> (<code>«flow»</code>) connectors.</td>
               </tr>
               <tr>
                 <th><strong>L3 · Applications, PACE Systems, Classes &amp; DB Tables</strong></th>
                 <td data-label="Stereotypes"><code>«SystemOfInnovation»</code>, <code>«SystemOfDifferentiation»</code>, <code>«SystemOfRecord»</code>, <code>«PackagedBusinessCapability»</code>, <code>«ApplicationComponent»</code>, <code>«Microservice»</code>, <code>Class</code>, <code>«Table»</code></td>
                 <td data-label="What You Model">Deployable applications, Gartner PACE-layered systems, code classes with methods/APIs, and physical SQL database tables with typed <code>PK</code>/<code>FK</code> columns.</td>
-                <td data-label="Connections">Link applications to the L1 <strong>Capabilities</strong> they realize, connect <strong>Classes</strong> and <strong>Database Tables</strong> (`«Table»`) to the components that own them, and score TIME dispositions (`Invest`, `Tolerate`, `Migrate`, `Eliminate`).</td>
+                <td data-label="Connections">Link applications to the L1 <strong>Capabilities</strong> they realize, connect <strong>Classes</strong> and <strong>Database Tables</strong> (<code>«Table»</code>) to the components that own them, and score TIME dispositions (<code>Invest</code>, <code>Tolerate</code>, <code>Migrate</code>, <code>Eliminate</code>).</td>
               </tr>
               <tr>
                 <th><strong>L4 · Cloud Infrastructure, Runtime &amp; Security Ops</strong></th>
@@ -1547,10 +1543,10 @@
           <div class="feature-card">
             <h4>🔬 Adding Attributes, Database Columns &amp; APIs</h4>
             <p>
-              Select any Class, Canonical Object, or Database Table (`«Table»`) and use the <strong>Right Inspector</strong> (or double-click in the catalog) to add:
-              <br />• <strong>Attributes / Columns:</strong> Name, data type (`uuid`, `varchar(64)`, `numeric(18,2)`, `JSONObject`), and Primary/Foreign Key (`PK`/`FK`) flags.
+              Select any Class, Canonical Object, or Database Table (<code>«Table»</code>) and use the <strong>Right Inspector</strong> (or double-click in the catalog) to add:
+              <br />• <strong>Attributes / Columns:</strong> Name, data type (<code>uuid</code>, <code>varchar(64)</code>, <code>numeric(18,2)</code>, <code>JSONObject</code>), and Primary/Foreign Key (<code>PK</code>/<code>FK</code>) flags.
               <br />• <strong>Operations / APIs:</strong> Method signatures, REST/gRPC endpoints, and return types.
-              <br />• <strong>Tagged Values:</strong> Custom key-value metadata (e.g., `SLA = 15ms`, `Owner = Core Payments`).
+              <br />• <strong>Tagged Values:</strong> Custom key-value metadata (e.g., <code>SLA = 15ms</code>, <code>Owner = Core Payments</code>).
             </p>
             <div class="tag-row">
               <span class="code-tag">Attributes &amp; PK/FK</span>
@@ -1562,7 +1558,7 @@
           <div class="feature-card">
             <h4>📎 Attaching Documents, Links &amp; System Notes</h4>
             <p>
-              Keep all architectural context in one place: attach PDF specifications, Word documents, Excel sheets, or external Google Docs / Confluence URLs directly to any folder or diagram, or stamp color-coded <strong>System Note</strong> cards (`N`) onto the canvas to document design decisions and assumptions.
+              Keep all architectural context in one place: attach PDF specifications, Word documents, Excel sheets, or external Google Docs / Confluence URLs directly to any folder or diagram, or stamp color-coded <strong>System Note</strong> cards (<code>N</code>) onto the canvas to document design decisions and assumptions.
             </p>
             <div class="tag-row">
               <span class="code-tag">Attached Documents</span>
@@ -1578,7 +1574,7 @@
 
         <div tabindex="0" role="region" aria-label="Contextual Creation Wizard Profiles and Bulk Catalog Operations" class="table-wrapper">
           <table class="doc-table">
-            <caption>Contextual Creation Wizard Profiles (`contextProfile`), Tabular Import &amp; Governance Tools</caption>
+            <caption>Contextual Creation Wizard Profiles, Tabular Import &amp; Governance Tools</caption>
             <thead>
               <tr>
                 <th>Feature / Wizard Profile</th>
@@ -1592,7 +1588,7 @@
                 <th><strong>Gartner PACE &amp; TIME Wizard Profile</strong></th>
                 <td data-label="ID"><code>gartner-pace-time</code></td>
                 <td data-label="Blueprint">Blueprint: <code>gartner-pace-ea</code><br />Toolbox: <code>gartner</code></td>
-                <td data-label="How It Helps">Scaffolds Future-State Business Outcomes, PACE Application Layers (Innovation, Differentiation, Record), TIME valuation quadrants, and `1…M` Transition Waves.</td>
+                <td data-label="How It Helps">Scaffolds Future-State Business Outcomes, PACE Application Layers (Innovation, Differentiation, Record), TIME valuation quadrants, and <code>1…M</code> Transition Waves.</td>
               </tr>
               <tr>
                 <th><strong>BizBOK® v14 Business Architecture Profile</strong></th>
@@ -1604,13 +1600,13 @@
                 <th><strong>SABSA® 6×6 Security Architecture Profile</strong></th>
                 <td data-label="ID"><code>sabsa-security</code></td>
                 <td data-label="Blueprint">Blueprint: <code>sabsa-zero-trust</code><br />Toolbox: <code>sabsa</code></td>
-                <td data-label="How It Helps">Scaffolds the 6-layer Sherwood Security Matrix (`L1 Contextual` Risk &amp; Threat Domains through `L6 Operational` Incident Playbooks &amp; Assurance Trails).</td>
+                <td data-label="How It Helps">Scaffolds the 6-layer Sherwood Security Matrix (<code>L1 Contextual</code> Risk &amp; Threat Domains through <code>L6 Operational</code> Incident Playbooks &amp; Assurance Trails).</td>
               </tr>
               <tr>
                 <th><strong>NIST CSF 2.0 &amp; SP 800-53 Profile</strong></th>
                 <td data-label="ID"><code>nist-csf-80053</code></td>
                 <td data-label="Blueprint">Blueprint: <code>nist-csf-governance</code><br />Toolbox: <code>nist</code></td>
-                <td data-label="How It Helps">Scaffolds all 6 NIST CSF 2.0 Core Functions (`GV`, `ID`, `PR`, `DE`, `RS`, `RC`) and SP 800-53 Rev. 5 Zero-Trust Access, Crypto, Audit, and Contingency controls.</td>
+                <td data-label="How It Helps">Scaffolds all 6 NIST CSF 2.0 Core Functions (<code>GV</code>, <code>ID</code>, <code>PR</code>, <code>DE</code>, <code>RS</code>, <code>RC</code>) and SP 800-53 Rev. 5 Zero-Trust Access, Crypto, Audit, and Contingency controls.</td>
               </tr>
               <tr>
                 <th><strong>Core Domain Wizard Profiles</strong></th>
@@ -1772,7 +1768,7 @@
 
         <div tabindex="0" role="region" aria-label="Transaction Platform Canonical Object Dot-Notation Schema and ISO 20022 Mapping" class="table-wrapper">
           <table class="doc-table">
-            <caption>Transaction Platform Canonical Schema (`TransactionPlatformObject` / `«TransactionHub_CanonicalObject»`) &amp; ISO 20022 Lineage</caption>
+            <caption>Transaction Platform Canonical Schema (<code>TransactionPlatformObject</code> / <code>«TransactionHub_CanonicalObject»</code>) &amp; ISO 20022 Lineage</caption>
             <thead>
               <tr>
                 <th>Canonical Dot-Notation Path</th>
@@ -1861,7 +1857,7 @@
           </p>
         </div>
 
-        <h3 class="sub-heading">🎯 5.1 Gartner TIME Portfolio Quadrant, FinOps (`∑`) &amp; PERT Estimation</h3>
+        <h3 class="sub-heading">🎯 5.1 Gartner TIME Portfolio Quadrant, FinOps (<code>∑</code>) &amp; PERT Estimation</h3>
         <div class="feature-grid">
           <div class="feature-card">
             <h4>🧭 TIME Portfolio Quadrant (2×2 View)</h4>
@@ -1879,7 +1875,7 @@
           </div>
 
           <div class="feature-card">
-            <h4>💰 FinOps Ledger &amp; Executive Cost Rollups (`∑`)</h4>
+            <h4>💰 FinOps Ledger &amp; Executive Cost Rollups (<code>∑</code>)</h4>
             <p>
               Attach financial line items to any application, database, or cloud node across <strong>CapEx</strong>, <strong>OpEx</strong>, <strong>Software Licensing</strong>, <strong>Cloud Infrastructure Run-Rate</strong>, and <strong>Projected Savings</strong>. Open <strong>📊 Executive Reporting</strong> to view live cost rollups by Folder, Business Capability, and TIME disposition.
             </p>
@@ -1895,7 +1891,7 @@
             <p>
               Estimate delivery effort on any component using industry-standard <strong>Three-Point PERT Estimation</strong>:
               <br /><code>Expected Hours = (Optimistic + 4 × MostLikely + Pessimistic) / 6</code>
-              <br />Assign team members from the <strong>👥 People Roster</strong> (`Responsible`, `Accountable`, `Consulted`, `Informed`) to automatically calculate engineering labor costs from hourly rate cards.
+              <br />Assign team members from the <strong>👥 People Roster</strong> (<code>Responsible</code>, <code>Accountable</code>, <code>Consulted</code>, <code>Informed</code>) to automatically calculate engineering labor costs from hourly rate cards.
             </p>
             <div class="tag-row">
               <span class="code-tag">PERT (O + 4M + P) / 6</span>
@@ -1949,10 +1945,10 @@
           </p>
         </div>
 
-        <h3 class="sub-heading">💾 6.1 Portable `.tvwx` Files, Snapshots, Legacy Imports &amp; Team Databases</h3>
+        <h3 class="sub-heading">💾 6.1 Portable <code>.tvwx</code> Files, Snapshots, Legacy Imports &amp; Team Databases</h3>
         <div class="feature-grid">
           <div class="feature-card">
-            <h4>📁 Portable `.tvwx` Project Files &amp; Auto-Save</h4>
+            <h4>📁 Portable <code>.tvwx</code> Project Files &amp; Auto-Save</h4>
             <p>
               Every edit you make is saved automatically to your local <code>.tvwx</code> project file, and full multi-step <strong>Undo (<kbd>⌘Z</kbd>) / Redo (<kbd>⇧⌘Z</kbd>)</strong> works across canvas shapes, renames, catalog edits, and AI actions. You can share a <code>.tvwx</code> file with a colleague via Slack, email, or Git and they can open it immediately.
             </p>

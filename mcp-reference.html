@@ -400,9 +400,7 @@
       font-weight: 700;
       margin: 28px 0 12px;
       color: #e2e8f0;
-      display: flex;
-      align-items: center;
-      gap: 10px;
+      line-height: 1.35;
     }
 
     .doc-section p.lead {
@@ -928,9 +926,7 @@
       font-weight: 700;
       color: #f8fafc;
       margin-bottom: 8px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
+      line-height: 1.35;
     }
 
     .info-card p {
@@ -1652,17 +1648,17 @@ curl --cacert .treeview-certs/treeview-ea-root-ca.crt -s \
         <div class="section-eyebrow">Section 04 · 36-Cell 6×6 Orthogonal Matrix &amp; Multi-Framework Mapping</div>
         <h2>How the 6×6 Orthogonal Matrix Organizes All 8 Frameworks</h2>
         <p class="lead">
-          Switch to <strong>🧬 6×6 Matrix</strong> in the top toolbar (or call <code>evaluate_orthogonal_matrix</code>) to see every element in your repository automatically classified into a <strong>36-Cell Grid</strong> across <strong>6 Perspective Rows (<code>R1..R6</code>)</strong> and <strong>6 Interrogative Columns (<code>C1..C6</code>: What, How, Where, Who, When, Why)</strong>. Powered by TreeviewEA’s sub-millisecond graph engine (<code>classify_node_stratum_and_matrix</code>), this view shows you immediately which cells are well-modeled and where coverage gaps exist.
+          Switch to <strong>🧬 6×6 Matrix</strong> in the top toolbar (or call <code>evaluate_orthogonal_matrix</code>) to see every element in your repository automatically classified into a <strong>36-Cell Grid</strong> across <strong>6 Perspective Rows (<code>R1..R6</code>)</strong> and <strong>6 Interrogative Columns (<code>C1..C6</code>: What, How, Where, Who, When, Why)</strong>. Powered by TreeviewEA’s sub-millisecond graph engine, this view shows you immediately which cells are well-modeled and where coverage gaps exist.
         </p>
 
         <h3>4.1 How All 8 Frameworks Map into Strata <code>L0..L4</code> &amp; the 6×6 Matrix</h3>
         <p style="font-size:14px; color:var(--text-secondary); margin-bottom:12px;">
-          Regardless of whether your team models in <strong>Gartner PACE &amp; TIME</strong>, <strong>BizBOK® v14</strong>, <strong>SABSA®</strong>, <strong>NIST CSF 2.0 &amp; SP 800-53</strong>, <strong>TOGAF 10</strong>, <strong>ArchiMate 3.2</strong>, <strong>BIAN v12</strong>, or <strong>ISO 20022</strong>, <code>classify_node_stratum_and_matrix()</code> harmonizes every stereotype into a unified 5-stratum (`L0..L4`), 36-cell coordinate system:
+          Regardless of whether your team models in <strong>Gartner PACE &amp; TIME</strong>, <strong>BizBOK® v14</strong>, <strong>SABSA®</strong>, <strong>NIST CSF 2.0 &amp; SP 800-53</strong>, <strong>TOGAF 10</strong>, <strong>ArchiMate 3.2</strong>, <strong>BIAN v12</strong>, or <strong>ISO 20022</strong>, TreeviewEA harmonizes every stereotype into a unified 5-stratum (<code>L0..L4</code>), 36-cell coordinate system:
         </p>
 
         <div tabindex="0" role="region" aria-labelledby="framework-stratum-map-caption" class="table-wrapper">
           <table style="--label-2: 'Strata &amp; Matrix Rows'; --label-3: 'Classified Stereotypes'; --label-4: 'Interrogative Column Mapping (C1..C6)';">
-            <caption id="framework-stratum-map-caption">Multi-Framework Stereotype Classification in classify_node_stratum_and_matrix()</caption>
+            <caption id="framework-stratum-map-caption">Multi-Framework Stereotype Classification Across the 6×6 Matrix</caption>
             <thead>
               <tr>
                 <th scope="col">Framework</th>
@@ -1709,28 +1705,28 @@ curl --cacert .treeview-certs/treeview-ea-root-ca.crt -s \
         <h3>4.2 Four Automated Architecture Health Checks</h3>
         <div class="cards-2col">
           <div class="info-card">
-            <h4>🔗 1. End-to-End Vertical Lineage (<code>I_TRACE_VERTICAL</code>)</h4>
+            <h4>🔗 1. End-to-End Vertical Lineage</h4>
             <p>
               Verifies that every physical microservice, database table, and cloud resource in Strata <code>L3/L4</code> traces upward (within 5 hops) to a governing <strong>Business Capability, Value Stream, or Business Outcome</strong> in <code>L0/L1</code>—flagging unlinked "shadow IT" components automatically.
             </p>
           </div>
 
           <div class="info-card">
-            <h4>🔄 2. Circular Dependency Detection (<code>I_DAG_CONTAINMENT</code>)</h4>
+            <h4>🔄 2. Circular Dependency Detection</h4>
             <p>
               Uses Tarjan’s Strongly Connected Components (SCC) algorithm in the Rust graph engine to spot multi-service circular dependency loops in under 1 millisecond so you can decouple them with an event stream or API facade.
             </p>
           </div>
 
           <div class="info-card">
-            <h4>💳 3. Canonical Data Completeness (<code>I_CANONICAL_SCHEMA</code>)</h4>
+            <h4>💳 3. Canonical Data Completeness</h4>
             <p>
               Checks that payment and transaction entities in Column <code>C1 (WHAT · Data)</code> include the 4 canonical <code>TransactionPlatformObject</code> branches (<code>$.onBehalfOfPayer</code>, <code>$.returnSpecificInfo</code>, <code>$.enrichedDataInExchange</code>, <code>$.exchangeRate</code>) and primary keys.
             </p>
           </div>
 
           <div class="info-card">
-            <h4>🛡️ 4. Layer-Bypass &amp; Bottleneck Check (<code>I_TYPED_MORPHISM</code>)</h4>
+            <h4>🛡️ 4. Layer-Bypass &amp; Bottleneck Check</h4>
             <p>
               Highlights connections that skip directly from executive strategy to raw infrastructure without intermediate application/logical governance, and calculates <strong>Betweenness Centrality</strong> &amp; <strong>3-Hop Blast Radius</strong> to identify single points of failure.
             </p>
@@ -1813,14 +1809,14 @@ curl --cacert .treeview-certs/treeview-ea-root-ca.crt -s \
           <div class="info-card">
             <h4>🧠 2. <code>ollama_redis</code> (Local Ollama LLM + Redis Stack)</h4>
             <p>
-              Connects to a local <strong>Ollama</strong> server (`http://localhost:11434`) and optional <strong>Redis Stack</strong> vector index for deep semantic similarity search across large enterprise repositories.
+              Connects to a local <strong>Ollama</strong> server (<code>http://localhost:11434</code>) and optional <strong>Redis Stack</strong> vector index for deep semantic similarity search across large enterprise repositories.
             </p>
           </div>
 
           <div class="info-card">
             <h4>🔄 3. <code>hybrid</code> (Combined Topological + Semantic Mode)</h4>
             <p>
-              Combines instant local graph topology analysis with live semantic vector embeddings, saving results to both your `.tvwx` project file and your shared team backend.
+              Combines instant local graph topology analysis with live semantic vector embeddings, saving results to both your <code>.tvwx</code> project file and your shared team backend.
             </p>
           </div>
         </div>
@@ -1841,7 +1837,7 @@ curl --cacert .treeview-certs/treeview-ea-root-ca.crt -s \
               <tr>
                 <th scope="row"><code>SHADOW_INFRASTRUCTURE_DRIFT</code></th>
                 <td><code>HIGH</code> / <code>MEDIUM</code><br />Horizon: <code>IMMEDIATE</code></td>
-                <td>An application, database table, or cloud node (`L3/L4`) has no traceability link upward to any Business Capability or Service Domain (`L1`).</td>
+                <td>An application, database table, or cloud node (<code>L3/L4</code>) has no traceability link upward to any Business Capability or Service Domain (<code>L1</code>).</td>
                 <td><code>wire_shadow_asset_to_capability</code>: Links the component to a governing <code>«Capability»</code> via a <code>Realisation</code> (<code>«trace»</code>) connector.</td>
               </tr>
               <tr>
