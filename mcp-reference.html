@@ -1,0 +1,3004 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MCP 39-Tool Server &amp; Autonomous AI Reasoning Engine — TreeviewEA Reference</title>
+  <meta name="description" content="Exhaustive technical reference for TreeviewEA's Dual-Transport Model Context Protocol (MCP) Server (39 Core + 3 AI Reasoning Tools = 42 Tools), Rust CSR Property Graph Core (tview-graph-core), 36-Cell 6x6 Orthogonal Architecture Matrix, Python Deep ML Drift Engine, and 4-Agent ARB." />
+  <meta name="theme-color" content="#070b14" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg-deep: #070b14;
+      --bg-surface: #0f172a;
+      --bg-card: rgba(15, 23, 42, 0.78);
+      --bg-elevated: #1e293b;
+      --border-subtle: rgba(148, 163, 184, 0.16);
+      --border-highlight: rgba(56, 189, 248, 0.45);
+      --text-primary: #f8fafc;
+      --text-secondary: #cbd5e1;
+      --text-muted: #94a3b8;
+      --sky: #38bdf8;
+      --blue: #3b82f6;
+      --indigo: #6366f1;
+      --violet: #8b5cf6;
+      --emerald: #10b981;
+      --amber: #f59e0b;
+      --rose: #f43f5e;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+      --font-mono: 'JetBrains Mono', 'SF Mono', Menlo, monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 92px;
+      background-color: var(--bg-deep);
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      background:
+        radial-gradient(circle at 12% 8%, rgba(56, 189, 248, 0.13), transparent 34%),
+        radial-gradient(circle at 88% 10%, rgba(139, 92, 246, 0.13), transparent 36%),
+        radial-gradient(circle at 50% 60%, rgba(16, 185, 129, 0.06), transparent 45%),
+        var(--bg-deep);
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    code, pre {
+      font-family: var(--font-mono);
+    }
+
+    .container {
+      max-width: 1380px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Top Sticky Glass Navbar (matching docs/ site) */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      background: rgba(7, 11, 20, 0.86);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .navbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 70px;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      font-size: 18px;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #2563eb 0%, #06b6d4 55%, #10b981 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 15px;
+      color: #fff;
+      box-shadow: 0 6px 20px rgba(6, 182, 212, 0.35);
+    }
+
+    .brand-sub {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--text-muted);
+      display: block;
+      margin-top: -2px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-secondary);
+    }
+
+    .nav-links a {
+      padding: 6px 10px;
+      border-radius: 8px;
+      transition: all 0.15s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--sky);
+      background: rgba(56, 189, 248, 0.08);
+    }
+
+    .nav-links a.active {
+      color: #fff;
+      font-weight: 700;
+      background: rgba(56, 189, 248, 0.14);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+    }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 9px 16px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 13.5px;
+      cursor: pointer;
+      border: 1px solid var(--border-subtle);
+      background: rgba(30, 41, 59, 0.78);
+      color: var(--text-primary);
+      transition: all 0.18s ease;
+    }
+
+    .btn:hover {
+      border-color: var(--border-highlight);
+      background: rgba(30, 41, 59, 0.98);
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #2563eb 0%, #0284c7 100%);
+      border-color: rgba(56, 189, 248, 0.55);
+      color: #ffffff;
+      box-shadow: 0 8px 24px rgba(37, 99, 235, 0.32);
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #1d4ed8 0%, #0369a1 100%);
+      box-shadow: 0 12px 30px rgba(56, 189, 248, 0.42);
+    }
+
+    .btn-sm {
+      padding: 6px 12px;
+      font-size: 12px;
+      border-radius: 8px;
+    }
+
+    /* Page Hero Banner */
+    .doc-hero {
+      padding: 48px 0 36px;
+      border-bottom: 1px solid var(--border-subtle);
+      background: linear-gradient(180deg, rgba(15, 23, 42, 0.45) 0%, rgba(7, 11, 20, 0) 100%);
+    }
+
+    .pill-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      color: #7dd3fc;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      font-family: var(--font-mono);
+    }
+
+    .pill-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--emerald);
+      box-shadow: 0 0 10px var(--emerald);
+    }
+
+    .doc-hero h1 {
+      font-size: clamp(2rem, 3.8vw, 3.1rem);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      line-height: 1.12;
+      margin-bottom: 14px;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #34d399 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .doc-hero p {
+      font-size: 1.08rem;
+      color: var(--text-secondary);
+      max-width: 920px;
+      margin-bottom: 24px;
+    }
+
+    .hero-kpi-strip {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(185px, 1fr));
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .hero-kpi {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 14px 16px;
+    }
+
+    .hero-kpi .kpi-val {
+      font-family: var(--font-mono);
+      font-size: 21px;
+      font-weight: 800;
+      color: var(--sky);
+      display: block;
+    }
+
+    .hero-kpi .kpi-lbl {
+      font-size: 12px;
+      color: var(--text-secondary);
+    }
+
+    /* Two-Column Documentation Layout with Sticky Scrollspy Sidebar */
+    .doc-layout {
+      display: grid;
+      grid-template-columns: 280px minmax(0, 1fr);
+      gap: 36px;
+      padding: 36px 0 80px;
+      align-items: start;
+    }
+
+    .doc-sidebar {
+      position: sticky;
+      top: 90px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      padding: 18px 14px;
+      max-height: calc(100vh - 110px);
+      overflow-y: auto;
+    }
+
+    .sidebar-title {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      padding: 0 10px 10px;
+      border-bottom: 1px solid var(--border-subtle);
+      margin-bottom: 10px;
+    }
+
+    /* MANDATORY: Native CSS scroll-target-group on the scrollspy nav container */
+    nav.doc-sidebar-nav {
+      scroll-target-group: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    nav.doc-sidebar-nav a {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 9px 12px;
+      border-radius: 9px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      border-left: 3px solid transparent;
+      transition: all 0.16s ease;
+    }
+
+    nav.doc-sidebar-nav a:hover {
+      color: var(--text-primary);
+      background: rgba(30, 41, 59, 0.65);
+    }
+
+    /* MANDATORY: Use :is(:target-current, .target-current) so older browsers don't invalidate the rule,
+       and include non-color cues (font-weight, left border bar, indicator badge) */
+    nav.doc-sidebar-nav a:is(:target-current, .target-current) {
+      color: #ffffff;
+      background: rgba(56, 189, 248, 0.15);
+      border-left-color: var(--sky);
+      font-weight: 700;
+      box-shadow: inset 0 0 0 1px rgba(56, 189, 248, 0.3);
+    }
+
+    .sidebar-quick-stats {
+      margin-top: 16px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border-subtle);
+      font-size: 11.5px;
+      color: var(--text-muted);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding-inline: 8px;
+    }
+
+    .sidebar-quick-stats code {
+      color: #7dd3fc;
+      font-size: 11px;
+    }
+
+    /* Main Content Sections */
+    .doc-main {
+      display: flex;
+      flex-direction: column;
+      gap: 64px;
+      min-width: 0;
+    }
+
+    .doc-section {
+      background: rgba(15, 23, 42, 0.52);
+      border: 1px solid var(--border-subtle);
+      border-radius: 18px;
+      padding: 34px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+    }
+
+    .section-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--sky);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .doc-section h2 {
+      font-size: clamp(1.55rem, 2.5vw, 2.1rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+      color: var(--text-primary);
+    }
+
+    .doc-section h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin: 28px 0 12px;
+      color: #e2e8f0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .doc-section p.lead {
+      font-size: 15.5px;
+      color: var(--text-secondary);
+      margin-bottom: 24px;
+    }
+
+    /* Responsive Accessible Tables (Modern Web Guidance Pattern) */
+    .table-wrapper {
+      overflow: auto;
+      max-inline-size: 100%;
+      max-block-size: min(620px, 82vh);
+      container-type: inline-size;
+      background: rgba(7, 11, 20, 0.75);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      margin: 16px 0 24px;
+    }
+
+    .table-wrapper:focus-visible {
+      outline: 2px solid var(--sky);
+      outline-offset: 2px;
+    }
+
+    .table-wrapper table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      font-size: 13.5px;
+    }
+
+    .table-wrapper caption {
+      text-align: left;
+      padding: 12px 16px;
+      font-weight: 700;
+      font-size: 13px;
+      color: #93c5fd;
+      background: #0d1527;
+      border-bottom: 1px solid var(--border-subtle);
+      font-family: var(--font-mono);
+    }
+
+    .table-wrapper thead {
+      position: sticky;
+      inset-block-start: 0;
+      z-index: 2;
+      background: #131c31;
+    }
+
+    .table-wrapper th,
+    .table-wrapper td {
+      padding: 12px 14px;
+      text-align: left;
+      border-bottom: 1px solid var(--border-subtle);
+      vertical-align: top;
+    }
+
+    .table-wrapper thead th {
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #7dd3fc;
+      background: #131c31;
+      border-bottom: 1px solid rgba(56, 189, 248, 0.3);
+    }
+
+    .table-wrapper tbody th {
+      position: sticky;
+      inset-inline-start: 0;
+      z-index: 1;
+      background: #0f172a;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      color: #f8fafc;
+      border-right: 1px solid var(--border-subtle);
+    }
+
+    .table-wrapper tbody tr:hover td {
+      background: rgba(56, 189, 248, 0.05);
+    }
+
+    @container (width < 600px) {
+      .table-wrapper table,
+      .table-wrapper thead,
+      .table-wrapper tbody,
+      .table-wrapper tr,
+      .table-wrapper th,
+      .table-wrapper td {
+        display: block;
+      }
+
+      .table-wrapper thead {
+        display: none;
+      }
+
+      .table-wrapper tr {
+        margin-block-end: 1rem;
+        border: 1px solid var(--border-subtle);
+        border-radius: 10px;
+        overflow: hidden;
+      }
+
+      .table-wrapper tbody th {
+        position: sticky;
+        inset-block-start: 0;
+        z-index: 2;
+        background: #1e293b;
+        border-right: none;
+      }
+
+      .table-wrapper td:nth-child(2)::before {
+        content: var(--label-2, "Field") ": ";
+        font-weight: 700;
+        color: var(--sky);
+        font-family: var(--font-mono);
+      }
+
+      .table-wrapper td:nth-child(3)::before {
+        content: var(--label-3, "Details") ": ";
+        font-weight: 700;
+        color: var(--sky);
+        font-family: var(--font-mono);
+      }
+
+      .table-wrapper td:nth-child(4)::before {
+        content: var(--label-4, "Notes") ": ";
+        font-weight: 700;
+        color: var(--sky);
+        font-family: var(--font-mono);
+      }
+
+      .table-wrapper td:nth-child(5)::before {
+        content: var(--label-5, "Spec") ": ";
+        font-weight: 700;
+        color: var(--sky);
+        font-family: var(--font-mono);
+      }
+    }
+
+    /* Code & Config Blocks with Copy Button */
+    .code-panel {
+      background: #050811;
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      overflow: hidden;
+      margin: 14px 0;
+    }
+
+    .code-panel-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 9px 14px;
+      background: #0d1526;
+      border-bottom: 1px solid var(--border-subtle);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: #93c5fd;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .code-panel pre {
+      padding: 16px;
+      overflow-x: auto;
+      font-size: 12.5px;
+      line-height: 1.65;
+      color: #e2e8f0;
+    }
+
+    .copy-btn {
+      background: rgba(56, 189, 248, 0.14);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      color: #7dd3fc;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .copy-btn:hover {
+      background: rgba(56, 189, 248, 0.28);
+      color: #fff;
+    }
+
+    /* Config Tab Switcher */
+    .tab-bar {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+    }
+
+    .tab-btn {
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+      padding: 8px 14px;
+      border-radius: 9px;
+      font-size: 12.5px;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: var(--font-mono);
+      transition: all 0.15s ease;
+    }
+
+    .tab-btn:hover {
+      border-color: var(--border-highlight);
+      color: #fff;
+    }
+
+    .tab-btn.active {
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.35), rgba(6, 182, 212, 0.25));
+      border-color: var(--sky);
+      color: #fff;
+    }
+
+    .tab-pane {
+      display: none;
+    }
+
+    .tab-pane.active {
+      display: block;
+    }
+
+    /* Interactive MCP Tool Catalog Controls */
+    .catalog-controls {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      background: #0b1324;
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      padding: 18px;
+      margin-bottom: 22px;
+    }
+
+    .search-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .search-input-wrap {
+      flex: 1;
+      min-width: 260px;
+      position: relative;
+    }
+
+    .search-input {
+      width: 100%;
+      background: #050811;
+      border: 1px solid rgba(148, 163, 184, 0.28);
+      border-radius: 10px;
+      padding: 11px 16px;
+      color: var(--text-primary);
+      font-size: 14px;
+      font-family: var(--font-sans);
+    }
+
+    .search-input:focus {
+      outline: none;
+      border-color: var(--sky);
+      box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.18);
+    }
+
+    .filter-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .filter-pill {
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+      padding: 5px 11px;
+      border-radius: 999px;
+      font-size: 11.5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .filter-pill:hover {
+      border-color: var(--sky);
+      color: #fff;
+    }
+
+    .filter-pill.active {
+      background: var(--blue);
+      border-color: var(--sky);
+      color: #fff;
+    }
+
+    /* Tool Cards Grid */
+    .tools-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .tool-card {
+      background: #0b1324;
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      padding: 20px;
+      transition: border-color 0.18s ease;
+    }
+
+    .tool-card:hover {
+      border-color: rgba(56, 189, 248, 0.4);
+    }
+
+    .tool-card-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+
+    .tool-name-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .tool-num {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 6px;
+      background: rgba(56, 189, 248, 0.12);
+      color: var(--sky);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+    }
+
+    .tool-title {
+      font-family: var(--font-mono);
+      font-size: 16px;
+      font-weight: 700;
+      color: #f8fafc;
+    }
+
+    .badge-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .cat-badge {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 9px;
+      border-radius: 6px;
+      background: rgba(99, 102, 241, 0.16);
+      border: 1px solid rgba(99, 102, 241, 0.38);
+      color: #c7d2fe;
+    }
+
+    .mut-badge {
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 6px;
+    }
+
+    .mut-badge.readonly {
+      background: rgba(16, 185, 129, 0.14);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      color: #6ee7b7;
+    }
+
+    .mut-badge.undoable {
+      background: rgba(245, 158, 11, 0.14);
+      border: 1px solid rgba(245, 158, 11, 0.35);
+      color: #fcd34d;
+    }
+
+    .tool-desc {
+      font-size: 13.8px;
+      color: var(--text-secondary);
+      margin-bottom: 14px;
+    }
+
+    .params-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .param-item {
+      background: rgba(7, 11, 20, 0.72);
+      border: 1px solid rgba(148, 163, 184, 0.14);
+      border-radius: 8px;
+      padding: 8px 11px;
+      font-size: 12px;
+    }
+
+    .param-key {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      color: #7dd3fc;
+    }
+
+    .param-type {
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      color: #a78bfa;
+      margin-left: 6px;
+    }
+
+    .param-req {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: #fb7185;
+      font-weight: 700;
+      margin-left: 6px;
+    }
+
+    .param-desc {
+      color: var(--text-muted);
+      margin-top: 3px;
+      font-size: 11.5px;
+      line-height: 1.45;
+    }
+
+    /* 6x6 Matrix Interactive Grid */
+    .matrix-interactive-grid {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 5px;
+      margin: 14px 0;
+    }
+
+    .matrix-interactive-grid th {
+      background: #131c31;
+      color: #7dd3fc;
+      padding: 9px 7px;
+      border-radius: 7px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      text-align: center;
+      border: 1px solid rgba(56, 189, 248, 0.25);
+    }
+
+    .matrix-interactive-grid td.r-hdr {
+      background: #131c31;
+      color: #f1f5f9;
+      font-weight: 700;
+      padding: 8px 10px;
+      border-radius: 7px;
+      font-size: 11.5px;
+      border: 1px solid var(--border-subtle);
+      white-space: nowrap;
+      font-family: var(--font-mono);
+    }
+
+    .m-cell {
+      background: rgba(15, 23, 42, 0.88);
+      border: 1px solid rgba(148, 163, 184, 0.22);
+      border-radius: 7px;
+      padding: 8px 6px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .m-cell:hover,
+    .m-cell.active {
+      border-color: var(--sky);
+      background: rgba(56, 189, 248, 0.18);
+      transform: translateY(-1px);
+    }
+
+    .m-cell .c-code {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--sky);
+      display: block;
+    }
+
+    .m-cell .c-title {
+      font-size: 11px;
+      font-weight: 600;
+      color: #f8fafc;
+      display: block;
+      margin-top: 2px;
+    }
+
+    /* Info Cards Grid */
+    .cards-2col {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 16px;
+      margin: 16px 0;
+    }
+
+    .info-card {
+      background: #0b1324;
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      padding: 20px;
+    }
+
+    .info-card h4 {
+      font-size: 15.5px;
+      font-weight: 700;
+      color: #f8fafc;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .info-card p {
+      font-size: 13.5px;
+      color: var(--text-secondary);
+      margin-bottom: 10px;
+    }
+
+    .formula-box {
+      background: #050811;
+      border-left: 3px solid var(--sky);
+      border-radius: 8px;
+      padding: 12px 16px;
+      font-family: var(--font-mono);
+      font-size: 12.5px;
+      color: #bae6fd;
+      margin: 10px 0;
+      overflow-x: auto;
+    }
+
+    .footer {
+      border-top: 1px solid var(--border-subtle);
+      padding: 42px 0;
+      color: var(--text-muted);
+      font-size: 13.5px;
+    }
+
+    @media (max-width: 1024px) {
+      .doc-layout {
+        grid-template-columns: 1fr;
+      }
+      .doc-sidebar {
+        position: static;
+        max-height: none;
+      }
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navbar (Shared across docs/ site) -->
+  <header class="navbar">
+    <div class="container navbar-inner">
+      <a href="index.html" class="brand">
+        <div class="brand-mark">TV</div>
+        <div>
+          TreeviewEA
+          <span class="brand-sub">by Treeview Software, LLC</span>
+        </div>
+      </a>
+
+      <nav class="nav-links" aria-label="Primary Site Navigation">
+        <a href="index.html">Overview</a>
+        <a href="documentation.html">Documentation</a>
+        <a href="taxonomy.html">Metamodel &amp; Taxonomy</a>
+        <a href="mcp-reference.html" class="active" aria-current="page">MCP &amp; AI Engine</a>
+        <a href="index.html#download">Download .DMG</a>
+      </nav>
+
+      <div class="nav-cta">
+        <a href="https://github.com/symbioticllc/treeviewea-web/releases/latest/download/TreeviewEA-2.5.0-macOS-arm64.dmg" class="btn btn-primary">
+          <span> Download .DMG</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="doc-hero">
+    <div class="container">
+      <div class="pill-badge">
+        <span class="pill-dot"></span>
+        <span>MCP Protocol 2025-03-26 &amp; 2024-11-05 · HTTPS/SSE Port 8443 + Stdio · Rust CSR Graph Core · Python Deep ML</span>
+      </div>
+      <h1>
+        39-Tool Dual-Transport MCP Server &amp;<br />
+        <span class="gradient-text">Autonomous AI Reasoning Engine Reference</span>
+      </h1>
+      <p>
+        Exhaustive specification for TreeviewEA’s Model Context Protocol (MCP) server (39 Core Modeling, Lifecycle, UI &amp; FinOps tools + 3 Autonomous AI Reasoning &amp; 6×6 Matrix tools = <strong>42 total tools</strong>), the sub-millisecond <strong>Rust CSR Property Graph Core (<code>tview-graph-core</code>)</strong>, the <strong>36-Cell 6×6 Orthogonal Architecture Matrix</strong>, the <strong>Python Dual-Direction Deep ML Drift Forecaster</strong>, and the <strong>4-Specialist Architecture Review Board (ARB)</strong>.
+      </p>
+
+      <div class="hero-kpi-strip">
+        <div class="hero-kpi">
+          <span class="kpi-val">39 + 3 = 42</span>
+          <span class="kpi-lbl">Typed MCP Tools (All Mutating Tools Wrapped in <code>⌘Z</code> Undo)</span>
+        </div>
+        <div class="hero-kpi">
+          <span class="kpi-val">stdio + TLS SSE</span>
+          <span class="kpi-lbl">Dual-Transport JSON-RPC 2.0 &amp; Auto-Generated <code>.treeview-certs</code></span>
+        </div>
+        <div class="hero-kpi">
+          <span class="kpi-val">36 Cells (6×6)</span>
+          <span class="kpi-lbl">Orthogonal Matrix (R1..R6 Perspectives × C1..C6 Interrogatives)</span>
+        </div>
+        <div class="hero-kpi">
+          <span class="kpi-val">&lt; 1 ms CSR</span>
+          <span class="kpi-lbl">Rust Tarjan SCC, Brandes Betweenness, PageRank &amp; Blast Radius</span>
+        </div>
+        <div class="hero-kpi">
+          <span class="kpi-val">30d / 90d ML</span>
+          <span class="kpi-lbl">ONNX Local, Ollama + Redis Stack &amp; Hybrid Drift Forecasting</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Two-Column Documentation Body -->
+  <div class="container doc-layout">
+    <!-- Left Sticky Sidebar with Native CSS Scrollspy -->
+    <aside class="doc-sidebar">
+      <div class="sidebar-title">MCP &amp; AI Reference</div>
+      <nav class="doc-sidebar-nav" aria-label="MCP &amp; AI Reference Navigation">
+        <a href="#mcp-setup" class="target-current" aria-current="true">
+          <span>1. Dual-Transport MCP Setup</span>
+        </a>
+        <a href="#mcp-catalog">
+          <span>2. Interactive 39+3 Tool Catalog</span>
+        </a>
+        <a href="#mcp-playbooks">
+          <span>3. Agentic Automation Playbooks</span>
+        </a>
+        <a href="#rust-csr-matrix">
+          <span>4. Rust CSR Core &amp; 6×6 Matrix</span>
+        </a>
+        <a href="#ai-drift-arb">
+          <span>5. Python ML Drift &amp; 4-Agent ARB</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-quick-stats">
+        <div><strong>Server Name:</strong> <code>treeview-ea-mcp</code></div>
+        <div><strong>Version:</strong> <code>2.5.0</code></div>
+        <div><strong>HTTPS URL:</strong> <code>https://localhost:8443/api/mcp</code></div>
+        <div><strong>SSE Stream:</strong> <code>https://localhost:8443/api/mcp/sse</code></div>
+        <div><strong>Cert Dir:</strong> <code>.treeview-certs/</code></div>
+        <div><strong>Rust Core:</strong> <code>tview-graph-core</code></div>
+        <div><strong>Python ML:</strong> <code>python/tview_ml_engine.py</code></div>
+      </div>
+    </aside>
+
+    <!-- Right Main Content -->
+    <main class="doc-main">
+
+      <!-- ===================================================================
+           SECTION 1: DUAL-TRANSPORT MCP ARCHITECTURE (#mcp-setup)
+           =================================================================== -->
+      <section class="doc-section" id="mcp-setup">
+        <div class="section-eyebrow">Section 01 · Dual-Transport Protocol &amp; TLS PKI</div>
+        <h2>Dual-Transport MCP Architecture (<code>stdio</code> &amp; <code>HTTPS/SSE</code>)</h2>
+        <p class="lead">
+          TreeviewEA embeds a production-grade Model Context Protocol (MCP) server directly inside the Go host engine (<code>internal/server/agent.go</code>, <code>internal/server/mcp_tls.go</code>, and <code>internal/server/mcp_comprehensive.go</code>). Both the native macOS WKWebView Studio UI and external AI agents (Claude Desktop, Cursor, Windsurf, Google Antigravity, or custom JSON-RPC clients) operate concurrently against the active <code>.tvwx</code> repository with real-time Server-Sent Events (SSE) canvas synchronization and transactional SQLite Undo/Redo (<code>⌘Z</code>).
+        </p>
+
+        <!-- Architecture SVG Diagram -->
+        <div style="background:#050811; border:1px solid var(--border-subtle); border-radius:14px; padding:18px; margin-bottom:24px;">
+          <div style="font-family:var(--font-mono); font-size:11.5px; color:#7dd3fc; margin-bottom:10px;">
+            ⚡ REAL-TIME BI-DIRECTIONAL MCP ↔ LIVE MACOS STUDIO SYNCHRONIZATION BRIDGE
+          </div>
+          <svg viewBox="0 0 980 230" style="width:100%; height:auto; display:block;" role="img" aria-label="Dual-Transport MCP Architecture Diagram">
+            <defs>
+              <marker id="arr-sky" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 1 L 10 5 L 0 9 z" fill="#38bdf8" />
+              </marker>
+              <marker id="arr-em" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 1 L 10 5 L 0 9 z" fill="#10b981" />
+              </marker>
+            </defs>
+            <!-- Box 1: External MCP Clients -->
+            <rect x="14" y="20" width="245" height="190" rx="10" fill="#0f172a" stroke="#38bdf8" stroke-width="1.8" />
+            <text x="30" y="46" fill="#7dd3fc" font-size="11" font-weight="700" font-family="monospace">EXTERNAL AI / MCP CLIENTS</text>
+            <text x="30" y="72" fill="#f8fafc" font-size="12" font-weight="600">• Claude Desktop (stdio / HTTP)</text>
+            <text x="30" y="96" fill="#f8fafc" font-size="12" font-weight="600">• Cursor &amp; Windsurf (.cursor/mcp.json)</text>
+            <text x="30" y="120" fill="#f8fafc" font-size="12" font-weight="600">• Google Antigravity (mcp_config.json)</text>
+            <text x="30" y="144" fill="#f8fafc" font-size="12" font-weight="600">• Custom SSE / JSON-RPC Agents</text>
+            <rect x="28" y="162" width="216" height="32" rx="6" fill="#1e293b" stroke="#334155" />
+            <text x="136" y="182" text-anchor="middle" fill="#93c5fd" font-size="10.5" font-family="monospace">ECDSA P-256 TLS (.treeview-certs)</text>
+
+            <!-- Arrows 1 -> 2 -->
+            <path d="M 262 85 L 368 85" stroke="#38bdf8" stroke-width="2" marker-end="url(#arr-sky)" />
+            <text x="315" y="76" text-anchor="middle" fill="#7dd3fc" font-size="9.5" font-family="monospace">POST /api/mcp</text>
+            <path d="M 368 135 L 262 135" stroke="#10b981" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arr-em)" />
+            <text x="315" y="152" text-anchor="middle" fill="#6ee7b7" font-size="9.5" font-family="monospace">GET /api/mcp/sse</text>
+
+            <!-- Box 2: TreeviewEA Unified MCP Dispatcher -->
+            <rect x="372" y="20" width="285" height="190" rx="10" fill="#172554" stroke="#60a5fa" stroke-width="2" />
+            <text x="390" y="46" fill="#93c5fd" font-size="11" font-weight="700" font-family="monospace">TREEVIEWEA GO MCP DISPATCHER</text>
+            <text x="390" y="72" fill="#ffffff" font-size="12.5" font-weight="700">ExecuteMCPTool() (42 Typed Tools)</text>
+            <text x="390" y="96" fill="#cbd5e1" font-size="11.5">• Read-Only Fast Path (10 Discovery Tools)</text>
+            <text x="390" y="118" fill="#fcd34d" font-size="11.5">• WithUndoCapture("MCP: &lt;tool&gt;")</text>
+            <text x="390" y="140" fill="#cbd5e1" font-size="11.5">• Rust CSR FFI + Python Deep ML IPC</text>
+            <rect x="388" y="156" width="252" height="38" rx="6" fill="#0f172a" stroke="#38bdf8" />
+            <text x="514" y="179" text-anchor="middle" fill="#6ee7b7" font-size="10.5" font-family="monospace">SQLite .tvwx | PG | MySQL | Redis</text>
+
+            <!-- Arrows 2 -> 3 -->
+            <path d="M 660 85 L 738 85" stroke="#10b981" stroke-width="2" marker-end="url(#arr-em)" />
+            <text x="699" y="74" text-anchor="middle" fill="#6ee7b7" font-size="9.5" font-family="monospace">ui-events SSE</text>
+            <path d="M 738 135 L 660 135" stroke="#38bdf8" stroke-width="2" marker-end="url(#arr-sky)" />
+            <text x="699" y="152" text-anchor="middle" fill="#7dd3fc" font-size="9.5" font-family="monospace">POST ui-state</text>
+
+            <!-- Box 3: Native macOS WKWebView Studio -->
+            <rect x="742" y="20" width="224" height="190" rx="10" fill="#0f172a" stroke="#10b981" stroke-width="1.8" />
+            <text x="758" y="46" fill="#6ee7b7" font-size="11" font-weight="700" font-family="monospace">LIVE MACOS STUDIO WINDOW</text>
+            <text x="758" y="72" fill="#f8fafc" font-size="12" font-weight="600">• Instant Canvas Redraw</text>
+            <text x="758" y="96" fill="#f8fafc" font-size="12" font-weight="600">• Tab Switch &amp; Node Select</text>
+            <text x="758" y="120" fill="#f8fafc" font-size="12" font-weight="600">• Zoom-to-Fit &amp; Toasts</text>
+            <text x="758" y="144" fill="#f8fafc" font-size="12" font-weight="600">• 1-Step ⌘Z Undo of AI Edits</text>
+            <rect x="758" y="162" width="192" height="32" rx="6" fill="#064e3b" stroke="#10b981" />
+            <text x="854" y="182" text-anchor="middle" fill="#a7f3d0" font-size="10.5" font-family="monospace">globalMCPUIBridge</text>
+          </svg>
+        </div>
+
+        <h3>1.1 Ready-to-Copy MCP Client Configurations</h3>
+        <p style="font-size:14px; color:var(--text-secondary); margin-bottom:14px;">
+          Select your AI client below to copy the exact configuration for connecting to TreeviewEA via <strong>Streamable HTTP / HTTPS SSE</strong> (port <code>8443</code>) or <strong>Stdio JSON-RPC Bridge</strong>:
+        </p>
+
+        <div class="tab-bar" role="tablist" aria-label="MCP Client Configuration Tabs">
+          <button type="button" class="tab-btn active" data-tab-group="mcp-cfg" data-tab-target="cfg-claude">Claude Desktop (claude_desktop_config.json)</button>
+          <button type="button" class="tab-btn" data-tab-group="mcp-cfg" data-tab-target="cfg-cursor">Cursor (.cursor/mcp.json)</button>
+          <button type="button" class="tab-btn" data-tab-group="mcp-cfg" data-tab-target="cfg-antigravity">Google Antigravity (mcp_config.json)</button>
+          <button type="button" class="tab-btn" data-tab-group="mcp-cfg" data-tab-target="cfg-sse">Direct HTTPS / SSE &amp; cURL (.treeview-certs)</button>
+        </div>
+
+        <!-- Tab 1: Claude Desktop -->
+        <div class="tab-pane active" id="cfg-claude" data-tab-group="mcp-cfg">
+          <div class="code-panel">
+            <div class="code-panel-header">
+              <span>~/Library/Application Support/Claude/claude_desktop_config.json</span>
+              <button type="button" class="copy-btn" data-copy-target="code-claude-cfg">Copy JSON</button>
+            </div>
+            <pre id="code-claude-cfg">{
+  "mcpServers": {
+    "treeview-ea": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-remote",
+        "https://localhost:8443/api/mcp/sse"
+      ],
+      "env": {
+        "NODE_EXTRA_CA_CERTS": "/Users/you/TreeviewEA/.treeview-certs/treeview-ea-root-ca.crt"
+      }
+    }
+  }
+}</pre>
+          </div>
+        </div>
+
+        <!-- Tab 2: Cursor -->
+        <div class="tab-pane" id="cfg-cursor" data-tab-group="mcp-cfg">
+          <div class="code-panel">
+            <div class="code-panel-header">
+              <span>.cursor/mcp.json (Streamable HTTP + SSE Dual Endpoint)</span>
+              <button type="button" class="copy-btn" data-copy-target="code-cursor-cfg">Copy JSON</button>
+            </div>
+            <pre id="code-cursor-cfg">{
+  "mcpServers": {
+    "treeview-ea": {
+      "url": "https://localhost:8443/api/mcp",
+      "type": "http"
+    },
+    "treeview-ea-sse": {
+      "url": "https://localhost:8443/api/mcp/sse",
+      "type": "sse"
+    }
+  }
+}</pre>
+          </div>
+        </div>
+
+        <!-- Tab 3: Google Antigravity -->
+        <div class="tab-pane" id="cfg-antigravity" data-tab-group="mcp-cfg">
+          <div class="code-panel">
+            <div class="code-panel-header">
+              <span>~/.gemini/antigravity-cli/mcp_config.json</span>
+              <button type="button" class="copy-btn" data-copy-target="code-agy-cfg">Copy JSON</button>
+            </div>
+            <pre id="code-agy-cfg">{
+  "mcpServers": {
+    "treeview-ea": {
+      "serverUrl": "https://localhost:8443/api/mcp",
+      "sseUrl": "https://localhost:8443/api/mcp/sse",
+      "headers": {
+        "Accept": "application/json, text/event-stream"
+      }
+    }
+  }
+}</pre>
+          </div>
+        </div>
+
+        <!-- Tab 4: HTTPS/SSE & cURL -->
+        <div class="tab-pane" id="cfg-sse" data-tab-group="mcp-cfg">
+          <div class="code-panel">
+            <div class="code-panel-header">
+              <span>HTTPS JSON-RPC 2.0 &amp; SSE Handshake with Auto-Generated .treeview-certs Root CA</span>
+              <button type="button" class="copy-btn" data-copy-target="code-curl-cfg">Copy Commands</button>
+            </div>
+            <pre id="code-curl-cfg"># 1. Trust the auto-generated TreeviewEA Local Root CA in macOS Login Keychain:
+security add-trusted-cert -r trustRoot -k ~/Library/Keychains/login.keychain-db \
+  .treeview-certs/treeview-ea-root-ca.crt
+
+# 2. Open an SSE session stream (returns Mcp-Session-Id header and event: endpoint):
+curl --cacert .treeview-certs/treeview-ea-root-ca.crt -N \
+  -H "Accept: text/event-stream" \
+  https://localhost:8443/api/mcp/sse
+
+# 3. Invoke any of the 42 MCP tools over JSON-RPC 2.0 POST:
+curl --cacert .treeview-certs/treeview-ea-root-ca.crt -s \
+  -X POST https://localhost:8443/api/mcp/message?sessionId=mcp-1 \
+  -H "Content-Type: application/json" \
+  -d '{
+    "jsonrpc": "2.0",
+    "id": 1,
+    "method": "tools/call",
+    "params": {
+      "name": "evaluate_orthogonal_matrix",
+      "arguments": { "direction": "onnx_local", "rowFilter": 0, "colFilter": 0 }
+    }
+  }' | jq .</pre>
+          </div>
+        </div>
+
+        <h3>1.2 Auto-Generated X.509 ECDSA P-256 TLS PKI (<code>internal/server/mcp_tls.go</code>)</h3>
+        <p style="font-size:14px; color:var(--text-secondary);">
+          On startup, <code>StartMCPHTTPSListener()</code> invokes <code>EnsureMCPCertificates()</code> to provision a zero-configuration local Public Key Infrastructure in <code>.treeview-certs/</code> and binds a TLS 1.2+ / HTTP/2 listener on <code>https://localhost:8443</code> (with automatic port fallback to <code>8444</code>, <code>9443</code>, or an ephemeral port if <code>8443</code> is occupied):
+        </p>
+
+        <div tabindex="0" role="region" aria-labelledby="tls-endpoints-caption" class="table-wrapper">
+          <table style="--label-2: 'URI / Path'; --label-3: 'Protocol / Spec'; --label-4: 'Description';">
+            <caption id="tls-endpoints-caption">TreeviewEA MCP Transport Endpoints, TLS Artifacts &amp; Resource URIs</caption>
+            <thead>
+              <tr>
+                <th scope="col">Component / Artifact</th>
+                <th scope="col">URI / File Path</th>
+                <th scope="col">Specification</th>
+                <th scope="col">Architectural Role</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Streamable HTTP Endpoint</th>
+                <td><code>https://localhost:8443/api/mcp</code><br /><code>https://localhost:8443/mcp</code></td>
+                <td>MCP <code>2025-03-26</code></td>
+                <td>Handles single &amp; batched JSON-RPC 2.0 <code>POST</code> requests, session <code>DELETE</code>, and <code>GET</code> server/tool discovery.</td>
+              </tr>
+              <tr>
+                <th scope="row">SSE Stream Endpoint</th>
+                <td><code>https://localhost:8443/api/mcp/sse</code><br /><code>https://localhost:8443/mcp/sse</code><br /><code>https://localhost:8443/sse</code></td>
+                <td>MCP <code>2024-11-05</code></td>
+                <td>Establishes persistent <code>text/event-stream</code> session, emits <code>Mcp-Session-Id</code> &amp; <code>event: endpoint</code>, and pushes async JSON-RPC replies.</td>
+              </tr>
+              <tr>
+                <th scope="row">SSE Message Ingress</th>
+                <td><code>https://localhost:8443/api/mcp/message</code></td>
+                <td>JSON-RPC 2.0 over HTTPS</td>
+                <td>Accepts client JSON-RPC payloads correlated via <code>?sessionId=...</code> or <code>Mcp-Session-Id</code> header and broadcasts responses to the SSE channel.</td>
+              </tr>
+              <tr>
+                <th scope="row">Live UI SSE Bridge</th>
+                <td><code>GET /api/mcp/ui-events</code><br /><code>POST /api/mcp/ui-state</code></td>
+                <td>Internal WKWebView Bridge</td>
+                <td>Synchronizes <code>LiveUIState</code> (active workspace, open diagram tabs, selected objects, zoom, toolkits) between the macOS window and MCP tools.</td>
+              </tr>
+              <tr>
+                <th scope="row">Root CA Certificate</th>
+                <td><code>.treeview-certs/treeview-ea-root-ca.crt</code><br /><code>GET /api/mcp/ca.crt</code></td>
+                <td>X.509 ECDSA P-256 (10-Yr)</td>
+                <td>Local Root Authority (<code>CN=TreeviewEA Local MCP Root Authority</code>); one-click macOS Login Keychain trust via <code>POST /api/mcp/trust-ca</code>.</td>
+              </tr>
+              <tr>
+                <th scope="row">SAN Leaf Certificate</th>
+                <td><code>.treeview-certs/treeview-ea-mcp-localhost.crt</code></td>
+                <td>X.509 ECDSA P-256 (825-Day)</td>
+                <td>Full PEM chain signed by Root CA with SANs: <code>localhost</code>, <code>treeview-ea.local</code>, <code>127.0.0.1.nip.io</code>, <code>127.0.0.1</code>, <code>::1</code>, and LAN IPs.</td>
+              </tr>
+              <tr>
+                <th scope="row">9 MCP Resources &amp; 3 Templates</th>
+                <td><code>treeview://repository/summary</code><br /><code>treeview://diagrams/{diagramId}</code><br /><code>treeview://objects/{objectId}</code><br /><code>treeview://matrix/{focusObjectId}</code></td>
+                <td><code>resources/list</code> &amp; <code>resources/read</code></td>
+                <td>Exposes live UI state, project catalog, repository summary, packages, diagrams, SQL DDL tables, people roster, FinOps governance, and EACOE matrix.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           SECTION 2: INTERACTIVE 39-TOOL (+3 AI) MCP CATALOG (#mcp-catalog)
+           =================================================================== -->
+      <section class="doc-section" id="mcp-catalog">
+        <div class="section-eyebrow">Section 02 · Complete Schema &amp; JSON-RPC Reference</div>
+        <h2>Interactive 39-Tool (+3 AI Reasoning = 42 Total) MCP Catalog</h2>
+        <p class="lead">
+          Filter and search all <strong>42 MCP tools</strong> defined across <code>internal/earepo/agent.go</code> (Tools <code>#1–#15</code>) and <code>internal/earepo/mcp_comprehensive.go</code> (Tools <code>#16–#42</code>, comprising the 39 Core Architecture, UI, Lifecycle &amp; FinOps tools plus the 3 Autonomous AI Reasoning &amp; 6×6 Orthogonal Matrix tools). Every mutating tool is automatically wrapped in <code>repo.WithUndoCapture("MCP: &lt;toolName&gt;")</code> and broadcasts a live <code>repo_mutated</code> SSE event to the macOS Studio canvas.
+        </p>
+
+        <div class="catalog-controls" role="region" aria-label="MCP Tool Catalog Search and Filters">
+          <div class="search-row">
+            <div class="search-input-wrap">
+              <input
+                type="search"
+                id="mcp-tool-search"
+                class="search-input"
+                placeholder="Search all 42 tools by name, parameter, stereotype, or description (e.g. 'orthogonal', 'bend', 'finops', 'arb', 'tview_table')..."
+                aria-label="Search MCP Tools"
+              />
+            </div>
+            <div style="font-family:var(--font-mono); font-size:12.5px; color:#7dd3fc; white-space:nowrap;" id="mcp-tool-count-badge">
+              Showing 42 / 42 Tools
+            </div>
+          </div>
+
+          <div class="filter-pills" id="mcp-category-pills" role="group" aria-label="Filter by Tool Category">
+            <button type="button" class="filter-pill active" data-cat="ALL">All Categories (42)</button>
+            <button type="button" class="filter-pill" data-cat="Discovery & Context">Discovery &amp; Inspection (5)</button>
+            <button type="button" class="filter-pill" data-cat="Generative Modeling">Generative Modeling (6)</button>
+            <button type="button" class="filter-pill" data-cat="Project & Repository">Project, Backups &amp; DB Backends (4)</button>
+            <button type="button" class="filter-pill" data-cat="Application UI Control">Live UI Remote Control (1)</button>
+            <button type="button" class="filter-pill" data-cat="Packages & Folders">Packages &amp; Frameworks (2)</button>
+            <button type="button" class="filter-pill" data-cat="Diagrams & Canvas">Diagrams, 18 Shapes &amp; Layout (7)</button>
+            <button type="button" class="filter-pill" data-cat="Elements & Schema">Elements, Schema &amp; Tabular Import (4)</button>
+            <button type="button" class="filter-pill" data-cat="Connectors & Routing">Connectors &amp; Bends (1)</button>
+            <button type="button" class="filter-pill" data-cat="Governance & FinOps">Governance, People &amp; FinOps (3)</button>
+            <button type="button" class="filter-pill" data-cat="Analytics & Matrices">Analytics, Matrices &amp; Export (4)</button>
+            <button type="button" class="filter-pill" data-cat="Multi-Agent Review Board">4-Agent ARB Swarm (2)</button>
+            <button type="button" class="filter-pill" data-cat="AI Reasoning & 6x6 Matrix">AI Reasoning &amp; 6×6 Matrix (3)</button>
+          </div>
+        </div>
+
+        <!-- Populated by script with all 42 tools (and static noscript fallback summary) -->
+        <div id="mcp-tools-container" class="tools-grid" aria-live="polite"></div>
+      </section>
+
+      <!-- ===================================================================
+           SECTION 3: END-TO-END AGENTIC AUTOMATION PLAYBOOKS (#mcp-playbooks)
+           =================================================================== -->
+      <section class="doc-section" id="mcp-playbooks">
+        <div class="section-eyebrow">Section 03 · Multi-Tool Agentic Workflows</div>
+        <h2>End-to-End Agentic Automation Playbooks</h2>
+        <p class="lead">
+          AI agents orchestrate TreeviewEA by chaining deterministic MCP tool calls. Below are two production multi-step JSON-RPC sequences demonstrating how an agent constructs unbroken 6-stratum vertical lineage and builds a <code>1...M</code> multi-horizon transformation roadmap with labor rate-card costing.
+        </p>
+
+        <div class="tab-bar" role="tablist" aria-label="Agentic Playbook Selector">
+          <button type="button" class="tab-btn active" data-tab-group="playbooks" data-tab-target="pb-lineage">
+            Playbook A: Capability → Components → Classes &amp; DB Tables → AWS Infrastructure
+          </button>
+          <button type="button" class="tab-btn" data-tab-group="playbooks" data-tab-target="pb-roadmap">
+            Playbook B: 1...M Model Roadmap, Labor Rate Cards &amp; Gartner TIME Cost Plan
+          </button>
+        </div>
+
+        <!-- PLAYBOOK A: Full-Stack Vertical Lineage -->
+        <div class="tab-pane active" id="pb-lineage" data-tab-group="playbooks">
+          <p style="font-size:14px; color:var(--text-secondary); margin-bottom:14px;">
+            This 6-step sequence links an <strong>L1 Business Capability</strong> (<code>R2:C2</code>) through <strong>L2 Canonical PayEx Data Entities</strong> (<code>R3:C1</code>) and <strong>L3 Microservices &amp; Physical SQL Tables</strong> (<code>R4:C2</code>, <code>R5:C1</code>) down to <strong>L4 AWS Runtime Infrastructure</strong> (<code>R6:C2</code>, <code>R6:C3</code>), lays out the diagram, and verifies 100% vertical lineage via the Rust CSR Graph Core.
+          </p>
+
+          <div class="code-panel">
+            <div class="code-panel-header">
+              <span>Step 1–6 Sequence: create_model_elements → manage_object_schema_and_tags → connect_elements → create_architecture_diagram → auto_layout_diagram → evaluate_orthogonal_matrix</span>
+              <button type="button" class="copy-btn" data-copy-target="code-pb-lineage">Copy Playbook JSON</button>
+            </div>
+            <pre id="code-pb-lineage">[
+  {
+    "step": 1,
+    "tool": "create_architecture_diagram",
+    "arguments": {
+      "packageId": 2,
+      "name": "PayEx Instant Settlement — Full-Stack Vertical Lineage",
+      "diagramType": "Logical",
+      "notes": "End-to-end L1 Capability to L4 AWS Runtime topology"
+    }
+  },
+  {
+    "step": 2,
+    "tool": "create_model_elements",
+    "arguments": {
+      "packageId": 2,
+      "diagramId": 101,
+      "elements": [
+        {
+          "name": "Real-Time Payment Execution",
+          "objectType": "Class",
+          "stereotype": "Capability",
+          "fillColor": "#1e3a8a",
+          "notes": "L1 Conceptual Business Capability (R2:C2)"
+        },
+        {
+          "name": "PayEx Canonical Payment Object",
+          "objectType": "Class",
+          "stereotype": "DataEntity",
+          "fillColor": "#065f46",
+          "notes": "L2 Canonical ISO 20022 pacs.008 Data Contract (R3:C1)"
+        },
+        {
+          "name": "Payment Execution Router MS",
+          "objectType": "Component",
+          "stereotype": "ServiceDomain",
+          "fillColor": "#0f766e",
+          "notes": "L3 BIAN v12 Payment Execution Microservice (R4:C2)",
+          "tags": { "SLA": "12ms p99", "Protocol": "gRPC / ISO 20022" }
+        },
+        {
+          "name": "tview_payment_settlement_ledger",
+          "objectType": "Class",
+          "stereotype": "tview_table",
+          "fillColor": "#312e81",
+          "attributes": [
+            "settlement_id:uuid",
+            "payment_guid:varchar(64)",
+            "instructed_amount:numeric(18,2)",
+            "settled_at:timestamptz"
+          ],
+          "notes": "L3/L4 Physical PostgreSQL Table (R5:C1)"
+        },
+        {
+          "name": "prod-payex-eks-cluster",
+          "objectType": "Component",
+          "stereotype": "aws_eks",
+          "fillColor": "#4c1d95",
+          "notes": "L4 AWS EKS Multi-AZ Runtime Cluster (R6:C2)",
+          "tags": { "Region": "us-east-1", "HA": "Multi-AZ Active-Active" }
+        },
+        {
+          "name": "prod-payex-aurora-pg",
+          "objectType": "Component",
+          "stereotype": "aws_rds",
+          "fillColor": "#7c2d12",
+          "notes": "L4 AWS Aurora PostgreSQL 16 Global Cluster (R6:C1)"
+        }
+      ]
+    }
+  },
+  {
+    "step": 3,
+    "tool": "manage_object_schema_and_tags",
+    "arguments": {
+      "action": "add_attribute",
+      "objectId": 502,
+      "name": "$.onBehalfOfPayer",
+      "dataType": "JSONObject",
+      "stereotype": "canonical",
+      "isPK": false,
+      "notes": "Country code, account number, and payer ID type"
+    }
+  },
+  {
+    "step": 4,
+    "tool": "connect_elements",
+    "arguments": {
+      "diagramId": 101,
+      "connections": [
+        {
+          "sourceName": "Payment Execution Router MS",
+          "targetName": "Real-Time Payment Execution",
+          "connectorType": "Realisation",
+          "stereotype": "trace",
+          "label": "realizes L1 capability"
+        },
+        {
+          "sourceName": "Payment Execution Router MS",
+          "targetName": "PayEx Canonical Payment Object",
+          "connectorType": "Dependency",
+          "stereotype": "flow",
+          "label": "validates canonical schema"
+        },
+        {
+          "sourceName": "Payment Execution Router MS",
+          "targetName": "tview_payment_settlement_ledger",
+          "connectorType": "Association",
+          "stereotype": "FK",
+          "label": "persists ledger entry"
+        },
+        {
+          "sourceName": "prod-payex-eks-cluster",
+          "targetName": "Payment Execution Router MS",
+          "connectorType": "Realisation",
+          "stereotype": "trace",
+          "label": "hosts container pods"
+        },
+        {
+          "sourceName": "prod-payex-aurora-pg",
+          "targetName": "tview_payment_settlement_ledger",
+          "connectorType": "Realisation",
+          "stereotype": "trace",
+          "label": "stores physical table"
+        }
+      ]
+    }
+  },
+  {
+    "step": 5,
+    "tool": "auto_layout_diagram",
+    "arguments": {
+      "diagramId": 101,
+      "columns": 3
+    }
+  },
+  {
+    "step": 6,
+    "tool": "evaluate_orthogonal_matrix",
+    "arguments": {
+      "direction": "onnx_local",
+      "rowFilter": 0,
+      "colFilter": 0
+    }
+  }
+]</pre>
+          </div>
+        </div>
+
+        <!-- PLAYBOOK B: 1...M Model Roadmap & Cost Plan -->
+        <div class="tab-pane" id="pb-roadmap" data-tab-group="playbooks">
+          <p style="font-size:14px; color:var(--text-secondary); margin-bottom:14px;">
+            This 5-step sequence builds a <strong><code>1...M</code> Multi-Horizon Model Roadmap</strong> by cloning baseline packages into transition plateaus, registering engineering rate cards in <code>tview_people</code>, computing labor CapEx/OpEx/Savings rollups, scoring Gartner TIME dispositions, and querying the Executive Portfolio &amp; EACOE dashboard.
+          </p>
+
+          <div class="code-panel">
+            <div class="code-panel-header">
+              <span>Step 1–5 Sequence: manage_packages → manage_people_roster → update_component_estimates → update_time_and_finops → query_portfolio_analytics_and_eacoe</span>
+              <button type="button" class="copy-btn" data-copy-target="code-pb-roadmap">Copy Playbook JSON</button>
+            </div>
+            <pre id="code-pb-roadmap">[
+  {
+    "step": 1,
+    "tool": "manage_packages",
+    "arguments": {
+      "action": "duplicate",
+      "packageId": 2,
+      "parentId": 0,
+      "name": "Horizon 2.0 — Target PayEx One-Pay Hub (2026 Q4)",
+      "includeContents": true
+    }
+  },
+  {
+    "step": 2,
+    "tool": "manage_people_roster",
+    "arguments": {
+      "action": "upsert",
+      "fullName": "Elena Rostova",
+      "role": "Principal Payment Architect",
+      "department": "Enterprise Architecture",
+      "orgUnit": "PayEx Core Modernization",
+      "employmentType": "FTE",
+      "hourlyRate": 210.0,
+      "weeklyCapacity": 40,
+      "skills": "TOGAF 10, BIAN v12, ISO 20022, Go, Rust, AWS EKS",
+      "raciDefault": "Accountable"
+    }
+  },
+  {
+    "step": 3,
+    "tool": "update_component_estimates",
+    "arguments": {
+      "objectId": 503,
+      "replaceExisting": true,
+      "timeQuadrant": "Invest",
+      "businessValueScore": 94,
+      "techQualityScore": 89,
+      "investmentCategory": "Transform",
+      "autoComputeLaborCapEx": true,
+      "efforts": [
+        {
+          "effort": "ISO 20022 pacs.008 & Canonical Payment Object Engine",
+          "effortType": "Core Payment Engineering",
+          "hours": 480,
+          "notes": "Implements $.onBehalfOfPayer and $.exchangeRate validation pipeline"
+        },
+        {
+          "effort": "Multi-AZ EKS + Aurora PostgreSQL Zero-RPO Cutover",
+          "effortType": "Cloud & Resilience Engineering",
+          "hours": 320,
+          "notes": "Active-active regional settlement routing"
+        }
+      ],
+      "metrics": [
+        {
+          "metric": "Legacy Mainframe MIPS Decommission Savings",
+          "metricType": "Savings",
+          "amount": 640000,
+          "notes": "Annualized swivel-chair & vendor lock-in reduction"
+        },
+        {
+          "metric": "AWS EKS + Aurora Managed Runtime Run-Rate",
+          "metricType": "OpEx",
+          "amount": 145000,
+          "notes": "Annual cloud hosting cost"
+        }
+      ],
+      "allocations": [
+        {
+          "resource": "Elena Rostova",
+          "role": "Principal Payment Architect",
+          "hourlyRate": 210.0,
+          "expectedHours": 800,
+          "actualHours": 240,
+          "percentComplete": 30,
+          "dateStart": "2026-01-15",
+          "dateEnd": "2026-09-30",
+          "notes": "Accountable lead for PayEx Payment Execution Router"
+        }
+      ]
+    }
+  },
+  {
+    "step": 4,
+    "tool": "update_time_and_finops",
+    "arguments": {
+      "objectIds": [501, 502, 503, 504, 505, 506],
+      "timeQuadrant": "Invest",
+      "businessValueScore": 92,
+      "techQualityScore": 88,
+      "investmentCategory": "Transform"
+    }
+  },
+  {
+    "step": 5,
+    "tool": "query_portfolio_analytics_and_eacoe",
+    "arguments": {
+      "view": "reporting_dashboard"
+    }
+  }
+]</pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           SECTION 4: RUST CSR GRAPH CORE & 6x6 ORTHOGONAL MATRIX (#rust-csr-matrix)
+           =================================================================== -->
+      <section class="doc-section" id="rust-csr-matrix">
+        <div class="section-eyebrow">Section 04 · Rust Native CSR Engine &amp; 36-Cell Coordinate System</div>
+        <h2>Rust CSR Graph Core (<code>tview-graph-core</code>) &amp; 6×6 Orthogonal Matrix</h2>
+        <p class="lead">
+          Implemented in pure Rust (<code>rust/tview-graph-core/src/lib.rs</code>) with zero garbage-collection pauses and exported via both a C-ABI FFI entrypoint (<code>tview_graph_evaluate_ffi</code> in <code>libtview_graph_core.dylib</code> / <code>.a</code>) and a high-speed TSV stream processor (<code>tview-graph-core</code>), the Graph Core compiles repository state into a dual-indexed <strong>Compressed Sparse Row (CSR)</strong> and <strong>Reversed CSR (CSC)</strong> property graph in under 1 millisecond.
+        </p>
+
+        <h3>4.1 Memory-Mapped CSR + CSC Property Graph Layout</h3>
+        <div class="code-panel">
+          <div class="code-panel-header">
+            <span>rust/tview-graph-core/src/lib.rs — CsrPropertyGraph &amp; C-ABI FFI Surface</span>
+            <button type="button" class="copy-btn" data-copy-target="code-rust-csr">Copy Rust Structs</button>
+          </div>
+          <pre id="code-rust-csr">pub struct CsrPropertyGraph {
+    pub nodes: Vec&lt;GraphNode&gt;,              // Contiguous node metadata &amp; (stratum: 0..4, matrix_row: 1..6, matrix_col: 1..6)
+    pub id_to_idx: HashMap&lt;i32, usize&gt;,     // O(1) Object_ID -> dense CSR vertex index lookup
+    pub row_ptr: Vec&lt;usize&gt;,                // Forward CSR row offsets (len = |V| + 1)
+    pub col_idx: Vec&lt;usize&gt;,                // Forward CSR target vertex indices (len = |E| + |ParentContainment|)
+    pub edge_rel: Vec&lt;String&gt;,              // Typed morphism labels (Realisation, Dependency, Association, ParentContainment)
+    pub rev_row_ptr: Vec&lt;usize&gt;,            // Reversed CSC row offsets for O(deg_in) upstream traversal (len = |V| + 1)
+    pub rev_col_idx: Vec&lt;usize&gt;,            // Reversed CSC source vertex indices
+}
+
+#[no_mangle]
+pub extern "C" fn tview_graph_evaluate_ffi(input_ptr: *const c_char) -&gt; *mut c_char;</pre>
+        </div>
+
+        <h3>4.2 Graph Algorithms &amp; Mathematical Specifications</h3>
+        <div class="cards-2col">
+          <div class="info-card">
+            <h4>🔄 1. Tarjan’s Strongly Connected Components (SCC)</h4>
+            <p>
+              Executes single-pass depth-first search (<code>detect_cycles_tarjan()</code>) maintaining discovery <code>indices[u]</code> and <code>lowlink[u]</code> invariants on an explicit call stack to detect all multi-node circular dependency loops in $O(|V| + |E|)$ linear time.
+            </p>
+            <div class="formula-box">
+              lowlink[u] = min(lowlink[u], lowlink[v])  (tree edge u → v)<br />
+              lowlink[u] = min(lowlink[u], indices[v])  (back edge to stacked v)<br />
+              Root SCC iff lowlink[u] == indices[u] &amp;&amp; |SCC| &gt; 1
+            </div>
+          </div>
+
+          <div class="info-card">
+            <h4>🎯 2. Brandes Shortest-Path Betweenness Centrality</h4>
+            <p>
+              Identifies architectural bottlenecks and Single Points of Failure (<code>compute_betweenness()</code>) by running unweighted BFS shortest-path counting $\sigma_{st}(v)$ followed by reverse stack dependency accumulation $\delta_{s\bullet}(v)$ normalized across all node pairs.
+            </p>
+            <div class="formula-box">
+              δ_{s•}(v) = Σ_{w : v ∈ P_s(w)} (σ_{sv} / σ_{sw}) · (1 + δ_{s•}(w))<br />
+              C_B(v) = [ Σ_{s ≠ v ≠ t} (σ_{st}(v) / σ_{st}) ] / ((|V| - 1)(|V| - 2))
+            </div>
+          </div>
+
+          <div class="info-card">
+            <h4>📈 3. Degree-Normalized Power-Iteration PageRank</h4>
+            <p>
+              Quantifies structural authority (<code>compute_pagerank(0.85, 25)</code>) across 25 power iterations over the CSR adjacency slice with damping factor $d = 0.85$ and full dangling-node mass conservation ($O(25 \cdot |E|)$).
+            </p>
+            <div class="formula-box">
+              PR^{(t+1)}(v) = (1 - d)/|V| + d · (Dangling^{(t)} / |V|)<br />
+                            + d · Σ_{u ∈ N_in(v)} [ PR^{(t)}(u) / |N_out(u)| ]
+            </div>
+          </div>
+
+          <div class="info-card">
+            <h4>🧬 4. 6-Stratum Lineage, Blast Radius &amp; Readiness</h4>
+            <p>
+              Verifies 5-hop conceptual lineage to $L_0/L_1$ (<code>has_conceptual_lineage()</code>), 3-hop undirected Blast Radius percentage (<code>compute_blast_radius(3)</code>), 2-hop 6-interrogative coverage (<code>C1..C6</code>), and Dynamic Capability Readiness:
+            </p>
+            <div class="formula-box">
+              Readiness(k) = clamp_{[18,100]}( 0.38·Ψ_vert + 0.37·Ψ_horiz + 0.25·Ψ_affin - Δ_drift )<br />
+              Coherence = clamp_{[15,100]}( 0.45·Vert% + 0.35·Horiz% + min(25, 1.2·N_cells) - 0.18·Drift )
+            </div>
+          </div>
+        </div>
+
+        <h3>4.3 Four Formal Semantic Integrity Invariants &amp; 5 Abstraction Strata (<code>L0..L4</code>)</h3>
+        <div tabindex="0" role="region" aria-labelledby="invariants-caption" class="table-wrapper">
+          <table style="--label-2: 'Formal Rule'; --label-3: 'Strata Scope'; --label-4: 'Violation Signal';">
+            <caption id="invariants-caption">Semantic Integrity Invariants Enforced by rust/tview-graph-core</caption>
+            <thead>
+              <tr>
+                <th scope="col">Invariant ID</th>
+                <th scope="col">Formal Mathematical Rule</th>
+                <th scope="col">Strata Scope (L0..L4)</th>
+                <th scope="col">Emitted Diagnostic / Remediation Trigger</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row"><code>I_TRACE_VERTICAL</code></th>
+                <td>$\forall v \in V_{L_3 \cup L_4}, \exists u \in V_{L_0 \cup L_1} : \text{dist}_{G}(v, u) \le 5$</td>
+                <td>$L_3$ Physical &amp; $L_4$ Runtime $\to L_0/L_1$</td>
+                <td>Flags <code>has_lineage = 0</code> on orphaned physical/cloud nodes; triggers <code>SHADOW_INFRASTRUCTURE_DRIFT</code>.</td>
+              </tr>
+              <tr>
+                <th scope="row"><code>I_DAG_CONTAINMENT</code></th>
+                <td>$\forall C \in \text{SCC}(G), |C| = 1$ (no multi-node directed cycles)</td>
+                <td>All Strata ($L_0 \dots L_4$)</td>
+                <td>Emits <code>CYCLE\tid1,id2,...</code> from Tarjan SCC; triggers <code>CYCLIC_DEPENDENCY_CREEP</code>.</td>
+              </tr>
+              <tr>
+                <th scope="row"><code>I_CANONICAL_SCHEMA</code></th>
+                <td>Payment entities in Col <code>C1</code> cover <code>$.onBehalfOfPayer</code>, <code>$.returnSpecificInfo</code>, <code>$.enrichedDataInExchange</code>, <code>$.exchangeRate</code></td>
+                <td>$L_2$ Logical &amp; $L_3$ Physical Schema</td>
+                <td>Flags <code>has_payex_paths = 0</code> on payment tables/messages; triggers <code>CANONICAL_SCHEMA_DRIFT</code>.</td>
+              </tr>
+              <tr>
+                <th scope="row"><code>I_TYPED_MORPHISM</code></th>
+                <td>$\forall (u, v) \in E, |\text{stratum}(u) - \text{stratum}(v)| &lt; 3$</td>
+                <td>Cross-Stratum Morphisms</td>
+                <td>Emits <code>LAYER_BYPASS\tu\tv\tL_u\tL_v</code> when skipping $\ge 3$ strata directly; triggers <code>LAYER_BYPASS_EROSION</code>.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>4.4 Interactive 36-Cell (<code>R1..R6 × C1..C6</code>) Orthogonal Architecture Matrix Explorer</h3>
+        <p style="font-size:14px; color:var(--text-secondary);">
+          Click any cell in the interactive 6×6 grid below to inspect its perspective row, interrogative column, abstraction stratum, canonical stereotypes, and classification rules in <code>classify_node_stratum_and_matrix()</code>:
+        </p>
+
+        <div id="matrix-inspector-banner" style="background:#0d1527; border:1px solid var(--border-highlight); border-radius:12px; padding:16px; margin:14px 0;">
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; margin-bottom:6px;">
+            <span id="mi-code" style="font-family:var(--font-mono); font-size:14px; font-weight:800; color:var(--sky);">R3:C1 · Logical System × WHAT (Data &amp; Information)</span>
+            <span id="mi-stratum" style="font-family:var(--font-mono); font-size:11.5px; padding:3px 10px; border-radius:999px; background:rgba(16,185,129,0.16); color:#6ee7b7; border:1px solid rgba(16,185,129,0.35);">Stratum L2 · Logical Architecture</span>
+          </div>
+          <p id="mi-desc" style="font-size:13.5px; color:var(--text-primary); margin-bottom:6px;">
+            Canonical Logical Data Contracts including the PayEx Payment Object ($.onBehalfOfPayer, $.returnSpecificInfo, $.enrichedDataInExchange, $.exchangeRate) and ISO 20022 pacs.008 / pain.001 message schemas.
+          </p>
+          <div id="mi-stereotypes" style="font-family:var(--font-mono); font-size:12px; color:#93c5fd;">
+            Canonical Stereotypes: «DataEntity», «ISO20022Message», «ControlRecord», «block»
+          </div>
+        </div>
+
+        <div style="overflow-x:auto; margin-bottom:22px;">
+          <table class="matrix-interactive-grid" aria-label="Interactive 6x6 Orthogonal Architecture Matrix">
+            <thead>
+              <tr>
+                <th>Perspective \ Interrogative</th>
+                <th>C1 · WHAT (Data)</th>
+                <th>C2 · HOW (Function)</th>
+                <th>C3 · WHERE (Network)</th>
+                <th>C4 · WHO (People)</th>
+                <th>C5 · WHEN (Events)</th>
+                <th>C6 · WHY (Motivation)</th>
+              </tr>
+            </thead>
+            <tbody id="interactive-6x6-tbody"></tbody>
+          </table>
+        </div>
+
+        <h3>4.5 Complete 36-Cell (<code>R1:C1</code> through <code>R6:C6</code>) Orthogonal Matrix Reference Table</h3>
+        <div tabindex="0" role="region" aria-labelledby="all-36-cells-caption" class="table-wrapper">
+          <table style="--label-2: 'Perspective &amp; Interrogative'; --label-3: 'Stratum &amp; Stereotypes'; --label-4: 'Architectural Artifacts &amp; Grounding';">
+            <caption id="all-36-cells-caption">Complete 36-Cell Specification of the TreeviewEA 6×6 Orthogonal Architecture Matrix</caption>
+            <thead>
+              <tr>
+                <th scope="col">Cell Code</th>
+                <th scope="col">Perspective Row × Interrogative Col</th>
+                <th scope="col">Stratum &amp; Stereotypes</th>
+                <th scope="col">Canonical Architectural Artifacts &amp; PayEx / Enterprise Grounding</th>
+              </tr>
+            </thead>
+            <tbody id="full-36-cells-tbody">
+              <!-- Populated deterministically by script & pre-seeded for accessibility -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           SECTION 5: PYTHON DEEP ML DRIFT FORECASTING & 4-AGENT ARB (#ai-drift-arb)
+           =================================================================== -->
+      <section class="doc-section" id="ai-drift-arb">
+        <div class="section-eyebrow">Section 05 · Dual-Direction ML Inference, Drift Horizons &amp; Multi-Agent Governance</div>
+        <h2>Python Deep ML Drift Forecasting &amp; 4-Agent Architecture Review Board (ARB)</h2>
+        <p class="lead">
+          TreeviewEA pairs deterministic Rust CSR graph metrics with a Dual-Direction Python Machine Learning Engine (<code>python/tview_ml_engine.py</code>) and a 4-Specialist Multi-Agent Architecture Review Board (<code>internal/earepo/agent.go</code>) to detect, forecast, and autonomously remediate architectural drift.
+        </p>
+
+        <h3>5.1 The Three Selectable AI Runtime Directions (<code>tview_reasoning_config</code>)</h3>
+        <div class="cards-2col">
+          <div class="info-card">
+            <h4>⚡ 1. <code>onnx_local</code> (Default Offline ONNX &amp; Spectral HGT)</h4>
+            <p>
+              Zero external dependencies. Computes a <strong>16-D Structural Topological Embedding</strong> (<code>compute_structural_vector</code> combining normalized stratum, 6×6 coordinates, PageRank, Brandes betweenness, 3-hop blast radius, in/out degree, interrogative coverage, lineage flag, and harmonic $\sin(\pi r/6), \cos(\pi c/6)$ encodings) plus a <strong>32-D / 384-D Multi-Head Hashed Token Semantic Vector</strong> (<code>compute_semantic_vector</code> with a $1.8\times$ attention multiplier on canonical PayEx paths).
+            </p>
+            <div class="formula-box">
+              Persisted in: .tvwx → tview_graph_embeddings (Structural_Vec, Semantic_Vec)
+            </div>
+          </div>
+
+          <div class="info-card">
+            <h4>🧠 2. <code>ollama_redis</code> (Ollama Embeddings + Redis Stack Vector Graph)</h4>
+            <p>
+              Streams node text representations to a local <strong>Ollama</strong> server (<code>POST http://localhost:11434/api/embeddings</code> using <code>nomic-embed-text</code> or <code>gemma2</code>) and synchronizes the 6×6 matrix coordinates, embeddings, and drift telemetry over raw TCP RESP sockets to <strong>Redis Stack</strong> (<code>localhost:6379</code>, key prefix <code>tview:ea:</code>).
+            </p>
+            <div class="formula-box">
+              Redis Key: tview:ea:reasoning:latest + HNSW Vector Index Sync
+            </div>
+          </div>
+
+          <div class="info-card">
+            <h4>🔄 3. <code>hybrid</code> (Bi-Directional ONNX + Live Ollama/Redis Sync)</h4>
+            <p>
+              Executes sub-millisecond local ONNX/spectral topological feature projection simultaneously with live Ollama dense semantic embeddings, persisting results atomically to both the portable <code>.tvwx</code> SQLite extension tables (<code>tview_graph_edges</code>, <code>tview_graph_embeddings</code>, <code>tview_drift_findings</code>) and the enterprise Redis Stack cluster.
+            </p>
+            <div class="formula-box">
+              Hot-Switch API: POST /api/reasoning/config {"direction": "hybrid"}
+            </div>
+          </div>
+        </div>
+
+        <h3>5.2 30-Day &amp; 90-Day Architectural Drift Forecasting (<code>detect_and_forecast_architectural_drift</code>)</h3>
+        <p style="font-size:14px; color:var(--text-secondary);">
+          The Python ML engine evaluates 5 formal drift classes across all vertices and edges, computes the current <code>overallDriftIndex</code> ($0..100$), and projects 30-day and 90-day drift trajectories accelerated by cyclic coupling multipliers:
+        </p>
+        <div class="formula-box">
+          overall_drift = min(100.0, avg(finding.driftScore) · (0.65 + 0.07 · min(5, |findings|)))<br />
+          forecast_30d  = min(100.0, overall_drift · 1.14 + (3.5 if |cycles| &gt; 0 else 1.2))<br />
+          forecast_90d  = min(100.0, overall_drift · 1.32 + (7.5 if |cycles| &gt; 0 else 2.8))
+        </div>
+
+        <div tabindex="0" role="region" aria-labelledby="drift-classes-caption" class="table-wrapper">
+          <table style="--label-2: 'Severity &amp; Horizon'; --label-3: 'Detection Condition'; --label-4: '1-Click Proactive Optimization Action';">
+            <caption id="drift-classes-caption">Five Autonomous Architectural Drift Classes &amp; Proactive Optimization Strategies</caption>
+            <thead>
+              <tr>
+                <th scope="col">Drift Category</th>
+                <th scope="col">Severity &amp; Horizon</th>
+                <th scope="col">Topological &amp; Schema Detection Condition</th>
+                <th scope="col">1-Click Proactive Remediation (<code>apply_proactive_architecture_optimization</code>)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row"><code>SHADOW_INFRASTRUCTURE_DRIFT</code></th>
+                <td><code>HIGH</code> / <code>MEDIUM</code><br />Horizon: <code>IMMEDIATE</code></td>
+                <td>Physical or Runtime asset ($\text{stratum} \ge 3$) has <code>hasConceptualLineage == false</code> or total degree $= 0$ (no path to any $L_1$ Business Capability or Service Domain).</td>
+                <td><code>wire_shadow_asset_to_capability</code> (<code>LINK_OR_CREATE_CAPABILITY_ANCHOR</code>): Synthesizes or links a governing <code>«Capability»</code> in <code>R2:C2</code> via a <code>Realization</code> (<code>«trace»</code>) connector.</td>
+              </tr>
+              <tr>
+                <th scope="row"><code>CANONICAL_SCHEMA_DRIFT</code></th>
+                <td><code>HIGH</code> (Score: <code>78.5</code>)<br />Horizon: <code>30_DAYS</code></td>
+                <td>Data entity or table in Column <code>C1</code> (WHAT · Data) matches payment/ledger/ISO 20022 domain but lacks canonical PayEx paths and has $&lt; 4$ attributes.</td>
+                <td><code>inject_payex_canonical_attributes</code> (<code>INJECT_TRANSACTION_HUB_CANONICAL_ATTRIBUTES</code>): Injects <code>$.onBehalfOfPayer</code>, <code>$.returnSpecificInfo</code>, <code>$.enrichedDataInExchange</code>, and <code>$.exchangeRate</code> into <code>tview_attributes</code>.</td>
+              </tr>
+              <tr>
+                <th scope="row"><code>LAYER_BYPASS_EROSION</code></th>
+                <td><code>CRITICAL</code> (Score: <code>86.0</code>)<br />Horizon: <code>IMMEDIATE</code></td>
+                <td>Direct edge $(u, v)$ skips $\ge 3$ abstraction strata ($|\text{stratum}(u) - \text{stratum}(v)| \ge 3$), bypassing intermediate logical governance.</td>
+                <td><code>insert_facade_interface</code> (<code>INSERT_MEDIATING_SERVICE</code>): Deploys a mediating <code>«ConfigurableRulesMicroservice»</code> component and re-routes dependencies through it.</td>
+              </tr>
+              <tr>
+                <th scope="row"><code>CYCLIC_DEPENDENCY_CREEP</code></th>
+                <td><code>CRITICAL</code> (Score: <code>89.5</code>)<br />Horizon: <code>30_DAYS</code></td>
+                <td>Tarjan SCC identifies a bi-directional dependency loop ($|SCC| \ge 2$) across components or packages.</td>
+                <td><code>decouple_via_event_stream</code> (<code>DEPLOY_STREAMING_WATCHDOG_ARCHETYPE</code> with <code>StreamingMicroservice</code>): Introduces an asynchronous event stream broker to break the synchronous cycle.</td>
+              </tr>
+              <tr>
+                <th scope="row"><code>HUB_FRAGILITY_CONCENTRATION</code></th>
+                <td><code>MEDIUM</code><br />Horizon: <code>90_DAYS</code></td>
+                <td>Core hub exhibits 3-hop Blast Radius $\ge 25\%$ and high Brandes Betweenness Centrality with no attached <code>Watchdog</code> or <code>Snapshot</code> guard.</td>
+                <td><code>apply_watchdog_microservice_archetype</code> (<code>DEPLOY_STREAMING_WATCHDOG_ARCHETYPE</code> with <code>WatchdogMicroservice</code>): Attaches an autonomous Watchdog &amp; Telemetry guard via a <code>«telemetry»</code> link.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>5.3 Multi-Agent Architecture Review Board (ARB) (<code>run_multi_agent_arb</code> &amp; <code>auto_remediate_arb_findings</code>)</h3>
+        <p style="font-size:14px; color:var(--text-secondary);">
+          In addition to ML drift forecasting, TreeviewEA includes a deterministic 4-Agent Architecture Review Board (`RunMultiAgentARB` &amp; `AutoRemediateARB` in <code>internal/earepo/agent.go</code>) that audits any package or diagram across four specialist governance dimensions and executes 1-click auto-remediation:
+        </p>
+
+        <div tabindex="0" role="region" aria-labelledby="arb-agents-caption" class="table-wrapper">
+          <table style="--label-2: 'Specialist Role &amp; Focus'; --label-3: 'Automated Audit Rules &amp; Scoring'; --label-4: 'Auto-Remediation Action (FixAction)';">
+            <caption id="arb-agents-caption">The 4 Specialist Sub-Agents of the TreeviewEA Multi-Agent Architecture Review Board (ARB)</caption>
+            <thead>
+              <tr>
+                <th scope="col">Specialist Agent</th>
+                <th scope="col">Governance Domain</th>
+                <th scope="col">Audit Rules &amp; Health Score (0–100)</th>
+                <th scope="col">Auto-Remediation (<code>auto_remediate_arb_findings</code>)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">🏦 1. Domain &amp; Canonical Data Agent<br />(<code>tp-bian-steward</code>)</th>
+                <td>BIAN v12 Service Domains, ISO 20022 &amp; PayEx Canonical Payment Schema</td>
+                <td>Audits all <code>«DataEntity»</code>, <code>«ISO20022Message»</code>, <code>pacs.*</code>, <code>pain.*</code>, and Payment Object nodes for <code>$.*</code> canonical dot-notation attributes ($-8$ pts per missing schema) and verifies BIAN component stereotypes ($-4$ pts).</td>
+                <td><code>seed_canonical_tp_attributes</code> &amp; <code>assign_bian_stereotype</code>: Populates canonical PayEx dot-notation attributes and assigns <code>«ServiceDomain»</code> stereotypes.</td>
+              </tr>
+              <tr>
+                <th scope="row">☁️ 2. Security, Zero-Trust &amp; Cloud Resilience Agent<br />(<code>cloud-resilience</code>)</th>
+                <td>Topological Connectivity, Security Boundaries, HA/DR &amp; SPOF Prevention</td>
+                <td>Audits non-boundary nodes on the diagram or package for zero-connector isolation ($-6$ pts per isolated component) that breaks end-to-end dependency tracing and blast-radius visibility.</td>
+                <td><code>wire_isolated_element</code>: Automatically wires isolated components into the architecture dependency flow and triggers <code>AutoLayoutDiagramNodes()</code>.</td>
+              </tr>
+              <tr>
+                <th scope="row">🗄️ 3. Physical Schema &amp; SQL DDL Agent<br />(<code>data-steward</code>)</th>
+                <td>Physical <code>«tview_table»</code> Entities, Primary Keys &amp; Multi-Backend DDL</td>
+                <td>Audits all <code>«tview_table»</code> and <code>«table»</code> classes to verify primary key (<code>PK</code>) and typed column definitions required for PostgreSQL, Oracle, MySQL, and SQLite DDL generation ($-10$ pts per empty table).</td>
+                <td><code>seed_table_columns</code>: Seeds primary key (<code>id uuid PK</code>) and canonical audit columns on physical table entities.</td>
+              </tr>
+              <tr>
+                <th scope="row">📊 4. TOGAF / BIAN &amp; Cloud FinOps Governance Agent<br />(<code>time-finops</code>)</th>
+                <td>Gartner TIME Rationalization, Business Value, Tech Quality &amp; FinOps</td>
+                <td>Audits all <code>Component</code>, <code>«Capability»</code>, and <code>«ServiceDomain»</code> elements for Gartner TIME Quadrant dispositions (<code>Invest</code>, <code>Tolerate</code>, <code>Migrate</code>, <code>Eliminate</code>) and Business Value / Tech Quality scores ($-5$ pts per untagged node).</td>
+                <td><code>seed_time_governance</code>: Populates <code>TIME Quadrant = Invest</code>, <code>BusinessValueScore = 84</code>, <code>TechQualityScore = 80</code>, and <code>InvestmentCategory = Transform</code>.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
+      <div>
+        <strong style="color:#f8fafc;">TreeviewEA v2.5.0</strong> — Native macOS Enterprise Architecture &amp; Autonomous AI Reasoning Studio by Treeview Software, LLC.
+      </div>
+      <div style="display:flex; gap:18px; font-family:var(--font-mono); font-size:12px;">
+        <a href="index.html" style="color:var(--sky);">Overview</a>
+        <a href="documentation.html" style="color:var(--sky);">Documentation</a>
+        <a href="taxonomy.html" style="color:var(--sky);">Metamodel &amp; Taxonomy</a>
+        <a href="mcp-reference.html" style="color:#fff; font-weight:700;">MCP &amp; AI Engine</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =====================================================================
+       CLIENT-SIDE INTERACTIVE CATALOG, 6x6 MATRIX, TABS & SCROLLSPY SCRIPT
+       ===================================================================== -->
+  <script>
+    // 1. Complete 42-Tool Catalog (Exact match to internal/earepo/agent.go + internal/earepo/mcp_comprehensive.go)
+    const MCP_TOOLS_DATA = [
+      {
+        num: 1,
+        name: "get_repository_context",
+        category: "Discovery & Context",
+        readOnly: true,
+        description: "Inspects the active TreeviewEA repository summary, root project folders, diagrams, and active diagram elements/connectors.",
+        params: [
+          { name: "packageId", type: "integer", req: false, desc: "Optional Package_ID to inspect" },
+          { name: "diagramId", type: "integer", req: false, desc: "Optional Diagram_ID to inspect" }
+        ],
+        example: { packageId: 2, diagramId: 1 }
+      },
+      {
+        num: 2,
+        name: "search_architecture_objects",
+        category: "Discovery & Context",
+        readOnly: true,
+        description: "Searches tview_objects and tview_diagrams by keyword, objectType, or stereotype.",
+        params: [
+          { name: "query", type: "string", req: false, desc: "Keyword to match against name, stereotype, or notes" },
+          { name: "objectType", type: "string", req: false, desc: "Optional metaclass filter (Class, Component, Interface, Actor, Activity, Boundary)" },
+          { name: "stereotype", type: "string", req: false, desc: "Optional stereotype filter (ServiceDomain, tview_table, Capability, aws_eks, etc.)" },
+          { name: "limit", type: "integer", req: false, desc: "Max results (default 25)" }
+        ],
+        example: { query: "Payment", objectType: "Component", stereotype: "ServiceDomain", limit: 25 }
+      },
+      {
+        num: 3,
+        name: "wizard_scaffold_architecture",
+        category: "Generative Modeling",
+        readOnly: false,
+        description: "Scaffolds a full contextual project folder, sub-folder hierarchy, diagram, and starter architecture blueprint using the TreeviewEA Contextual Creation Wizard.",
+        params: [
+          { name: "name", type: "string", req: true, desc: "Name of the package, diagram, or element" },
+          { name: "kind", type: "string", req: false, desc: "package | project-scaffold | diagram | element" },
+          { name: "contextProfile", type: "string", req: false, desc: "transactionplatform-bian | aws-cloud | data-erd | sequence-interaction | capability-strategy | bpmn-process | archimate-togaf | uml-sysml" },
+          { name: "parentId", type: "integer", req: false, desc: "Parent Package_ID (0 for root)" },
+          { name: "childPackages", type: "string[]", req: false, desc: "Optional sub-folder names" },
+          { name: "diagramName", type: "string", req: false, desc: "Optional starter diagram name" },
+          { name: "diagramType", type: "string", req: false, desc: "Logical | Deployment | Sequence | Activity | Component | Custom" },
+          { name: "starterBlueprint", type: "string", req: false, desc: "tp-payment-hub | aws-landing-zone | data-erd-tables | sequence-choreography | capability-map | bpmn-workflow | archimate-layered | uml-microservices" },
+          { name: "fillColor", type: "string", req: false, desc: "Optional hex color (#RRGGBB)" }
+        ],
+        example: {
+          kind: "package",
+          contextProfile: "transactionplatform-bian",
+          parentId: 0,
+          name: "PayEx Instant Settlement Hub",
+          childPackages: ["01. BIAN Service Domains", "02. Canonical Payment Schema", "03. AWS EKS Runtime"],
+          diagramName: "PayEx Settlement Hub — Logical View",
+          diagramType: "Logical",
+          starterBlueprint: "tp-payment-hub"
+        }
+      },
+      {
+        num: 4,
+        name: "create_project_folder",
+        category: "Generative Modeling",
+        readOnly: false,
+        description: "Creates a new root or child Project Folder (Package) in tview_packages with optional sub-folders.",
+        params: [
+          { name: "name", type: "string", req: true, desc: "Folder / Package name" },
+          { name: "parentId", type: "integer", req: false, desc: "Parent Package_ID (0 for top-level root folder)" },
+          { name: "notes", type: "string", req: false, desc: "Architecture scope notes" },
+          { name: "subFolders", type: "string[]", req: false, desc: "Optional child folders to create inside" }
+        ],
+        example: { parentId: 0, name: "PayEx Cross-Border FX Modernization", notes: "ISO 20022 FX settlement domain", subFolders: ["01. Capabilities", "02. Microservices"] }
+      },
+      {
+        num: 5,
+        name: "create_architecture_diagram",
+        category: "Generative Modeling",
+        readOnly: false,
+        description: "Creates a new diagram in a target package and optionally seeds a starter blueprint.",
+        params: [
+          { name: "name", type: "string", req: true, desc: "Diagram name" },
+          { name: "packageId", type: "integer", req: false, desc: "Target Package_ID" },
+          { name: "diagramType", type: "string", req: false, desc: "Logical | Deployment | Sequence | Activity | Component | Custom" },
+          { name: "blueprint", type: "string", req: false, desc: "Optional blueprint (tp-payment-hub, aws-landing-zone, data-erd-tables, sequence-choreography, capability-map, bpmn-workflow, archimate-layered, uml-microservices)" },
+          { name: "notes", type: "string", req: false, desc: "Diagram notes" }
+        ],
+        example: { packageId: 2, name: "ISO 20022 pacs.008 Settlement Sequence", diagramType: "Sequence", blueprint: "sequence-choreography" }
+      },
+      {
+        num: 6,
+        name: "create_model_elements",
+        category: "Generative Modeling",
+        readOnly: false,
+        description: "Batch-creates one or more architecture elements in tview_objects with stereotypes, attributes/columns, tagged values, and fill colors, and places them on a diagram.",
+        params: [
+          { name: "elements", type: "object[]", req: true, desc: "Array of {name, objectType, stereotype, notes, fillColor, attributes: ['col:type'], tags: {k:v}}" },
+          { name: "packageId", type: "integer", req: false, desc: "Target Package_ID" },
+          { name: "diagramId", type: "integer", req: false, desc: "Optional Diagram_ID to place elements onto" }
+        ],
+        example: {
+          packageId: 2,
+          diagramId: 1,
+          elements: [
+            {
+              name: "PayEx Payment Object",
+              objectType: "Class",
+              stereotype: "DataEntity",
+              fillColor: "#065f46",
+              attributes: ["$.onBehalfOfPayer:JSONObject", "$.returnSpecificInfo:JSONObject", "$.enrichedDataInExchange:JSONObject", "$.exchangeRate:JSONObject"],
+              tags: { Standard: "ISO 20022" }
+            }
+          ]
+        }
+      },
+      {
+        num: 7,
+        name: "connect_elements",
+        category: "Generative Modeling",
+        readOnly: false,
+        description: "Creates typed architecture relationships/connectors (Dependency, Association, Realisation, ControlFlow, Sequence, Generalization) between elements and places links on a diagram.",
+        params: [
+          { name: "connections", type: "object[]", req: true, desc: "Array of {sourceId, targetId, sourceName, targetName, connectorType, label, stereotype}" },
+          { name: "diagramId", type: "integer", req: false, desc: "Target Diagram_ID" }
+        ],
+        example: {
+          diagramId: 1,
+          connections: [
+            { sourceName: "Payment Router MS", targetName: "PayEx Payment Object", connectorType: "Dependency", stereotype: "flow", label: "enriches & routes" }
+          ]
+        }
+      },
+      {
+        num: 8,
+        name: "auto_layout_diagram",
+        category: "Diagrams & Canvas",
+        readOnly: false,
+        description: "Organizes all elements on a diagram into a clean, non-overlapping grid/layered layout (or Sequence lifeline row).",
+        params: [
+          { name: "diagramId", type: "integer", req: true, desc: "Diagram_ID to auto-layout" },
+          { name: "columns", type: "integer", req: false, desc: "Grid columns (default 3)" }
+        ],
+        example: { diagramId: 1, columns: 3 }
+      },
+      {
+        num: 9,
+        name: "bulk_style_elements",
+        category: "Diagrams & Canvas",
+        readOnly: false,
+        description: "Applies a hex fill color (#RRGGBB), status, or phase to a list of objectIds or all objects on a diagram.",
+        params: [
+          { name: "diagramId", type: "integer", req: false, desc: "Optional Diagram_ID if objectIds not specified" },
+          { name: "objectIds", type: "integer[]", req: false, desc: "Target Object_IDs" },
+          { name: "stereotype", type: "string", req: false, desc: "Optional stereotype filter" },
+          { name: "fillColor", type: "string", req: false, desc: "Hex color e.g. #0f766e or 'reset'" },
+          { name: "status", type: "string", req: false, desc: "Optional status e.g. Approved, Implemented" }
+        ],
+        example: { diagramId: 1, stereotype: "ServiceDomain", fillColor: "#0f766e", status: "Approved" }
+      },
+      {
+        num: 10,
+        name: "update_time_and_finops",
+        category: "Governance & FinOps",
+        readOnly: false,
+        description: "Sets Gartner TIME Quadrant (Tolerate, Invest, Migrate, Eliminate), Business Value (1-100), Technical Quality (1-100), and Run/Grow/Transform category on target elements.",
+        params: [
+          { name: "objectIds", type: "integer[]", req: true, desc: "Target Object_IDs" },
+          { name: "timeQuadrant", type: "string", req: false, desc: "Invest | Tolerate | Migrate | Eliminate" },
+          { name: "businessValueScore", type: "number", req: false, desc: "Business Value score (1..100)" },
+          { name: "techQualityScore", type: "number", req: false, desc: "Technical Quality score (1..100)" },
+          { name: "investmentCategory", type: "string", req: false, desc: "Run | Grow | Transform" }
+        ],
+        example: { objectIds: [101, 102, 103], timeQuadrant: "Invest", businessValueScore: 92, techQualityScore: 88, investmentCategory: "Transform" }
+      },
+      {
+        num: 11,
+        name: "run_multi_agent_arb",
+        category: "Multi-Agent Review Board",
+        readOnly: true,
+        description: "Runs the 4-Specialist Multi-Agent Architecture Review Board (BIAN/TransactionPlatform Steward, Cloud & Resilience Architect, Data/Schema Steward, and Gartner TIME/FinOps Analyst) on a diagram or package.",
+        params: [
+          { name: "packageId", type: "integer", req: false, desc: "Optional target Package_ID" },
+          { name: "diagramId", type: "integer", req: false, desc: "Optional target Diagram_ID" }
+        ],
+        example: { packageId: 2, diagramId: 1 }
+      },
+      {
+        num: 12,
+        name: "auto_remediate_arb_findings",
+        category: "Multi-Agent Review Board",
+        readOnly: false,
+        description: "Automatically remediates Architecture Review Board (ARB) findings on a diagram or package (adds missing canonical TransactionPlatform attributes, table PKs, TIME quadrant classifications, and wires/layouts isolated elements).",
+        params: [
+          { name: "packageId", type: "integer", req: false, desc: "Target Package_ID" },
+          { name: "diagramId", type: "integer", req: false, desc: "Target Diagram_ID" }
+        ],
+        example: { packageId: 2, diagramId: 1 }
+      },
+      {
+        num: 13,
+        name: "update_component_estimates",
+        category: "Governance & FinOps",
+        readOnly: false,
+        description: "Creates or updates work effort estimates (tview_object_efforts), financial metrics (CapEx, OpEx, Savings in tview_object_metrics), resource allocations (tview_object_resources linked to tview_people rate cards), and Gartner TIME scores on target architecture elements.",
+        params: [
+          { name: "objectId", type: "integer", req: true, desc: "Target Object_ID in tview_objects" },
+          { name: "replaceExisting", type: "boolean", req: false, desc: "Clears existing efforts, metrics, and allocations before inserting" },
+          { name: "timeQuadrant", type: "string", req: false, desc: "Invest | Tolerate | Migrate | Eliminate" },
+          { name: "businessValueScore", type: "number", req: false, desc: "Business Value score (1..100)" },
+          { name: "techQualityScore", type: "number", req: false, desc: "Technical Quality score (1..100)" },
+          { name: "investmentCategory", type: "string", req: false, desc: "Run | Grow | Transform" },
+          { name: "autoComputeLaborCapEx", type: "boolean", req: false, desc: "Automatically computes CapEx = SUM(expectedHours * hourlyRate)" },
+          { name: "efforts", type: "object[]", req: false, desc: "Array of {effort, effortType, hours, notes}" },
+          { name: "metrics", type: "object[]", req: false, desc: "Array of {metric, metricType: 'CapEx'|'OpEx'|'Savings', amount, notes}" },
+          { name: "allocations", type: "object[]", req: false, desc: "Array of {resource, role, hourlyRate, expectedHours, actualHours, percentComplete, dateStart, dateEnd}" }
+        ],
+        example: {
+          objectId: 101,
+          replaceExisting: true,
+          timeQuadrant: "Invest",
+          autoComputeLaborCapEx: true,
+          efforts: [{ effort: "ISO 20022 Clearing Adapter", effortType: "Core Payment Engineering", hours: 320 }],
+          metrics: [{ metric: "Legacy Rail Decommission", metricType: "Savings", amount: 420000 }],
+          allocations: [{ resource: "Elena Rostova", expectedHours: 320, hourlyRate: 210 }]
+        }
+      },
+      {
+        num: 14,
+        name: "get_component_estimates",
+        category: "Discovery & Context",
+        readOnly: true,
+        description: "Retrieves work effort estimates, CapEx/OpEx/Savings financial metrics, resource allocations, and available tview_people rate cards for an objectId, diagramId, or packageId.",
+        params: [
+          { name: "objectId", type: "integer", req: false, desc: "Optional Object_ID to inspect" },
+          { name: "diagramId", type: "integer", req: false, desc: "Optional Diagram_ID to roll up all elements on the diagram" },
+          { name: "packageId", type: "integer", req: false, desc: "Optional Package_ID to roll up all elements in the package subtree" },
+          { name: "includeRoster", type: "boolean", req: false, desc: "If true, includes the tview_people rate card roster" }
+        ],
+        example: { packageId: 2, includeRoster: true }
+      },
+      {
+        num: 15,
+        name: "update_architecture_item",
+        category: "Generative Modeling",
+        readOnly: false,
+        description: "Renames or updates an existing Package (tview_packages + mirrored tview_objects row), Diagram (tview_diagrams), or Object (tview_objects), or performs a recursive substring rename across a package subtree.",
+        params: [
+          { name: "itemType", type: "string", req: true, desc: "package | diagram | object | subtree-replace" },
+          { name: "id", type: "integer", req: true, desc: "Target Package_ID, Diagram_ID, or Object_ID" },
+          { name: "name", type: "string", req: false, desc: "New name for the package, diagram, or object" },
+          { name: "notes", type: "string", req: false, desc: "Optional updated notes/documentation" },
+          { name: "stereotype", type: "string", req: false, desc: "Optional updated stereotype (for object)" },
+          { name: "parentId", type: "integer", req: false, desc: "Optional new Parent_ID (for moving a package or object)" },
+          { name: "findSubstring", type: "string", req: false, desc: "For itemType='subtree-replace': substring to find" },
+          { name: "replaceWith", type: "string", req: false, desc: "For itemType='subtree-replace': replacement string" }
+        ],
+        example: { itemType: "object", id: 101, name: "PayEx Payment Execution Router", stereotype: "ServiceDomain" }
+      },
+      {
+        num: 16,
+        name: "manage_project_lifecycle",
+        category: "Project & Repository",
+        readOnly: false,
+        description: "Controls the TreeviewEA project lifecycle (works even when no project is currently open). Actions: 'list', 'open', 'create' ('transactionplatform', 'aws-landing-zone', 'archimate-enterprise', 'togaf-adm', 'blank'), 'save', 'save_as', 'close', or 'reset'.",
+        params: [
+          { name: "action", type: "string", req: true, desc: "list | open | create | save | save_as | close | reset" },
+          { name: "filePath", type: "string", req: false, desc: "Path or filename of the .tvwx repository file" },
+          { name: "projectName", type: "string", req: false, desc: "Display name for the new or reset project" },
+          { name: "templateId", type: "string", req: false, desc: "blank | transactionplatform | aws-landing-zone | archimate-enterprise | togaf-adm" },
+          { name: "storageMode", type: "string", req: false, desc: "file (.tvwx file) | schema (new tablePrefix inside current DB)" },
+          { name: "tablePrefix", type: "string", req: false, desc: "SQLite table prefix (default 'tview_')" },
+          { name: "copyCurrentData", type: "boolean", req: false, desc: "Whether to copy current model data into new prefix on save_as" }
+        ],
+        example: { action: "create", projectName: "PayEx Modernization 2026", templateId: "transactionplatform", storageMode: "file" }
+      },
+      {
+        num: 17,
+        name: "manage_repository_backups",
+        category: "Project & Repository",
+        readOnly: false,
+        description: "Manages timestamped .tvwx repository snapshots and backups, or prunes orphan data. Actions: 'list', 'create', 'restore', 'delete', or 'prune'.",
+        params: [
+          { name: "action", type: "string", req: true, desc: "list | create | restore | delete | prune" },
+          { name: "label", type: "string", req: false, desc: "Optional snapshot label when action='create'" },
+          { name: "fileName", type: "string", req: false, desc: "Backup filename when action='restore' or 'delete'" },
+          { name: "includeUnplacedObjects", type: "boolean", req: false, desc: "When action='prune', whether to also remove unplaced objects" }
+        ],
+        example: { action: "create", label: "pre-arb-remediation-snapshot" }
+      },
+      {
+        num: 18,
+        name: "undo_redo_repository",
+        category: "Project & Repository",
+        readOnly: false,
+        description: "Inspects the live SQLite trigger-backed Undo/Redo stack or executes multi-step Undo / Redo operations across the repository.",
+        params: [
+          { name: "action", type: "string", req: true, desc: "status | undo | redo" },
+          { name: "steps", type: "integer", req: false, desc: "Number of undo or redo steps to execute (default 1)" }
+        ],
+        example: { action: "undo", steps: 1 }
+      },
+      {
+        num: 19,
+        name: "manage_database_backends",
+        category: "Project & Repository",
+        readOnly: false,
+        description: "Inspects or configures TreeviewEA's multi-backend database connectors (SQLite .tvwx, PostgreSQL, Oracle, MongoDB, Neo4j, Redis), generates physical schema DDL, tests connectivity, or syncs repository objects to Redis.",
+        params: [
+          { name: "action", type: "string", req: true, desc: "get_config | get_schema_ddl | test_connection | sync_redis" },
+          { name: "backend", type: "string", req: false, desc: "sqlite | postgres | oracle | mongodb | neo4j | redis" },
+          { name: "host", type: "string", req: false, desc: "Database host (e.g. 'localhost')" },
+          { name: "port", type: "integer", req: false, desc: "Database port (5432 for Postgres, 6379 for Redis)" },
+          { name: "database", type: "string", req: false, desc: "Database / service name" },
+          { name: "username", type: "string", req: false, desc: "Database username" },
+          { name: "tablePrefix", type: "string", req: false, desc: "Table or key prefix (default 'tview_')" }
+        ],
+        example: { action: "get_schema_ddl", backend: "postgres", tablePrefix: "tview_" }
+      },
+      {
+        num: 20,
+        name: "control_application_ui",
+        category: "Application UI Control",
+        readOnly: false,
+        description: "Remotely controls the live TreeviewEA macOS application window in real time via SSE. Queries UI state, switches workspaces ('studio', 'objects', 'database', 'graph', 'reasoning', 'governance', 'eacoe', 'compare', 'analytics', 'setup'), opens/closes diagram tabs, selects objects/connectors, pans/zooms, enables toolkits, or triggers modals/toasts.",
+        params: [
+          { name: "getStateOnly", type: "boolean", req: false, desc: "If true, returns current LiveUIState without mutating UI" },
+          { name: "switchWorkspace", type: "string", req: false, desc: "studio | objects | database | graph | reasoning | governance | eacoe | compare | analytics | setup" },
+          { name: "openDiagramId", type: "integer", req: false, desc: "Diagram_ID to open and focus on canvas" },
+          { name: "closeDiagramIds", type: "integer[]", req: false, desc: "Diagram_IDs to close" },
+          { name: "closeAllDiagrams", type: "boolean", req: false, desc: "Closes all open diagram tabs" },
+          { name: "selectObjectIds", type: "integer[]", req: false, desc: "Object_IDs to select/highlight on canvas and load in Inspector" },
+          { name: "selectConnectorId", type: "integer", req: false, desc: "Connector_ID to select on canvas" },
+          { name: "zoomToFit", type: "boolean", req: false, desc: "Centers and fits active diagram to viewport" },
+          { name: "setZoom", type: "number", req: false, desc: "Zoom scale multiplier (e.g. 1.0, 1.25)" },
+          { name: "enableToolkits", type: "string[]", req: false, desc: "Toolbox feature sets to enable (e.g. 'data_payex', 'aws_compute', 'archimate')" },
+          { name: "collapseAllToolbox", type: "boolean", req: false, desc: "Collapses/expands Left Toolbox accordions" },
+          { name: "openModal", type: "string", req: false, desc: "none | agent-studio | toolbox-libraries | export | collection-report | new-project | creation-wizard | close-all" },
+          { name: "toastMessage", type: "string", req: false, desc: "Displays a live notification banner in TreeviewEA" }
+        ],
+        example: { switchWorkspace: "studio", openDiagramId: 1, selectObjectIds: [101], zoomToFit: true, toastMessage: "Diagram updated via MCP" }
+      },
+      {
+        num: 21,
+        name: "inspect_object_details",
+        category: "Discovery & Context",
+        readOnly: true,
+        description: "Retrieves the complete specification of an architecture object (Object_ID), including metadata, stereotype, status, phase, package, parent container (ParentID), nested child objects, attributes/columns, operations/methods, tagged values, incoming/outgoing relationships, diagrams, RACI assignments, financial metrics, and Gartner TIME scores.",
+        params: [
+          { name: "objectId", type: "integer", req: true, desc: "Object_ID of the element to inspect" }
+        ],
+        example: { objectId: 101 }
+      },
+      {
+        num: 22,
+        name: "inspect_diagram_details",
+        category: "Discovery & Context",
+        readOnly: true,
+        description: "Retrieves the full visual and structural contents of a diagram (Diagram_ID), including all placed nodes (coordinates x/y/width/height, shape override, fill color, stereotype, lock state, parentId, imageId, attributes, operations, tags) and all edges/connectors (start/end objects, routing lineShape, strokeStyle, waypoints/bends, roles, cardinalities).",
+        params: [
+          { name: "diagramId", type: "integer", req: true, desc: "Diagram_ID to inspect" }
+        ],
+        example: { diagramId: 1 }
+      },
+      {
+        num: 23,
+        name: "manage_packages",
+        category: "Packages & Folders",
+        readOnly: false,
+        description: "Manages repository packages / project folders in tview_packages. Actions: 'get_tree' (full hierarchical package tree), 'create', 'update' (rename, update notes, or move to new parentId), 'duplicate' (clone folder and contents for 1...M roadmaps), or 'delete'.",
+        params: [
+          { name: "action", type: "string", req: true, desc: "get_tree | create | update | duplicate | delete" },
+          { name: "packageId", type: "integer", req: false, desc: "Target Package_ID (required for update, duplicate, delete)" },
+          { name: "parentId", type: "integer", req: false, desc: "Parent Package_ID" },
+          { name: "name", type: "string", req: false, desc: "Folder name" },
+          { name: "notes", type: "string", req: false, desc: "Architectural notes for the folder" },
+          { name: "includeContents", type: "boolean", req: false, desc: "For duplicate/delete: whether to recurse child objects, diagrams, and subfolders" }
+        ],
+        example: { action: "duplicate", packageId: 2, parentId: 0, name: "PayEx Target State 2.0", includeContents: true }
+      },
+      {
+        num: 24,
+        name: "manage_diagrams",
+        category: "Diagrams & Canvas",
+        readOnly: false,
+        description: "Manages diagrams and diagram object placements. Actions: 'list', 'update', 'duplicate', 'delete', 'place_objects' (place existing repository Object_IDs onto canvas), or 'remove_objects' (remove from canvas without deleting from repository).",
+        params: [
+          { name: "action", type: "string", req: true, desc: "list | update | duplicate | delete | place_objects | remove_objects" },
+          { name: "diagramId", type: "integer", req: false, desc: "Target Diagram_ID" },
+          { name: "name", type: "string", req: false, desc: "New diagram name" },
+          { name: "diagramType", type: "string", req: false, desc: "Logical | Component | Sequence | Activity | Deployment | Use Case | Statechart | Custom" },
+          { name: "packageId", type: "integer", req: false, desc: "Target Package_ID" },
+          { name: "objectIds", type: "integer[]", req: false, desc: "Object_IDs to place on or remove from the diagram" },
+          { name: "x", type: "integer", req: false, desc: "Starting X coordinate (default 120)" },
+          { name: "y", type: "integer", req: false, desc: "Starting Y coordinate (default 120)" },
+          { name: "width", type: "integer", req: false, desc: "Default width (default 185)" },
+          { name: "height", type: "integer", req: false, desc: "Default height (default 82)" }
+        ],
+        example: { action: "place_objects", diagramId: 1, objectIds: [101, 102, 103], x: 120, y: 120 }
+      },
+      {
+        num: 25,
+        name: "set_diagram_node_shapes_and_bounds",
+        category: "Diagrams & Canvas",
+        readOnly: false,
+        description: "Updates visual geometry, 18 selectable shape overrides ('Auto', 'Rectangle', 'RoundedBox', 'Pill', 'Card', 'Diamond', 'Circle', 'Hexagon', 'Octagon', 'Parallelogram', 'Trapezoid', 'Triangle', 'Cylinder', 'Cloud', 'DocumentShape', 'SystemNote', 'Callout', 'Boundary'), lock state, fill color, or alignment/distribution of nodes on a diagram.",
+        params: [
+          { name: "diagramId", type: "integer", req: true, desc: "Diagram_ID containing the nodes" },
+          { name: "objectIds", type: "integer[]", req: false, desc: "Target Object_IDs on the diagram" },
+          { name: "shape", type: "string", req: false, desc: "Auto | Rectangle | RoundedBox | Pill | Card | Diamond | Circle | Hexagon | Octagon | Parallelogram | Trapezoid | Triangle | Cylinder | Cloud | DocumentShape | SystemNote | Callout | Boundary" },
+          { name: "fillColor", type: "string", req: false, desc: "Optional hex fill color or 'reset'" },
+          { name: "locked", type: "boolean", req: false, desc: "Optional lock state to freeze/unfreeze nodes" },
+          { name: "align", type: "string", req: false, desc: "left | center | right | top | middle | bottom | distribute-h | distribute-v" },
+          { name: "bounds", type: "object[]", req: false, desc: "Explicit [{objectId, x, y, width, height}] updates" }
+        ],
+        example: { diagramId: 1, objectIds: [104], shape: "Cylinder", fillColor: "#312e81", align: "middle" }
+      },
+      {
+        num: 26,
+        name: "group_and_ungroup_objects",
+        category: "Diagrams & Canvas",
+        readOnly: false,
+        description: "Groups multiple objects into a composite nested container (or nests them inside an existing parentObjectId so moving the parent moves all nested children together), or ungroups nested objects.",
+        params: [
+          { name: "action", type: "string", req: true, desc: "group | ungroup" },
+          { name: "objectIds", type: "integer[]", req: true, desc: "Object_IDs to group or ungroup" },
+          { name: "diagramId", type: "integer", req: false, desc: "Active Diagram_ID" },
+          { name: "packageId", type: "integer", req: false, desc: "Package_ID if creating a new composite Group container" },
+          { name: "parentObjectId", type: "integer", req: false, desc: "Existing container Object_ID to nest into (0 = create new «Group» boundary)" },
+          { name: "groupName", type: "string", req: false, desc: "Name for the new composite group container" },
+          { name: "deleteGroupFrame", type: "boolean", req: false, desc: "When action='ungroup', whether to delete the «Group» boundary frame" }
+        ],
+        example: { action: "group", diagramId: 1, objectIds: [101, 102], groupName: "PayEx Validation Cluster" }
+      },
+      {
+        num: 27,
+        name: "insert_diagram_image",
+        category: "Diagrams & Canvas",
+        readOnly: false,
+        description: "Inserts an image node («Image» Artifact stored in tview_images) onto a diagram canvas from base64-encoded PNG/JPEG/SVG data, raw SVG markup, or a local image file path.",
+        params: [
+          { name: "diagramId", type: "integer", req: true, desc: "Target Diagram_ID" },
+          { name: "packageId", type: "integer", req: false, desc: "Package_ID for the image artifact" },
+          { name: "name", type: "string", req: false, desc: "Caption / name of the image node" },
+          { name: "mimeType", type: "string", req: false, desc: "image/png | image/jpeg | image/svg+xml | image/webp" },
+          { name: "dataBase64", type: "string", req: false, desc: "Base64-encoded image bytes" },
+          { name: "svgMarkup", type: "string", req: false, desc: "Raw <svg>...</svg> XML string" },
+          { name: "filePath", type: "string", req: false, desc: "Local filesystem path to an image file" },
+          { name: "x", type: "integer", req: false, desc: "Canvas X coordinate (default 140)" },
+          { name: "y", type: "integer", req: false, desc: "Canvas Y coordinate (default 140)" },
+          { name: "width", type: "integer", req: false, desc: "Width in px (default 260)" },
+          { name: "height", type: "integer", req: false, desc: "Height in px (default 180)" }
+        ],
+        example: { diagramId: 1, name: "PayEx Topology Badge", mimeType: "image/svg+xml", svgMarkup: "<svg viewBox='0 0 120 40'><rect width='120' height='40' rx='6' fill='#0284c7'/></svg>", x: 140, y: 140 }
+      },
+      {
+        num: 28,
+        name: "delete_architecture_objects",
+        category: "Elements & Schema",
+        readOnly: false,
+        description: "Deletes one or more architecture objects either from a specific diagram only (diagramOnly=true) or permanently from the entire repository (including their attributes, operations, tagged values, and connectors).",
+        params: [
+          { name: "objectIds", type: "integer[]", req: true, desc: "List of Object_IDs to delete" },
+          { name: "diagramId", type: "integer", req: false, desc: "Diagram_ID when diagramOnly=true" },
+          { name: "diagramOnly", type: "boolean", req: false, desc: "If true, removes objects only from diagramId while keeping them in the repository" }
+        ],
+        example: { objectIds: [199], diagramId: 1, diagramOnly: true }
+      },
+      {
+        num: 29,
+        name: "manage_object_schema_and_tags",
+        category: "Elements & Schema",
+        readOnly: false,
+        description: "Manages an object's attributes/database columns, operations/methods, tagged values (properties), multi-line System Note content, stereotype catalog, or retrieves physical SQL DDL for repository database tables.",
+        params: [
+          { name: "action", type: "string", req: true, desc: "add_attribute | delete_attribute | add_operation | delete_operation | set_tag | delete_tag | set_note_text | list_database_tables | list_stereotypes | upsert_stereotype" },
+          { name: "objectId", type: "integer", req: false, desc: "Target Object_ID" },
+          { name: "name", type: "string", req: false, desc: "Attribute name, Operation name, Tag property key, or Stereotype name" },
+          { name: "dataType", type: "string", req: false, desc: "Column data type (e.g. 'uuid', 'numeric(18,2)', 'JSONObject') or return type" },
+          { name: "stereotype", type: "string", req: false, desc: "Stereotype ('PK', 'FK', 'column', 'canonical')" },
+          { name: "isPK", type: "boolean", req: false, desc: "Whether attribute is a Primary Key" },
+          { name: "value", type: "string", req: false, desc: "Tagged value when action='set_tag', or Note text when action='set_note_text'" },
+          { name: "notes", type: "string", req: false, desc: "Documentation notes" },
+          { name: "framework", type: "string", req: false, desc: "Framework name when action='upsert_stereotype'" },
+          { name: "baseObjectType", type: "string", req: false, desc: "Base Object_Type when action='upsert_stereotype'" }
+        ],
+        example: { action: "add_attribute", objectId: 102, name: "$.exchangeRate", dataType: "JSONObject", stereotype: "canonical", isPK: false, notes: "Instructed amount, FX rate, and trade details" }
+      },
+      {
+        num: 30,
+        name: "bulk_find_and_replace_objects",
+        category: "Elements & Schema",
+        readOnly: false,
+        description: "Performs bulk field updates (status, phase, stereotype, author, packageId, objectType) or global find-and-replace across object names, aliases, stereotypes, notes, attributes, and tagged values.",
+        params: [
+          { name: "mode", type: "string", req: true, desc: "fields | replace" },
+          { name: "objectIds", type: "integer[]", req: false, desc: "Optional Object_IDs to scope update (empty = entire repository)" },
+          { name: "packageId", type: "integer", req: false, desc: "Target Package_ID when mode='fields'" },
+          { name: "objectType", type: "string", req: false, desc: "Target Object_Type when mode='fields'" },
+          { name: "stereotype", type: "string", req: false, desc: "Target Stereotype when mode='fields'" },
+          { name: "status", type: "string", req: false, desc: "Target Status when mode='fields'" },
+          { name: "phase", type: "string", req: false, desc: "Target Phase when mode='fields'" },
+          { name: "findText", type: "string", req: false, desc: "Substring to find when mode='replace'" },
+          { name: "replaceText", type: "string", req: false, desc: "Replacement text when mode='replace'" },
+          { name: "includeNotes", type: "boolean", req: false, desc: "Also search/replace inside object Notes" },
+          { name: "includeTags", type: "boolean", req: false, desc: "Also search/replace inside Tagged Values" },
+          { name: "includeAttrs", type: "boolean", req: false, desc: "Also search/replace inside Attribute names/notes" }
+        ],
+        example: { mode: "replace", findText: "LegacyPay", replaceText: "PayEx", includeNotes: true, includeTags: true }
+      },
+      {
+        num: 31,
+        name: "manage_connectors_and_bends",
+        category: "Connectors & Routing",
+        readOnly: false,
+        description: "Comprehensive control over relationships/connectors and their visual line routing and bends (waypoints) on diagrams. Actions: 'update', 'add_bend', 'remove_bend', 'set_waypoints', 'straighten', 'reset_routing', 'clean_up_diagram_lines', 'reverse', or 'delete'.",
+        params: [
+          { name: "action", type: "string", req: true, desc: "update | add_bend | remove_bend | set_waypoints | straighten | reset_routing | clean_up_diagram_lines | reverse | delete" },
+          { name: "connectorId", type: "integer", req: false, desc: "Target Connector_ID" },
+          { name: "diagramId", type: "integer", req: false, desc: "Diagram_ID for routing or clean_up_diagram_lines" },
+          { name: "name", type: "string", req: false, desc: "Connector label / verb phrase" },
+          { name: "connectorType", type: "string", req: false, desc: "Association | Dependency | Realisation | Generalization | Aggregation | Composition | Sequence | ControlFlow | InformationFlow" },
+          { name: "lineShape", type: "string", req: false, desc: "elbow (90-deg orthogonal) | straight | vector" },
+          { name: "strokeStyle", type: "string", req: false, desc: "auto | solid | dashed | dotted" },
+          { name: "lineColor", type: "string", req: false, desc: "Hex line color (e.g. '#38BDF8') or 'reset'" },
+          { name: "endpoint1Style", type: "string", req: false, desc: "Auto | None | OpenArrow | FilledArrow | HollowTriangle | Diamond | FilledDiamond | Circle" },
+          { name: "endpoint2Style", type: "string", req: false, desc: "Auto | None | OpenArrow | FilledArrow | HollowTriangle | Diamond | FilledDiamond | Circle" },
+          { name: "waypoints", type: "object[]", req: false, desc: "Ordered array of {x, y} bend coordinates" }
+        ],
+        example: { action: "clean_up_diagram_lines", diagramId: 1 }
+      },
+      {
+        num: 32,
+        name: "manage_people_roster",
+        category: "Governance & FinOps",
+        readOnly: false,
+        description: "Manages the Ecosystem People & Stakeholder Directory (tview_people and tview_resources), including architects, engineers, product owners, hourly rate cards, weekly capacity, RACI defaults, and utilization rollups.",
+        params: [
+          { name: "action", type: "string", req: true, desc: "list | upsert | delete" },
+          { name: "personId", type: "integer", req: false, desc: "Person_ID (for update or delete)" },
+          { name: "fullName", type: "string", req: false, desc: "Person's full name (required for upsert)" },
+          { name: "role", type: "string", req: false, desc: "Job title / architecture role" },
+          { name: "department", type: "string", req: false, desc: "Department" },
+          { name: "orgUnit", type: "string", req: false, desc: "Organization unit / squad" },
+          { name: "employmentType", type: "string", req: false, desc: "FTE | Contractor | Vendor" },
+          { name: "hourlyRate", type: "number", req: false, desc: "Hourly rate in USD (e.g. 195.0)" },
+          { name: "weeklyCapacity", type: "integer", req: false, desc: "Weekly hours capacity (default 40)" },
+          { name: "skills", type: "string", req: false, desc: "Comma-separated skills" },
+          { name: "raciDefault", type: "string", req: false, desc: "Responsible | Accountable | Consulted | Informed" }
+        ],
+        example: { action: "upsert", fullName: "Marcus Vance", role: "Lead Cloud Security Architect", employmentType: "FTE", hourlyRate: 195.0, raciDefault: "Responsible" }
+      },
+      {
+        num: 33,
+        name: "query_intersection_matrix",
+        category: "Analytics & Matrices",
+        readOnly: true,
+        description: "Executes the Object-to-Object Intersection Matrix across 4 intersection dimensions: direct connectors ('connector'), parent/child containment ('hierarchy'), shared diagram co-occurrence ('diagram'), and shared RACI resource allocations ('resource').",
+        params: [
+          { name: "focusObjectId", type: "integer", req: false, desc: "Optional Object_ID to pivot the intersection matrix around" },
+          { name: "rowPackageId", type: "integer", req: false, desc: "Optional Package_ID filter for matrix rows" },
+          { name: "colPackageId", type: "integer", req: false, desc: "Optional Package_ID filter for matrix columns" },
+          { name: "rowType", type: "string", req: false, desc: "Optional Object_Type or Stereotype filter for rows" },
+          { name: "colType", type: "string", req: false, desc: "Optional Object_Type or Stereotype filter for columns" },
+          { name: "includeKinds", type: "string", req: false, desc: "Comma-separated kinds ('connector,hierarchy,diagram,resource')" },
+          { name: "limit", type: "integer", req: false, desc: "Max row/column objects to return (default 35)" }
+        ],
+        example: { rowType: "Capability", colType: "ServiceDomain", includeKinds: "connector,hierarchy,diagram,resource", limit: 35 }
+      },
+      {
+        num: 34,
+        name: "analyze_dependency_impact",
+        category: "Analytics & Matrices",
+        readOnly: true,
+        description: "Executes N-hop dependency graph traversal (upstream and downstream impact analysis) around a focusObjectId or packageId, or computes a sourceType-to-targetType Traceability Matrix.",
+        params: [
+          { name: "focusObjectId", type: "integer", req: false, desc: "Center Object_ID for N-hop impact analysis (0 = top landscape hubs)" },
+          { name: "maxHops", type: "integer", req: false, desc: "Number of relationship hops to traverse (1 to 4, default 2)" },
+          { name: "packageFilter", type: "integer", req: false, desc: "Optional Package_ID to scope the graph" },
+          { name: "sourceType", type: "string", req: false, desc: "Optional source Object_Type/Stereotype for Traceability Matrix" },
+          { name: "targetType", type: "string", req: false, desc: "Optional target Object_Type/Stereotype for Traceability Matrix" }
+        ],
+        example: { focusObjectId: 101, maxHops: 3, sourceType: "Capability", targetType: "tview_table" }
+      },
+      {
+        num: 35,
+        name: "query_portfolio_analytics_and_eacoe",
+        category: "Analytics & Matrices",
+        readOnly: true,
+        description: "Queries executive portfolio analytics: 'reporting_dashboard' (FinOps CapEx/OpEx/Savings/Labor rollup & Gartner TIME quadrants), 'capability_map' (L0-L3 Capability hierarchy), 'eacoe_matrix' (6x5 EACOE classification), or 'affinity_analysis' (Pinnacle Average Affinity Ratio clustering).",
+        params: [
+          { name: "view", type: "string", req: true, desc: "reporting_dashboard | capability_map | eacoe_matrix | affinity_analysis" },
+          { name: "minNewGroup", type: "number", req: false, desc: "Minimum affinity ratio to seed a new cluster (default 0.55)" },
+          { name: "minToAdd", type: "number", req: false, desc: "Minimum affinity ratio to join an existing cluster (default 0.40)" }
+        ],
+        example: { view: "affinity_analysis", minNewGroup: 0.55, minToAdd: 0.40 }
+      },
+      {
+        num: 36,
+        name: "instantiate_ea_framework",
+        category: "Packages & Folders",
+        readOnly: false,
+        description: "Lists or instantiates a complete industry Enterprise Architecture reference framework ('BIAN' v12 Banking Service Landscape, 'TOGAF10' ADM Cycle, 'ARCHIMATE3' 3.2 Layered Metamodel, or 'ISO20022' Financial Message Scheme) with packages, stereotyped elements, traceability links, and a master diagram.",
+        params: [
+          { name: "action", type: "string", req: true, desc: "list | instantiate" },
+          { name: "frameworkId", type: "string", req: false, desc: "BIAN | TOGAF10 | ARCHIMATE3 | ISO20022" }
+        ],
+        example: { action: "instantiate", frameworkId: "BIAN" }
+      },
+      {
+        num: 37,
+        name: "export_architecture_artifacts",
+        category: "Analytics & Matrices",
+        readOnly: true,
+        description: "Exports a single diagram or publishes a Rational Rose-style full collection report across the repository/package. Diagram formats: 'svg', 'pdf', 'png', 'drawio', 'visio', 'omnigraffle', 'mermaid', 'plantuml', 'archimate', 'xmi', 'json', 'standard-csv', 'llm-prompt'. Collection formats: 'rose-html', 'collection-pdf', 'diagrams-pdf', 'collection-md'.",
+        params: [
+          { name: "scope", type: "string", req: true, desc: "diagram | collection" },
+          { name: "format", type: "string", req: true, desc: "svg | pdf | png | drawio | visio | omnigraffle | mermaid | plantuml | archimate | xmi | json | standard-csv | llm-prompt | rose-html | collection-pdf | diagrams-pdf | collection-md" },
+          { name: "diagramId", type: "integer", req: false, desc: "Diagram_ID when scope='diagram'" },
+          { name: "packageId", type: "integer", req: false, desc: "Optional Package_ID filter when scope='collection'" },
+          { name: "lightTheme", type: "boolean", req: false, desc: "Render with print-ready light theme" },
+          { name: "saveToPath", type: "string", req: false, desc: "Optional file path to save exported artifact on disk" }
+        ],
+        example: { scope: "collection", format: "rose-html", packageId: 0, saveToPath: "PayEx-Architecture-Dossier.html" }
+      },
+      {
+        num: 38,
+        name: "attach_artifact_or_document",
+        category: "Diagrams & Canvas",
+        readOnly: false,
+        description: "Attaches an artifact (Image, PDF document, Word .docx/.doc document, Excel spreadsheet, or External Document Link such as https://docs.google.com/... or doc.gmail.com) into a package and optionally places it onto a diagram canvas.",
+        params: [
+          { name: "packageId", type: "integer", req: false, desc: "Target Package_ID" },
+          { name: "diagramId", type: "integer", req: false, desc: "Optional Diagram_ID to place artifact onto" },
+          { name: "name", type: "string", req: false, desc: "Display title of the artifact or document" },
+          { name: "artifactKind", type: "string", req: false, desc: "image | pdf | word | spreadsheet | document | external_link" },
+          { name: "externalUrl", type: "string", req: false, desc: "External document URL" },
+          { name: "filePath", type: "string", req: false, desc: "Local disk path to embed" },
+          { name: "dataBase64", type: "string", req: false, desc: "Base64-encoded file content" }
+        ],
+        example: { packageId: 2, diagramId: 1, name: "PayEx ADR-014 Specification", artifactKind: "external_link", externalUrl: "https://docs.google.com/document/d/payex-adr-014" }
+      },
+      {
+        num: 39,
+        name: "import_tabular_objects",
+        category: "Elements & Schema",
+        readOnly: false,
+        description: "Imports an Excel (.xlsx), CSV (.csv), or TSV (.tsv) file or raw tabular text and converts its rows into architecture objects, attributes, tagged values, sub-packages, and relationships.",
+        params: [
+          { name: "filePath", type: "string", req: false, desc: "Local disk path to an .xlsx, .csv, or .tsv file" },
+          { name: "rawText", type: "string", req: false, desc: "Optional raw CSV/TSV text" },
+          { name: "packageId", type: "integer", req: false, desc: "Target Package_ID" },
+          { name: "diagramId", type: "integer", req: false, desc: "Optional Diagram_ID to place imported objects onto" },
+          { name: "placeOnDiagram", type: "boolean", req: false, desc: "Place imported objects on the diagram" },
+          { name: "createNewDiagram", type: "boolean", req: false, desc: "Create a new diagram for the imported objects" },
+          { name: "defaultObjectType", type: "string", req: false, desc: "Default Object_Type (default 'Class')" },
+          { name: "defaultStereotype", type: "string", req: false, desc: "Default Stereotype" }
+        ],
+        example: { packageId: 2, createNewDiagram: true, defaultObjectType: "Component", defaultStereotype: "ServiceDomain", rawText: "Name,Stereotype,Status\nPayment Clearing,ServiceDomain,Approved\nFX Settlement,ServiceDomain,Approved" }
+      },
+      {
+        num: 40,
+        name: "evaluate_orthogonal_matrix",
+        category: "AI Reasoning & 6x6 Matrix",
+        readOnly: false,
+        description: "Executes the Rust CSR Property Graph Core (tview-graph-core) and Python Deep ML Engine to classify all repository objects across the 6x6 Orthogonal Architecture Matrix (6 Perspectives x 6 Interrogatives: What, How, Where, Who, When, Why), verify the 4 semantic integrity invariants, and compute dynamic capability readiness scores.",
+        params: [
+          { name: "direction", type: "string", req: false, desc: "onnx_local (default) | ollama_redis | hybrid" },
+          { name: "rowFilter", type: "integer", req: false, desc: "Optional Perspective Row filter (1=Contextual Scope .. 6=Functioning Runtime, 0=All)" },
+          { name: "colFilter", type: "integer", req: false, desc: "Optional Interrogative Column filter (1=What, 2=How, 3=Where, 4=Who, 5=When, 6=Why, 0=All)" }
+        ],
+        example: { direction: "onnx_local", rowFilter: 0, colFilter: 0 }
+      },
+      {
+        num: 41,
+        name: "detect_and_forecast_architectural_drift",
+        category: "AI Reasoning & 6x6 Matrix",
+        readOnly: false,
+        description: "Runs the Deep Machine Learning Drift Detection & Forecasting Engine across the portable CSR property graph. Identifies and forecasts 30d/90d architectural drift across 5 drift classes (SHADOW_INFRASTRUCTURE_DRIFT, CANONICAL_SCHEMA_DRIFT, LAYER_BYPASS_EROSION, CYCLIC_DEPENDENCY_CREEP, HUB_FRAGILITY_CONCENTRATION) and returns proactive optimization strategies.",
+        params: [
+          { name: "direction", type: "string", req: false, desc: "onnx_local | ollama_redis | hybrid" },
+          { name: "categoryFilter", type: "string", req: false, desc: "Optional drift category filter (e.g. 'SHADOW_INFRASTRUCTURE_DRIFT', 'CANONICAL_SCHEMA_DRIFT')" }
+        ],
+        example: { direction: "hybrid", categoryFilter: "" }
+      },
+      {
+        num: 42,
+        name: "apply_proactive_architecture_optimization",
+        category: "AI Reasoning & 6x6 Matrix",
+        readOnly: false,
+        description: "Executes an undoable proactive architectural remediation or optimization strategy synthesized by the AI Reasoning Engine ('wire_shadow_asset_to_capability', 'inject_payex_canonical_attributes', 'insert_facade_interface', 'decouple_via_event_stream', 'apply_watchdog_microservice_archetype', or 'auto_remediate_top_drift'). Wrapped in a single SQLite Undo/Redo transaction.",
+        params: [
+          { name: "actionType", type: "string", req: true, desc: "wire_shadow_asset_to_capability | inject_payex_canonical_attributes | insert_facade_interface | decouple_via_event_stream | apply_watchdog_microservice_archetype | auto_remediate_top_drift" },
+          { name: "targetObjectId", type: "integer", req: false, desc: "Target Object_ID for remediation" },
+          { name: "sourceObjectId", type: "integer", req: false, desc: "Optional Source Object_ID" },
+          { name: "primaryObjectId", type: "integer", req: false, desc: "Optional Primary Object_ID for cyclic decoupling" },
+          { name: "secondaryObjectId", type: "integer", req: false, desc: "Optional Secondary Object_ID for cyclic decoupling" },
+          { name: "suggestedCapabilityName", type: "string", req: false, desc: "Optional Business Capability name to link or create" },
+          { name: "suggestedServiceName", type: "string", req: false, desc: "Optional Logical Service name to link or create" },
+          { name: "suggestedName", type: "string", req: false, desc: "Optional name for newly synthesized facade/watchdog/topic element" },
+          { name: "findingId", type: "integer", req: false, desc: "Optional Finding_ID to mark as remediated" }
+        ],
+        example: { actionType: "inject_payex_canonical_attributes", targetObjectId: 102, findingId: 1 }
+      }
+    ];
+
+    // 2. Render MCP Tools Catalog
+    const toolsContainer = document.getElementById("mcp-tools-container");
+    const searchInput = document.getElementById("mcp-tool-search");
+    const countBadge = document.getElementById("mcp-tool-count-badge");
+    let activeCategory = "ALL";
+
+    function escapeHtml(str) {
+      return String(str)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
+    }
+
+    function renderMCPCatalog() {
+      const q = (searchInput.value || "").toLowerCase().trim();
+      const filtered = MCP_TOOLS_DATA.filter((t) => {
+        if (activeCategory !== "ALL" && t.category !== activeCategory) return false;
+        if (!q) return true;
+        const hay = (
+          t.name + " " +
+          t.category + " " +
+          t.description + " " +
+          t.params.map((p) => p.name + " " + p.desc).join(" ")
+        ).toLowerCase();
+        return hay.includes(q);
+      });
+
+      countBadge.textContent = `Showing ${filtered.length} / ${MCP_TOOLS_DATA.length} Tools`;
+
+      toolsContainer.innerHTML = filtered.map((t) => {
+        const rpcPayload = JSON.stringify(
+          {
+            jsonrpc: "2.0",
+            id: t.num,
+            method: "tools/call",
+            params: {
+              name: t.name,
+              arguments: t.example
+            }
+          },
+          null,
+          2
+        );
+        const codeId = `tool-rpc-${t.num}`;
+        const mutHtml = t.readOnly
+          ? `<span class="mut-badge readonly">Read-Only Fast Path</span>`
+          : `<span class="mut-badge undoable">WithUndoCapture (⌘Z)</span>`;
+
+        const paramsHtml = t.params.map((p) => `
+          <div class="param-item">
+            <div>
+              <span class="param-key">${escapeHtml(p.name)}</span>
+              <span class="param-type">${escapeHtml(p.type)}</span>
+              ${p.req ? `<span class="param-req">REQUIRED</span>` : ""}
+            </div>
+            <div class="param-desc">${escapeHtml(p.desc)}</div>
+          </div>
+        `).join("");
+
+        return `
+          <article class="tool-card" id="tool-${escapeHtml(t.name)}">
+            <div class="tool-card-header">
+              <div class="tool-name-wrap">
+                <span class="tool-num">#${String(t.num).padStart(2, "0")}</span>
+                <span class="tool-title">${escapeHtml(t.name)}</span>
+              </div>
+              <div class="badge-row">
+                <span class="cat-badge">${escapeHtml(t.category)}</span>
+                ${mutHtml}
+              </div>
+            </div>
+            <p class="tool-desc">${escapeHtml(t.description)}</p>
+            <div class="params-list">${paramsHtml}</div>
+            <div class="code-panel" style="margin-top:8px; margin-bottom:0;">
+              <div class="code-panel-header">
+                <span>JSON-RPC 2.0 tools/call — ${escapeHtml(t.name)}</span>
+                <button type="button" class="copy-btn" data-copy-target="${codeId}">Copy Call JSON</button>
+              </div>
+              <pre id="${codeId}">${escapeHtml(rpcPayload)}</pre>
+            </div>
+          </article>
+        `;
+      }).join("");
+    }
+
+    searchInput.addEventListener("input", renderMCPCatalog);
+    document.querySelectorAll("#mcp-category-pills .filter-pill").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll("#mcp-category-pills .filter-pill").forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+        activeCategory = btn.getAttribute("data-cat") || "ALL";
+        renderMCPCatalog();
+      });
+    });
+    renderMCPCatalog();
+
+    // 3. Complete 36-Cell (R1..R6 x C1..C6) Orthogonal Matrix Data & Interactive Explorer
+    const PERSPECTIVE_ROWS = [
+      { r: 1, name: "R1 · Contextual Scope (Executive)", stratum: "L0 · Contextual Motivation" },
+      { r: 2, name: "R2 · Conceptual Business (Domain Owner)", stratum: "L1 · Conceptual Architecture" },
+      { r: 3, name: "R3 · Logical System (Architect)", stratum: "L2 · Logical Architecture" },
+      { r: 4, name: "R4 · Physical Technology (Engineer)", stratum: "L3 · Physical Architecture" },
+      { r: 5, name: "R5 · Detailed Implementation (Builder)", stratum: "L3/L4 · Detailed Specification" },
+      { r: 6, name: "R6 · Functioning Runtime (Operations)", stratum: "L4 · Live Runtime Telemetry" }
+    ];
+
+    const INTERROGATIVE_COLS = [
+      { c: 1, name: "C1 · WHAT (Data & Information)" },
+      { c: 2, name: "C2 · HOW (Capabilities & Services)" },
+      { c: 3, name: "C3 · WHERE (Network & Boundaries)" },
+      { c: 4, name: "C4 · WHO (People & Governance)" },
+      { c: 5, name: "C5 · WHEN (Events & Sequences)" },
+      { c: 6, name: "C6 · WHY (Motivation & Compliance)" }
+    ];
+
+    const MATRIX_36_CELLS = [
+      // R1: Contextual Scope (L0)
+      { code: "R1:C1", r: 1, c: 1, short: "Business Entities", stereo: "«Vision», «DomainGlossary»", desc: "Executive list of core enterprise business classes, payment instruments, and clearing asset classes." },
+      { code: "R1:C2", r: 1, c: 2, short: "Value Streams", stereo: "«ValueStream»", desc: "Enterprise Value Streams and core payment offerings (Unified 'One Pay' execution across lines of business)." },
+      { code: "R1:C3", r: 1, c: 3, short: "Operating Regions", stereo: "«Location», «Region»", desc: "Global operating geographies, clearing jurisdictions, and sovereign currency corridors." },
+      { code: "R1:C4", r: 1, c: 4, short: "External Regulators", stereo: "«Stakeholder», «Regulator»", desc: "Lines of business, central banks, clearing houses (FedNow, SWIFT, TCH), and executive sponsors." },
+      { code: "R1:C5", r: 1, c: 5, short: "Business Horizons", stereo: "«Milestone», «Epoch»", desc: "Multi-year strategic transformation horizons (1...M roadmap epochs and regulatory cutoff dates)." },
+      { code: "R1:C6", r: 1, c: 6, short: "Strategic Drivers", stereo: "«Goal», «Driver», «OKR», «Regulation»", desc: "Enterprise vision, OKRs, FinTech nimbleness goals, and regulatory mandates (ISO 20022, OFAC, SOX)." },
+
+      // R2: Conceptual Business (L1)
+      { code: "R2:C1", r: 2, c: 1, short: "Semantic Domain Model", stereo: "«BusinessObject», «DataEntity»", desc: "Conceptual business vocabulary linking Payer, Payee, Settlement Instruction, and FX Quote entities." },
+      { code: "R2:C2", r: 2, c: 2, short: "Capabilities & BIAN", stereo: "«Capability», «ServiceDomain», «BusinessProcess»", desc: "L1–L3 Business Capabilities and BIAN v12 Service Domains (Payment Execution, Fraud Evaluation, Routing)." },
+      { code: "R2:C3", r: 2, c: 3, short: "Business Logistics", stereo: "«BusinessLocation», «Office»", desc: "Business branch networks, treasury centers, and operational clearing hubs." },
+      { code: "R2:C4", r: 2, c: 4, short: "Actors & Org Units", stereo: "«Actor», «Department», «Team»", desc: "Business actors, product owners, operations teams, and organizational units." },
+      { code: "R2:C5", r: 2, c: 5, short: "Business Events & SLAs", stereo: "«BusinessEvent», «WorkPackage»", desc: "Business event triggers (Payment Initiated, Return Received) and customer SLA commitments." },
+      { code: "R2:C6", r: 2, c: 6, short: "Business Principles", stereo: "«Principle», «Policy»", desc: "TOGAF Architecture Principles (Avoid Vendor Lock-In, Eliminate Swivel-Chair Operations, Canonical Schema First)." },
+
+      // R3: Logical System (L2)
+      { code: "R3:C1", r: 3, c: 1, short: "Canonical PayEx Schema", stereo: "«DataEntity», «ISO20022Message», «ControlRecord»", desc: "Canonical PayEx Payment Object ($.onBehalfOfPayer, $.returnSpecificInfo, $.enrichedDataInExchange, $.exchangeRate) & ISO 20022 pacs.008." },
+      { code: "R3:C2", r: 3, c: 2, short: "Application Services", stereo: "«ApplicationService», «block», «Interface»", desc: "Logical application services, sagas, and API contracts orchestrating payment validation and enrichment." },
+      { code: "R3:C3", r: 3, c: 3, short: "Logical Security Zones", stereo: "«Boundary», «Zone»", desc: "Logical network zones, PCI-DSS / zero-trust security boundaries, and domain partitions." },
+      { code: "R3:C4", r: 3, c: 4, short: "System Roles & RACI", stereo: "«Role», «Squad»", desc: "RBAC system personas and RACI governance assignments (Responsible, Accountable, Consulted, Informed)." },
+      { code: "R3:C5", r: 3, c: 5, short: "Sequence & Lifelines", stereo: "«Sequence», «StateMachine»", desc: "UML Sequence diagrams, choreography lifelines, and state transition machines." },
+      { code: "R3:C6", r: 3, c: 6, short: "ARB Gates & Rules", stereo: "«Requirement», «Control»", desc: "Non-functional architectural requirements, ARB quality gates, and Gartner TIME portfolio guardrails." },
+
+      // R4: Physical Technology (L3)
+      { code: "R4:C1", r: 4, c: 1, short: "Datastores & Topics", stereo: "«datastore», «database», «redis»", desc: "Physical relational/NoSQL datastores, Redis Stack HNSW vector caches, and Kafka/MSK event topics." },
+      { code: "R4:C2", r: 4, c: 2, short: "Microservices & APIs", stereo: "«Component», «Microservice», «APIGateway», «topic»", desc: "Deployable Go/Rust/Java microservices (Snapshot, Streaming, Configurable Rules, and Watchdog archetypes)." },
+      { code: "R4:C3", r: 4, c: 3, short: "Cloud Topologies", stereo: "«Cloud», «Zone»", desc: "Multi-region cloud landing zones, transit gateways, and hybrid connectivity meshes." },
+      { code: "R4:C4", r: 4, c: 4, short: "IAM & Service Accounts", stereo: "«IAMRole», «Person»", desc: "IAM principals, service accounts, and engineering squad assignments in tview_object_resources." },
+      { code: "R4:C5", r: 4, c: 5, short: "Kafka Streams & Cron", stereo: "«EventStream», «KafkaTopic», «Schedule»", desc: "Event streaming partitions, settlement cut-off schedules, and retry/dlq timing topologies." },
+      { code: "R4:C6", r: 4, c: 6, short: "SLOs & Circuit Breakers", stereo: "«Risk», «Policy»", desc: "RPO/RTO resilience targets, circuit-breaker thresholds, and active-active failover policies." },
+
+      // R5: Detailed Implementation (L3/L4)
+      { code: "R5:C1", r: 5, c: 1, short: "Physical SQL Tables", stereo: "«tview_table», «table», «Artifact»", desc: "Physical database tables with typed columns, PK/FK constraints, and multi-backend DDL (SQLite, Postgres, Oracle, MySQL)." },
+      { code: "R5:C2", r: 5, c: 2, short: "Specs & Artifacts", stereo: "«Artifact», «DocumentShape», «ExternalLink»", desc: "OpenAPI/Protobuf specs, DAC blueprints, and embedded PDF/Word/Spreadsheet artifacts in tview_artifacts." },
+      { code: "R5:C3", r: 5, c: 3, short: "CIDR & IaC Modules", stereo: "«Boundary», «Package»", desc: "Terraform/CloudFormation IaC modules, route tables, and security group CIDR rules." },
+      { code: "R5:C4", r: 5, c: 4, short: "Rate Cards & Certs", stereo: "«Person», «Certificate»", desc: "Ecosystem people directory (tview_people hourly rate cards) and X.509 mTLS certificates (.treeview-certs)." },
+      { code: "R5:C5", r: 5, c: 5, short: "DB Sequences & Timers", stereo: "«dbsequence», «Trigger»", desc: "Database sequences, SQLite undo/redo triggers, and exponential backoff timers." },
+      { code: "R5:C6", r: 5, c: 6, short: "Rule Expressions", stereo: "«Feature», «Requirement»", desc: "Configurable Rules Microservice predicates, OFAC/AML scoring rules, and schema validation invariants." },
+
+      // R6: Functioning Runtime (L4)
+      { code: "R6:C1", r: 6, c: 1, short: "Live RDS & S3 Stores", stereo: "«aws_rds», «aws_s3», «aws_dynamodb»", desc: "Live AWS Aurora PostgreSQL clusters, S3 buckets, and DynamoDB tables discovered via AWS CLI." },
+      { code: "R6:C2", r: 6, c: 2, short: "EKS, EC2 & Watchdogs", stereo: "«aws_eks», «aws_ec2», «aws_lambda», «WatchdogMicroservice»", desc: "Running AWS EKS clusters, Lambda functions, EC2 instances, and live Watchdog telemetry guards." },
+      { code: "R6:C3", r: 6, c: 3, short: "AWS VPCs & Subnets", stereo: "«aws_vpc», «aws_subnet», «aws_az»", desc: "Live AWS VPCs, public/private subnets, NAT gateways, and Availability Zones." },
+      { code: "R6:C4", r: 6, c: 4, short: "Live AWS IAM & Ops", stereo: "«aws_iam», «Operator»", desc: "Active runtime IAM execution roles, on-call SRE operators, and live consumer sessions." },
+      { code: "R6:C5", r: 6, c: 5, short: "Telemetry & Alerts", stereo: "«WatchdogAlert», «Event»", desc: "Real-time 30d/90d drift alerts, latency traces, and heartbeats persisted in tview_drift_findings." },
+      { code: "R6:C6", r: 6, c: 6, short: "Realized FinOps & TIME", stereo: "«Metric», «Control»", desc: "Realized CapEx/OpEx/Savings metrics (tview_object_metrics) and live Enterprise Coherence scores." }
+    ];
+
+    const gridTbody = document.getElementById("interactive-6x6-tbody");
+    const fullTableTbody = document.getElementById("full-36-cells-tbody");
+    const miCode = document.getElementById("mi-code");
+    const miStratum = document.getElementById("mi-stratum");
+    const miDesc = document.getElementById("mi-desc");
+    const miStereo = document.getElementById("mi-stereotypes");
+
+    function selectMatrixCell(cellObj) {
+      const rowMeta = PERSPECTIVE_ROWS[cellObj.r - 1];
+      const colMeta = INTERROGATIVE_COLS[cellObj.c - 1];
+      miCode.textContent = `${cellObj.code} · ${rowMeta.name.split("·")[1].trim()} × ${colMeta.name.split("·")[1].trim()}`;
+      miStratum.textContent = `Stratum ${rowMeta.stratum}`;
+      miDesc.textContent = cellObj.desc;
+      miStereo.textContent = `Canonical Stereotypes: ${cellObj.stereo}`;
+
+      document.querySelectorAll(".m-cell").forEach((td) => {
+        td.classList.toggle("active", td.getAttribute("data-code") === cellObj.code);
+      });
+    }
+
+    // Build 6x6 Interactive Grid
+    gridTbody.innerHTML = PERSPECTIVE_ROWS.map((rowMeta) => {
+      const rowCells = MATRIX_36_CELLS.filter((mc) => mc.r === rowMeta.r);
+      const tds = rowCells.map((mc) => `
+        <td class="m-cell ${mc.code === "R3:C1" ? "active" : ""}" data-code="${mc.code}" tabindex="0" role="button" aria-label="Inspect cell ${mc.code}: ${mc.short}">
+          <span class="c-code">${mc.code}</span>
+          <span class="c-title">${escapeHtml(mc.short)}</span>
+        </td>
+      `).join("");
+      return `<tr><td class="r-hdr">${escapeHtml(rowMeta.name)}</td>${tds}</tr>`;
+    }).join("");
+
+    document.querySelectorAll(".m-cell").forEach((td) => {
+      const handler = () => {
+        const code = td.getAttribute("data-code");
+        const found = MATRIX_36_CELLS.find((x) => x.code === code);
+        if (found) selectMatrixCell(found);
+      };
+      td.addEventListener("click", handler);
+      td.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          handler();
+        }
+      });
+    });
+
+    // Build Complete 36-Row Reference Table
+    fullTableTbody.innerHTML = MATRIX_36_CELLS.map((mc) => {
+      const rowMeta = PERSPECTIVE_ROWS[mc.r - 1];
+      const colMeta = INTERROGATIVE_COLS[mc.c - 1];
+      return `
+        <tr>
+          <th scope="row"><code>${mc.code}</code> — ${escapeHtml(mc.short)}</th>
+          <td><strong>${escapeHtml(rowMeta.name)}</strong><br /><span style="color:var(--text-muted); font-size:12px;">${escapeHtml(colMeta.name)}</span></td>
+          <td><code>${escapeHtml(rowMeta.stratum.split("·")[0].trim())}</code><br /><span style="color:#93c5fd; font-family:var(--font-mono); font-size:11.5px;">${escapeHtml(mc.stereo)}</span></td>
+          <td>${escapeHtml(mc.desc)}</td>
+        </tr>
+      `;
+    }).join("");
+
+    // 4. Tab Switchers (MCP Configs & Playbooks)
+    document.querySelectorAll(".tab-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const group = btn.getAttribute("data-tab-group");
+        const target = btn.getAttribute("data-tab-target");
+        document.querySelectorAll(`.tab-btn[data-tab-group="${group}"]`).forEach((b) => b.classList.remove("active"));
+        document.querySelectorAll(`.tab-pane[data-tab-group="${group}"]`).forEach((p) => p.classList.remove("active"));
+        btn.classList.add("active");
+        const pane = document.getElementById(target);
+        if (pane) pane.classList.add("active");
+      });
+    });
+
+    // 5. Copy-to-Clipboard Handler (Event Delegation for Static & Dynamic Buttons)
+    document.addEventListener("click", (e) => {
+      const btn = e.target.closest(".copy-btn");
+      if (!btn) return;
+      const targetId = btn.getAttribute("data-copy-target");
+      const pre = document.getElementById(targetId);
+      if (!pre) return;
+      navigator.clipboard.writeText(pre.textContent).then(() => {
+        const orig = btn.textContent;
+        btn.textContent = "✓ Copied!";
+        setTimeout(() => { btn.textContent = orig; }, 1600);
+      });
+    });
+
+    // 6. Scrollspy Accessibility Synchronization (Native scroll-target-group + IntersectionObserver Fallback)
+    (function initScrollspy() {
+      const navLinks = document.querySelectorAll("nav.doc-sidebar-nav a");
+      const sections = document.querySelectorAll("main.doc-main section[id]");
+      const supportsScrollTargetGroup = typeof CSS !== "undefined" && CSS.supports && CSS.supports("scroll-target-group: auto");
+
+      if (supportsScrollTargetGroup) {
+        const syncAriaCurrent = () => {
+          const currentLink = document.querySelector("nav.doc-sidebar-nav a:target-current");
+          if (!currentLink) return;
+          navLinks.forEach((link) => {
+            const isActive = link === currentLink;
+            link.classList.toggle("target-current", isActive);
+            link.setAttribute("aria-current", isActive ? "true" : "false");
+          });
+        };
+        syncAriaCurrent();
+        document.addEventListener("scrollend", syncAriaCurrent, { passive: true });
+      }
+
+      // IntersectionObserver fallback ensures .target-current and aria-current="true" stay synced across all browsers
+      if ("IntersectionObserver" in window) {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                const id = entry.target.getAttribute("id");
+                navLinks.forEach((link) => {
+                  const isActive = link.getAttribute("href") === `#${id}`;
+                  link.classList.toggle("target-current", isActive);
+                  link.setAttribute("aria-current", isActive ? "true" : "false");
+                });
+              }
+            });
+          },
+          { rootMargin: "-25% 0px -65% 0px", threshold: 0 }
+        );
+        sections.forEach((section) => observer.observe(section));
+      }
+    })();
+  </script>
+</body>
+</html>

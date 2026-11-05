@@ -120,14 +120,17 @@
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 26px;
+      gap: 22px;
       font-size: 14px;
       font-weight: 500;
       color: var(--text-secondary);
+      scroll-target-group: auto;
     }
 
-    .nav-links a:hover {
+    .nav-links a:hover,
+    .nav-links a:is(:target-current, .target-current) {
       color: var(--sky);
+      font-weight: 600;
     }
 
     .nav-cta {
@@ -521,7 +524,9 @@
 
     /* Comparison Table */
     .comp-table-wrap {
-      overflow-x: auto;
+      overflow: auto;
+      max-inline-size: 100%;
+      container-type: inline-size;
       background: var(--bg-card);
       border: 1px solid var(--border-subtle);
       border-radius: 16px;
@@ -530,8 +535,16 @@
 
     .comp-table {
       width: 100%;
-      border-collapse: collapse;
+      border-collapse: separate;
+      border-spacing: 0;
       font-size: 14px;
+    }
+
+    .comp-table thead {
+      position: sticky;
+      inset-block-start: 0;
+      z-index: 2;
+      background: var(--bg-surface);
     }
 
     .comp-table th,
@@ -539,6 +552,15 @@
       padding: 14px 16px;
       text-align: left;
       border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .comp-table tbody th {
+      position: sticky;
+      inset-inline-start: 0;
+      background: var(--bg-surface);
+      font-weight: 700;
+      color: var(--text-primary);
+      z-index: 1;
     }
 
     .comp-table th {
@@ -603,7 +625,7 @@
   <!-- Top Navigation -->
   <header class="navbar">
     <div class="container navbar-inner">
-      <a href="#" class="brand">
+      <a href="index.html" class="brand">
         <div class="brand-mark">TV</div>
         <div>
           TreeviewEA
@@ -611,18 +633,17 @@
         </div>
       </a>
 
-      <nav class="nav-links">
+      <nav class="nav-links" aria-label="Primary Navigation">
+        <a href="index.html" aria-current="page">Overview</a>
+        <a href="documentation.html">Documentation</a>
+        <a href="taxonomy.html">Metamodel &amp; Taxonomy</a>
+        <a href="mcp-reference.html">MCP &amp; AI Engine</a>
         <a href="#features">Studio Capabilities</a>
-        <a href="#reasoning">AI Reasoning &amp; 6×6 Matrix</a>
-        <a href="#backends">Portable Backends</a>
-        <a href="#comparison">Compare</a>
         <a href="#download">Download .DMG</a>
       </nav>
 
       <div class="nav-cta">
-        <a href="https://github.com/symbioticllc/treeviewea-web/releases" class="btn" target="_blank" rel="noopener">
-          <span>📦 Releases</span>
-        </a>
+        <a href="documentation.html" class="btn">📖 Docs</a>
         <a href="https://github.com/symbioticllc/treeviewea-web/releases/latest/download/TreeviewEA-2.5.0-macOS-arm64.dmg" class="btn btn-primary">
           <span> Download macOS .DMG</span>
         </a>
@@ -654,8 +675,11 @@
           <a href="https://github.com/symbioticllc/treeviewea-web/releases/latest/download/TreeviewEA-2.5.0-macOS-arm64.dmg" class="btn btn-primary btn-lg">
             <span> Download TreeviewEA 2.5.0 (.DMG)</span>
           </a>
-          <a href="#features" class="btn btn-lg">
-            <span>Explore Studio Capabilities →</span>
+          <a href="documentation.html" class="btn btn-lg">
+            <span>📖 Read Full Documentation →</span>
+          </a>
+          <a href="taxonomy.html" class="btn btn-lg">
+            <span>🧭 Metamodel &amp; 1…M Taxonomy →</span>
           </a>
         </div>
 
@@ -1008,16 +1032,73 @@
       </div>
     </section>
 
+    <!-- Documentation & Metamodel Taxonomy Portal Section -->
+    <section class="section" id="docs-portal">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-eyebrow">Comprehensive Technical Documentation</div>
+          <h2>Explore the TreeviewEA Documentation &amp; Metamodel Portal</h2>
+          <p>
+            Deep-dive into every studio capability, the 6-Stratum Metamodel &amp; Tool Taxonomy for linking Capabilities down to Class Code, Database Schemas, and Cloud Infrastructure, and the 39-Tool MCP &amp; AI Reasoning specification.
+          </p>
+        </div>
+
+        <div class="bento-grid">
+          <a href="documentation.html" class="bento-card" style="text-decoration:none;">
+            <div class="card-icon">📖</div>
+            <h3>Studio User &amp; Architecture Guide</h3>
+            <p>
+              Complete feature documentation covering all 11+ diagram types, Smart Canvas (Double-Click / <code>F2</code> In-Line Shape Rename, Package Drop-In <code>«contains»</code>, Edge-Point vs. Body Snap, 360° Rotation), Central Object Catalog, Frameworks (TOGAF 10, ArchiMate 3.2, BIAN v12, PayEx/ISO 20022), TIME/FinOps, WBS Estimation, and Multi-Backend Persistence.
+            </p>
+            <div class="code-Tags">
+              <span class="code-tag">11+ Diagram Types</span>
+              <span class="code-tag">In-Line Shape Rename</span>
+              <span class="code-tag">TIME &amp; FinOps</span>
+              <span class="code-tag">Open Guide →</span>
+            </div>
+          </a>
+
+          <a href="taxonomy.html" class="bento-card" style="text-decoration:none;">
+            <div class="card-icon">🧭</div>
+            <h3>Tool Taxonomy &amp; Multi-Layer Metamodel</h3>
+            <p>
+              Validated vertical lineage guide showing how a <strong>Capability</strong> (L1) comprises <strong>Application Components</strong> (L2/L3) built from <strong>Class Code</strong> &amp; <strong>Database Objects</strong> (L3) and instantiated on <strong>Physical Infrastructure</strong> (L4), plus blueprints for building execution plans across <code>1…M</code> models.
+            </p>
+            <div class="code-Tags">
+              <span class="code-tag">Capability → Infra Lineage</span>
+              <span class="code-tag">1…M Model Plans</span>
+              <span class="code-tag">Cardinality Rules</span>
+              <span class="code-tag">Explore Taxonomy →</span>
+            </div>
+          </a>
+
+          <a href="mcp-reference.html" class="bento-card" style="text-decoration:none;">
+            <div class="card-icon">🔌</div>
+            <h3>39-Tool MCP Server &amp; AI Engine Reference</h3>
+            <p>
+              Full schema &amp; payload reference for the Dual-Transport MCP Server (<code>stdio</code> &amp; <code>HTTPS/SSE</code>), the Rust CSR Graph Core (<code>tview-graph-core</code>), the 36-cell 6×6 Orthogonal Matrix, the Python Deep ML Drift Engine (ONNX / Ollama+Redis), and the 4-Agent ARB.
+            </p>
+            <div class="code-Tags">
+              <span class="code-tag">All 39 MCP Tools</span>
+              <span class="code-tag">Rust CSR Graph</span>
+              <span class="code-tag">30d/90d Drift ML</span>
+              <span class="code-tag">View API Reference →</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
     <!-- Feature Comparison Table -->
     <section class="section" id="comparison">
       <div class="container">
         <div class="section-header">
           <div class="section-eyebrow">Why TreeviewEA</div>
-          <h2>Modern, Open-Source &amp; AI-Native</h2>
+          <h2>Modern, Native &amp; AI-Native</h2>
           <p>Built from the ground up to replace legacy desktop modelers and static drawing tools.</p>
         </div>
 
-        <div class="comp-table-wrap">
+        <div tabindex="0" role="region" aria-label="Feature Comparison Table" class="comp-table-wrap">
           <table class="comp-table">
             <thead>
               <tr>
@@ -1029,38 +1110,38 @@
             </thead>
             <tbody>
               <tr>
-                <td><strong>6×6 Orthogonal Matrix &amp; Lineage Verification</strong></td>
+                <th>6×6 Orthogonal Matrix &amp; Lineage Verification</th>
                 <td class="highlight-col">✓ Automated via Rust CSR Graph Core</td>
                 <td>Manual static matrices</td>
                 <td>✕ No semantic metamodel</td>
               </tr>
               <tr>
-                <td><strong>Autonomous 30d/90d Architectural Drift ML</strong></td>
+                <th>Autonomous 30d/90d Architectural Drift ML</th>
                 <td class="highlight-col">✓ Local ONNX + Ollama/Redis Hybrid</td>
                 <td>✕ None</td>
                 <td>✕ None</td>
               </tr>
               <tr>
-                <td><strong>Portable File + Live DB/Redis Switching</strong></td>
+                <th>Portable File + Live DB/Redis Switching</th>
                 <td class="highlight-col">✓ .tvwx + SQLite / Postgres / MySQL / Redis</td>
                 <td>Proprietary Windows-only DBs</td>
                 <td>Cloud-locked SaaS only</td>
               </tr>
               <tr>
-                <td><strong>Canvas Package Containment &amp; Smart Snap</strong></td>
-                <td class="highlight-col">✓ Auto «contains», Edge Snap &amp; 360° Rotate</td>
-                <td>Rigid manual connectors</td>
+                <th>In-Line Shape Rename, Containment &amp; Smart Snap</th>
+                <td class="highlight-col">✓ Double-Click Rename, Auto «contains», Edge Snap &amp; 360° Rotate</td>
+                <td>Rigid manual connectors &amp; modal-only edits</td>
                 <td>Visual-only (no repo sync)</td>
               </tr>
               <tr>
-                <td><strong>Built-In Model Context Protocol (MCP) Server</strong></td>
+                <th>Built-In Model Context Protocol (MCP) Server</th>
                 <td class="highlight-col">✓ 39 Native Tools (stdio &amp; TLS SSE)</td>
                 <td>✕ None</td>
                 <td>Limited read-only APIs</td>
               </tr>
               <tr>
-                <td><strong>License &amp; Extensibility</strong></td>
-                <td class="highlight-col">✓ AGPL-3.0 Open Source (Go + Rust + Python)</td>
+                <th>Architecture &amp; Runtime Stack</th>
+                <td class="highlight-col">✓ Native macOS App (Go + Rust CSR + Python ML)</td>
                 <td>Proprietary per-seat licensing</td>
                 <td>Proprietary subscription</td>
               </tr>
@@ -1075,7 +1156,7 @@
       <div class="container">
         <div class="section-header">
           <div class="section-eyebrow">Get Started in 30 Seconds</div>
-          <h2>Download the Bundled macOS Installer or Build from Source</h2>
+          <h2>Download the Bundled macOS Installer</h2>
           <p>
             Install the native signed macOS application bundle (<code>TreeviewEA.app</code>) via the drag-and-drop <code>.dmg</code> disk image, or launch directly from the CLI.
           </p>
@@ -1088,11 +1169,8 @@
             <p style="margin-bottom:18px;">
               Includes the native macOS WebKit Studio, compiled Go server, Rust <code>tview-graph-core</code> engine, Python Deep ML Drift worker, and sample <code>TransactionPlatform-Architecture.tvwx</code> repository.
             </p>
-            <a href="https://github.com/symbioticllc/treeviewea-web/releases/latest/download/TreeviewEA-2.5.0-macOS-arm64.dmg" class="btn btn-primary btn-lg" style="width:100%; margin-bottom:10px;">
+            <a href="https://github.com/symbioticllc/treeviewea-web/releases/latest/download/TreeviewEA-2.5.0-macOS-arm64.dmg" class="btn btn-primary btn-lg" style="width:100%;">
               <span> Download TreeviewEA-2.5.0-macOS-arm64.dmg</span>
-            </a>
-            <a href="https://github.com/symbioticllc/treeviewea-web/releases" class="btn" style="width:100%;" target="_blank" rel="noopener">
-              <span>View Release Notes &amp; SHA-256 Checksums</span>
             </a>
           </div>
 
@@ -1119,10 +1197,13 @@
           Enterprise Architecture &amp; Autonomous AI Reasoning Studio.
         </p>
       </div>
-      <div style="display:flex; gap:20px; font-size:13px;">
+      <div style="display:flex; gap:20px; font-size:13px; flex-wrap:wrap;">
+        <a href="documentation.html">Documentation</a>
+        <a href="taxonomy.html">Metamodel &amp; Taxonomy</a>
+        <a href="mcp-reference.html">MCP &amp; AI Engine</a>
         <a href="#features">Studio Capabilities</a>
         <a href="#backends">Portable Backends</a>
-        <a href="https://github.com/symbioticllc/treeviewea-web/releases" target="_blank" rel="noopener">macOS Releases</a>
+        <a href="#download">Download .DMG</a>
       </div>
     </div>
   </footer>

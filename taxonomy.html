@@ -1,0 +1,2160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Metamodel &amp; Tool Taxonomy — TreeviewEA by Treeview Software, LLC</title>
+  <meta name="description" content="Complete TreeviewEA Multi-Layer Metamodel, Cross-Layer Vertical Lineage (Capability to Component to Class Code &amp; Database Schema to Cloud Infrastructure), Connector &amp; Cardinality Validation Matrix, 39-Tool MCP Taxonomy, and 1...M Model Execution Planning." />
+  <meta name="theme-color" content="#070b14" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg-deep: #070b14;
+      --bg-surface: #0f172a;
+      --bg-card: rgba(15, 23, 42, 0.78);
+      --bg-elevated: #1e293b;
+      --border-subtle: rgba(148, 163, 184, 0.16);
+      --border-highlight: rgba(56, 189, 248, 0.45);
+      --text-primary: #f8fafc;
+      --text-secondary: #cbd5e1;
+      --text-muted: #94a3b8;
+      --sky: #38bdf8;
+      --blue: #3b82f6;
+      --indigo: #6366f1;
+      --violet: #8b5cf6;
+      --emerald: #10b981;
+      --amber: #f59e0b;
+      --rose: #f43f5e;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+      --font-mono: 'JetBrains Mono', 'SF Mono', Menlo, monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+      background-color: var(--bg-deep);
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      background:
+        radial-gradient(circle at 12% 8%, rgba(56, 189, 248, 0.13), transparent 36%),
+        radial-gradient(circle at 86% 12%, rgba(139, 92, 246, 0.13), transparent 38%),
+        radial-gradient(circle at 50% 65%, rgba(16, 185, 129, 0.07), transparent 45%),
+        var(--bg-deep);
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Unified Sticky Glass Navigation */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      background: rgba(7, 11, 20, 0.86);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .navbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 70px;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      font-size: 18px;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #2563eb 0%, #06b6d4 55%, #10b981 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 15px;
+      color: #fff;
+      box-shadow: 0 6px 20px rgba(6, 182, 212, 0.35);
+    }
+
+    .brand-sub {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--text-muted);
+      display: block;
+      margin-top: -2px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      padding: 6px 12px;
+      border-radius: 8px;
+      transition: all 0.16s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--sky);
+      background: rgba(56, 189, 248, 0.08);
+    }
+
+    .nav-links a.active {
+      color: #7dd3fc;
+      background: rgba(56, 189, 248, 0.14);
+      border: 1px solid rgba(56, 189, 248, 0.38);
+      font-weight: 600;
+    }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 13.5px;
+      cursor: pointer;
+      border: 1px solid var(--border-subtle);
+      background: rgba(30, 41, 59, 0.75);
+      color: var(--text-primary);
+      transition: all 0.18s ease;
+    }
+
+    .btn:hover {
+      border-color: var(--border-highlight);
+      background: rgba(30, 41, 59, 0.98);
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #2563eb 0%, #0284c7 100%);
+      border-color: rgba(56, 189, 248, 0.55);
+      color: #ffffff;
+      box-shadow: 0 10px 28px rgba(37, 99, 235, 0.35);
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #1d4ed8 0%, #0369a1 100%);
+      box-shadow: 0 14px 34px rgba(56, 189, 248, 0.42);
+    }
+
+    /* Hero Header */
+    .page-hero {
+      padding: 54px 0 38px;
+      border-bottom: 1px solid var(--border-subtle);
+      background: linear-gradient(180deg, rgba(15, 23, 42, 0.45) 0%, rgba(7, 11, 20, 0) 100%);
+    }
+
+    .pill-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      color: #7dd3fc;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 18px;
+      font-family: var(--font-mono);
+    }
+
+    .pill-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--emerald);
+      box-shadow: 0 0 10px var(--emerald);
+    }
+
+    .page-hero h1 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      line-height: 1.12;
+      margin-bottom: 14px;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #34d399 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .page-hero p {
+      font-size: 1.08rem;
+      color: var(--text-secondary);
+      max-width: 920px;
+      margin-bottom: 24px;
+    }
+
+    .kpi-strip {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 14px;
+      margin-top: 22px;
+    }
+
+    .kpi-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 14px 16px;
+    }
+
+    .kpi-val {
+      font-family: var(--font-mono);
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--sky);
+    }
+
+    .kpi-lbl {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    /* Documentation Two-Column Layout with Native CSS Scrollspy */
+    .doc-layout {
+      display: grid;
+      grid-template-columns: 280px minmax(0, 1fr);
+      gap: 36px;
+      padding: 40px 0 80px;
+      align-items: start;
+    }
+
+    .doc-sidebar {
+      position: sticky;
+      top: 90px;
+      background: rgba(15, 23, 42, 0.82);
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      padding: 18px 14px;
+      max-height: calc(100vh - 110px);
+      overflow-y: auto;
+    }
+
+    .sidebar-title {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      padding: 0 10px 10px;
+      border-bottom: 1px solid var(--border-subtle);
+      margin-bottom: 10px;
+    }
+
+    /* MANDATORY Modern Web Guidance (scrollspy): scroll-target-group: auto on nav container */
+    nav.doc-sidebar-nav {
+      scroll-target-group: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    nav.doc-sidebar-nav a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 10px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      border-left: 3px solid transparent;
+      transition: all 0.15s ease;
+    }
+
+    nav.doc-sidebar-nav a:hover {
+      background: rgba(56, 189, 248, 0.08);
+      color: var(--text-primary);
+    }
+
+    /* MANDATORY Modern Web Guidance (scrollspy): Use :is(:target-current, .target-current) so older browsers don't invalidate the rule */
+    nav.doc-sidebar-nav a:is(:target-current, .target-current) {
+      color: #7dd3fc;
+      background: rgba(56, 189, 248, 0.14);
+      border-left-color: var(--sky);
+      font-weight: 700;
+    }
+
+    .nav-step-badge {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      padding: 2px 6px;
+      border-radius: 5px;
+      background: rgba(148, 163, 184, 0.14);
+      color: var(--text-muted);
+    }
+
+    nav.doc-sidebar-nav a:is(:target-current, .target-current) .nav-step-badge {
+      background: rgba(56, 189, 248, 0.25);
+      color: #e0f2fe;
+    }
+
+    /* Main Content Sections */
+    .doc-main {
+      display: flex;
+      flex-direction: column;
+      gap: 56px;
+      min-width: 0;
+    }
+
+    .doc-section {
+      background: rgba(15, 23, 42, 0.62);
+      border: 1px solid var(--border-subtle);
+      border-radius: 18px;
+      padding: 34px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.38);
+      min-height: 420px;
+    }
+
+    .section-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--sky);
+      margin-bottom: 8px;
+    }
+
+    .doc-section h2 {
+      font-size: clamp(1.45rem, 2.5vw, 2rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+      color: var(--text-primary);
+    }
+
+    .doc-section > p {
+      color: var(--text-secondary);
+      font-size: 15px;
+      margin-bottom: 24px;
+      max-width: 960px;
+    }
+
+    h3.sub-heading {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin: 28px 0 12px;
+      color: #e2e8f0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    code {
+      font-family: var(--font-mono);
+      font-size: 0.88em;
+      background: rgba(30, 41, 59, 0.88);
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      padding: 2px 6px;
+      border-radius: 5px;
+      color: #7dd3fc;
+    }
+
+    /* Interactive 5-Layer Vertical Metamodel Lineage Visualizer */
+    .lineage-explorer {
+      display: grid;
+      grid-template-columns: 1.05fr 1fr;
+      gap: 22px;
+      margin-top: 18px;
+      align-items: start;
+    }
+
+    .lineage-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .layer-card {
+      position: relative;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 16px 18px;
+      cursor: pointer;
+      transition: all 0.18s ease;
+      text-align: left;
+      width: 100%;
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+    }
+
+    .layer-card:hover {
+      border-color: var(--border-highlight);
+      transform: translateX(3px);
+    }
+
+    .layer-card.active {
+      border-color: var(--sky);
+      background: linear-gradient(135deg, rgba(30, 58, 138, 0.42), rgba(15, 23, 42, 0.95));
+      box-shadow: 0 0 28px rgba(56, 189, 248, 0.18);
+    }
+
+    .layer-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 6px;
+    }
+
+    .layer-tag {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 6px;
+      background: rgba(56, 189, 248, 0.15);
+      color: #7dd3fc;
+      border: 1px solid rgba(56, 189, 248, 0.35);
+    }
+
+    .card-mult {
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #34d399;
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.32);
+      padding: 2px 8px;
+      border-radius: 999px;
+    }
+
+    .layer-card h4 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .layer-card p {
+      font-size: 12.5px;
+      color: var(--text-secondary);
+      line-height: 1.45;
+    }
+
+    .layer-connector-bridge {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 2px 18px;
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      color: #93c5fd;
+    }
+
+    .bridge-line {
+      width: 2px;
+      height: 18px;
+      background: linear-gradient(180deg, var(--sky), var(--emerald));
+      margin-left: 14px;
+    }
+
+    .lineage-detail-panel {
+      background: #090e1a;
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      border-radius: 14px;
+      padding: 22px;
+      position: sticky;
+      top: 96px;
+    }
+
+    .detail-header {
+      border-bottom: 1px solid var(--border-subtle);
+      padding-bottom: 14px;
+      margin-bottom: 16px;
+    }
+
+    .detail-header h3 {
+      font-size: 18px;
+      font-weight: 800;
+      color: #f8fafc;
+      margin-top: 6px;
+    }
+
+    .spec-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .spec-box {
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 10px 12px;
+    }
+
+    .spec-box-label {
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .spec-box-val {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: #e2e8f0;
+      word-break: break-word;
+    }
+
+    .code-block {
+      background: #050811;
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      border-radius: 10px;
+      padding: 14px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      line-height: 1.55;
+      color: #cbd5e1;
+      overflow-x: auto;
+      white-space: pre;
+    }
+
+    /* MANDATORY Modern Web Guidance (responsive-table):
+       Wrapper with tabindex="0", role="region", container-type: inline-size, overflow: auto, sticky thead & tbody th */
+    .table-wrapper {
+      overflow: auto;
+      max-inline-size: 100%;
+      max-block-size: min(560px, 78vh);
+      container-type: inline-size;
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      background: #090e1a;
+      margin-top: 14px;
+    }
+
+    .table-wrapper:focus-visible {
+      outline: 2px solid var(--sky);
+      outline-offset: 2px;
+    }
+
+    .table-wrapper table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      font-size: 13px;
+      text-align: left;
+    }
+
+    .table-wrapper caption {
+      text-align: left;
+      padding: 12px 16px;
+      font-weight: 700;
+      font-size: 13px;
+      color: var(--text-secondary);
+      background: #0f172a;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    /* Sticky column headers (desktop) */
+    .table-wrapper thead {
+      position: sticky;
+      inset-block-start: 0;
+      z-index: 2;
+      background: #131c31;
+    }
+
+    .table-wrapper th,
+    .table-wrapper td {
+      padding: 11px 14px;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+      vertical-align: top;
+    }
+
+    .table-wrapper thead th {
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #93c5fd;
+      background: #131c31;
+      border-bottom: 1px solid rgba(56, 189, 248, 0.3);
+      white-space: nowrap;
+    }
+
+    /* Sticky row headers (desktop) */
+    .table-wrapper tbody th {
+      position: sticky;
+      inset-inline-start: 0;
+      z-index: 1;
+      background: #0d1526;
+      font-weight: 600;
+      color: #f8fafc;
+      border-right: 1px solid rgba(148, 163, 184, 0.14);
+    }
+
+    .table-wrapper tbody tr:hover td,
+    .table-wrapper tbody tr:hover th {
+      background: rgba(30, 58, 138, 0.28);
+    }
+
+    /* Responsive Stacked Layout for narrow containers (< 600px) per Modern Web Guidance */
+    @container (width < 600px) {
+      .table-wrapper table,
+      .table-wrapper thead,
+      .table-wrapper tbody,
+      .table-wrapper tr,
+      .table-wrapper th,
+      .table-wrapper td {
+        display: block;
+      }
+
+      .table-wrapper thead {
+        display: none;
+      }
+
+      .table-wrapper tr {
+        margin-block-end: 1rem;
+        border: 1px solid var(--border-subtle);
+        border-radius: 8px;
+        overflow: hidden;
+      }
+
+      .table-wrapper tbody th {
+        position: sticky;
+        inset-block-start: 0;
+        z-index: 2;
+        background: #1e293b;
+        border-right: none;
+      }
+
+      .table-wrapper td:nth-child(2)::before {
+        content: var(--label-2, "Column 2") ": ";
+        font-weight: 700;
+        color: var(--sky);
+      }
+      .table-wrapper td:nth-child(3)::before {
+        content: var(--label-3, "Column 3") ": ";
+        font-weight: 700;
+        color: var(--sky);
+      }
+      .table-wrapper td:nth-child(4)::before {
+        content: var(--label-4, "Column 4") ": ";
+        font-weight: 700;
+        color: var(--sky);
+      }
+      .table-wrapper td:nth-child(5)::before {
+        content: var(--label-5, "Column 5") ": ";
+        font-weight: 700;
+        color: var(--sky);
+      }
+      .table-wrapper td:nth-child(6)::before {
+        content: var(--label-6, "Column 6") ": ";
+        font-weight: 700;
+        color: var(--sky);
+      }
+      .table-wrapper td:nth-child(7)::before {
+        content: var(--label-7, "Column 7") ": ";
+        font-weight: 700;
+        color: var(--sky);
+      }
+    }
+
+    /* Filter Bar Controls */
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 14px;
+      background: rgba(15, 23, 42, 0.85);
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .filter-select,
+    .filter-input {
+      background: #070b14;
+      color: var(--text-primary);
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      border-radius: 8px;
+      padding: 8px 12px;
+      font-size: 13px;
+      font-family: var(--font-sans);
+    }
+
+    .filter-select:focus,
+    .filter-input:focus {
+      outline: none;
+      border-color: var(--sky);
+    }
+
+    .tier-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .tier-pill {
+      padding: 7px 13px;
+      border-radius: 999px;
+      font-size: 12.5px;
+      font-weight: 600;
+      background: rgba(30, 41, 59, 0.72);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .tier-pill:hover {
+      border-color: var(--border-highlight);
+      color: var(--text-primary);
+    }
+
+    .tier-pill.active {
+      background: rgba(56, 189, 248, 0.18);
+      border-color: var(--sky);
+      color: #7dd3fc;
+    }
+
+    /* 1...M Model Planning Cards & Interactive Wave Simulator */
+    .pattern-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 18px;
+      margin: 18px 0 26px;
+    }
+
+    .pattern-card {
+      background: rgba(15, 23, 42, 0.88);
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .pattern-card h4 {
+      font-size: 16px;
+      font-weight: 800;
+      color: #f8fafc;
+    }
+
+    .badge-inline {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 5px;
+      background: rgba(99, 102, 241, 0.18);
+      color: #a5b4fc;
+      border: 1px solid rgba(99, 102, 241, 0.35);
+    }
+
+    .footer {
+      border-top: 1px solid var(--border-subtle);
+      padding: 36px 0;
+      background: #050811;
+      color: var(--text-muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 1024px) {
+      .doc-layout {
+        grid-template-columns: 1fr;
+      }
+      .doc-sidebar {
+        position: static;
+        max-height: none;
+      }
+      .lineage-explorer {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Unified Top Navbar -->
+  <header class="navbar">
+    <div class="container navbar-inner">
+      <a href="index.html" class="brand">
+        <div class="brand-mark">TV</div>
+        <div>
+          TreeviewEA
+          <span class="brand-sub">Treeview Software, LLC</span>
+        </div>
+      </a>
+
+      <nav class="nav-links" aria-label="Primary site navigation">
+        <a href="index.html">Overview</a>
+        <a href="documentation.html">Documentation</a>
+        <a href="taxonomy.html" class="active" aria-current="page">Metamodel &amp; Taxonomy</a>
+        <a href="mcp-reference.html">MCP &amp; AI Engine</a>
+      </nav>
+
+      <div class="nav-cta">
+        <a href="index.html#download" class="btn btn-primary"> Download .DMG</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Banner -->
+  <section class="page-hero">
+    <div class="container">
+      <div class="pill-badge">
+        <span class="pill-dot"></span>
+        <span>CANONICAL METAMODEL &amp; 39-TOOL TAXONOMY · TVEA-SPEC-2026</span>
+      </div>
+      <h1>
+        Multi-Layer <span class="gradient-text">Metamodel, Vertical Lineage &amp; 1...M Model Planning</span>
+      </h1>
+      <p>
+        Explore how TreeviewEA bridges executive strategy to physical execution across 6 Strata (<code>R1..R6 × C1..C6</code>), links <code>Capability</code> &rarr; <code>1...M Components</code> &rarr; <code>1...M Code Classes &amp; SQL Tables</code> &rarr; <code>1...M Cloud Infrastructure Nodes</code>, validates cardinalities in the Rust CSR Graph Core, and orchestrates execution plans across <code>1...M</code> architecture models.
+      </p>
+
+      <div class="kpi-strip">
+        <div class="kpi-card">
+          <div class="kpi-val">22 Tables</div>
+          <div class="kpi-lbl">Native <code>tview_*</code> Relational &amp; Graph Schema</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-val">6×6 (36 Cells)</div>
+          <div class="kpi-lbl">Orthogonal Matrix (<code>R1..R6 × C1..C6</code>)</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-val">5 Strata (L0–L4)</div>
+          <div class="kpi-lbl">Unbroken Vertical Traceability Chain</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-val">39 MCP Tools</div>
+          <div class="kpi-lbl">7 Functional Taxonomy Tiers over TLS</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-val">1...M Models</div>
+          <div class="kpi-lbl">Multi-Prefix, Multi-Package &amp; WBS/TIME Waves</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Two-Column Documentation Layout -->
+  <div class="container doc-layout">
+    <!-- Left Sidebar Table of Contents with Native CSS Scrollspy -->
+    <aside class="doc-sidebar">
+      <div class="sidebar-title">On This Page</div>
+      <nav class="doc-sidebar-nav" aria-label="Metamodel and Taxonomy Sections">
+        <a href="#sec-overview"><span class="nav-step-badge">01</span> 6×6 Metamodel &amp; 22 Tables</a>
+        <a href="#sec-vertical-lineage"><span class="nav-step-badge">02</span> 5-Layer Vertical Lineage</a>
+        <a href="#sec-cardinality-matrix"><span class="nav-step-badge">03</span> Connector &amp; Cardinality Matrix</a>
+        <a href="#sec-rust-validation"><span class="nav-step-badge">04</span> Rust CSR Graph Validation</a>
+        <a href="#sec-tool-taxonomy"><span class="nav-step-badge">05</span> 7-Tier 39-Tool MCP Taxonomy</a>
+        <a href="#sec-1m-planning"><span class="nav-step-badge">06</span> Building 1...M Model Plans</a>
+      </nav>
+    </aside>
+
+    <!-- Main Content Column -->
+    <main class="doc-main">
+      <!-- SECTION 1: 6x6 Metamodel & 22-Table Schema -->
+      <section class="doc-section" id="sec-overview">
+        <div class="section-eyebrow">01 · Architectural Foundation</div>
+        <h2>Executive Overview: The 6×6 Orthogonal Matrix &amp; 22-Table <code>tview_*</code> Schema</h2>
+        <p>
+          Every element created in a <code>.tvwx</code> repository (or synced across PostgreSQL, MySQL, and Redis) is stored in a normalized 22-table <code>tview_*</code> relational schema and projected into a 36-cell (<code>6 Perspectives × 6 Interrogatives</code>) property graph evaluated by the native Rust CSR Graph Engine (<code>tview-graph-core</code>).
+        </p>
+
+        <!-- Responsive Table 1: 6x6 Orthogonal Matrix Classification -->
+        <div tabindex="0" role="region" aria-labelledby="caption-6x6-matrix" class="table-wrapper">
+          <table style="--label-2: 'Stratum'; --label-3: 'C1: WHAT (Data)'; --label-4: 'C2: HOW (Function)'; --label-5: 'C3: WHERE (Network)'; --label-6: 'C4: WHO (People)'; --label-7: 'C5/C6: WHEN & WHY';">
+            <caption id="caption-6x6-matrix">6×6 Orthogonal Architecture Matrix (R1..R6 Perspectives × C1..C6 Interrogatives)</caption>
+            <thead>
+              <tr>
+                <th scope="col">Perspective Row</th>
+                <th scope="col">Stratum</th>
+                <th scope="col">C1 · WHAT (Data)</th>
+                <th scope="col">C2 · HOW (Capabilities &amp; Services)</th>
+                <th scope="col">C3 · WHERE (Network)</th>
+                <th scope="col">C4 · WHO (Actors &amp; RACI)</th>
+                <th scope="col">C5 · WHEN &amp; C6 · WHY</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">R1 · Contextual Scope</th>
+                <td><code>L0</code></td>
+                <td>Executive Data Inventories</td>
+                <td><code>«ValueStream»</code>, Core Offerings</td>
+                <td>Global Operating Geographies</td>
+                <td>Regulators (<code>TCH</code>, <code>Fed</code>)</td>
+                <td>Market Cycles, <code>«Goal»</code>, <code>«OKR»</code></td>
+              </tr>
+              <tr>
+                <th scope="row">R2 · Conceptual Business</th>
+                <td><code>L1</code></td>
+                <td>Conceptual Business Objects</td>
+                <td><code>«Capability»</code>, <code>«ServiceDomain»</code> (BIAN)</td>
+                <td>Business Channels &amp; Offices</td>
+                <td><code>«BusinessActor»</code>, Org Units</td>
+                <td><code>«BusinessEvent»</code>, <code>«Principle»</code></td>
+              </tr>
+              <tr>
+                <th scope="row">R3 · Logical System</th>
+                <td><code>L2</code></td>
+                <td><code>«DataEntity»</code>, Canonical Payment Object, <code>«ISO20022Message»</code></td>
+                <td><code>«ApplicationComponent»</code>, <code>«ApplicationService»</code>, <code>«block»</code></td>
+                <td>Security Zones (<code>«Boundary»</code>)</td>
+                <td>System Roles, RBAC Personas</td>
+                <td><code>Sequence</code> Lifelines, <code>«Requirement»</code></td>
+              </tr>
+              <tr>
+                <th scope="row">R4 · Physical Technology</th>
+                <td><code>L3</code></td>
+                <td><code>«datastore»</code>, Redis Caches, Kafka Schemas</td>
+                <td><code>«Microservice»</code>, <code>«APIGateway»</code>, <code>«Component»</code></td>
+                <td><code>«aws_vpc»</code>, <code>«aws_subnet»</code>, AZs</td>
+                <td>IAM Principals, Agile Squads</td>
+                <td><code>«topic»</code> Partitions, SLO Circuit Breakers</td>
+              </tr>
+              <tr>
+                <th scope="row">R5 · Detailed Implementation</th>
+                <td><code>L3</code></td>
+                <td><code>«tview_table»</code>, <code>«dbsequence»</code>, SQL DDL, PK/FKs</td>
+                <td>Code Classes, <code>tview_attributes</code>, <code>tview_operations</code></td>
+                <td>CIDR Blocks, mTLS Endpoints</td>
+                <td><code>tview_people</code> Rate Cards &amp; RACI</td>
+                <td>Snapshot Windows, Configurable Rules</td>
+              </tr>
+              <tr>
+                <th scope="row">R6 · Functioning Runtime</th>
+                <td><code>L4</code></td>
+                <td>Live Ledger Balances &amp; 180-Day Archives</td>
+                <td>Deployed Pods, <code>«Watchdog»</code> Telemetry</td>
+                <td><code>«aws_eks»</code>, <code>«aws_rds»</code>, <code>«aws_lambda»</code></td>
+                <td>Active SREs &amp; Portal Operators</td>
+                <td>Saga Alerts, FinOps TCO (<code>tview_object_metrics</code>)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="sub-heading">Core &amp; Extension <code>tview_*</code> Relational Tables</h3>
+        <div tabindex="0" role="region" aria-labelledby="caption-tview-tables" class="table-wrapper">
+          <table style="--label-2: 'Conceptual Alias'; --label-3: 'Primary Key'; --label-4: 'Key Columns & Foreign Keys'; --label-5: 'Metamodel Role';">
+            <caption id="caption-tview-tables">Complete 22-Table TreeviewEA Repository Schema (<code>internal/earepo/people_stereotypes.go</code> &amp; <code>reasoning_engine.go</code>)</caption>
+            <thead>
+              <tr>
+                <th scope="col">Physical Table</th>
+                <th scope="col">Conceptual Alias</th>
+                <th scope="col">Primary Key</th>
+                <th scope="col">Key Columns &amp; Foreign Keys</th>
+                <th scope="col">Metamodel Role</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row"><code>tview_packages</code></th>
+                <td><code>tview_package</code></td>
+                <td><code>Package_ID</code></td>
+                <td><code>Parent_ID</code>, <code>Name</code>, <code>Notes</code>, <code>Version</code>, <code>ea_guid</code></td>
+                <td>Recursive folder/package hierarchy supporting <code>1...M</code> domain &amp; wave models.</td>
+              </tr>
+              <tr>
+                <th scope="row"><code>tview_diagrams</code></th>
+                <td><code>tview_diagram</code></td>
+                <td><code>Diagram_ID</code></td>
+                <td><code>Package_ID</code>, <code>Diagram_Type</code>, <code>Name</code>, <code>Author</code>, <code>cx</code>, <code>cy</code></td>
+                <td>Visual architecture canvases (<code>Logical</code>, <code>Component</code>, <code>Deployment</code>, <code>Sequence</code>, <code>Activity</code>).</td>
+              </tr>
+              <tr>
+                <th scope="row"><code>tview_objects</code></th>
+                <td><code>tview_object</code> / <code>tview_roadmap_phase</code></td>
+                <td><code>Object_ID</code></td>
+                <td><code>Package_ID</code>, <code>ParentID</code>, <code>Object_Type</code>, <code>Stereotype</code>, <code>Status</code>, <code>Phase</code>, <code>Version</code></td>
+                <td>Canonical repository elements across all strata (reusable across <code>1...M</code> diagrams).</td>
+              </tr>
+              <tr>
+                <th scope="row"><code>tview_diagram_objects</code></th>
+                <td><code>tview_diagram_object</code></td>
+                <td><code>Instance_ID</code></td>
+                <td><code>Diagram_ID</code>, <code>Object_ID</code>, <code>RectLeft</code>, <code>RectTop</code>, <code>RectRight</code>, <code>RectBottom</code>, <code>ObjectStyle</code></td>
+                <td>Projects <code>1</code> canonical <code>Object_ID</code> onto <code>1...M</code> diagrams with per-diagram geometry &amp; shape.</td>
+              </tr>
+              <tr>
+                <th scope="row"><code>tview_connectors</code></th>
+                <td><code>tview_connector</code></td>
+                <td><code>Connector_ID</code></td>
+                <td><code>Start_Object_ID</code>, <code>End_Object_ID</code>, <code>Connector_Type</code>, <code>Stereotype</code>, <code>SourceCard</code>, <code>DestCard</code></td>
+                <td>Typed cross-layer and intra-layer relationships with explicit source/target cardinalities.</td>
+              </tr>
+              <tr>
+                <th scope="row"><code>tview_diagram_links</code></th>
+                <td><code>tview_diagram_link</code></td>
+                <td><code>Instance_ID</code></td>
+                <td><code>DiagramID</code>, <code>ConnectorID</code>, <code>Geometry</code>, <code>Style</code>, <code>Path</code>, <code>Hidden</code></td>
+                <td>Per-diagram connector routing mode (<code>elbow</code>, <code>straight</code>, <code>vector</code>) and bend waypoints.</td>
+              </tr>
+              <tr>
+                <th scope="row"><code>tview_attributes</code></th>
+                <td><code>tview_attribute</code></td>
+                <td><code>ID</code></td>
+                <td><code>Object_ID</code>, <code>Name</code>, <code>Type</code>, <code>Stereotype</code> (<code>column</code>, <code>PK</code>, <code>FK</code>), <code>Scope</code></td>
+                <td>Class fields, canonical JSON paths (<code>$.onBehalfOfPayer</code>), and physical SQL table columns.</td>
+              </tr>
+              <tr>
+                <th scope="row"><code>tview_operations</code></th>
+                <td><code>tview_operation</code></td>
+                <td><code>OperationID</code></td>
+                <td><code>Object_ID</code>, <code>Name</code>, <code>Type</code>, <code>Stereotype</code> (<code>PK</code>, <code>FK</code>, <code>unique</code>, <code>index</code>), <code>Code</code></td>
+                <td>Class methods, service API endpoints, and physical SQL table constraints/indexes.</td>
+              </tr>
+              <tr>
+                <th scope="row"><code>tview_object_properties</code></th>
+                <td><code>tview_tagged_value</code> / <code>tview_time_assessment</code></td>
+                <td><code>PropertyID</code></td>
+                <td><code>Object_ID</code>, <code>Property</code>, <code>Value</code>, <code>Notes</code></td>
+                <td>Stores Gartner <code>TIME Quadrant</code>, <code>BusinessValueScore</code>, <code>TechQualityScore</code>, <code>wbsWave</code>, and MDG tags.</td>
+              </tr>
+              <tr>
+                <th scope="row"><code>tview_xrefs</code></th>
+                <td><code>tview_xref_matrix</code></td>
+                <td><code>XrefID</code></td>
+                <td><code>Name</code>, <code>Type</code>, <code>Client</code>, <code>Supplier</code>, <code>Description</code></td>
+                <td>Fully qualified MDG stereotype bindings (e.g., <code>BIAN::ServiceDomain</code>, <code>TOGAF::Capability</code>).</td>
+              </tr>
+              <tr>
+                <th scope="row"><code>tview_object_efforts</code></th>
+                <td><code>tview_effort_estimate</code></td>
+                <td><code>(Object_ID, Effort)</code></td>
+                <td><code>EffortType</code>, <code>EValue</code> (Hours), <code>Notes</code></td>
+                <td>WBS engineering work-package effort hours per component, table, or capability.</td>
+              </tr>
+              <tr>
+                <th scope="row"><code>tview_object_metrics</code></th>
+                <td><code>tview_finops_ledger</code></td>
+                <td><code>(Object_ID, Metric)</code></td>
+                <td><code>MetricType</code> (<code>CapEx</code>, <code>OpEx</code>, <code>Savings</code>), <code>EValue</code> (USD), <code>Notes</code></td>
+                <td>Financial ledger items rolled up by the Executive FinOps Summation Engine.</td>
+              </tr>
+              <tr>
+                <th scope="row"><code>tview_object_resources</code> &amp; <code>tview_people</code></th>
+                <td><code>tview_raci_allocation</code></td>
+                <td><code>(Object_ID, Resource, Role)</code></td>
+                <td><code>Time</code> (Rate), <code>ExpectedHours</code>, <code>ActualHours</code>, <code>PercentComplete</code>, <code>DateStart</code>, <code>DateEnd</code></td>
+                <td>Links ecosystem people &amp; rate cards (<code>tview_people</code>) to elements for labor CapEx calculation.</td>
+              </tr>
+              <tr>
+                <th scope="row"><code>tview_graph_edges</code>, <code>tview_graph_embeddings</code>, <code>tview_drift_findings</code></th>
+                <td><code>tview_csr_graph</code></td>
+                <td><code>Edge_ID</code> / <code>Object_ID</code> / <code>Finding_ID</code></td>
+                <td><code>Stratum</code>, <code>Matrix_Row</code>, <code>Matrix_Col</code>, <code>PageRank_Score</code>, <code>Betweenness</code>, <code>Blast_Radius</code></td>
+                <td>Portable CSR graph centrality metrics, 128-D/384-D embeddings, and 30d/90d drift findings.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- SECTION 2: Interactive 5-Layer Vertical Traceability Chain -->
+      <section class="doc-section" id="sec-vertical-lineage">
+        <div class="section-eyebrow">02 · End-to-End Vertical Traceability</div>
+        <h2>Interactive 5-Layer Lineage: Capability &rarr; Component &rarr; Code &amp; Database &rarr; Infrastructure</h2>
+        <p>
+          Click any stratum below to inspect how TreeviewEA links a conceptual <strong>Business Capability</strong> to <code>1...M</code> <strong>Application Components</strong>, <code>1...M</code> <strong>Code Implementation Classes</strong>, <code>1...M</code> <strong>Physical Database Tables</strong>, and <code>1...M</code> <strong>Cloud Infrastructure Nodes</strong>.
+        </p>
+
+        <!-- Visual SVG Architecture Lineage Diagram -->
+        <div style="background:#050811; border:1px solid var(--border-subtle); border-radius:14px; padding:16px; margin-bottom:20px; overflow-x:auto;">
+          <svg viewBox="0 0 1040 165" width="100%" height="165" role="img" aria-label="5-Layer Vertical Traceability Diagram from Business Capability to Cloud Infrastructure">
+            <defs>
+              <marker id="arr-sky" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 1 L 10 5 L 0 9 z" fill="#38bdf8" />
+              </marker>
+              <marker id="arr-emerald" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 1 L 10 5 L 0 9 z" fill="#10b981" />
+              </marker>
+            </defs>
+
+            <!-- Layer 1 Node -->
+            <g transform="translate(14, 24)">
+              <rect width="175" height="114" rx="10" fill="#172554" stroke="#38bdf8" stroke-width="2" />
+              <text x="14" y="24" fill="#7dd3fc" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700">LAYER 1 · R2:C2 (L1)</text>
+              <text x="14" y="46" fill="#f8fafc" font-family="Inter, sans-serif" font-size="13" font-weight="800">«Capability»</text>
+              <text x="14" y="64" fill="#cbd5e1" font-family="Inter, sans-serif" font-size="11">Payment Order &amp;</text>
+              <text x="14" y="80" fill="#cbd5e1" font-family="Inter, sans-serif" font-size="11">Execution Domain</text>
+              <text x="14" y="102" fill="#34d399" font-family="JetBrains Mono, monospace" font-size="10">Object_Type='Class'</text>
+            </g>
+
+            <!-- Edge 1 -> 2 -->
+            <line x1="258" y1="81" x2="192" y2="81" stroke="#38bdf8" stroke-width="2" stroke-dasharray="4 3" marker-end="url(#arr-sky)" />
+            <text x="225" y="68" text-anchor="middle" fill="#93c5fd" font-family="JetBrains Mono, monospace" font-size="9.5">Realisation</text>
+            <text x="225" y="98" text-anchor="middle" fill="#34d399" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700">1..* &rarr; 1</text>
+
+            <!-- Layer 2 Node -->
+            <g transform="translate(260, 24)">
+              <rect width="182" height="114" rx="10" fill="#0f2942" stroke="#0ea5e9" stroke-width="2" />
+              <text x="14" y="24" fill="#38bdf8" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700">LAYER 2 · R3/R4:C2 (L2)</text>
+              <text x="14" y="46" fill="#f8fafc" font-family="Inter, sans-serif" font-size="13" font-weight="800">«Microservice»</text>
+              <text x="14" y="64" fill="#cbd5e1" font-family="Inter, sans-serif" font-size="11">Payment Initiation &amp;</text>
+              <text x="14" y="80" fill="#cbd5e1" font-family="Inter, sans-serif" font-size="11">Watchdog Saga Service</text>
+              <text x="14" y="102" fill="#34d399" font-family="JetBrains Mono, monospace" font-size="10">Object_Type='Component'</text>
+            </g>
+
+            <!-- Edge 2 -> 3A -->
+            <line x1="442" y1="55" x2="514" y2="48" stroke="#10b981" stroke-width="2" marker-end="url(#arr-emerald)" />
+            <text x="478" y="38" text-anchor="middle" fill="#6ee7b7" font-family="JetBrains Mono, monospace" font-size="9.5">Composition</text>
+            <text x="478" y="66" text-anchor="middle" fill="#34d399" font-family="JetBrains Mono, monospace" font-size="9.5" font-weight="700">1 &rarr; 1..*</text>
+
+            <!-- Edge 2 -> 3B -->
+            <line x1="442" y1="108" x2="514" y2="115" stroke="#38bdf8" stroke-width="2" marker-end="url(#arr-sky)" />
+            <text x="478" y="130" text-anchor="middle" fill="#93c5fd" font-family="JetBrains Mono, monospace" font-size="9.5">«reads/writes»</text>
+
+            <!-- Layer 3A Node (Code Class) -->
+            <g transform="translate(516, 8)">
+              <rect width="234" height="68" rx="8" fill="#1e1b4b" stroke="#818cf8" stroke-width="1.8" />
+              <text x="12" y="19" fill="#a5b4fc" font-family="JetBrains Mono, monospace" font-size="9.5" font-weight="700">LAYER 3A · CODE CLASS (R3:C1)</text>
+              <text x="12" y="37" fill="#f8fafc" font-family="Inter, sans-serif" font-size="12" font-weight="800">PayExPaymentObject «DataEntity»</text>
+              <text x="12" y="54" fill="#cbd5e1" font-family="JetBrains Mono, monospace" font-size="10">+ $.onBehalfOfPayer | + $.exchangeRate</text>
+            </g>
+
+            <!-- Layer 3B Node (Database Table) -->
+            <g transform="translate(516, 88)">
+              <rect width="234" height="68" rx="8" fill="#064e3b" stroke="#10b981" stroke-width="1.8" />
+              <text x="12" y="19" fill="#6ee7b7" font-family="JetBrains Mono, monospace" font-size="9.5" font-weight="700">LAYER 3B · DB SCHEMA (R5:C1)</text>
+              <text x="12" y="37" fill="#f8fafc" font-family="Inter, sans-serif" font-size="12" font-weight="800">ach_payment_request «tview_table»</text>
+              <text x="12" y="54" fill="#cbd5e1" font-family="JetBrains Mono, monospace" font-size="10">PK: payment_id | FK: nacha_header_id_fk</text>
+            </g>
+
+            <!-- Edge 3A/3B -> 4 -->
+            <line x1="750" y1="44" x2="824" y2="66" stroke="#38bdf8" stroke-width="2" marker-end="url(#arr-sky)" />
+            <line x1="750" y1="122" x2="824" y2="96" stroke="#10b981" stroke-width="2" marker-end="url(#arr-emerald)" />
+            <text x="787" y="42" text-anchor="middle" fill="#93c5fd" font-family="JetBrains Mono, monospace" font-size="9.5">«deploys»</text>
+            <text x="787" y="128" text-anchor="middle" fill="#6ee7b7" font-family="JetBrains Mono, monospace" font-size="9.5">«hosts» 1..*&rarr;1</text>
+
+            <!-- Layer 4 Node -->
+            <g transform="translate(826, 24)">
+              <rect width="198" height="114" rx="10" fill="#31102f" stroke="#f43f5e" stroke-width="2" />
+              <text x="14" y="24" fill="#fda4af" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700">LAYER 4 · R6:C2/C3 (L4)</text>
+              <text x="14" y="46" fill="#f8fafc" font-family="Inter, sans-serif" font-size="13" font-weight="800">«aws_eks» &amp; «aws_rds»</text>
+              <text x="14" y="64" fill="#cbd5e1" font-family="Inter, sans-serif" font-size="11">EKS Cluster &amp; Aurora</text>
+              <text x="14" y="80" fill="#cbd5e1" font-family="Inter, sans-serif" font-size="11">PostgreSQL Multi-AZ</text>
+              <text x="14" y="102" fill="#fda4af" font-family="JetBrains Mono, monospace" font-size="10">ParentID: AWS VPC Boundary</text>
+            </g>
+          </svg>
+        </div>
+
+        <div class="lineage-explorer">
+          <!-- Clickable Layer Stack -->
+          <div class="lineage-stack" role="tablist" aria-label="Metamodel Layers">
+            <button type="button" class="layer-card active" data-layer-idx="0" role="tab" aria-selected="true">
+              <div class="layer-card-header">
+                <span class="layer-tag">LAYER 1 · R1/R2:C2 (Stratum L0–L1)</span>
+                <span class="card-mult">1 Capability &rarr; 1..* Components</span>
+              </div>
+              <h4>Conceptual Business Capability &amp; BIAN Service Domain</h4>
+              <p><code>Object_Type = 'Class' | 'Component'</code> · <code>Stereotype = 'Capability' | 'ValueStream' | 'ServiceDomain'</code></p>
+            </button>
+
+            <div class="layer-connector-bridge">
+              <div class="bridge-line"></div>
+              <span>Realisation / Composition (<code>Connector_Type='Realisation'</code>, <code>Stereotype='trace'</code>, <code>1..* &rarr; 1</code>) or <code>ParentID</code></span>
+            </div>
+
+            <button type="button" class="layer-card" data-layer-idx="1" role="tab" aria-selected="false">
+              <div class="layer-card-header">
+                <span class="layer-tag">LAYER 2 · R3/R4:C2 (Stratum L2–L3)</span>
+                <span class="card-mult">1..* Components per Capability</span>
+              </div>
+              <h4>Logical Application Components, Microservices &amp; APIs</h4>
+              <p><code>Object_Type = 'Component' | 'Interface'</code> · <code>Stereotype = 'ApplicationComponent' | 'Microservice' | 'REST API' | 'gRPC'</code></p>
+            </button>
+
+            <div class="layer-connector-bridge">
+              <div class="bridge-line"></div>
+              <span>Composition / Instantiation (<code>Connector_Type='Composition'</code>, <code>SourceCard='1'</code>, <code>DestCard='1..*'</code>)</span>
+            </div>
+
+            <button type="button" class="layer-card" data-layer-idx="2" role="tab" aria-selected="false">
+              <div class="layer-card-header">
+                <span class="layer-tag">LAYER 3A · R3:C1 / R5:C2 (Stratum L2–L3)</span>
+                <span class="card-mult">1..* Code Classes &amp; Operations</span>
+              </div>
+              <h4>Code Implementation Classes, Attributes &amp; Canonical Payment Object</h4>
+              <p><code>Object_Type = 'Class'</code> · <code>tview_attributes</code> (<code>$.onBehalfOfPayer</code>, <code>$.exchangeRate</code>) &amp; <code>tview_operations</code></p>
+            </button>
+
+            <div class="layer-connector-bridge">
+              <div class="bridge-line"></div>
+              <span>Persistence &amp; ERD Foreign Keys (<code>Dependency «persists» 1..* &rarr; 1..*</code> · <code>Association «FK» 0..* &rarr; 1</code>)</span>
+            </div>
+
+            <button type="button" class="layer-card" data-layer-idx="3" role="tab" aria-selected="false">
+              <div class="layer-card-header">
+                <span class="layer-tag">LAYER 3B · R4:C1 / R5:C1 (Stratum L3)</span>
+                <span class="card-mult">1..* Physical SQL Tables &amp; Keys</span>
+              </div>
+              <h4>Database &amp; Physical Schema Objects (<code>«tview_table»</code>)</h4>
+              <p><code>Stereotype = 'tview_table' | 'PostgreSQL' | 'Redis'</code> · <code>tview_attributes</code> (Columns) &amp; <code>tview_operations</code> (<code>PK</code>/<code>FK</code>/<code>index</code>)</p>
+            </button>
+
+            <div class="layer-connector-bridge">
+              <div class="bridge-line"></div>
+              <span>Physical Cloud Deployment (<code>Connector_Type='Deployment'</code>, <code>Stereotype='deploys'|'hosts'</code>, <code>1..* &rarr; 1</code>)</span>
+            </div>
+
+            <button type="button" class="layer-card" data-layer-idx="4" role="tab" aria-selected="false">
+              <div class="layer-card-header">
+                <span class="layer-tag">LAYER 4 · R4:C3 / R6:C2 (Stratum L4)</span>
+                <span class="card-mult">1..* Runtime Cloud Nodes</span>
+              </div>
+              <h4>Physical Infrastructure, Kubernetes &amp; AWS Cloud Runtime</h4>
+              <p><code>Object_Type = 'Node' | 'Boundary'</code> · <code>Stereotype = 'aws_eks' | 'aws_rds' | 'aws_vpc' | 'DockerContainer'</code></p>
+            </button>
+          </div>
+
+          <!-- Dynamic Inspector Panel for Selected Layer -->
+          <div class="lineage-detail-panel" id="lineage-inspector-panel" aria-live="polite">
+            <div class="detail-header">
+              <span class="layer-tag" id="insp-layer-badge">LAYER 1 · R1/R2:C2 (Stratum L0–L1)</span>
+              <h3 id="insp-layer-title">Conceptual Business Capability &amp; BIAN Service Domain</h3>
+            </div>
+
+            <div class="spec-grid">
+              <div class="spec-box">
+                <div class="spec-box-label">tview_objects Metaclass</div>
+                <div class="spec-box-val" id="insp-metaclass">Object_Type = 'Class' | 'Component'</div>
+              </div>
+              <div class="spec-box">
+                <div class="spec-box-label">Allowed Stereotypes</div>
+                <div class="spec-box-val" id="insp-stereotypes">«Capability», «BusinessCapability», «ValueStream», «ServiceDomain»</div>
+              </div>
+              <div class="spec-box">
+                <div class="spec-box-label">Child / Link Multiplicity</div>
+                <div class="spec-box-val" id="insp-cardinality">1 Capability realized by 1..* Application Components</div>
+              </div>
+              <div class="spec-box">
+                <div class="spec-box-label">Live .tvwx Grounding</div>
+                <div class="spec-box-val" id="insp-grounding">Object #25 (1.1 Wire Payment Request Intake) &amp; BIAN Payment Execution</div>
+              </div>
+            </div>
+
+            <div style="font-family:var(--font-mono); font-size:11px; color:var(--text-muted); margin-bottom:6px; text-transform:uppercase;">
+              Verified SQL &amp; MCP Authoring Payload
+            </div>
+            <pre class="code-block" id="insp-code-block">-- Layer 1: Conceptual Capability in tview_objects
+SELECT Object_ID, Package_ID, ParentID, Name, Object_Type, Stereotype, Status, Phase
+FROM tview_objects
+WHERE Stereotype IN ('Capability', 'ServiceDomain', 'ValueStream');
+
+-- Live Row from Blank-Project.tvwx:
+-- Object_ID=25 | ParentID=24 | Name='1.1 Wire Payment Request Intake (API 9748 / 41757)'
+-- Object_Type='Class' | Stereotype='Capability' | Status='Approved' | Phase='1.0'
+
+-- MCP Tool Call (create_model_elements):
+{
+  "tool": "create_model_elements",
+  "arguments": {
+    "packageId": 7,
+    "diagramId": 2,
+    "elements": [{
+      "name": "Payment Order & Execution Capability",
+      "objectType": "Class",
+      "stereotype": "Capability",
+      "tags": { "bianDomain": "Payment Execution", "TIME Quadrant": "Invest" }
+    }]
+  }
+}</pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 3: Interactive Connector & Cardinality Validation Matrix -->
+      <section class="doc-section" id="sec-cardinality-matrix">
+        <div class="section-eyebrow">03 · Cross-Layer Morphisms &amp; Multiplicity Rules</div>
+        <h2>Complete Connector &amp; Cardinality Validation Matrix (<code>1..1</code>, <code>1...M</code>, <code>0..*</code>)</h2>
+        <p>
+          Filter the canonical relationship rules below by <strong>Source Layer</strong> or <strong>Relationship Type</strong> to verify how <code>tview_connectors</code> (<code>Start_Object_ID</code>, <code>End_Object_ID</code>, <code>SourceCard</code>, <code>DestCard</code>) and <code>tview_objects.ParentID</code> enforce architectural integrity across layers.
+        </p>
+
+        <div class="filter-bar">
+          <label for="filter-source-layer" style="font-size:12.5px; font-weight:600; color:var(--text-secondary);">Source Layer:</label>
+          <select id="filter-source-layer" class="filter-select">
+            <option value="ALL">All Source Layers (L0–L4)</option>
+            <option value="L1">Layer 1 · Capability / ServiceDomain (R1/R2)</option>
+            <option value="L2">Layer 2 · Application Component / API (R3/R4)</option>
+            <option value="L3A">Layer 3A · Code Class / DataEntity (R3/R5)</option>
+            <option value="L3B">Layer 3B · Physical Table / Schema (R4/R5)</option>
+            <option value="L4">Layer 4 · Cloud Infrastructure Node (R4/R6)</option>
+          </select>
+
+          <label for="filter-conn-type" style="font-size:12.5px; font-weight:600; color:var(--text-secondary);">Connector Type:</label>
+          <select id="filter-conn-type" class="filter-select">
+            <option value="ALL">All Connector Types</option>
+            <option value="Realisation">Realisation / Realization</option>
+            <option value="Composition">Composition / Aggregation / ParentID</option>
+            <option value="Dependency">Dependency («persists», «reads/writes», «trace»)</option>
+            <option value="Association">Association («FK» ERD Foreign Key)</option>
+            <option value="Deployment">Deployment («deploys», «hosts»)</option>
+          </select>
+        </div>
+
+        <div tabindex="0" role="region" aria-labelledby="caption-cardinality-matrix" class="table-wrapper">
+          <table id="cardinality-table" style="--label-2: 'Target Layer'; --label-3: 'Connector_Type'; --label-4: 'Stereotype'; --label-5: 'SourceCard -> DestCard'; --label-6: 'Validation Rule';">
+            <caption id="caption-cardinality-matrix">Cross-Layer Connector &amp; Multiplicity Validation Rules (<code>tview_connectors</code> &amp; <code>tview_objects.ParentID</code>)</caption>
+            <thead>
+              <tr>
+                <th scope="col">Source Layer &amp; Type</th>
+                <th scope="col">Target Layer &amp; Type</th>
+                <th scope="col"><code>Connector_Type</code></th>
+                <th scope="col"><code>Stereotype</code></th>
+                <th scope="col">Cardinality (<code>SourceCard &rarr; DestCard</code>)</th>
+                <th scope="col">Architectural &amp; Graph Validation Semantics</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr data-src="L1" data-ctype="Composition">
+                <th scope="row">L1 Child <code>«Capability»</code></th>
+                <td>L1 Parent <code>«Capability»</code> / <code>«ValueStream»</code></td>
+                <td><code>Aggregation</code> / <code>ParentID</code></td>
+                <td><code>«contains»</code> / <code>«decomposes»</code></td>
+                <td><code>1..* &rarr; 1</code></td>
+                <td>Decomposes L0 Value Streams into L1/L2/L3 nested Business Capabilities.</td>
+              </tr>
+              <tr data-src="L2" data-ctype="Realisation">
+                <th scope="row">L2 <code>«Microservice»</code> / <code>«ApplicationComponent»</code></th>
+                <td>L1 <code>«Capability»</code> / <code>«ServiceDomain»</code></td>
+                <td><code>Realisation</code> / <code>Dependency</code></td>
+                <td><code>«trace»</code> / <code>«BIAN»</code></td>
+                <td><code>1..* &rarr; 1</code></td>
+                <td>Satisfies Rust CSR invariant <code>I_TRACE_VERTICAL</code>: <code>1...M</code> components realize a capability.</td>
+              </tr>
+              <tr data-src="L2" data-ctype="Realisation">
+                <th scope="row">L2 <code>«Microservice»</code></th>
+                <td>L2 <code>«ApplicationInterface»</code> / <code>«REST API»</code></td>
+                <td><code>Realisation</code></td>
+                <td><code>«exposes»</code> / <code>«serves»</code></td>
+                <td><code>1 &rarr; 1..*</code></td>
+                <td><code>1</code> Application Component exposes <code>1...M</code> versioned REST/gRPC/ISO 20022 API contracts.</td>
+              </tr>
+              <tr data-src="L2" data-ctype="Composition">
+                <th scope="row">L2 <code>«Microservice»</code> / <code>«ApplicationComponent»</code></th>
+                <td>L3A <code>«DataEntity»</code> / <code>«implementationClass»</code></td>
+                <td><code>Composition</code> / <code>Dependency</code></td>
+                <td><code>«instantiates»</code> / <code>«ArchiMate_Flow»</code></td>
+                <td><code>1 &rarr; 1..*</code></td>
+                <td>Links a microservice to the <code>1...M</code> domain code classes &amp; canonical DTOs it compiles/executes.</td>
+              </tr>
+              <tr data-src="L2" data-ctype="Dependency">
+                <th scope="row">L2 <code>«Microservice»</code></th>
+                <td>L3B <code>«tview_table»</code> / <code>«datastore»</code></td>
+                <td><code>Dependency</code></td>
+                <td><code>«reads/writes»</code> / <code>«Access»</code></td>
+                <td><code>1..* &rarr; 1..*</code></td>
+                <td>Runtime CRUD/query dependency from an application service to physical tables or Redis caches.</td>
+              </tr>
+              <tr data-src="L3A" data-ctype="Dependency">
+                <th scope="row">L3A <code>«DataEntity»</code> (<code>PayExPaymentObject</code>)</th>
+                <td>L3B <code>«tview_table»</code> (<code>ach_payment_request</code>)</td>
+                <td><code>Dependency</code> / <code>Realisation</code></td>
+                <td><code>«persists»</code> / <code>«DataAssociation»</code></td>
+                <td><code>1..* &rarr; 1..*</code></td>
+                <td>ORM/schema persistence mapping from code attributes (<code>$.onBehalfOfPayer</code>) to SQL columns.</td>
+              </tr>
+              <tr data-src="L3B" data-ctype="Association">
+                <th scope="row">L3B Child <code>«tview_table»</code> (<code>ach_payment_request</code>)</th>
+                <td>L3B Parent <code>«tview_table»</code> (<code>nacha_header</code>)</td>
+                <td><code>Association</code></td>
+                <td><code>«FK»</code></td>
+                <td><code>0..* &rarr; 1</code> (or <code>1..* &rarr; 1</code>)</td>
+                <td>Physical ERD Foreign Key constraint backed by <code>tview_operations</code> (<code>Stereotype='FK'</code>).</td>
+              </tr>
+              <tr data-src="L2" data-ctype="Deployment">
+                <th scope="row">L2/L3 <code>«Microservice»</code> / <code>«Artifact»</code></th>
+                <td>L4 <code>«aws_eks»</code> / <code>«aws_lambda»</code> / <code>«Node»</code></td>
+                <td><code>Deployment</code> / <code>Dependency</code></td>
+                <td><code>«deploys»</code> / <code>«manifest»</code></td>
+                <td><code>1..* &rarr; 1..*</code></td>
+                <td>Instantiates and schedules <code>1...M</code> microservice containers onto Kubernetes/Cloud compute nodes.</td>
+              </tr>
+              <tr data-src="L3B" data-ctype="Deployment">
+                <th scope="row">L3B <code>«tview_table»</code> / <code>«dbsequence»</code></th>
+                <td>L4 <code>«aws_rds»</code> / <code>«PostgreSQL»</code> / <code>«RedisCluster»</code></td>
+                <td><code>Deployment</code> / <code>Dependency</code></td>
+                <td><code>«hosts»</code> / <code>«instantiates»</code></td>
+                <td><code>1..* &rarr; 1</code></td>
+                <td>Hosts <code>1...M</code> physical relational tables and sequences inside a database cluster instance.</td>
+              </tr>
+              <tr data-src="L4" data-ctype="Composition">
+                <th scope="row">L4 <code>«aws_eks»</code> / <code>«aws_rds»</code> Node</th>
+                <td>L4 <code>«aws_vpc»</code> / <code>«aws_subnet»</code> Boundary</td>
+                <td><code>ParentID</code> / <code>Composition</code></td>
+                <td><code>«contains»</code></td>
+                <td><code>1..* &rarr; 1</code></td>
+                <td>Encloses cloud compute and database nodes inside VPC, Subnet, and Availability Zone boundaries.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- SECTION 4: Mathematical Validation in the Rust CSR Graph Engine -->
+      <section class="doc-section" id="sec-rust-validation">
+        <div class="section-eyebrow">04 · Formal Semantic Integrity &amp; Graph Algorithms</div>
+        <h2>How the Rust CSR Graph Core (<code>tview-graph-core</code>) Validates Metamodel Lineage</h2>
+        <p>
+          Implemented in <code>rust/tview-graph-core/src/lib.rs</code> and orchestrated by <code>internal/earepo/reasoning_engine.go</code>, TreeviewEA compiles all repository objects and connectors into a dual-indexed <strong>Compressed Sparse Row (CSR + Reversed CSC)</strong> property graph and enforces 4 mathematical invariants:
+        </p>
+
+        <div class="pattern-grid">
+          <div class="pattern-card">
+            <span class="badge-inline">INVARIANT 1 · I_TRACE_VERTICAL</span>
+            <h4>5-Stratum Lineage Reachability</h4>
+            <p style="font-size:13px; color:var(--text-secondary);">
+              Executes a bidirectional 5-hop BFS across <code>HasScopeToConceptLink</code> (<code>R1&rarr;R2</code>), <code>HasConceptToLogicLink</code> (<code>R2&rarr;R3</code>), <code>HasLogicToPhysicsLink</code> (<code>R3&rarr;R4</code>), <code>HasPhysicsToAssemblyLink</code> (<code>R4&rarr;R5</code>), and <code>HasAssemblyToOpsLink</code> (<code>R5&rarr;R6</code>). Flags unbacked microservices or tables as <code>SHADOW_INFRASTRUCTURE_DRIFT</code>.
+            </p>
+          </div>
+
+          <div class="pattern-card">
+            <span class="badge-inline">INVARIANT 2 · I_TYPED_MORPHISM</span>
+            <h4>Layer-Bypass Erosion Detection</h4>
+            <p style="font-size:13px; color:var(--text-secondary);">
+              Evaluates <code>|stratum(u) - stratum(v)|</code> for every directed edge. Any connector that skips <code>&ge; 3</code> abstraction strata (e.g., wiring an <code>L0/L1</code> Business Capability directly to an <code>L4</code> AWS RDS instance without an intermediate <code>L2/L3</code> Component/Table) emits a <code>LAYER_BYPASS</code> violation.
+            </p>
+          </div>
+
+          <div class="pattern-card">
+            <span class="badge-inline">INVARIANT 3 · I_DAG_CONTAINMENT</span>
+            <h4>Tarjan SCC Cycle Detection</h4>
+            <p style="font-size:13px; color:var(--text-secondary);">
+              Runs Tarjan's Strongly Connected Components (<code>detect_cycles_tarjan</code>) in <code>O(|V| + |E|)</code> time over CSR <code>row_ptr</code> / <code>col_idx</code> arrays to isolate circular microservice or package dependencies (<code>CYCLIC_DEPENDENCY_CREEP</code>).
+            </p>
+          </div>
+
+          <div class="pattern-card">
+            <span class="badge-inline">INVARIANT 4 · I_CANONICAL_SCHEMA</span>
+            <h4>PayEx / Transaction Hub Lineage &amp; Centrality</h4>
+            <p style="font-size:13px; color:var(--text-secondary);">
+              Verifies ISO 20022 dot-notation attribute coverage (<code>$.onBehalfOfPayer</code>, <code>$.returnSpecificInfo</code>, <code>$.enrichedDataInExchange</code>, <code>$.exchangeRate</code>) and computes Power-Iteration <strong>PageRank</strong>, <strong>Brandes Betweenness Centrality</strong>, and <strong>3-Hop Blast Radius</strong>.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 5: Complete 7-Tier 39-Tool MCP & UI Tool Taxonomy -->
+      <section class="doc-section" id="sec-tool-taxonomy">
+        <div class="section-eyebrow">05 · Complete 39-Tool MCP &amp; Studio UI Catalog</div>
+        <h2>7-Tier Functional Tool Taxonomy</h2>
+        <p>
+          Filter all <strong>39 Model Context Protocol (MCP) tools</strong> across the 7 functional taxonomy tiers, or search by tool name, <code>tview_*</code> table, or Studio UI workspace.
+        </p>
+
+        <div class="tier-pills" role="tablist" aria-label="Filter tools by functional taxonomy tier">
+          <button type="button" class="tier-pill active" data-tier="ALL">All 7 Tiers (39 Tools)</button>
+          <button type="button" class="tier-pill" data-tier="T1">Tier 1 · Project &amp; Backends (5)</button>
+          <button type="button" class="tier-pill" data-tier="T2">Tier 2 · Framework Scaffolding (3)</button>
+          <button type="button" class="tier-pill" data-tier="T3">Tier 3 · Metamodel &amp; Schema (9)</button>
+          <button type="button" class="tier-pill" data-tier="T4">Tier 4 · Linking &amp; Matrices (5)</button>
+          <button type="button" class="tier-pill" data-tier="T5">Tier 5 · Diagrams &amp; Canvas (8)</button>
+          <button type="button" class="tier-pill" data-tier="T6">Tier 6 · 1...M Planning &amp; FinOps (5)</button>
+          <button type="button" class="tier-pill" data-tier="T7">Tier 7 · AI Reasoning &amp; ARB (4)</button>
+        </div>
+
+        <div class="filter-bar">
+          <label for="tool-search-input" style="font-size:12.5px; font-weight:600; color:var(--text-secondary);">Quick Filter:</label>
+          <input type="search" id="tool-search-input" class="filter-input" placeholder="Search tool name, tview_* table, or layer..." style="flex:1; min-width:220px;" />
+        </div>
+
+        <div tabindex="0" role="region" aria-labelledby="caption-mcp-taxonomy" class="table-wrapper">
+          <table id="taxonomy-tools-table" style="--label-2: 'Taxonomy Tier'; --label-3: 'Primary tview_* Tables'; --label-4: 'Studio UI Surface'; --label-5: 'Architectural Capability';">
+            <caption id="caption-mcp-taxonomy">Complete 39-Tool TreeviewEA MCP Taxonomy Mapped to <code>tview_*</code> Tables &amp; Studio Workspaces</caption>
+            <thead>
+              <tr>
+                <th scope="col">MCP Tool Name</th>
+                <th scope="col">Taxonomy Tier</th>
+                <th scope="col">Primary <code>tview_*</code> Tables</th>
+                <th scope="col">Studio UI Surface</th>
+                <th scope="col">Architectural Capability &amp; Parameters</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- TIER 1 -->
+              <tr data-tier="T1">
+                <th scope="row"><code>get_repository_context</code></th>
+                <td>Tier 1 · Lifecycle</td>
+                <td><code>tview_packages</code>, <code>tview_diagrams</code>, <code>tview_objects</code></td>
+                <td>Welcome Hub &amp; Project Browser</td>
+                <td>Inspects active <code>.tvwx</code> summary, root folders, diagram counts, and active canvas nodes/edges.</td>
+              </tr>
+              <tr data-tier="T1">
+                <th scope="row"><code>manage_project_lifecycle</code></th>
+                <td>Tier 1 · Lifecycle</td>
+                <td>All 22 <code>&lt;prefix&gt;_*</code> tables</td>
+                <td><code>File &rarr; New / Open / Save As / Switch</code></td>
+                <td><code>list</code>, <code>open</code>, <code>create</code>, <code>save</code>, <code>save_as</code>, <code>close</code>, <code>reset</code> across <code>file</code> (<code>.tvwx</code>) or <code>schema</code> (<code>tablePrefix</code>).</td>
+              </tr>
+              <tr data-tier="T1">
+                <th scope="row"><code>manage_repository_backups</code></th>
+                <td>Tier 1 · Lifecycle</td>
+                <td><code>.tvwx</code> snapshots, <code>tview_diagram_links</code></td>
+                <td><code>#ws-setup</code> (Backups &amp; Prune)</td>
+                <td>Creates/restores timestamped <code>.tvwx</code> snapshots and prunes orphan diagram links/properties.</td>
+              </tr>
+              <tr data-tier="T1">
+                <th scope="row"><code>undo_redo_repository</code></th>
+                <td>Tier 1 · Lifecycle</td>
+                <td>Transactional SQLite Snapshot Stack</td>
+                <td>Topbar <code>⌘Z</code> / <code>⇧⌘Z</code></td>
+                <td>Inspects undo/redo depth or executes multi-step atomic <code>undo</code> / <code>redo</code> across all tables.</td>
+              </tr>
+              <tr data-tier="T1">
+                <th scope="row"><code>manage_database_backends</code></th>
+                <td>Tier 1 · Lifecycle</td>
+                <td><code>tview_system_config</code> + External DBs</td>
+                <td><code>#ws-setup</code> (Database Connectors)</td>
+                <td>Configures SQLite, PostgreSQL, Oracle, MongoDB, Neo4j, and Redis; generates DDL and syncs to Redis.</td>
+              </tr>
+
+              <!-- TIER 2 -->
+              <tr data-tier="T2">
+                <th scope="row"><code>wizard_scaffold_architecture</code></th>
+                <td>Tier 2 · Scaffolding</td>
+                <td><code>tview_packages</code>, <code>tview_diagrams</code>, <code>tview_objects</code></td>
+                <td><code>#dlg-creation-wizard</code> (<code>🧙 Wizard</code>)</td>
+                <td>Scaffolds contextual packages, diagrams, or elements across 8 domain profiles with starter blueprints.</td>
+              </tr>
+              <tr data-tier="T2">
+                <th scope="row"><code>instantiate_ea_framework</code></th>
+                <td>Tier 2 · Scaffolding</td>
+                <td><code>tview_packages</code>, <code>tview_objects</code>, <code>tview_xrefs</code></td>
+                <td><code>#ws-eacoe</code> (Framework Wizard)</td>
+                <td>Instantiates complete <code>BIAN</code> v12, <code>TOGAF10</code> ADM, <code>ARCHIMATE3</code> 3.2, or <code>ISO20022</code> models &amp; diagrams.</td>
+              </tr>
+              <tr data-tier="T2">
+                <th scope="row"><code>create_project_folder</code></th>
+                <td>Tier 2 · Scaffolding</td>
+                <td><code>tview_packages</code>, <code>tview_objects</code></td>
+                <td>Project Browser <code>+ Folder</code></td>
+                <td>Creates a root or child package and batch-creates nested <code>subFolders</code> in one transaction.</td>
+              </tr>
+
+              <!-- TIER 3 -->
+              <tr data-tier="T3">
+                <th scope="row"><code>manage_packages</code></th>
+                <td>Tier 3 · Authoring</td>
+                <td><code>tview_packages</code>, <code>tview_objects</code>, <code>tview_diagrams</code></td>
+                <td>Folder Context Menu</td>
+                <td><code>get_tree</code>, <code>create</code>, <code>update</code> (rename/move), <code>duplicate</code> (clones subtree for <code>1...M</code> waves), <code>delete</code>.</td>
+              </tr>
+              <tr data-tier="T3">
+                <th scope="row"><code>search_architecture_objects</code></th>
+                <td>Tier 3 · Authoring</td>
+                <td><code>tview_objects</code>, <code>tview_diagrams</code></td>
+                <td>Universal Finder (<code>⌘F</code>)</td>
+                <td>Searches elements and diagrams by keyword, <code>objectType</code>, <code>stereotype</code>, and <code>limit</code>.</td>
+              </tr>
+              <tr data-tier="T3">
+                <th scope="row"><code>inspect_object_details</code></th>
+                <td>Tier 3 · Authoring</td>
+                <td><code>tview_objects</code>, <code>tview_attributes</code>, <code>tview_operations</code></td>
+                <td>Right Inspector (<code>#pane-inspector</code>)</td>
+                <td>Retrieves full specification of <code>objectId</code> including nested <code>ParentID</code> children, columns, methods, tags, and financials.</td>
+              </tr>
+              <tr data-tier="T3">
+                <th scope="row"><code>create_model_elements</code></th>
+                <td>Tier 3 · Authoring</td>
+                <td><code>tview_objects</code>, <code>tview_attributes</code>, <code>tview_object_properties</code></td>
+                <td>Toolbox &amp; Element Creator</td>
+                <td>Batch-creates typed objects with stereotypes, <code>col:type</code> attributes, tagged values, and canvas placement.</td>
+              </tr>
+              <tr data-tier="T3">
+                <th scope="row"><code>update_architecture_item</code></th>
+                <td>Tier 3 · Authoring</td>
+                <td><code>tview_packages</code>, <code>tview_diagrams</code>, <code>tview_objects</code></td>
+                <td>Inspector &amp; Inline Rename</td>
+                <td>Renames/updates a package, diagram, or object, or performs recursive <code>subtree-replace</code> across a package tree.</td>
+              </tr>
+              <tr data-tier="T3">
+                <th scope="row"><code>delete_architecture_objects</code></th>
+                <td>Tier 3 · Authoring</td>
+                <td><code>tview_objects</code>, <code>tview_diagram_objects</code>, <code>tview_connectors</code></td>
+                <td>Canvas <code>Delete</code> / <code>⌫</code></td>
+                <td>Removes objects either from a single diagram (<code>diagramOnly=true</code>) or permanently from the repository.</td>
+              </tr>
+              <tr data-tier="T3">
+                <th scope="row"><code>manage_object_schema_and_tags</code></th>
+                <td>Tier 3 · Authoring</td>
+                <td><code>tview_attributes</code>, <code>tview_operations</code>, <code>tview_object_properties</code>, <code>tview_stereotypes</code></td>
+                <td>Inspector Schema Tabs &amp; <code>#ws-database</code></td>
+                <td>Adds/deletes attributes/columns, operations/PK/FK keys, tagged values, System Note text, and generates SQL DDL.</td>
+              </tr>
+              <tr data-tier="T3">
+                <th scope="row"><code>bulk_find_and_replace_objects</code></th>
+                <td>Tier 3 · Authoring</td>
+                <td><code>tview_objects</code>, <code>tview_object_properties</code>, <code>tview_attributes</code></td>
+                <td><code>#ws-objects</code> Bulk Edit Bar</td>
+                <td>Batch-updates <code>status</code>, <code>phase</code>, <code>stereotype</code>, <code>packageId</code> (<code>mode='fields'</code>) or global text replace (<code>mode='replace'</code>).</td>
+              </tr>
+              <tr data-tier="T3">
+                <th scope="row"><code>import_tabular_objects</code></th>
+                <td>Tier 3 · Authoring</td>
+                <td><code>tview_objects</code>, <code>tview_attributes</code>, <code>tview_object_properties</code></td>
+                <td><code>File &rarr; Import CSV / XLSX</code></td>
+                <td>Imports Excel (<code>.xlsx</code>), CSV, or TSV sheets into repository objects, attributes, tags, and connectors.</td>
+              </tr>
+
+              <!-- TIER 4 -->
+              <tr data-tier="T4">
+                <th scope="row"><code>connect_elements</code></th>
+                <td>Tier 4 · Linking</td>
+                <td><code>tview_connectors</code>, <code>tview_diagram_links</code></td>
+                <td>Canvas Ports (<code>N/E/S/W</code>)</td>
+                <td>Batch-creates typed connectors (<code>Realisation</code>, <code>Composition</code>, <code>Dependency</code>, <code>Association</code>, <code>Sequence</code>).</td>
+              </tr>
+              <tr data-tier="T4">
+                <th scope="row"><code>manage_connectors_and_bends</code></th>
+                <td>Tier 4 · Linking</td>
+                <td><code>tview_connectors</code>, <code>tview_diagram_links</code></td>
+                <td>Connector HUD &amp; Right-Click Bend Menu</td>
+                <td>Updates roles, <code>sourceCard</code>, <code>destCard</code>, routing (<code>elbow</code>/<code>straight</code>/<code>vector</code>), and adds/removes bend waypoints.</td>
+              </tr>
+              <tr data-tier="T4">
+                <th scope="row"><code>group_and_ungroup_objects</code></th>
+                <td>Tier 4 · Linking</td>
+                <td><code>tview_objects</code> (<code>ParentID</code>), <code>tview_diagram_objects</code></td>
+                <td><code>⌘G</code> Group / <code>⇧⌘G</code> Ungroup</td>
+                <td>Nests child objects inside a parent container (<code>ParentID</code>) so moving the parent moves all nested children together.</td>
+              </tr>
+              <tr data-tier="T4">
+                <th scope="row"><code>query_intersection_matrix</code></th>
+                <td>Tier 4 · Linking</td>
+                <td><code>tview_connectors</code>, <code>tview_objects</code>, <code>tview_diagram_objects</code></td>
+                <td><code>#ws-eacoe</code> Intersection Matrix</td>
+                <td>Computes 4-dimension weighted intersection (Hierarchy <code>×4</code>, Connector <code>×3</code>, Diagram <code>×2</code>, Resource <code>×2</code>).</td>
+              </tr>
+              <tr data-tier="T4">
+                <th scope="row"><code>analyze_dependency_impact</code></th>
+                <td>Tier 4 · Linking</td>
+                <td><code>tview_connectors</code>, <code>tview_objects</code></td>
+                <td><code>#ws-graph</code> N-Hop Impact Graph</td>
+                <td>Executes <code>1..4</code> hop upstream/downstream impact traversal and builds source-to-target Traceability Matrices.</td>
+              </tr>
+
+              <!-- TIER 5 -->
+              <tr data-tier="T5">
+                <th scope="row"><code>create_architecture_diagram</code></th>
+                <td>Tier 5 · Diagramming</td>
+                <td><code>tview_diagrams</code>, <code>tview_diagram_objects</code></td>
+                <td><code>+ New Diagram</code> Modal</td>
+                <td>Creates a new diagram in a package and optionally populates a starter architecture blueprint.</td>
+              </tr>
+              <tr data-tier="T5">
+                <th scope="row"><code>inspect_diagram_details</code></th>
+                <td>Tier 5 · Diagramming</td>
+                <td><code>tview_diagrams</code>, <code>tview_diagram_objects</code>, <code>tview_diagram_links</code></td>
+                <td>Modeling Studio Canvas (<code>#ws-studio</code>)</td>
+                <td>Returns complete visual geometry, 18 shape overrides, colors, attributes, and connector waypoints for a diagram.</td>
+              </tr>
+              <tr data-tier="T5">
+                <th scope="row"><code>manage_diagrams</code></th>
+                <td>Tier 5 · Diagramming</td>
+                <td><code>tview_diagrams</code>, <code>tview_diagram_objects</code></td>
+                <td>Diagram Tab Bar &amp; Browser Menu</td>
+                <td><code>list</code>, <code>update</code>, <code>duplicate</code>, <code>delete</code>, <code>place_objects</code> (reuses canonical <code>Object_ID</code>s on <code>1...M</code> diagrams), <code>remove_objects</code>.</td>
+              </tr>
+              <tr data-tier="T5">
+                <th scope="row"><code>set_diagram_node_shapes_and_bounds</code></th>
+                <td>Tier 5 · Diagramming</td>
+                <td><code>tview_diagram_objects</code>, <code>tview_objects</code></td>
+                <td>Selection Bar Shape &amp; Align Controls</td>
+                <td>Sets any of 18 visual shapes, bounding-box coordinates, lock state, fill colors, and alignment/distribution.</td>
+              </tr>
+              <tr data-tier="T5">
+                <th scope="row"><code>auto_layout_diagram</code></th>
+                <td>Tier 5 · Diagramming</td>
+                <td><code>tview_diagram_objects</code>, <code>tview_diagram_links</code></td>
+                <td><code>Arrange &rarr; Auto-Layout</code></td>
+                <td>Arranges all diagram nodes into a non-overlapping layered grid or Sequence lifeline row.</td>
+              </tr>
+              <tr data-tier="T5">
+                <th scope="row"><code>bulk_style_elements</code></th>
+                <td>Tier 5 · Diagramming</td>
+                <td><code>tview_objects</code>, <code>tview_diagram_objects</code></td>
+                <td>Batch Color Swatches</td>
+                <td>Applies hex fill color (<code>#RRGGBB</code>) or lifecycle status across a diagram or stereotype group.</td>
+              </tr>
+              <tr data-tier="T5">
+                <th scope="row"><code>insert_diagram_image</code></th>
+                <td>Tier 5 · Diagramming</td>
+                <td><code>tview_images</code>, <code>tview_objects</code>, <code>tview_diagram_objects</code></td>
+                <td><code>⌘V</code> Paste Image / <code>🖼️ Image</code></td>
+                <td>Stores PNG/JPEG/SVG/WebP assets in <code>tview_images</code> and places a resizable image node on the canvas.</td>
+              </tr>
+              <tr data-tier="T5">
+                <th scope="row"><code>control_application_ui</code></th>
+                <td>Tier 5 · Diagramming</td>
+                <td>Live SSE UI Event Stream</td>
+                <td>Native macOS Window Remote Control</td>
+                <td>Switches workspaces, opens/closes diagram tabs, selects objects, zooms, and toggles the 6 Modeling Toolkits.</td>
+              </tr>
+
+              <!-- TIER 6 -->
+              <tr data-tier="T6">
+                <th scope="row"><code>update_component_estimates</code></th>
+                <td>Tier 6 · 1...M Planning</td>
+                <td><code>tview_object_efforts</code>, <code>tview_object_metrics</code>, <code>tview_object_resources</code></td>
+                <td><code>#ws-analytics</code> WBS &amp; Cost Editor</td>
+                <td>Upserts WBS effort hours, <code>CapEx</code>/<code>OpEx</code>/<code>Savings</code> metrics, RACI allocations, and <code>autoComputeLaborCapEx</code>.</td>
+              </tr>
+              <tr data-tier="T6">
+                <th scope="row"><code>get_component_estimates</code></th>
+                <td>Tier 6 · 1...M Planning</td>
+                <td><code>tview_object_efforts</code>, <code>tview_object_metrics</code>, <code>tview_people</code></td>
+                <td><code>#ws-analytics</code> Cost Rollup</td>
+                <td>Retrieves element, diagram, or package-subtree financial and effort rollups plus <code>tview_people</code> rate cards.</td>
+              </tr>
+              <tr data-tier="T6">
+                <th scope="row"><code>update_time_and_finops</code></th>
+                <td>Tier 6 · 1...M Planning</td>
+                <td><code>tview_object_properties</code></td>
+                <td><code>#ws-governance</code> Gartner TIME Matrix</td>
+                <td>Sets Gartner TIME disposition (<code>Invest</code>, <code>Tolerate</code>, <code>Migrate</code>, <code>Eliminate</code>), Business Value, and Tech Fit.</td>
+              </tr>
+              <tr data-tier="T6">
+                <th scope="row"><code>manage_people_roster</code></th>
+                <td>Tier 6 · 1...M Planning</td>
+                <td><code>tview_people</code>, <code>tview_resources</code></td>
+                <td><code>#ws-analytics</code> People Directory</td>
+                <td>Manages architects, engineers, hourly rate cards, weekly capacity, RACI defaults, and utilization rollups.</td>
+              </tr>
+              <tr data-tier="T6">
+                <th scope="row"><code>export_architecture_artifacts</code> &amp; <code>attach_artifact_or_document</code></th>
+                <td>Tier 6 · 1...M Planning</td>
+                <td><code>tview_diagrams</code>, <code>tview_objects</code>, <code>tview_images</code></td>
+                <td><code>📚 Rational Rose Publisher</code> &amp; Export</td>
+                <td>Publishes Rational Rose HTML dossiers (<code>rose-html</code>), multi-page vector PDF books (<code>collection-pdf</code>), Draw.io/Visio/Mermaid/DDL, and attaches external docs.</td>
+              </tr>
+
+              <!-- TIER 7 -->
+              <tr data-tier="T7">
+                <th scope="row"><code>evaluate_orthogonal_matrix</code></th>
+                <td>Tier 7 · AI &amp; ARB</td>
+                <td><code>tview_graph_edges</code>, <code>tview_graph_embeddings</code></td>
+                <td><code>#ws-reasoning</code> (<code>🧠 6×6 Matrix &amp; AI</code>)</td>
+                <td>Executes Rust CSR Core + Python ML Engine (<code>onnx_local</code> / <code>ollama_redis</code> / <code>hybrid</code>) across all 36 cells.</td>
+              </tr>
+              <tr data-tier="T7">
+                <th scope="row"><code>detect_and_forecast_architectural_drift</code></th>
+                <td>Tier 7 · AI &amp; ARB</td>
+                <td><code>tview_drift_findings</code>, <code>tview_graph_embeddings</code></td>
+                <td><code>#ws-reasoning</code> Drift Forecaster</td>
+                <td>Forecasts 30d/90d drift across 5 classes (Shadow Infra, Canonical Schema, Layer Bypass, Cycles, Hub Fragility).</td>
+              </tr>
+              <tr data-tier="T7">
+                <th scope="row"><code>apply_proactive_architecture_optimization</code></th>
+                <td>Tier 7 · AI &amp; ARB</td>
+                <td><code>tview_objects</code>, <code>tview_connectors</code>, <code>tview_attributes</code></td>
+                <td><code>#ws-reasoning</code> 1-Click Remediate</td>
+                <td>Executes undoable graph remediation (anchors orphan assets to capabilities, injects PayEx attributes, decouples cycles).</td>
+              </tr>
+              <tr data-tier="T7">
+                <th scope="row"><code>run_multi_agent_arb</code>, <code>auto_remediate_arb_findings</code> &amp; <code>query_portfolio_analytics_and_eacoe</code></th>
+                <td>Tier 7 · AI &amp; ARB</td>
+                <td><code>tview_objects</code>, <code>tview_object_metrics</code>, <code>tview_object_properties</code></td>
+                <td><code>#ws-governance</code> ARB &amp; <code>#ws-eacoe</code></td>
+                <td>Runs the 4-specialist Architecture Review Board, auto-remediates findings, and computes EACOE &amp; Pinnacle Affinity clusters.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- SECTION 6: Building Execution & Migration Plans for 1...M Models -->
+      <section class="doc-section" id="sec-1m-planning">
+        <div class="section-eyebrow">06 · Multi-Model Governance &amp; Roadmapping</div>
+        <h2>Building Execution, WBS &amp; FinOps Plans for <code>1...M</code> Models</h2>
+        <p>
+          Whether you are governing <strong>1 Enterprise Capability Model fanned out into M Domain Microservice Models</strong> or sequencing <strong>Baseline ("As-Is") &rarr; Wave 1..N Transition Models &rarr; Target ("To-Be") Architecture</strong>, TreeviewEA provides three structural patterns backed by live WBS, Gartner TIME, and FinOps rollups.
+        </p>
+
+        <div class="pattern-grid">
+          <div class="pattern-card">
+            <span class="badge-inline">PATTERN A · MULTI-PREFIX / MULTI-FILE</span>
+            <h4>1 Database &rarr; M Isolated Table-Prefix Schemas</h4>
+            <p style="font-size:13px; color:var(--text-secondary);">
+              Use <code>manage_project_lifecycle</code> with <code>storageMode='schema'</code> and custom prefixes (e.g., <code>tview_</code> for Baseline, <code>wave1_</code> for Transition Wave 1, <code>target_</code> for To-Be) inside a single <code>.tvwx</code> or PostgreSQL database, or clone separate <code>.tvwx</code> files in <code>&lt; 50ms</code>.
+            </p>
+          </div>
+
+          <div class="pattern-card">
+            <span class="badge-inline">PATTERN B · MULTI-PACKAGE HIERARCHY</span>
+            <h4>1 Root Repository &rarr; M Domain / Wave Packages</h4>
+            <p style="font-size:13px; color:var(--text-secondary);">
+              Organize <code>1...M</code> models as packages in <code>tview_packages</code>. Use <code>manage_packages(action='duplicate')</code> to branch a baseline package subtree into a new Transition Wave package, and wire cross-package traceability connectors in <code>tview_connectors</code>.
+            </p>
+          </div>
+
+          <div class="pattern-card">
+            <span class="badge-inline">PATTERN C · CANONICAL OBJECT PROJECTION</span>
+            <h4>1 Canonical Object &rarr; M Visual Diagrams</h4>
+            <p style="font-size:13px; color:var(--text-secondary);">
+              Store each capability, microservice, class, or table once in <code>tview_objects</code> (<code>Object_ID</code>) and project it onto <code>1...M</code> diagrams in <code>tview_diagram_objects</code> via <code>manage_diagrams(action='place_objects')</code>. Updating an attribute or status updates all <code>M</code> diagrams automatically.
+            </p>
+          </div>
+        </div>
+
+        <h3 class="sub-heading">End-to-End <code>1...M</code> Model Execution Plan Matrix (Verified Live Repository Rollup)</h3>
+        <div tabindex="0" role="region" aria-labelledby="caption-1m-wave-plan" class="table-wrapper">
+          <table style="--label-2: 'Model Package / Scope'; --label-3: 'Gartner TIME & Category'; --label-4: 'WBS Effort & RACI Team'; --label-5: 'Financial Ledger (CapEx / OpEx / Savings)'; --label-6: 'Lifecycle Phase & Status';">
+            <caption id="caption-1m-wave-plan">Sample 1...M Payment Hub Modernization Wave Plan (<code>tview_object_efforts</code>, <code>tview_object_metrics</code>, <code>tview_object_resources</code>)</caption>
+            <thead>
+              <tr>
+                <th scope="col">Model Wave &amp; Canonical Elements</th>
+                <th scope="col">Package / Model Scope</th>
+                <th scope="col">Gartner TIME &amp; FinOps</th>
+                <th scope="col">WBS Effort &amp; RACI Allocation</th>
+                <th scope="col">Financial Ledger (<code>tview_object_metrics</code>)</th>
+                <th scope="col"><code>Phase</code> &amp; <code>Status</code></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Model 0 · Canonical Core (<code>PayExPaymentObject</code> #3, <code>ach_payment_request</code> #1373)</th>
+                <td><code>01. Canonical Data &amp; BIAN Core</code> (Shared across all <code>M</code> domain models)</td>
+                <td><code>Invest</code> · <code>Transform</code><br />BV: <code>95</code> / TechFit: <code>92</code></td>
+                <td><code>320 hrs</code> (Elena Vance <code>$205/hr</code> [A], Sarah Chen <code>$210/hr</code> [R])</td>
+                <td>CapEx: <code>$95,000</code><br />RDS Multi-AZ OpEx: <code>$29,500/yr</code></td>
+                <td><code>Phase 1.0</code><br /><code>Validated</code></td>
+              </tr>
+              <tr>
+                <th scope="row">Model 1 · Wave 1 ACH &amp; RTP (<code>ACH Origination MS</code> #972, <code>Watchdog</code> #63)</th>
+                <td><code>02. Wave 1 — ACHII &amp; RTPII Instant Rails</code></td>
+                <td><code>Invest</code> · <code>Transform</code><br />BV: <code>92</code> / TechFit: <code>88</code></td>
+                <td><code>480 hrs</code> (Mike Lee <code>$225/hr</code> [A], Brian Burnett <code>$175/hr</code> [R], Eric Smith <code>$165/hr</code> [R])</td>
+                <td>CapEx: <code>$330,000</code><br />EKS/MSK OpEx: <code>$42,000/yr</code></td>
+                <td><code>Phase 1.0</code><br /><code>Approved &rarr; Implemented</code></td>
+              </tr>
+              <tr>
+                <th scope="row">Model 2 · Wave 2 Wire &amp; SWIFT (<code>Wire Intake</code> #25, <code>FX Quote Engine</code> #32, <code>PIE Handoff</code> #43)</th>
+                <td><code>03. Wave 2 — High-Value RTGS &amp; SWIFT ISO 20022</code></td>
+                <td><code>Invest</code> · <code>Grow</code><br />BV: <code>94</code> / TechFit: <code>86</code></td>
+                <td><code>540 hrs</code> (Stephen Maguire <code>$195/hr</code> [A], Marcus Chen <code>$185/hr</code> [R], David Kim <code>$190/hr</code> [C])</td>
+                <td>Auto-Computed Labor CapEx: <code>$102,600</code><br />Cloud OpEx: <code>$38,500/yr</code></td>
+                <td><code>Phase 2.0</code><br /><code>Proposed &rarr; Approved</code></td>
+              </tr>
+              <tr>
+                <th scope="row">Model 3 · Wave 3 Legacy Mainframe Bridge Retirement (<code>Outbound Rail Bridge</code> #1505)</th>
+                <td><code>04. Wave 3 — Legacy Swivel-Chair Decommission</code></td>
+                <td><code>Eliminate</code> · <code>Run</code><br />BV: <code>35</code> / TechFit: <code>28</code></td>
+                <td><code>300 hrs</code> (Brian Burnett <code>140h</code>, Eric Smith <code>100h</code>, Mike Lee <code>60h</code>)</td>
+                <td>Annual OpEx Savings: <code>+$130,000/yr</code><br />Net TCO Reduction</td>
+                <td><code>Phase 3.0</code><br /><code>Deprecated</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
+      <div>
+        <strong style="color:var(--text-primary);">TreeviewEA by Treeview Software, LLC</strong>
+        <p style="font-size:12.5px; margin-top:4px;">
+          Multi-Layer Enterprise Architecture Metamodel, 39-Tool MCP Taxonomy &amp; Autonomous AI Reasoning Studio.
+        </p>
+      </div>
+      <div style="display:flex; gap:20px; font-size:13px; flex-wrap:wrap;">
+        <a href="index.html">Overview</a>
+        <a href="documentation.html">Documentation</a>
+        <a href="taxonomy.html" style="color:var(--sky);">Metamodel &amp; Taxonomy</a>
+        <a href="mcp-reference.html">MCP &amp; AI Engine</a>
+        <a href="index.html#download">Download .DMG</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Interactive Scripts + Modern Web Guidance Scrollspy Fallback & aria-current Sync -->
+  <script type="module">
+    // 1. Modern Web Guidance: Scrollspy aria-current synchronization + IntersectionObserver fallback
+    const navLinks = document.querySelectorAll('nav.doc-sidebar-nav a');
+    const sections = document.querySelectorAll('main .doc-section');
+
+    if (CSS.supports('scroll-target-group: auto')) {
+      const syncAriaCurrent = () => {
+        const currentLink = document.querySelector('nav.doc-sidebar-nav a:target-current');
+        navLinks.forEach((link) => {
+          link.setAttribute('aria-current', link === currentLink ? 'true' : 'false');
+        });
+      };
+      syncAriaCurrent();
+      document.addEventListener('scrollend', syncAriaCurrent);
+    } else {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const id = entry.target.getAttribute('id');
+              navLinks.forEach((link) => {
+                const isActive = link.getAttribute('href') === `#${id}`;
+                link.classList.toggle('target-current', isActive);
+                link.setAttribute('aria-current', isActive ? 'true' : 'false');
+              });
+            }
+          });
+        },
+        { rootMargin: '-35% 0px -55% 0px', threshold: 0 }
+      );
+      sections.forEach((section) => observer.observe(section));
+    }
+
+    // 2. Interactive 5-Layer Vertical Metamodel Inspector
+    const layerSpecs = [
+      {
+        badge: 'LAYER 1 · R1/R2:C2 (Stratum L0–L1)',
+        title: 'Conceptual Business Capability & BIAN Service Domain',
+        metaclass: "Object_Type = 'Class' | 'Component'",
+        stereotypes: '«Capability», «BusinessCapability», «ValueStream», «ServiceDomain»',
+        cardinality: '1 Capability realized by 1..* Application Components',
+        grounding: 'Object #25 (1.1 Wire Payment Request Intake) & BIAN Payment Execution',
+        code: `-- Layer 1: Conceptual Capability in tview_objects
+SELECT Object_ID, Package_ID, ParentID, Name, Object_Type, Stereotype, Status, Phase
+FROM tview_objects
+WHERE Stereotype IN ('Capability', 'ServiceDomain', 'ValueStream');
+
+-- Live Row from Blank-Project.tvwx:
+-- Object_ID=25 | ParentID=24 | Name='1.1 Wire Payment Request Intake (API 9748 / 41757)'
+-- Object_Type='Class' | Stereotype='Capability' | Status='Approved' | Phase='1.0'
+
+-- MCP Tool Call (create_model_elements):
+{
+  "tool": "create_model_elements",
+  "arguments": {
+    "packageId": 7,
+    "diagramId": 2,
+    "elements": [{
+      "name": "Payment Order & Execution Capability",
+      "objectType": "Class",
+      "stereotype": "Capability",
+      "tags": { "bianDomain": "Payment Execution", "TIME Quadrant": "Invest" }
+    }]
+  }
+}`
+      },
+      {
+        badge: 'LAYER 2 · R3/R4:C2 (Stratum L2–L3)',
+        title: 'Logical Application Components, Microservices & APIs',
+        metaclass: "Object_Type = 'Component' | 'Interface'",
+        stereotypes: '«ApplicationComponent», «Microservice», «ApplicationInterface», «REST API», «gRPC»',
+        cardinality: '1..* Components realize 1 Capability; 1 Component contains 1..* Classes',
+        grounding: 'Object #2 (Payment Initiation Service), Object #972 (ACH Origination MS), Object #63 (Watchdog)',
+        code: `-- Layer 2: Link Application Component (#972) to Business Capability (#986)
+INSERT INTO tview_connectors
+  (Name, Connector_Type, Stereotype, Direction, Start_Object_ID, End_Object_ID, SourceCard, DestCard)
+VALUES
+  ('realizes capability', 'Realisation', 'trace', 'Source -> Destination', 972, 986, '1..*', '1');
+
+-- MCP Tool Call (connect_elements):
+{
+  "tool": "connect_elements",
+  "arguments": {
+    "diagramId": 1,
+    "connections": [{
+      "sourceId": 972,
+      "targetId": 986,
+      "connectorType": "Realisation",
+      "stereotype": "trace",
+      "label": "realizes (1..* -> 1)"
+    }]
+  }
+}`
+      },
+      {
+        badge: 'LAYER 3A · R3:C1 / R5:C2 (Stratum L2–L3)',
+        title: 'Code Implementation Classes, Attributes & Canonical Payment Object',
+        metaclass: "Object_Type = 'Class' | 'Interface' + tview_attributes + tview_operations",
+        stereotypes: '«DataEntity», «implementationClass», «block», «ISO20022Message»',
+        cardinality: '1 Component composed of 1..* Code Classes; 1 Class has 1..* Attributes & Methods',
+        grounding: 'Object #3 (TransactionPlatform Payment Object) with 4 ISO 20022 dot-notation trees',
+        code: `-- Layer 3A: Canonical Payment Object Attributes in tview_attributes
+SELECT Object_ID, Name, Type, Stereotype, Notes
+FROM tview_attributes WHERE Object_ID = 3;
+-- $.onBehalfOfPayer        | JSONObject | TransactionHubCanonical | countryCode, accountNumber, idType
+-- $.returnSpecificInfo     | JSONObject | TransactionHubCanonical | reasonCode, originalPaymentType
+-- $.enrichedDataInExchange | JSONObject | TransactionHubCanonical | productCode, officeId, accountStatus
+-- $.exchangeRate           | JSONObject | TransactionHubCanonical | instructedAmount, rate, tradeDetails
+
+-- MCP Tool Call (manage_object_schema_and_tags):
+{
+  "tool": "manage_object_schema_and_tags",
+  "arguments": {
+    "action": "add_operation",
+    "objectId": 3,
+    "name": "validateAndEnrichPayer(ctx, payload)",
+    "dataType": "ValidationResult",
+    "stereotype": "method"
+  }
+}`
+      },
+      {
+        badge: 'LAYER 3B · R4:C1 / R5:C1 (Stratum L3)',
+        title: 'Database & Physical Schema Objects («tview_table»)',
+        metaclass: "Object_Type = 'Class' | 'Table' + tview_attributes (cols) + tview_operations (PK/FK)",
+        stereotypes: '«tview_table», «table», «dbsequence», «datastore», «PostgreSQL», «Redis»',
+        cardinality: '1..* Code Classes persist to 1..* Tables; Child Table 0..* -> 1 Parent Table («FK»)',
+        grounding: 'Object #1373 (ach_payment_request: 16 columns, PK ach_payment_request_pkey, 3 FKs)',
+        code: `-- Layer 3B: Verified Live Rows from EA-TransferTP-20250117.tvwx (Object_ID = 1373 ach_payment_request)
+SELECT Name, Type, Stereotype FROM tview_attributes WHERE Object_ID = 1373;
+-- payment_id              | bigserial                | column
+-- payment_poid            | text                     | column
+-- saga_type               | text                     | column
+-- payment_status          | text                     | column
+-- nacha_header_id_fk      | bigint                   | column
+
+SELECT Name, Stereotype FROM tview_operations WHERE Object_ID = 1373;
+-- ach_payment_request_pkey                         | PK
+-- ach_payment_request_payment_poid_key             | unique
+-- idx_payment_status                               | index
+-- FK_ach_payment_request_nacha_header              | FK`
+      },
+      {
+        badge: 'LAYER 4 · R4:C3 / R6:C2 (Stratum L4)',
+        title: 'Physical Infrastructure, Kubernetes & AWS Cloud Runtime',
+        metaclass: "Object_Type = 'Node' | 'Boundary' | 'Class'",
+        stereotypes: '«aws_eks», «aws_rds», «aws_vpc», «aws_subnet», «aws_lambda», «RedisCluster», «Node»',
+        cardinality: '1..* Components/Tables deployed to 1..* Runtime Nodes inside 1 ParentID VPC Boundary',
+        grounding: 'PostgreSQL High-Availability Cluster (#1020), Redis Enterprise Cluster (#1019), AWS EKS',
+        code: `-- Layer 4: Deploy Microservice (#972) to EKS Node (#1018) & Table (#1373) to RDS PostgreSQL (#1020)
+INSERT INTO tview_connectors
+  (Name, Connector_Type, Stereotype, Direction, Start_Object_ID, End_Object_ID, SourceCard, DestCard)
+VALUES
+  ('deploys container', 'Deployment', 'deploys', 'Source -> Destination', 972, 1018, '1..*', '1'),
+  ('hosts table schema', 'Deployment', 'hosts',   'Source -> Destination', 1373, 1020, '1..*', '1');
+
+-- Nest EKS (#1018) and RDS (#1020) inside Production AWS VPC Boundary (#1015):
+UPDATE tview_objects SET ParentID = 1015 WHERE Object_ID IN (1018, 1020);`
+      }
+    ];
+
+    const layerCards = document.querySelectorAll('.layer-card');
+    layerCards.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const idx = Number(btn.getAttribute('data-layer-idx') || 0);
+        const spec = layerSpecs[idx];
+        if (!spec) return;
+        layerCards.forEach((b) => {
+          b.classList.remove('active');
+          b.setAttribute('aria-selected', 'false');
+        });
+        btn.classList.add('active');
+        btn.setAttribute('aria-selected', 'true');
+
+        document.getElementById('insp-layer-badge').textContent = spec.badge;
+        document.getElementById('insp-layer-title').textContent = spec.title;
+        document.getElementById('insp-metaclass').textContent = spec.metaclass;
+        document.getElementById('insp-stereotypes').textContent = spec.stereotypes;
+        document.getElementById('insp-cardinality').textContent = spec.cardinality;
+        document.getElementById('insp-grounding').textContent = spec.grounding;
+        document.getElementById('insp-code-block').textContent = spec.code;
+      });
+    });
+
+    // 3. Interactive Filter for Connector & Cardinality Validation Matrix
+    const srcFilter = document.getElementById('filter-source-layer');
+    const ctypeFilter = document.getElementById('filter-conn-type');
+    const cardRows = document.querySelectorAll('#cardinality-table tbody tr');
+
+    function filterCardinalityRows() {
+      const sVal = srcFilter.value;
+      const cVal = ctypeFilter.value;
+      cardRows.forEach((row) => {
+        const matchSrc = sVal === 'ALL' || row.getAttribute('data-src') === sVal;
+        const matchType = cVal === 'ALL' || row.getAttribute('data-ctype') === cVal;
+        row.style.display = matchSrc && matchType ? '' : 'none';
+      });
+    }
+    srcFilter?.addEventListener('change', filterCardinalityRows);
+    ctypeFilter?.addEventListener('change', filterCardinalityRows);
+
+    // 4. Interactive Filter for 7-Tier 39-Tool MCP Taxonomy Table
+    const tierPills = document.querySelectorAll('.tier-pill');
+    const toolSearch = document.getElementById('tool-search-input');
+    const toolRows = document.querySelectorAll('#taxonomy-tools-table tbody tr');
+    let activeTier = 'ALL';
+
+    function filterToolTaxonomy() {
+      const q = (toolSearch?.value || '').trim().toLowerCase();
+      toolRows.forEach((row) => {
+        const rowTier = row.getAttribute('data-tier');
+        const tierOk = activeTier === 'ALL' || rowTier === activeTier;
+        const textOk = !q || row.textContent.toLowerCase().includes(q);
+        row.style.display = tierOk && textOk ? '' : 'none';
+      });
+    }
+
+    tierPills.forEach((pill) => {
+      pill.addEventListener('click', () => {
+        tierPills.forEach((p) => p.classList.remove('active'));
+        pill.classList.add('active');
+        activeTier = pill.getAttribute('data-tier') || 'ALL';
+        filterToolTaxonomy();
+      });
+    });
+    toolSearch?.addEventListener('input', filterToolTaxonomy);
+  </script>
+</body>
+</html>
